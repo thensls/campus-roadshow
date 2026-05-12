@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texas Lutheran University — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header a.header-pill:hover{color:#C96058;} .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">April 1, 2026</span>
+    </div>
+    <h1>Texas Lutheran University &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Texas Lutheran University Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/share/H_MWqKKf_2KRSjMMoMUaYckos6n1LKou" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>Institution:</strong> Texas Lutheran University (TLU) — Private 4-Year University located in Seguin, TX.</p>
+    <p><strong>Chapter Status:</strong> Established. Cody has been involved with NSLS since 2021 — first as a student member, then as a chapter officer, and now entering his third year as an advisor<a href="https://fathom.video/calls/620749040?t=132" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 2:12</a>. The chapter has been operating continuously across that period.</p>
+    <p><strong>Chapter Type:</strong> As of January, TLU officially operates two chapters: an in-person chapter for undergraduate and concurrent students, and a newly formed online-only chapter for graduate students. This semester, the undergraduate chapter is temporarily running online due to officer scheduling constraints.</p>
+    <p><strong>Advisors Present:</strong> Cody Mazzurana (primary advisor, Student Affairs professional, TLU alum, former chapter officer and e-board member) and Melissa De La Cruz (co-advisor, HR Coordinator at TLU, TLU alum, approximately one year in the advisor role).</p>
+    <p><strong>Notable Context:</strong> TLU is operating under a new strategic plan launched in January, with institutional priorities centered on campus vibrancy, student engagement, and campus connection. The chapter has experienced recurring officer turnover and reduced capacity, which has limited programming and outreach. The chapter regularly fields skepticism from students who ask whether NSLS is legitimate.<a href="https://fathom.video/calls/620749040?t=840" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 14:00</a> Scholarship support has been used to offset the $95 membership fee barrier.<a href="https://fathom.video/calls/620749040?t=554" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:14</a> The graduate chapter — added fall of the prior year — includes at least one doctoral student in an entirely online interdisciplinary leadership program who has become an active officer without ever setting foot on campus.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Cody Mazzurana</h3>
+    <p><strong>Role:</strong> Primary Chapter Advisor; Professional Staff Member in Student Affairs at Texas Lutheran University. Now in year two as a full-time higher education professional and year three as chapter advisor.</p>
+    <p><strong>Background:</strong> TLU undergraduate alum. Joined NSLS as a student in 2021 during COVID as a commuter — it was his first campus organization<a href="https://fathom.video/calls/620749040?t=488" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:08</a> and served as the entry point for broader involvement. Went on to hold chapter officer and executive board roles before transitioning to staff and taking on the advisor role. Has completed at least one NSLS advanced certification. Recently completed a master's program.</p>
+    <p><strong>Motivations:</strong> Deeply invested in leadership development and student engagement. Wants to grow the chapter's campus visibility and credibility, reduce skepticism about NSLS ("are you a scam?"), and align the chapter's work with TLU's new strategic plan around campus vibrancy and student connection. Expressed readiness for something new — noted that the NSLS experience has been largely the same since he joined six years ago and welcomed a meaningful refresh.<a href="https://fathom.video/calls/620749040?t=570" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:30</a></p>
+    <p><strong>Communication Style:</strong> Reflective and candid. Spoke at length and with nuance about engagement drop-off, officer capacity challenges, and the distinction between graduate and undergraduate student needs. Offered a novel product idea (benchmarking against peer NSLS chapters) unprompted. Asks practical, implementation-oriented questions.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Strong. Cody explicitly stated he is "for sure leaning towards being a pilot partner." Rated enthusiasm at or near 10/10.<a href="https://fathom.video/calls/620749040?t=3811" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:03:31</a> Expressed personal interest in the Clarity track as a recent master's graduate. Flagged that most of his questions would surface once he starts using the platform — suggesting hands-on engagement will be high. Product Council should be revisited after the pilot onboarding call.</p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Melissa De La Cruz</h3>
+    <p><strong>Role:</strong> Co-Advisor; HR Coordinator at Texas Lutheran University. Approximately one year in the advisor role.</p>
+    <p><strong>Background:</strong> TLU alum. Comes from a workforce development background, which she noted directly when Chris discussed career readiness. Inducted into NSLS herself last year as a member. Recently completed a master's program alongside Cody.</p>
+    <p><strong>Motivations:</strong> Focused on student confidence-building and leadership skill development. Wants to increase the chapter's visibility on campus. Personally interested in the interactivity of Society and noted she could see herself using the Clarity track for her own professional development.<a href="https://fathom.video/calls/620749040?t=1482" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 24:42</a> Expressed concern about the $95 fee as a real barrier for students.</p>
+    <p><strong>Communication Style:</strong> More reserved than Cody; offered shorter, affirming responses throughout. Tended to agree with and reinforce Cody's points rather than introduce new lines of feedback. Opened up meaningfully when workforce development was raised, given her professional background.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Moderate-to-strong. Rated enthusiasm at 7–8/10, citing her relative newness and desire to be realistic about time.<a href="https://fathom.video/calls/620749040?t=3776" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:02:56</a> Said an hour per week felt workable. Expressed interest in the pilot but deferred to Cody on pacing and depth of involvement. Worth including in pilot onboarding; Product Council fit to be assessed over time.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>The intentionality of leadership growth across all stages — from student member to officer to advisor<a href="https://fathom.video/calls/620749040?t=360" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:00</a>. Cody described this continuity as a consistent thread throughout his six years with NSLS.</li>
+    <li>The ability to build connections with other students withi<a href="https://fathom.video/calls/620749040?t=378" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:18</a>n the chapter and, through advanced certifications, with students across chapters and institutions.</li>
+    <li>Exposure to diverse perspectives through the program structure — hearing different viewpoints on shared challenges.</li>
+    <li>Melissa emphasized confidence-building and the mentoring of members in leadership positions as core values she wants to see maintained.</li>
+    <li>Physical marketing materials (tablecloths, books, ribbons, flyers) provided by NSLS — described as useful, ready-made tools for campus presence that advisors don't have to create themselves.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li><strong>Declining student engagement:</strong> Cody identified a steady drop in students willing to join NSLS since 2021, and a parallel decline in students willing to return as officers.</li>
+    <li><strong>Post-payment drop-off:</strong> A significant number of students pay the $95 fee and never begin the program. Cody noted this group may be larger than those who start and don't finish. Students who pay and don't engage rarely return or reach out.</li>
+    <li><strong>Induction rate:</strong> Roughly 30–50 students pay per semester; induction rate is approximately 40% of that group.</li>
+    <li><strong>The $95 fee as a barrier:</strong> Both advisors identified this as a primary obstacle. Students have asked about payment plans. The chapter has used internal scholarships to help some students. Melissa called it "a huge obstacle" and "a hurdle a lot of times."</li>
+    <li><strong>SNT scheduling and coordination:</strong> Success Networking Teams have historically been a major drop-off point. The chapter has adapted by folding SNT time into speaker broadcast sessions to reduce the burden of scheduling separate meetings — an improvised workaround, not a systemic solution.</li>
+    <li><strong>Officer capacity and turnover:</strong> The chapter has cycled through significant officer changes. With fewer officers, follow-through on outreach and programming has suffered. Cody noted the officer team has not been able to execute on targeted email campaigns despite having templates from Dejeahn.</li>
+    <li><strong>Campus visibility and credibility:</strong> The chapter's public presence is limited largely to the annual student org fair in August. Students frequently email asking if NSLS is a scam. Cody described this as a reputational challenge tied to low visibility.</li>
+    <li><strong>App usability:</strong> Cody described the current NSLS app as sometimes confusing — noting inconsistency between the app experience and the web experience.</li>
+    <li><strong>Program freshness:</strong> Cody noted the program has remained largely the same since he joined six years ago. He expressed a readiness for something new, both for students and for himself as an advisor who has completed the process.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li><strong>Campus vibrancy:</strong> A named priority in TLU's new strategic plan launched in January. The chapter sees itself as a potential contributor to this goal.</li>
+    <li><strong>Student engagement:</strong> A second explicit strategic plan priority. The chapter's leadership development and now career readiness work are positioned as tools to advance this goal.</li>
+    <li><strong>Campus connection:</strong> Related to but distinct from engagement — the idea of students feeling more connected to the institution and to each other.</li>
+    <li>Cody expressed a desire to be a visible, recognized organization on campus year-round — not just at the fall org fair. This is tied to both chapter growth goals and institutional alignment.</li>
+    <li>An existing partnership with TLU's career development office was mentioned — the advisors see Society's Clarity track as an opportunity to deepen and operationalize that partnership.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Engagement Drop-Off Is the Central Problem</h3>
+    <p>Both advisors identified student engagement as the chapter's defining challenge. The problem has multiple layers: students not joining at all, students paying and never starting, students starting and not finishing, and officers not following through on outreach. Cody described this as a pattern that has worsened steadily since 2021. Any Society features that address activation, accountability, or re-engagement will be highly relevant to this chapter.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. The $95 Fee Is a Real and Recurring Barrier</h3>
+    <p>Both advisors raised the membership fee unprompted and independently. Students have asked about payment plans. The chapter has self-funded scholarships to address the issue. Chris noted that NSLS is exploring subscription-based pricing — this landed as directly relevant and the advisors were receptive. This is not a one-off complaint; it appears to be a consistent friction point in the recruitment funnel.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Graduate Students Are an Emerging, High-Potential Segment</h3>
+    <p>TLU launched a separate online chapter for graduate students in the most recent semester after attempts to integrate them into the in-person chapter failed. Cody described graduate students — including one doctoral student who has never been on campus — as more intrinsically motivated and already engaging actively as officers. Cody's immediate reaction to the Clarity track was that graduate students "are going to love this." This segment may be an easier early win for Society adoption than the traditional undergraduate population.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Career Readiness Adds a Compelling New Entry Point</h3>
+    <p>Cody responded positively to the framing that not every student wants to be a leader, but every student needs a job. He specifically cited English majors who don't know what to do with their degree as a group the Clarity track could serve. Both advisors expressed personal interest in the career clarity features as recent master's graduates. Melissa's workforce development background made this theme particularly resonant for her. The advisors also saw an opportunity to use Clarity as a bridge to TLU's existing career development office — a partnership they want to strengthen.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Peer Benchmarking Would Strengthen Internal Advocacy</h3>
+    <p>Cody raised an idea not previously surfaced in the roadshow: the ability to compare TLU's chapter data against nearby or similar NSLS chapters. He specifically mentioned Alamo Colleges as a reference point. His motivation was twofold — curiosity about best practices and the need to tell a credible story to campus stakeholders about NSLS's impact relative to peer institutions. Chris affirmed this as a novel idea worth exploring. This represents a meaningful product signal from an advisor trying to advocate for NSLS internally.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">9/10</div>
+  <p style="font-size: 0.85rem; color: #6b7280; margin-top: -0.5rem; margin-bottom: 1rem;">Composite average: Cody ~10/10; Melissa 7–8/10.</p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li><strong>Clarity track / career readiness:</strong> Immediately resonated with both advisors. Cody said it gives students "a different lens to consider" and cited English majors as a clear use case. Melissa connected it directly to her workforce development background.</li>
+    <li><strong>The Renee story:</strong> The example of a student who paid, did nothing, and then re-engaged through Clarity landed well as a recognizable scenario. Cody noted the same pattern plays out at TLU regularly.</li>
+    <li><strong>Mobile-first design:</strong> Cody explicitly said students are "on a phone, not a desktop" — the mobile-first UX framing was validated without prompting.</li>
+    <li><strong>SNT scheduling and coordination tools:</strong> Cody called this a past struggle and said the auto-matching and in-platform meeting tools "could help." He described the chapter's current workaround (folding SNTs into speaker broadcast time) as an improvised fix rather than a real solution.</li>
+    <li><strong>Admin dashboard and career readiness score:</strong> Cody specifically called out the completion dashboard as more user-friendly than the current manual process of tracking student progress step by step.</li>
+    <li><strong>AI coach and personalization:</strong> The concept of a school-specific agent that could surface TLU faculty contacts, courses, and directed study options was enthusiastically received by Cody, who immediately connected it to TLU's career development office.</li>
+    <li><strong>Gamification and progress tracking:</strong> Cody said this could help with recruiting officers by showing students what growth through NSLS looks like in concrete terms.</li>
+    <li><strong>Micro-learning format:</strong> Melissa flagged interactivity as something that would "pique their interest and keep their interest." The shift away from a long-form orientation video was implicitly welcomed.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li><strong>Undergraduate adoption skepticism:</strong> Cody expressed that while he believes in the platform, undergraduates "may have to plug in a little more before they're willing to use some of it." He did not elaborate on a specific barrier, but the comment reflects realistic caution about adoption effort.</li>
+    <li><strong>Time commitment of the pilot:</strong> Melissa grounded her 7–8/10 enthusiasm score in part on wanting to be "realistic" about time. She said an hour per week felt workable, but the framing suggested capacity is a real consideration for co-advisors in full-time administrative roles.</li>
+    <li><strong>Product Council vs. Pilot Partner:</strong> Neither advisor committed to the Product Council in the session. Chris deferred the decision appropriately, suggesting they reassess after the pilot onboarding. No resistance was expressed — just uncertainty about the additional commitment.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li><strong>Peer benchmarking idea:</strong> Cody independently surfaced the idea of comparing TLU's chapter metrics against nearby NSLS chapters (e.g., Alamo Colleges). Chris noted he had not heard this idea in prior roadshow conversations. It emerged from a question about what data would help advisors tell their story internally.</li>
+    <li><strong>Graduate students as early adopters:</strong> The existence of a newly formed, fully online graduate chapter — including an active officer who has never been on campus — was not anticipated in the conversation setup. Cody flagged this segment as likely more receptive to Society than undergraduates, which may represent a useful rollout sequencing insight.</li>
+    <li><strong>Melissa's personal NSLS induction:</strong> Melissa disclosed that she was inducted into NSLS herself last year as an advisor — and reflected that the mobile, self-paced features of Society would have been useful to her at that time. This personal connection to the student experience added authenticity to her feedback.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Clarity Track (Career Readiness)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Both advisors responded positively and personally. Cody cited English majors and undecided students as clear use cases. Melissa connected it to her workforce development background. Both expressed personal interest as recent master's graduates. Cody sees graduate students as the most likely early adopters.</td>
+      </tr>
+      <tr>
+        <td>AI Career Coach</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Cody immediately envisioned the school-specific agent connecting students to TLU faculty, career development staff, directed studies, and internship opportunities. Described it as a tool that answers "what do I do next?" for students after completing the career clarity process.</td>
+      </tr>
+      <tr>
+        <td>Admin Dashboard / Career Readiness Score</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Cody called out the completion dashboard as more user-friendly than the current manual tracking process. He specifically appreciated the ability to see student progress by cohort and longitudinally. Expressed interest in using this data to support institutional reporting tied to TLU's strategic plan.</td>
+      </tr>
+      <tr>
+        <td>SNT Scheduling & Coordination Tools</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Cody confirmed SNTs have historically been a major drop-off point. The chapter currently folds SNT time into speaker broadcast sessions as a workaround. He said the auto-matching and in-platform scheduling tools "could help" and noted the hybrid support (recording attendance, uploading notes for offline groups) was practically useful.</td>
+      </tr>
+      <tr>
+        <td>Mobile-First UX</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Cody validated without prompting: "It's on a phone, not a desktop — nine times out of ten." Also noted the current app is sometimes confusing, with inconsistencies between app and web experiences. Mobile-first design directly addresses a stated pain point.</td>
+      </tr>
+      <tr>
+        <td>Gamification & Progress Tracking</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Cody said it could help with officer recruitment by showing prospective officers what growth through NSLS looks like. No friction raised. Melissa affirmed interactivity as a way to "pique and keep" student interest.</td>
+      </tr>
+      <tr>
+        <td>Micro-Learning / Orientation Redesign</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Melissa specifically called out interactivity as important for sustaining student interest. The move away from a long-form video implicitly welcomed. No concerns raised about losing existing content.</td>
+      </tr>
+      <tr>
+        <td>Peer Benchmarking / Chapter Comparison Data</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Cody proposed this feature unprompted when asked what data would help him tell the NSLS story internally. Specifically mentioned comparing against Alamo Colleges chapters nearby. Wants to use peer data to build credibility with campus stakeholders and connect NSLS outcomes to TLU's strategic plan. Chris confirmed this idea had not surfaced in prior roadshow sessions.</td>
+      </tr>
+      <tr>
+        <td>Pilot Partner Access (Advisor-First Rollout)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Cody stated he is "for sure leaning towards being a pilot partner." Melissa agreed an hour per week felt workable. Both expressed personal interest in using the Clarity track themselves. Formal commitment made verbally in session; Dejeahn to schedule follow-up onboarding call.</td>
+      </tr>
+      <tr>
+        <td>Product Council Membership</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Neither advisor committed in session. Chris appropriately deferred the decision to after the pilot phase. No resistance expressed — uncertainty was about additional time commitment, not interest. To be revisited after onboarding.</td>
+      </tr>
+      <tr>
+        <td>Subscription / Payment Plan Pricing Model</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Both advisors independently raised the $95 fee as a significant barrier. Students have asked about payment plans. The chapter has used internal scholarships to offset cost. Chris mentioned NSLS is exploring a subscription model — received positively. Pricing flexibility is a high-priority issue for this chapter's recruitment funnel.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Schedule pilot partner onboarding call within the next three to four weeks, following Dejeahn's upcoming chapter check-in with Cody and Melissa. <span class="owner-tag">Dejeahn Brown</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Conduct pilot onboarding session with Cody and Melissa: deeper dive on features, rollout approach for TLU, and feedback collection process. Initial access to Society for advisors first. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Grant Cody Mazzurana and Melissa De La Cruz early access to the Clarity track for personal use and evaluation during the pilot phase (spring/summer timeframe). <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Log and socialize Cody's peer benchmarking idea (comparing chapter metrics against nearby or similar NSLS schools) with the product team for evaluation as a potential dashboard feature. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Ensure TLU advisors are kept informed as new pricing and subscription models are developed — Chris committed to this explicitly in the session. <span class="owner-tag">Chris Higbee / Dejeahn Brown</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Revisit Product Council invitation after pilot onboarding is complete and advisors have had hands-on time with the platform. <span class="owner-tag">Dejeahn Brown</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Address chapter-level low-hanging fruit items identified by Dejeahn in upcoming chapter check-in (referenced at close of call but not detailed in transcript). <span class="owner-tag">Dejeahn Brown</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>What is the realistic timeline and structure for rolling out Society to TLU's graduate chapter vs. undergraduate chapter? Cody identified graduate students as more likely early adopters — should sequencing reflect this?</li>
+    <li>Can the school-specific AI agent be scoped to surface TLU career development staff, faculty contacts, directed study options, and internship pathways? Cody described this as a high-value use case.</li>
+    <li>Is peer benchmarking (comparing chapter completion and induction rates against nearby or similarly sized NSLS chapters) technically feasible and appropriate from a data privacy and partner relations standpoint?</li>
+    <li>What pricing alternatives (subscription model, payment plans, tiered access) are being actively developed, and what is the timeline for communicating options to advisors?</li>
+    <li>Does the Product Council represent a realistic fit for Melissa given her time constraints, or is pilot partner the appropriate ceiling for her involvement in the near term?</li>
+    <li>How will the Clarity track be positioned to TLU's undergraduate students who may be less intrinsically motivated than graduate students — what does the on-ramp look like for that population?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Texas Lutheran University</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Seguin, TX</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>University · Private 4-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established — active since at least 2021; two chapters as of January (undergraduate in-person / graduate online)</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Hybrid — undergraduate chapter primarily in-person (currently running online due to officer scheduling); graduate chapter fully online</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>Cody: ~10/10 · Melissa: 7–8/10 · Composite: ~9/10</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — Cody committed verbally; Melissa agreed; follow-up call to be scheduled by Dejeahn within 3–4 weeks</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>Deferred — to be revisited after pilot onboarding; no resistance expressed, time commitment is the primary consideration</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>Student engagement drop-off post-payment · $95 fee as recruitment barrier · SNT coordination and drop-off · Officer turnover and reduced chapter capacity · Low campus visibility and NSLS credibility questions ("is this a scam?") · App/UX inconsistency</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Unsolicited peer benchmarking feature idea (comparing TLU chapter metrics against nearby NSLS chapters); graduate student segment identified as high-potential early adopter for Society; strong personal resonance with Clarity track from both advisors as recent master's graduates</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Dejeahn Brown</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Texas Lutheran University &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; April 1, 2026
+</footer>
+
+</body>
+</html>

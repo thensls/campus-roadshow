@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSLS Society Roadshow — University of Texas, Rio Grande Valley</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#1A3550; --gold:#F2DA4E; --light:#F2E9E2; --border:rgba(30,20,20,0.1);
+      --text:#1E1414; --muted:#6B6357; --card:#E8DDD5; --yellow:#F2DA4E;
+      --white:#FFFDF8; --black:#1E1414; --blue:#4a4faa; --purple:#4a4faa;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    a{color:#1A3550;text-decoration:none;} a:hover{color:#C96058;}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+    h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+    .header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:48px 40px 9px;}
+    .header-meta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
+    .badge{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+    .header h1{font-size:32px;font-weight:700;margin-bottom:6px;color:#1A3550;}
+    .header h2{font-size:18px;font-weight:400;color:#6B6357;margin-bottom:20px;}
+    .recording-link{display:inline-flex;align-items:center;gap:8px;background:#C96058;color:#FFFDF8;text-decoration:none;padding:10px 22px;border-radius:8px;font-weight:600;font-size:14px;transition:opacity .2s;}
+    .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+    .container{max-width:1200px;margin:0 auto;padding:40px 32px;}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+    @media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
+    .card{background:var(--card);border-radius:12px;border:1px solid var(--border);padding:28px;}
+    .card-title{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+    .card-title::after{content:'';flex:1;height:1px;background:var(--border);}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:32px;}
+    @media(max-width:900px){.stat-grid{grid-template-columns:1fr 1fr;}}
+    .stat-tile{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;}
+    .stat-tile .label{font-size:11px;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);font-weight:600;margin-bottom:6px;}
+    .stat-tile .value{font-weight:700;color:var(--navy);line-height:1;font-family:'Cigars',Georgia,serif;}
+    .stat-tile .sub{font-size:12px;color:var(--muted);margin-top:4px;}
+    .stat-tile.highlight{border-left:4px solid #C96058;}
+    .stat-tile.green{border-left:4px solid #3a8a40;}
+    .stat-tile.red{border-left:4px solid #C96058;}
+    .stat-tile.blue{border-left:4px solid var(--navy);}
+    .section-header{font-size:20px;font-weight:700;color:var(--navy);margin:40px 0 20px;padding-bottom:10px;border-bottom:2px solid var(--navy);font-family:'Cigars',Georgia,serif;display:flex;align-items:baseline;justify-content:space-between;gap:16px;}
+    .section-header a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;white-space:nowrap;}
+    .section-header a:hover{color:var(--navy);text-decoration:underline;}
+    .attendee{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+    .attendee:last-child{border-bottom:none;padding-bottom:0;}
+    .avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0;color:#fff;}
+    .avatar.navy{background:#1A3550;} .avatar.gold{background:#C8A000;} .avatar.muted{background:var(--muted);}
+    .attendee-info .name{font-weight:600;font-size:15px;}
+    .attendee-info .role{font-size:13px;color:var(--muted);margin-top:2px;}
+    .attendee-info .note{font-size:12px;color:var(--text);margin-top:4px;font-style:italic;}
+    .finding-list{list-style:none;}
+    .finding-list li{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.5;align-items:flex-start;}
+    .finding-list li:last-child{border-bottom:none;}
+    .finding-list .icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+    .quote{border-left:4px solid #1A3550;background:rgba(26,53,80,0.06);border-radius:0 8px 8px 0;padding:14px 18px;margin:12px 0;font-style:italic;color:var(--text);font-size:14px;}
+    .quote cite{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:6px;font-weight:600;}
+    .signal-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:8px;font-size:12px;font-weight:600;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;}
+    .signal-chip.top{background:rgba(201,96,88,0.12);color:#C96058;border-color:rgba(201,96,88,0.3);}
+    .callout{background:rgba(26,53,80,0.06);border:1px solid rgba(26,53,80,0.2);border-left:4px solid #1A3550;border-radius:8px;padding:16px 20px;font-size:14px;line-height:1.65;margin-top:20px;}
+    .callout strong{color:#1A3550;}
+    .action-list{list-style:none;}
+    .action-list li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;}
+    .action-list li:last-child{border-bottom:none;}
+    .action-list input[type=checkbox]{margin-top:5px;flex-shrink:0;cursor:pointer;width:15px;height:15px;}
+    .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+    .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;}
+    .footer{text-align:center;color:#6B6357;font-size:12px;padding:40px 32px;border-top:1px solid rgba(30,20,20,0.1);margin-top:20px;background:#F2E9E2;}
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div style="max-width:1200px;margin:0 auto;padding:0 8px;">
+    <div class="header-meta">
+      <a href="../../index.html" class="badge" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="badge" id="last-updated-badge">Latest Update: March 23, 2026</span>
+    </div>
+    <h1>University of Texas, Rio Grande Valley</h1>
+    <h2>Edinburg, TX &nbsp;&middot;&nbsp; University · Public 4-Year</h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+      <a class="recording-link" href="../../index.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Roadshow Home
+      </a>
+      <a class="recording-link" href="https://fathom.video/calls/602086654" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Watch Fathom Recording &mdash; 61 min
+      </a>
+      <a class="recording-link" href="meetings/meeting-1-2026-03-23.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Discovery &amp; Demo Meeting &mdash; Report
+      </a>
+      <a class="recording-link" href="survey.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Survey Results
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="stat-grid"><div class="stat-tile highlight">
+      <div class="label">Excitement Score</div>
+      <div class="value" style="font-size:30px;padding-top:0;line-height:1.2;">9/10</div>
+      <div class="sub">Brandon Sanchez</div>
+    </div><div class="stat-tile green">
+      <div class="label">Pilot Partner Interest</div>
+      <div class="value" style="font-size:18px;padding-top:6px;line-height:1.2;">🤔 Unsure</div>
+      <div class="sub">Brandon rated excitement 9/10 and expressed strong personal resonance; Ashley rated 8–9/10 and saw potential feeder program alignment — both said they need to talk internally and assess timeline fit before deciding</div>
+    </div><div class="stat-tile blue">
+      <div class="label">Product Council</div>
+      <div class="value" style="font-size:18px;padding-top:6px;line-height:1.2;">🤔 Unsure</div>
+      <div class="sub">Ashley said there is 'definitely some interest' but they need to discuss both options internally and see how it fits their programming timelines before committing</div>
+    </div><div class="stat-tile red">
+      <div class="label">What Matters Most?</div>
+      <div class="value" style="font-size:18px;padding-top:6px;line-height:1.2;">Students want to know their time isn't wasted — tangible benefits like resume value, skills, and career readiness</div>
+      <div class="sub">Source: Brandon Sanchez</div>
+    </div></div>
+
+  <h2 class="section-header">School &amp; Chapter Snapshot</h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">About University of Texas, Rio Grande Valley</div>
+      <ul class="finding-list"><li><span class="icon">🎓</span><span>UTRGV is a public 4-year university with approximately 30,000 students across two major campuses in Edinburg and Brownsville, TX, about one hour apart. <a href="https://fathom.video/calls/602086654?t=168" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 2:48</a></span></li><li><span class="icon">🏈</span><span>The university is celebrating its 10th anniversary and recently launched its first football program, which has energized campus community engagement. <a href="https://fathom.video/calls/602086654?t=780" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 13:00</a></span></li><li><span class="icon">🚗</span><span>Both campuses serve a largely commuter population; Brownsville has one dorm and quiets after 5pm, while Edinburg has four to five residence halls with more evening activity. <a href="https://fathom.video/calls/602086654?t=563" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:23</a></span></li></ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Chapter Status</div>
+      <ul class="finding-list"><li><span class="icon">✅</span><span>Established chapter running hybrid cohorts — both in-person and online — across Edinburg and Brownsville campuses, with SNTs and inductions hosted at both locations.</span></li><li><span class="icon">👥</span><span>Chapter is co-managed by Brandon and Ashley alongside two student advisors hired within the department.</span></li></ul>
+    </div>
+  </div>
+
+  <h2 class="section-header">Advisors
+    <a href="meetings/meeting-1-2026-03-23.html#advisor-profiles">Full Advisor Profiles in Meeting Report &rsaquo;</a>
+  </h2>
+  <div class="grid-2"><div class="card">
+      <div class="attendee" style="padding-top:0;">
+        <div class="avatar navy">BS</div>
+        <div class="attendee-info">
+          <div class="name">Brandon Sanchez</div>
+          <div class="role">Program Coordinator, Civic Engagement & Leadership</div>
+          <div class="note">Started at UTRGV in November 2025 and oversees leadership programs and NSLS chapter management across both campuses. Recently completed his master's degree and has proactively expanded NSLS marketing through tabling and social media; rated Society a 9/10 and said he would have personally valued it as a student.</div>
+        </div>
+      </div>
+    </div>
+<div class="card">
+      <div class="attendee" style="padding-top:0;">
+        <div class="avatar gold">A</div>
+        <div class="attendee-info">
+          <div class="name">Ashley (last name not captured)</div>
+          <div class="role">Center for Student Involvement</div>
+          <div class="note">Oversees the Traditions Keeper point-based engagement program, student orgs, fraternity and sorority life, cultural programming, and community service alongside Brandon. Rated Society an 8–9/10 and immediately began brainstorming how it could serve as a feeder into UTRGV's Freshman Leadership Academy mentoring structure.</div>
+        </div>
+      </div>
+    </div></div>
+
+  <h2 class="section-header">Meeting Highlights
+    <a href="meetings/meeting-1-2026-03-23.html">Full Meeting Report &rsaquo;</a>
+  </h2>
+  <div class="grid-2" style="margin-bottom:20px;">
+    <div class="card">
+      <div class="card-title">&#x2705; What&#x27;s Working / What Landed</div>
+      <ul class="finding-list"><li><span class="icon">💻</span><span><strong>Current Platform Usability</strong> <a href="https://fathom.video/calls/602086654?t=434" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:14</a> &mdash; Both Brandon and Ashley independently praised the existing NSLS platform as user-friendly, clean, and step-by-step enough that students can navigate it without advisor guidance.</span></li><li><span class="icon">📅</span><span><strong>SNT Scheduling Feature</strong> <a href="https://fathom.video/calls/602086654?t=2373" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 39:33</a> &mdash; When the Society SNT scheduling and availability-matching feature was shown, Brandon immediately reacted positively and Ashley envisioned using aggregate availability data to pre-book campus rooms for student groups.</span></li><li><span class="icon">🎨</span><span><strong>Visual Design of Society</strong> <a href="https://fathom.video/calls/602086654?t=2753" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 45:53</a> &mdash; Brandon called the platform 'very pretty,' 'inviting,' and noted it 'catches their eye' — a meaningful signal given that visual appeal is one of the ways he judges whether students will engage.</span></li><li><span class="icon">🎯</span><span><strong>Career Clarity Track Resonance</strong> <a href="https://fathom.video/calls/602086654?t=3053" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 50:53</a> &mdash; Brandon said that as a recent student he would have loved a tool like Society, specifically connecting its value to career direction and helping students understand their values and readiness.</span></li></ul>
+    </div>
+    <div class="card">
+      <div class="card-title">&#x274C; What Isn&#x27;t Working</div>
+      <ul class="finding-list"><li><span class="icon">🚨</span><span><strong>NSLS Perceived as a Scam</strong> <a href="https://fathom.video/calls/602086654?t=727" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 12:07</a> &mdash; Brandon described students openly questioning whether NSLS is a scam even during orientation — stemming from a pattern of receiving unsolicited emails from multiple online leadership programs and a belief that anything requiring payment is fraudulent.</span></li><li><span class="icon">🔄</span><span><strong>Hybrid Mode Friction</strong> <a href="https://fathom.video/calls/602086654?t=1201" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 20:01</a> &mdash; Ashley flagged that switching between in-person and online participation requires students or staff to manually enable certain features or contact the team, creating friction that discourages completion.</span></li><li><span class="icon">📧</span><span><strong>Campus Email as Primary Channel</strong> <a href="https://fathom.video/calls/602086654?t=2912" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 48:32</a> &mdash; Students are missing or ignoring NSLS communications sent to campus email addresses; the team noted students prefer personal email or text, and the current system lacks that flexibility.</span></li><li><span class="icon">⏰</span><span><strong>Enrollment Timing vs. Financial Aid</strong> <a href="https://fathom.video/calls/602086654?t=949" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 15:49</a> &mdash; Ashley observed anecdotally that enrollment spikes when recruitment deadlines align with financial aid disbursement, suggesting the current enrollment calendar may not be optimized around when students have funds available.</span></li></ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>&#x26A0;&#xFE0F; Key Signal<a href="https://fathom.video/calls/602086654?t=1106" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 18:26</a> &mdash; Career Readiness as the Missing Hook for a Commuter-Heavy, Legitimacy-Skeptical Campus:</strong> UTRGV students are largely commuters who question whether NSLS is a scam and disengage before completing orientation — not because they lack interest, but because they don't see a clear personal payoff. Brandon explicitly said students want to know 'what's the benefit' and that a tangible outcome like career readiness or resume value is what would keep them engaged. Ashley immediately began mapping Society's career and mentoring features onto UTRGV's Freshman Leadership Academy, signaling that Society could serve as a structured post-freshman-year development pathway — a gap the school is actively trying to fill as it redevelops its leadership programming.
+  </div>
+
+
+  <!-- ─── Survey Highlights ─────────────────────────────────── -->
+  <h2 class="section-header">
+    Survey Highlights &mdash; Ashley Guzman
+    <a href="../../executive-summary.html?id=recDQZA9qBgxKLK1V" target="_blank">Full Survey Results &rsaquo;</a>
+  </h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">What Matters Most?</div>
+      <p style="color:var(--muted);font-style:italic;">Survey rankings not yet available.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Key Survey Signals</div>
+      <p style="color:var(--muted);font-style:italic;">No open responses recorded.</p>
+    </div>
+  </div>
+
+
+  <h2 class="section-header">Action Items</h2>
+  <div class="card">
+    <ul class="action-list"><li>
+        <input type="checkbox">
+        <div class="action-number">1</div>
+        <div>Brandon and Ashley to discuss internally whether to join the pilot group, product council, or both, and communicate decision back to Maryanna (and optionally Chris). <a href="https://fathom.video/calls/602086654?t=3304" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 55:04</a> <span class="owner-tag">Brandon Sanchez</span><span class="owner-tag">Ashley (UTRGV)</span><span class="owner-tag">Maryanna Laferriere</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">2</div>
+        <div>Chris to send a meeting summary to Brandon and Ashley capturing key themes and next steps discussed. <a href="https://fathom.video/calls/602086654?t=3615" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:00:15</a> <span class="owner-tag">Chris Higbee</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">3</div>
+        <div>Explore a follow-up meeting to discuss what a Society rollout would look like at UTRGV, including timeline alignment with their leadership programming redevelopment. <a href="https://fathom.video/calls/602086654?t=3537" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 58:57</a> <span class="owner-tag">Chris Higbee</span><span class="owner-tag">Maryanna Laferriere</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">4</div>
+        <div>Investigate potential StrengthsFinder / Gallup partnership as an addition to Society's personality assessment suite, given UTRGV's stated interest in that tool. <a href="https://fathom.video/calls/602086654?t=1766" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 29:26</a> <span class="owner-tag">Chris Higbee</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">5</div>
+        <div>Flag financial aid disbursement timing as a variable to explore with UTRGV in a follow-up conversation — Ashley raised it as a potential enrollment lever but noted she lacks data to confirm it. <a href="https://fathom.video/calls/602086654?t=969" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 16:09</a> <span class="owner-tag">Maryanna Laferriere</span><span class="owner-tag">Chris Higbee</span></div>
+      </li></ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  NSLS Society Platform Roadshow &nbsp;&middot;&nbsp; University of Texas, Rio Grande Valley &nbsp;&middot;&nbsp; March 23, 2026<br>
+  Source: <a href="https://fathom.video/calls/602086654" target="_blank">Fathom Recording</a> &nbsp;&middot;&nbsp; Generated for NSLS Product &amp; Development Teams
+</div>
+
+<script>
+document.getElementById('last-updated-badge').textContent =
+  'Latest Update: ' + new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+</script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSLS Society Roadshow — Arapahoe Community College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#1A3550; --gold:#F2DA4E; --light:#F2E9E2; --border:rgba(30,20,20,0.1);
+      --text:#1E1414; --muted:#6B6357; --card:#E8DDD5; --yellow:#F2DA4E;
+      --white:#FFFDF8; --black:#1E1414; --blue:#4a4faa; --purple:#4a4faa;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    a{color:#1A3550;text-decoration:none;} a:hover{color:#C96058;}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+    h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+    .header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:48px 40px 9px;}
+    .header-meta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
+    .badge{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+    .header h1{font-size:32px;font-weight:700;margin-bottom:6px;color:#1A3550;}
+    .header h2{font-size:18px;font-weight:400;color:#6B6357;margin-bottom:20px;}
+    .recording-link{display:inline-flex;align-items:center;gap:8px;background:#C96058;color:#FFFDF8;text-decoration:none;padding:10px 22px;border-radius:8px;font-weight:600;font-size:14px;transition:opacity .2s;}
+    .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+    .container{max-width:1200px;margin:0 auto;padding:40px 32px;}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+    @media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
+    .card{background:var(--card);border-radius:12px;border:1px solid var(--border);padding:28px;}
+    .card-title{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+    .card-title::after{content:'';flex:1;height:1px;background:var(--border);}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:32px;}
+    @media(max-width:900px){.stat-grid{grid-template-columns:1fr 1fr;}}
+    .stat-tile{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;}
+    .stat-tile .label{font-size:11px;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);font-weight:600;margin-bottom:6px;}
+    .stat-tile .value{font-weight:700;color:var(--navy);line-height:1;font-family:'Cigars',Georgia,serif;}
+    .stat-tile .sub{font-size:12px;color:var(--muted);margin-top:4px;}
+    .stat-tile.highlight{border-left:4px solid #C96058;}
+    .stat-tile.green{border-left:4px solid #3a8a40;}
+    .stat-tile.red{border-left:4px solid #C96058;}
+    .stat-tile.blue{border-left:4px solid var(--navy);}
+    .section-header{font-size:20px;font-weight:700;color:var(--navy);margin:40px 0 20px;padding-bottom:10px;border-bottom:2px solid var(--navy);font-family:'Cigars',Georgia,serif;display:flex;align-items:baseline;justify-content:space-between;gap:16px;}
+    .section-header a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;white-space:nowrap;}
+    .section-header a:hover{color:var(--navy);text-decoration:underline;}
+    .attendee{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+    .attendee:last-child{border-bottom:none;padding-bottom:0;}
+    .avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0;color:#fff;}
+    .avatar.navy{background:#1A3550;} .avatar.gold{background:#C8A000;} .avatar.muted{background:var(--muted);}
+    .attendee-info .name{font-weight:600;font-size:15px;}
+    .attendee-info .role{font-size:13px;color:var(--muted);margin-top:2px;}
+    .attendee-info .note{font-size:12px;color:var(--text);margin-top:4px;font-style:italic;}
+    .finding-list{list-style:none;}
+    .finding-list li{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.5;align-items:flex-start;}
+    .finding-list li:last-child{border-bottom:none;}
+    .finding-list .icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+    .quote{border-left:4px solid #1A3550;background:rgba(26,53,80,0.06);border-radius:0 8px 8px 0;padding:14px 18px;margin:12px 0;font-style:italic;color:var(--text);font-size:14px;}
+    .quote cite{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:6px;font-weight:600;}
+    .signal-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:8px;font-size:12px;font-weight:600;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;}
+    .signal-chip.top{background:rgba(201,96,88,0.12);color:#C96058;border-color:rgba(201,96,88,0.3);}
+    .callout{background:rgba(26,53,80,0.06);border:1px solid rgba(26,53,80,0.2);border-left:4px solid #1A3550;border-radius:8px;padding:16px 20px;font-size:14px;line-height:1.65;margin-top:20px;}
+    .callout strong{color:#1A3550;}
+    .action-list{list-style:none;}
+    .action-list li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;}
+    .action-list li:last-child{border-bottom:none;}
+    .action-list input[type=checkbox]{margin-top:5px;flex-shrink:0;cursor:pointer;width:15px;height:15px;}
+    .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+    .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;}
+    .footer{text-align:center;color:#6B6357;font-size:12px;padding:40px 32px;border-top:1px solid rgba(30,20,20,0.1);margin-top:20px;background:#F2E9E2;}
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div style="max-width:1200px;margin:0 auto;padding:0 8px;">
+    <div class="header-meta">
+      <a href="../../index.html" class="badge" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="badge" id="last-updated-badge">Latest Update: April 10, 2026</span>
+    </div>
+    <h1>Arapahoe Community College</h1>
+    <h2>Littleton, CO &nbsp;&middot;&nbsp; Public 2-Year</h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+      <a class="recording-link" href="../../index.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Roadshow Home
+      </a>
+      <a class="recording-link" href="https://fathom.video/share/Ysmd5s37xuxmfsK-FQCsxsTaK2Ve68ud" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Watch Fathom Recording &mdash; 64 min
+      </a>
+      <a class="recording-link" href="meetings/meeting-1-2026-04-10.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Discovery &amp; Demo Meeting &mdash; Report
+      </a>
+      <a class="recording-link" href="survey.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Survey Results
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="stat-grid"><div class="stat-tile highlight">
+      <div class="label">Excitement Score</div>
+      <div class="value" style="font-size:30px;padding-top:0;line-height:1.2;">9/10</div>
+      <div class="sub">Dan Balski</div>
+    </div><div class="stat-tile green">
+      <div class="label">Pilot Partner Interest</div>
+      <div class="value" style="font-size:30px;padding-top:0;line-height:1.2;">✅ Yes</div>
+      <div class="sub">Dan Balski expressed strong interest; formal pilot confirmation TBD</div>
+    </div><div class="stat-tile blue">
+      <div class="label">Product Council</div>
+      <div class="value" style="font-size:18px;padding-top:6px;line-height:1.2;">🤔 Unsure</div>
+      <div class="sub">Dan engaged deeply and submitted prior survey feedback, but no explicit Product Council commitment made on the call</div>
+    </div><div class="stat-tile red">
+      <div class="label">What Matters Most?</div>
+      <div class="value" style="font-size:18px;padding-top:6px;line-height:1.2;">Platform-level accountability for member engagement and completion</div>
+      <div class="sub">Source: Dan Balski</div>
+    </div></div>
+
+  <h2 class="section-header">School &amp; Chapter Snapshot</h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">About Arapahoe Community College</div>
+      <ul class="finding-list"><li><span class="icon">🎓</span><span>Arapahoe Community College is a public 2-year institution in Littleton, CO serving a student population that benefits significantly from flexible programming, including students who would not otherwise engage in campus involvement. <a href="https://fathom.video/calls/631297024?t=382" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:22</a></span></li><li><span class="icon">🔄</span><span>The chapter operates on a hybrid model, offering both in-person engagement and online options for students who cannot attend every element in person. <a href="https://fathom.video/calls/631297024?t=3041" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 50:41</a></span></li><li><span class="icon">📊</span><span>Dan independently tracks chapter data using spreadsheets due to platform limitations, reflecting a hands-on, data-driven advising approach and long-standing concerns about non-completion rates. <a href="https://fathom.video/calls/631297024?t=540" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:00</a></span></li></ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Chapter Status</div>
+      <ul class="finding-list"><li><span class="icon">✅</span><span>Established chapter with multi-semester history; advisor references longitudinal data concerns and ongoing engagement with NSLS feedback channels including prior survey submissions.</span></li></ul>
+    </div>
+  </div>
+
+  <h2 class="section-header">Advisors
+    <a href="meetings/meeting-1-2026-04-10.html#advisor-profiles">Full Advisor Profiles in Meeting Report &rsaquo;</a>
+  </h2>
+  <div class="grid-2"><div class="card">
+      <div class="attendee" style="padding-top:0;">
+        <div class="avatar navy">DB</div>
+        <div class="attendee-info">
+          <div class="name">Dan Balski</div>
+          <div class="role">Advisor, Arapahoe Community College</div>
+          <div class="note">Experienced hybrid chapter advisor who independently tracks member data across semesters using spreadsheets due to platform limitations. Motivated by genuine student outcomes, Dan is troubled by high non-completion rates and actively works to connect NSLS members to broader campus involvement opportunities.</div>
+        </div>
+      </div>
+    </div></div>
+
+  <h2 class="section-header">Meeting Highlights
+    <a href="meetings/meeting-1-2026-04-10.html">Full Meeting Report &rsaquo;</a>
+  </h2>
+  <div class="grid-2" style="margin-bottom:20px;">
+    <div class="card">
+      <div class="card-title">&#x2705; What&#x27;s Working / What Landed</div>
+      <ul class="finding-list"><li><span class="icon">⚙️</span><span><strong>Centralized Platform Operations</strong> <a href="https://fathom.video/calls/631297024?t=478" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:58</a> &mdash; Dan values having the ability to manage member experience through a single platform that both advisors and students interact with, calling it helpful for operational consistency.</span></li><li><span class="icon">🌐</span><span><strong>Flexible Programming Model</strong> <a href="https://fathom.video/calls/631297024?t=384" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:24</a> &mdash; Dan highlighted that NSLS's flexible programming — including both in-person and online options — reaches students who would not otherwise engage in campus involvement, which he identified as a core strength to preserve.</span></li></ul>
+    </div>
+    <div class="card">
+      <div class="card-title">&#x274C; What Isn&#x27;t Working</div>
+      <ul class="finding-list"><li><span class="icon">📉</span><span><strong>Cross-Semester Data Loss</strong> <a href="https://fathom.video/calls/631297024?t=540" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:00</a> &mdash; Induction rate data resets before the semester even ends, making it impossible to compare data across semesters or years without maintaining separate personal spreadsheets. Dan explicitly noted he submitted this concern in a prior NSLS survey.</span></li><li><span class="icon">😟</span><span><strong>Low Completion and Engagement Rates</strong> <a href="https://fathom.video/calls/631297024?t=3129" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 52:09</a> &mdash; Dan expressed long-standing concern that more than half of paying members do not complete the program, and that he has not felt urgency at the national level to address this drop-off. He framed this as both a student value and institutional integrity issue.</span></li><li><span class="icon">❓</span><span><strong>Student Onboarding Clarity</strong> <a href="https://fathom.video/calls/631297024?t=3174" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 52:54</a> &mdash; Dan raised concern about how the new layers of Society content will be introduced to students given that Foundations of Leadership is already a lot to communicate. He questioned how everything will be delivered in a clear and digestible way.</span></li></ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>&#x26A0;&#xFE0F; Key Signal<a href="https://fathom.video/calls/631297024?t=540" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:00</a> &mdash; Accountability Gap: Paying Members Not Completing:</strong> Dan Balski articulated a direct concern that has persisted over years: students pay for NSLS membership, yet more than half do not complete the program, and he has not felt national-level urgency to solve it. He currently compensates with his own spreadsheet tracking because the platform does not support cross-semester data comparison — induction data even resets before the semester ends. His 9/10 excitement for Society (10/10 on content) was tempered only by questions about whether the new platform's onboarding will be clear enough for students to navigate the additional layers alongside Foundations of Leadership.
+  </div>
+
+
+  <!-- ─── Survey Highlights ─────────────────────────────────── -->
+  <h2 class="section-header">
+    Survey Highlights &mdash; Survey Respondent
+    <a href="../../executive-summary.html?id=recskxIekBJtnu8FO" target="_blank">Full Survey Results &rsaquo;</a>
+  </h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">What Matters Most?</div>
+      <p style="color:var(--muted);font-style:italic;">Survey rankings not yet available.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Key Survey Signals</div>
+      <p style="color:var(--muted);font-style:italic;">No open responses recorded.</p>
+    </div>
+  </div>
+
+
+  <h2 class="section-header">Action Items</h2>
+  <div class="card">
+    <ul class="action-list"><li>
+        <input type="checkbox">
+        <div class="action-number">1</div>
+        <div>Follow up with Dan Balski to gauge interest in formal pilot participation and Product Council membership, given his deep engagement and data-driven advisor profile. <a href="https://fathom.video/calls/631297024?t=1757" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 29:17</a> <span class="owner-tag">Whitney Jett</span><span class="owner-tag">Zoë Wallis</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">2</div>
+        <div>Prioritize cross-semester and multi-year data persistence in the Society admin dashboard, directly addressing Dan's long-standing concern about induction rate resets and manual spreadsheet tracking. <a href="https://fathom.video/calls/631297024?t=540" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:00</a> <span class="owner-tag">Chris Higbee</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">3</div>
+        <div>Develop a clear student-facing onboarding framework that explains how Society tracks (Insights, Clarity, Leadership, Connections) layer onto — rather than add to — the existing Foundations of Leadership experience. <a href="https://fathom.video/calls/631297024?t=3174" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 52:54</a> <span class="owner-tag">Chris Higbee</span></div>
+      </li></ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  NSLS Society Platform Roadshow &nbsp;&middot;&nbsp; Arapahoe Community College &nbsp;&middot;&nbsp; April 10, 2026<br>
+  Source: <a href="https://fathom.video/share/Ysmd5s37xuxmfsK-FQCsxsTaK2Ve68ud" target="_blank">Fathom Recording</a> &nbsp;&middot;&nbsp; Generated for NSLS Product &amp; Development Teams
+</div>
+
+<script>
+document.getElementById('last-updated-badge').textContent =
+  'Latest Update: ' + new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+</script>
+</body>
+</html>

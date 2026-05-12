@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSLS Society Roadshow — Drew University</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#1A3550; --gold:#F2DA4E; --light:#F2E9E2; --border:rgba(30,20,20,0.1);
+      --text:#1E1414; --muted:#6B6357; --card:#E8DDD5; --yellow:#F2DA4E;
+      --white:#FFFDF8; --black:#1E1414; --blue:#4a4faa; --purple:#4a4faa;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    a{color:#1A3550;text-decoration:none;} a:hover{color:#C96058;}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+    h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+    .header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:48px 40px 9px;}
+    .header-meta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
+    .badge{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+    .header h1{font-size:32px;font-weight:700;margin-bottom:6px;color:#1A3550;}
+    .header h2{font-size:18px;font-weight:400;color:#6B6357;margin-bottom:20px;}
+    .recording-link{display:inline-flex;align-items:center;gap:8px;background:#C96058;color:#FFFDF8;text-decoration:none;padding:10px 22px;border-radius:8px;font-weight:600;font-size:14px;transition:opacity .2s;}
+    .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+    .container{max-width:1200px;margin:0 auto;padding:40px 32px;}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+    @media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
+    .card{background:var(--card);border-radius:12px;border:1px solid var(--border);padding:28px;}
+    .card-title{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+    .card-title::after{content:'';flex:1;height:1px;background:var(--border);}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:32px;}
+    @media(max-width:900px){.stat-grid{grid-template-columns:1fr 1fr;}}
+    .stat-tile{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;}
+    .stat-tile .label{font-size:11px;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);font-weight:600;margin-bottom:6px;}
+    .stat-tile .value{font-weight:700;color:var(--navy);line-height:1;font-family:'Cigars',Georgia,serif;}
+    .stat-tile .sub{font-size:12px;color:var(--muted);margin-top:4px;}
+    .stat-tile.highlight{border-left:4px solid #C96058;}
+    .stat-tile.green{border-left:4px solid #3a8a40;}
+    .stat-tile.red{border-left:4px solid #C96058;}
+    .stat-tile.blue{border-left:4px solid var(--navy);}
+    .section-header{font-size:20px;font-weight:700;color:var(--navy);margin:40px 0 20px;padding-bottom:10px;border-bottom:2px solid var(--navy);font-family:'Cigars',Georgia,serif;display:flex;align-items:baseline;justify-content:space-between;gap:16px;}
+    .section-header a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;white-space:nowrap;}
+    .section-header a:hover{color:var(--navy);text-decoration:underline;}
+    .attendee{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+    .attendee:last-child{border-bottom:none;padding-bottom:0;}
+    .avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0;color:#fff;}
+    .avatar.navy{background:#1A3550;} .avatar.gold{background:#C8A000;} .avatar.muted{background:var(--muted);}
+    .attendee-info .name{font-weight:600;font-size:15px;}
+    .attendee-info .role{font-size:13px;color:var(--muted);margin-top:2px;}
+    .attendee-info .note{font-size:12px;color:var(--text);margin-top:4px;font-style:italic;}
+    .finding-list{list-style:none;}
+    .finding-list li{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.5;align-items:flex-start;}
+    .finding-list li:last-child{border-bottom:none;}
+    .finding-list .icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+    .quote{border-left:4px solid #1A3550;background:rgba(26,53,80,0.06);border-radius:0 8px 8px 0;padding:14px 18px;margin:12px 0;font-style:italic;color:var(--text);font-size:14px;}
+    .quote cite{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:6px;font-weight:600;}
+    .signal-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:8px;font-size:12px;font-weight:600;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;}
+    .signal-chip.top{background:rgba(201,96,88,0.12);color:#C96058;border-color:rgba(201,96,88,0.3);}
+    .callout{background:rgba(26,53,80,0.06);border:1px solid rgba(26,53,80,0.2);border-left:4px solid #1A3550;border-radius:8px;padding:16px 20px;font-size:14px;line-height:1.65;margin-top:20px;}
+    .callout strong{color:#1A3550;}
+    .action-list{list-style:none;}
+    .action-list li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;}
+    .action-list li:last-child{border-bottom:none;}
+    .action-list input[type=checkbox]{margin-top:5px;flex-shrink:0;cursor:pointer;width:15px;height:15px;}
+    .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+    .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;}
+    .footer{text-align:center;color:#6B6357;font-size:12px;padding:40px 32px;border-top:1px solid rgba(30,20,20,0.1);margin-top:20px;background:#F2E9E2;}
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div style="max-width:1200px;margin:0 auto;padding:0 8px;">
+    <div class="header-meta">
+      <a href="../../index.html" class="badge" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="badge" id="last-updated-badge">Latest Update: March 22, 2026</span>
+    </div>
+    <h1>Drew University</h1>
+    <h2>Madison, NJ &nbsp;&middot;&nbsp; Liberal Arts · Private 4-Year</h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+      <a class="recording-link" href="../../index.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Roadshow Home
+      </a>
+      <a class="recording-link" href="https://fathom.video/share/xydfhSqJ46gXD6fdWZy5-b9KzM-a7b_H" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Watch Fathom Recording &mdash; 62 min
+      </a>
+      <a class="recording-link" href="meetings/meeting-1-2026-03-22.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Discovery &amp; Demo Meeting &mdash; Report
+      </a>
+      <a class="recording-link" href="survey.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Survey Results
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="stat-grid"><div class="stat-tile highlight">
+      <div class="label">Excitement Score</div>
+      <div class="value" style="font-size:30px;padding-top:0;line-height:1.2;">9/10</div>
+      <div class="sub">Cassandra Gonzalez</div>
+    </div><div class="stat-tile green">
+      <div class="label">Pilot Partner Interest</div>
+      <div class="value" style="font-size:30px;padding-top:0;line-height:1.2;">✅ Yes</div>
+      <div class="sub">Cassandra confirmed personal interest; Kim needs to review recording and confirm — follow-up meeting needed</div>
+    </div><div class="stat-tile blue">
+      <div class="label">Product Council</div>
+      <div class="value" style="font-size:18px;padding-top:6px;line-height:1.2;">🤔 Unsure</div>
+      <div class="sub">Cassandra asked about time commitment and timeline; said Kim would need to weigh in before a decision is made</div>
+    </div><div class="stat-tile red">
+      <div class="label">What Matters Most?</div>
+      <div class="value" style="font-size:18px;padding-top:6px;line-height:1.2;">Career readiness and student skill-building</div>
+      <div class="sub">Source: Kimberly Giorgio</div>
+    </div></div>
+
+  <h2 class="section-header">School &amp; Chapter Snapshot</h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">About Drew University</div>
+      <ul class="finding-list"><li><span class="icon">🎭</span><span>Drew is a small, close-knit liberal arts college in Madison, NJ, known for its theater program and proximity to New York City, with roughly 70% of students participating in athletics. <a href="https://fathom.video/calls/607089519?t=59" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 0:59</a></span></li><li><span class="icon">🔬</span><span>Drew's president is focused on innovation, and the school is actively piloting a skill-based, non-major academic model that integrates employers directly into the curriculum. <a href="https://fathom.video/calls/607089519?t=1223" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 20:23</a></span></li><li><span class="icon">🤖</span><span>A vocal subset of students holds strong ethical and environmental objections to AI, having written a letter to admissions about AI-generated social media content — a real adoption risk for Society. <a href="https://fathom.video/calls/607089519?t=3236" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 53:56</a></span></li></ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Chapter Status</div>
+      <ul class="finding-list"><li><span class="icon">🆕</span><span>Brand new chapter launched Spring semester — first ever at Drew, with 130 students inducted in their first semester, exceeding expectations.</span></li><li><span class="icon">🏠</span><span>Standard in-house chapter with no hybrid or online option; advisors are managing all facilitation, SNT tracking, and student communication themselves without NSLS SNT support.</span></li></ul>
+    </div>
+  </div>
+
+  <h2 class="section-header">Advisors
+    <a href="meetings/meeting-1-2026-03-22.html#advisor-profiles">Full Advisor Profiles in Meeting Report &rsaquo;</a>
+  </h2>
+  <div class="grid-2"><div class="card">
+      <div class="attendee" style="padding-top:0;">
+        <div class="avatar navy">KG</div>
+        <div class="attendee-info">
+          <div class="name">Kimberly Giorgio</div>
+          <div class="role">Career Services — Primary Chapter Lead</div>
+          <div class="note">Corporate recruitment background with experience building early talent and internship programs. Joined Drew nearly three years ago, secured the NSLS grant, and built the chapter from scratch. Serves on multiple innovation and learning councils at Drew, including a new skill-based academic initiative. Recognized Chris as a HireVue co-founder during the call.</div>
+        </div>
+      </div>
+    </div>
+<div class="card">
+      <div class="attendee" style="padding-top:0;">
+        <div class="avatar gold">CG</div>
+        <div class="attendee-info">
+          <div class="name">Cassandra Gonzalez</div>
+          <div class="role">Student Engagement / Leadership Development</div>
+          <div class="note">Joined Drew in August from Lehigh University, where she had prior exposure to NSLS. Attended the full call and provided detailed product feedback. Enthusiastic about Society's clarity track and expressed personal interest in the pilot and product council.</div>
+        </div>
+      </div>
+    </div></div>
+
+  <h2 class="section-header">Meeting Highlights
+    <a href="meetings/meeting-1-2026-03-22.html">Full Meeting Report &rsaquo;</a>
+  </h2>
+  <div class="grid-2" style="margin-bottom:20px;">
+    <div class="card">
+      <div class="card-title">&#x2705; What&#x27;s Working / What Landed</div>
+      <ul class="finding-list"><li><span class="icon">💌</span><span><strong>Physical Invitation Letter</strong> <a href="https://fathom.video/calls/607089519?t=425" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:05</a> &mdash; Kim cited the mailed invitation as a key driver of higher-than-expected induction numbers — students were surprised and excited to receive actual mail, which felt special and differentiated.</span></li><li><span class="icon">🎙️</span><span><strong>Speaker Broadcasts</strong> <a href="https://fathom.video/calls/607089519?t=411" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:51</a> &mdash; Both advisors independently called out speaker broadcasts as a highlight. They appreciated the inspirational content and used clips selectively in their in-person facilitation.</span></li><li><span class="icon">🏆</span><span><strong>Leadership Development Focus</strong> <a href="https://fathom.video/calls/607089519?t=324" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:24</a> &mdash; Both advisors cited their shared passion for leadership development as a core reason they value NSLS. Kim emphasized that no leadership infrastructure existed at Drew before her arrival.</span></li></ul>
+    </div>
+    <div class="card">
+      <div class="card-title">&#x274C; What Isn&#x27;t Working</div>
+      <ul class="finding-list"><li><span class="icon">📧</span><span><strong>Multi-Email Identity Problem</strong> <a href="https://fathom.video/calls/607089519?t=644" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 10:44</a> &mdash; Students can register with any email address — NSLS, personal, or school — making it extremely difficult to match students to Drew's Handshake system and maintain clean cohort records. Advisors with 130 students had to manually track down missing school emails and maintain a separate spreadsheet.</span></li><li><span class="icon">📊</span><span><strong>No Major or Demographic Reporting</strong> <a href="https://fathom.video/calls/607089519?t=660" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 11:00</a> &mdash; The current NSLS platform cannot tell advisors how many students in a cohort are marketing majors, what year they are, their ethnicity, or other breakdowns faculty request. This makes ROI reporting and grant accountability difficult.</span></li><li><span class="icon">👥</span><span><strong>SNT Tracking and Group Visibility</strong> <a href="https://fathom.video/calls/607089519?t=785" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 13:05</a> &mdash; Advisors cannot see which students are in which SNT groups or whether groups have actually met. Kim and Cassandra built their own color-coded paper system and maintain a separate numbered spreadsheet to manage groups. Reports exist but do not confirm actual meetings occurred.</span></li><li><span class="icon">🎬</span><span><strong>Video-Only Facilitation Format</strong> <a href="https://fathom.video/calls/607089519?t=929" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 15:29</a> &mdash; The existing LTD content was designed for virtual/asynchronous use and is not suitable for live in-person sessions. Advisors created their own facilitation guide and used only short clips. They recommended NSLS develop a formal in-person facilitation deck.</span></li></ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>&#x26A0;&#xFE0F; Key Signal<a href="https://fathom.video/calls/607089519?t=3236" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 53:56</a> &mdash; Anti-AI Student Segment Is a Real Adoption Risk — and a Potential Test Case:</strong> Cassandra flagged that a vocal group of Drew students actively opposes AI on ethical and environmental grounds — they wrote a formal letter to admissions objecting to AI-generated Instagram captions. She noted this was on her mind throughout the Society demo and raised it unprompted as a barrier to student adoption. Chris acknowledged this is a known pattern across campuses, particularly among creative and independent-minded students, and suggested Drew's student body could serve as a valuable test case for messaging and framing AI as a personal tool rather than a replacement for human effort. Cassandra indicated she could reach out to skeptical students directly to gather perspective as part of the pilot.
+  </div>
+
+
+  <!-- ─── Survey Highlights ─────────────────────────────────── -->
+  <h2 class="section-header">
+    Survey Highlights &mdash; Kimberly Giorgio
+    <a href="../../executive-summary.html?id=recjcYaHnZTNmjBKs" target="_blank">Full Survey Results &rsaquo;</a>
+  </h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">What Matters Most?</div>
+      <p style="color:var(--muted);font-style:italic;">Survey rankings not yet available.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Key Survey Signals</div>
+      <p style="color:var(--muted);font-style:italic;">No open responses recorded.</p>
+    </div>
+  </div>
+
+
+  <h2 class="section-header">Action Items</h2>
+  <div class="card">
+    <ul class="action-list"><li>
+        <input type="checkbox">
+        <div class="action-number">1</div>
+        <div>Send Kim the meeting recording so she can review the full Society demo and provide informed feedback before a pilot or product council decision is made. <a href="https://fathom.video/calls/607089519?t=3720" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:02:00</a> <span class="owner-tag">Zoë Wallis</span><span class="owner-tag">Chris Higbee</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">2</div>
+        <div>Schedule a follow-up meeting with Kim and Cassandra within 1–2 weeks to confirm pilot participation and product council interest. <a href="https://fathom.video/calls/607089519?t=3594" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 59:54</a> <span class="owner-tag">Zoë Wallis</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">3</div>
+        <div>Explore a Handshake integration to allow shared student data to surface inside the Society advisor dashboard, resolving the email mismatch and demographic reporting gaps. <a href="https://fathom.video/calls/607089519?t=2922" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 48:42</a> <span class="owner-tag">Chris Higbee</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">4</div>
+        <div>Develop an in-person facilitation guide for LTD content that chapter advisors can use directly, potentially incorporating Cassandra and Kim's existing guide as a starting point. <a href="https://fathom.video/calls/607089519?t=929" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 15:29</a> <span class="owner-tag">NSLS Product / Curriculum Team</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">5</div>
+        <div>Develop AI messaging and framing strategy sensitive to ethically skeptical student populations — consider using Drew's anti-AI student cohort as a pilot feedback group. <a href="https://fathom.video/calls/607089519?t=3238" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 53:58</a> <span class="owner-tag">Chris Higbee</span><span class="owner-tag">Cassandra Gonzalez</span></div>
+      </li></ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  NSLS Society Platform Roadshow &nbsp;&middot;&nbsp; Drew University &nbsp;&middot;&nbsp; March 22, 2026<br>
+  Source: <a href="https://fathom.video/share/xydfhSqJ46gXD6fdWZy5-b9KzM-a7b_H" target="_blank">Fathom Recording</a> &nbsp;&middot;&nbsp; Generated for NSLS Product &amp; Development Teams
+</div>
+
+<script>
+document.getElementById('last-updated-badge').textContent =
+  'Latest Update: ' + new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+</script>
+</body>
+</html>

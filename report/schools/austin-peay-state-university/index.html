@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSLS Society Roadshow — Austin Peay State University</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#1A3550; --gold:#F2DA4E; --light:#F2E9E2; --border:rgba(30,20,20,0.1);
+      --text:#1E1414; --muted:#6B6357; --card:#E8DDD5; --yellow:#F2DA4E;
+      --white:#FFFDF8; --black:#1E1414; --blue:#4a4faa; --purple:#4a4faa;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    a{color:#1A3550;text-decoration:none;} a:hover{color:#C96058;}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+    h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+    .header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:48px 40px 9px;}
+    .header-meta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
+    .badge{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+    .header h1{font-size:32px;font-weight:700;margin-bottom:6px;color:#1A3550;}
+    .header h2{font-size:18px;font-weight:400;color:#6B6357;margin-bottom:20px;}
+    .recording-link{display:inline-flex;align-items:center;gap:8px;background:#C96058;color:#FFFDF8;text-decoration:none;padding:10px 22px;border-radius:8px;font-weight:600;font-size:14px;transition:opacity .2s;}
+    .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+    .container{max-width:1200px;margin:0 auto;padding:40px 32px;}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+    @media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
+    .card{background:var(--card);border-radius:12px;border:1px solid var(--border);padding:28px;}
+    .card-title{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+    .card-title::after{content:'';flex:1;height:1px;background:var(--border);}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:32px;}
+    @media(max-width:900px){.stat-grid{grid-template-columns:1fr 1fr;}}
+    .stat-tile{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;}
+    .stat-tile .label{font-size:11px;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);font-weight:600;margin-bottom:6px;}
+    .stat-tile .value{font-weight:700;color:var(--navy);line-height:1;font-family:'Cigars',Georgia,serif;}
+    .stat-tile .sub{font-size:12px;color:var(--muted);margin-top:4px;}
+    .stat-tile.highlight{border-left:4px solid #C96058;}
+    .stat-tile.green{border-left:4px solid #3a8a40;}
+    .stat-tile.red{border-left:4px solid #C96058;}
+    .stat-tile.blue{border-left:4px solid var(--navy);}
+    .section-header{font-size:20px;font-weight:700;color:var(--navy);margin:40px 0 20px;padding-bottom:10px;border-bottom:2px solid var(--navy);font-family:'Cigars',Georgia,serif;display:flex;align-items:baseline;justify-content:space-between;gap:16px;}
+    .section-header a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;white-space:nowrap;}
+    .section-header a:hover{color:var(--navy);text-decoration:underline;}
+    .attendee{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+    .attendee:last-child{border-bottom:none;padding-bottom:0;}
+    .avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0;color:#fff;}
+    .avatar.navy{background:#1A3550;} .avatar.gold{background:#C8A000;} .avatar.muted{background:var(--muted);}
+    .attendee-info .name{font-weight:600;font-size:15px;}
+    .attendee-info .role{font-size:13px;color:var(--muted);margin-top:2px;}
+    .attendee-info .note{font-size:12px;color:var(--text);margin-top:4px;font-style:italic;}
+    .finding-list{list-style:none;}
+    .finding-list li{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.5;align-items:flex-start;}
+    .finding-list li:last-child{border-bottom:none;}
+    .finding-list .icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+    .quote{border-left:4px solid #1A3550;background:rgba(26,53,80,0.06);border-radius:0 8px 8px 0;padding:14px 18px;margin:12px 0;font-style:italic;color:var(--text);font-size:14px;}
+    .quote cite{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:6px;font-weight:600;}
+    .signal-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:8px;font-size:12px;font-weight:600;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;}
+    .signal-chip.top{background:rgba(201,96,88,0.12);color:#C96058;border-color:rgba(201,96,88,0.3);}
+    .callout{background:rgba(26,53,80,0.06);border:1px solid rgba(26,53,80,0.2);border-left:4px solid #1A3550;border-radius:8px;padding:16px 20px;font-size:14px;line-height:1.65;margin-top:20px;}
+    .callout strong{color:#1A3550;}
+    .action-list{list-style:none;}
+    .action-list li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;}
+    .action-list li:last-child{border-bottom:none;}
+    .action-list input[type=checkbox]{margin-top:5px;flex-shrink:0;cursor:pointer;width:15px;height:15px;}
+    .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+    .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;}
+    .footer{text-align:center;color:#6B6357;font-size:12px;padding:40px 32px;border-top:1px solid rgba(30,20,20,0.1);margin-top:20px;background:#F2E9E2;}
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div style="max-width:1200px;margin:0 auto;padding:0 8px;">
+    <div class="header-meta">
+      <a href="../../index.html" class="badge" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="badge" id="last-updated-badge">Latest Update: March 27, 2026</span>
+    </div>
+    <h1>Austin Peay State University</h1>
+    <h2>Clarksville, TN &nbsp;&middot;&nbsp; University · Public 4-Year</h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+      <a class="recording-link" href="../../index.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Roadshow Home
+      </a>
+      <a class="recording-link" href="https://fathom.video/share/hrveWh2RrXxA4SD4hJ-WxK6Bzrb6bXJ7" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Watch Fathom Recording &mdash; 58 min
+      </a>
+      <a class="recording-link" href="meetings/meeting-1-2026-04-03.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Discovery &amp; Demo Meeting &mdash; Report
+      </a>
+      <a class="recording-link" href="survey.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Survey Results
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="stat-grid"><div class="stat-tile highlight">
+      <div class="label">Excitement Score</div>
+      <div class="value" style="font-size:30px;padding-top:0;line-height:1.2;">8/10</div>
+      <div class="sub">Janesa Wine</div>
+    </div><div class="stat-tile green">
+      <div class="label">Pilot Partner Interest</div>
+      <div class="value" style="font-size:30px;padding-top:0;line-height:1.2;">✅ Yes</div>
+      <div class="sub">Janesa Wine confirmed interest in pilot partnership; second meeting to be scheduled within 2–4 weeks via Olivia Orend</div>
+    </div><div class="stat-tile blue">
+      <div class="label">Product Council</div>
+      <div class="value" style="font-size:18px;padding-top:6px;line-height:1.2;">🤔 Unsure</div>
+      <div class="sub">Chris invited Janesa to consider the Product Council but no explicit commitment was made during the meeting</div>
+    </div><div class="stat-tile red">
+      <div class="label">What Matters Most?</div>
+      <div class="value" style="font-size:18px;padding-top:6px;line-height:1.2;">Student engagement and keeping members involved beyond induction steps</div>
+      <div class="sub">Source: Janesa Wine</div>
+    </div></div>
+
+  <h2 class="section-header">School &amp; Chapter Snapshot</h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">About Austin Peay State University</div>
+      <ul class="finding-list"><li><span class="icon">🎖️</span><span>Approximately 33% of students are military-affiliated, with proximity to Fort Campbell driving a large non-traditional and commuter student population — including active-duty students currently deployed. <a href="https://fathom.video/calls/615625094?t=63" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:03</a></span></li><li><span class="icon">📍</span><span>Located about one hour northwest of Nashville in Clarksville, Tennessee, Austin Peay operates under a Student Life and Engagement division that houses NSLS alongside all student organizations and the Gov's Lead program. <a href="https://fathom.video/calls/615625094?t=52" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 0:52</a></span></li><li><span class="icon">🤝</span><span>The Career Success Center (formerly Career Services) sits across the hall and recently signed a contract with Handshake through 2030, limiting near-term cross-departmental integration opportunities. <a href="https://fathom.video/calls/615625094?t=2770" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 46:10</a></span></li></ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Chapter Status</div>
+      <ul class="finding-list"><li><span class="icon">✅</span><span>Established chapter housed within Student Life and Engagement; shifted to fully in-person programming for Spring after virtual Zoom speaker broadcasts underperformed in Fall, resulting in strong attendance this semester.</span></li><li><span class="icon">📋</span><span>Advisor manually tracks attendance using two monitors — one for the NSLS portal and one for university attendance records — spending approximately 30 minutes per event assigning orientation and leadership training day credit.</span></li><li><span class="icon">🎉</span><span>Chapter runs supplemental programming beyond required induction steps including community service, a midterm de-stress event, a campus cleanup, homecoming parade participation, and an open general board meeting for all members.</span></li><li><span class="icon">📱</span><span>Campus recently transitioned from Anthology to Ready Education for event tracking; students use mobile ID scanners for check-in at all university events.</span></li></ul>
+    </div>
+  </div>
+
+  <h2 class="section-header">Advisors
+    <a href="meetings/meeting-1-2026-04-03.html#advisor-profiles">Full Advisor Profiles in Meeting Report &rsaquo;</a>
+  </h2>
+  <div class="grid-2"><div class="card">
+      <div class="attendee" style="padding-top:0;">
+        <div class="avatar navy">JW</div>
+        <div class="attendee-info">
+          <div class="name">Janesa Wine</div>
+          <div class="role">Student Life and Engagement — Leadership and Student Organizations; Primary NSLS Chapter Advisor</div>
+          <div class="note">Manages all student organizations at APSU in addition to NSLS and the Gov's Lead program. Driven by data and self-described competition via CliftonStrengths; tracks chapter numbers semester-over-semester and runs supplemental programming to keep members engaged beyond induction.</div>
+        </div>
+      </div>
+    </div></div>
+
+  <h2 class="section-header">Meeting Highlights
+    <a href="meetings/meeting-1-2026-04-03.html">Full Meeting Report &rsaquo;</a>
+  </h2>
+  <div class="grid-2" style="margin-bottom:20px;">
+    <div class="card">
+      <div class="card-title">&#x2705; What&#x27;s Working / What Landed</div>
+      <ul class="finding-list"><li><span class="icon">🏆</span><span><strong>Induction Step Challenge Model</strong> <a href="https://fathom.video/calls/615625094?t=361" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:01</a> &mdash; Janesa noted students appreciate having concrete steps to complete, distinguishing NSLS from other honor societies on campus where membership is passive. The structured challenge keeps members motivated and engaged.</span></li><li><span class="icon">🙋</span><span><strong>In-Person Programming This Spring</strong> <a href="https://fathom.video/calls/615625094?t=420" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:00</a> &mdash; After virtual Zoom broadcasts underperformed in Fall, the chapter shifted to fully in-person events this Spring and saw strong attendance across all programming, with students visibly enjoying the experience.</span></li><li><span class="icon">🎭</span><span><strong>Supplemental Events Beyond Induction</strong> <a href="https://fathom.video/calls/615625094?t=424" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:04</a> &mdash; Events like community service, a de-stress event, campus cleanup, homecoming participation, and an open general board meeting keep inducted members engaged and visible on campus after completing required steps.</span></li><li><span class="icon">🔢</span><span><strong>Advisor-Driven Data Tracking</strong> <a href="https://fathom.video/calls/615625094?t=929" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 15:29</a> &mdash; Janesa self-tracks chapter numbers semester-over-semester using a competitive mindset from CliftonStrengths, benchmarking completion rates and attendance even without formal institutional SLO requirements.</span></li></ul>
+    </div>
+    <div class="card">
+      <div class="card-title">&#x274C; What Isn&#x27;t Working</div>
+      <ul class="finding-list"><li><span class="icon">👥</span><span><strong>SNT Group Confusion for Commuter and Deployed Students</strong> <a href="https://fathom.video/calls/615625094?t=283" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:43</a> &mdash; The wording and structure of SNT groups in the portal causes confusion, especially for commuter students and active-duty members who are deployed and cannot schedule Zoom calls with APSU peers. Janesa manually works around this by advising deployed students to form groups with people around them.</span></li><li><span class="icon">⏱️</span><span><strong>Manual Attendance Credit Assignment</strong> <a href="https://fathom.video/calls/615625094?t=2502" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 41:42</a> &mdash; Janesa spends approximately 30 minutes per event manually entering student names across two monitors to assign orientation and leadership training day credit in the NSLS portal, creating a bottleneck — especially during in-person SNT matching at the end of Leadership Training Day.</span></li><li><span class="icon">📧</span><span><strong>Student Email and Professional Readiness Gap</strong> <a href="https://fathom.video/calls/615625094?t=854" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 14:14</a> &mdash; Advisors are actively teaching students basic professional skills like reading and replying to emails. Janesa attributed this to COVID disrupting middle and high school norms, creating a backlog of career readiness skills that must be addressed before students can fully engage with NSLS steps.</span></li><li><span class="icon">📦</span><span><strong>Two-App Experience for Society Transition</strong> <a href="https://fathom.video/calls/615625094?t=2945" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 49:05</a> &mdash; Janesa raised a direct concern about Society being a second downloadable app separate from the existing NSLS app, noting that students currently prefer and frequently use the existing app. The interim two-app model may create friction for adoption.</span></li></ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>&#x26A0;&#xFE0F; Key Signal<a href="https://fathom.video/calls/615625094?t=2412" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 40:12</a> &mdash; Attendance Integration Bottleneck Blocks Real-Time SNT Matching:</strong> Janesa identified a concrete workflow conflict: APSU uses Ready Education with mobile ID scanners for university event attendance, and she must spend roughly 30 minutes manually cross-referencing two monitors to assign NSLS credit after each event. When Chris proposed using Society's SNT matching tool at the end of Leadership Training Day, Janesa immediately flagged that she would be too occupied applying attendance credit to actually facilitate the matching — making real-time in-person SNT formation unworkable under the current flow. This is not unique to APSU; Chris acknowledged it as a broadly applicable problem and flagged it as a priority feedback item for the product team. A follow-up meeting was confirmed to explore what an integrated or streamlined attendance-to-SNT workflow would need to look like.
+  </div>
+
+
+
+  <h2 class="section-header">Action Items</h2>
+  <div class="card">
+    <ul class="action-list"><li>
+        <input type="checkbox">
+        <div class="action-number">1</div>
+        <div>Schedule a follow-up meeting within 2–4 weeks to dig into the attendance integration bottleneck and explore what a Ready Education–to–NSLS credit workflow would need to look like for in-person SNT matching to be feasible. <a href="https://fathom.video/calls/615625094?t=2379" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 39:39</a> <span class="owner-tag">Chris Higbee</span><span class="owner-tag">Janesa Wine</span><span class="owner-tag">Olivia Orend</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">2</div>
+        <div>Bring the attendance credit workflow issue to the product team internally and assess feasibility of an import or sync solution that removes the manual dual-monitor process. <a href="https://fathom.video/calls/615625094?t=2502" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 41:42</a> <span class="owner-tag">Chris Higbee</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">3</div>
+        <div>Explore adding school-customizable questions to the onboarding questionnaire — including student org memberships, living situation, and work hours — as a campus-configurable feature via the authoring tool. <a href="https://fathom.video/calls/615625094?t=2886" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 48:06</a> <span class="owner-tag">Chris Higbee</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">4</div>
+        <div>Investigate feasibility of pulling CliftonStrengths data into the Society profile for schools that use it, given existing NSLS–Gallup relationship. <a href="https://fathom.video/calls/615625094?t=907" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 15:07</a> <span class="owner-tag">Chris Higbee</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">5</div>
+        <div>Send Janesa Wine a post-meeting summary of feedback and confirmed next steps, and coordinate scheduling of the follow-up session through Olivia Orend. <a href="https://fathom.video/calls/615625094?t=3463" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 57:43</a> <span class="owner-tag">Chris Higbee</span><span class="owner-tag">Olivia Orend</span></div>
+      </li></ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  NSLS Society Platform Roadshow &nbsp;&middot;&nbsp; Austin Peay State University &nbsp;&middot;&nbsp; March 27, 2026<br>
+  Source: <a href="https://fathom.video/share/hrveWh2RrXxA4SD4hJ-WxK6Bzrb6bXJ7" target="_blank">Fathom Recording</a> &nbsp;&middot;&nbsp; Generated for NSLS Product &amp; Development Teams
+</div>
+
+<script>
+document.getElementById('last-updated-badge').textContent =
+  'Latest Update: ' + new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+</script>
+</body>
+</html>

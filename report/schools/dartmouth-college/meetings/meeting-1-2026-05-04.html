@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dartmouth College — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">May 4, 2026</span>
+    </div>
+    <h1>Dartmouth College &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Dartmouth College Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/658213696" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Dartmouth College — Hanover, NH</p>
+    <p><strong>School Type:</strong> Private Research University (Ivy League)</p>
+    <p><strong>Chapter Status:</strong> New / Early-Stage — described by Bob Coates as "relatively still new" and still working toward operationalizing peer-led programming<a href="https://fathom.video/calls/658213696?t=678" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 11:18</a></p>
+    <p><strong>Chapter Type:</strong> Standard (in-person, campus-based); no mention of hybrid or online structure</p>
+    <p><strong>Advisors Present:</strong> Robert (Bob) Coates (Faculty/Staff Advisor, Rockefeller Center for Public Policy); Travis Owusu (Student Chapter President, graduating senior)</p>
+    <p><strong>CSR:</strong> Linda Condon</p>
+    <p><strong>Notable Context:</strong> The chapter is housed under Dartmouth's Nelson A. Rockefeller Center for Public Policy and the Social Sciences. Bob reports to the Center's Executive Director. Dartmouth has a separately operating, recently revitalized career services office — the Dartmouth Center for Career Design (DCCD) — which already offers many career readiness functions. President Bylock has established institutional pillars including "Dartmouth Dialogues" (civil discourse across viewpoints) and a renewed emphasis on leadership training and career readiness. The chapter has struggled with student recruitment and retention, particularly among upperclassmen who are already committed to multiple organizations. Linda noted that the traditional Foundations of Leadership program has had limited appeal in recent invitation cycles<a href="https://fathom.video/calls/658213696?t=317" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:17</a> and flagged Society as a potentially stronger fit for Dartmouth's student population<a href="https://fathom.video/calls/658213696?t=317" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:17</a>.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+  <div class="advisor-card">
+    <h3>Robert (Bob) Coates</h3>
+    <p><strong>Role:</strong> Staff Advisor, NSLS Chapter at Dartmouth; affiliated with the Nelson A. Rockefeller Center for Public Policy and the Social Sciences. Reports directly to the Center's Executive Director.</p>
+    <p><strong>Background:</strong> Has been at Dartmouth for six and a half years. Recently completed a measurement and evaluation course at Rice University's Doerr Institute for New Leaders<a href="https://fathom.video/calls/658213696?t=3020" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 50:20</a> alongside a postdoc colleague, at the direction of his executive director. The Rockefeller Center runs co-curricular leadership programming including a competitive first-year summer fellowship placing students with public policy organizations and federal agencies in Washington, D.C., and a Capstone program focused on leadership skills for juniors and seniors. The Center manages endowed and current-use funds that help underwrite these programs and has stewardship obligations to donors.</p>
+    <p><strong>Motivations:</strong> Primary draw to NSLS was its peer-led model — distinct from the staff-led programming the Rockefeller Center already provides. Motivated by the need to demonstrate measurable outcomes from leadership interventions to satisfy donors and internal stakeholders<a href="https://fathom.video/calls/658213696?t=3200" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 53:20</a>. Interested in developing better quantitative and qualitative data to tell the story of the Center's impact. Sees career readiness and pre-professional training as inherently connected to leadership development within the Center's programming.</p>
+    <p><strong>Communication Style:</strong> Thoughtful and institutional — consistently framing decisions in terms of what he can bring to his executive director and what would require sign-off from the DCCD. Candid about the limits of his authority and pay grade. Asks clarifying questions before committing. Warms as the conversation progresses; ends the meeting expressing genuine interest in exploring a pilot partnership.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Moderate-to-strong conditional interest. Bob acknowledged Society felt "cutting edge" and "fascinating," estimated his enthusiasm at 7–8/10<a href="https://fathom.video/calls/658213696?t=3716" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:01:56</a>, and said he would be willing to bring a non-proprietary overview to his Executive Director. He stipulated that even an augmentation-only approach within the chapter would likely require coordination with the DCCD<a href="https://fathom.video/calls/658213696?t=3728" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:02:08</a>. Recommended framing: augmentation to Foundations of Leadership first, with broader integration as a longer-term conversation<a href="https://fathom.video/calls/658213696?t=3600" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:00:00</a>.</p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Travis Owusu</h3>
+    <p><strong>Role:</strong> Student Chapter President, Dartmouth College NSLS. Graduating senior.</p>
+    <p><strong>Background:</strong> International student considering a gap year before graduate school, with plans to travel back to Ghana<a href="https://fathom.video/calls/658213696?t=41" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 0:41</a>. Has been leading the chapter during its early-stage growth. Found personal value in Foundations of Leadership specifically around goal-setting at a transitional moment — clarifying what he needs to do before graduation to reach his next step.</p>
+    <p><strong>Motivations:</strong> Wants to see NSLS offer something that feels immediately elevating and tangible to Dartmouth students rather than another organization to add to an already full plate. Believes the career development and professional readiness angle is the most compelling hook, particularly for upperclassmen. Sees the mobile-first, always-available nature of Society as a key advantage over meeting-based programming<a href="https://fathom.video/calls/658213696?t=2600" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 43:20</a>.</p>
+    <p><strong>Communication Style:</strong> Direct, candid, and student-centered. Speaks from lived experience and names specific challenges (overcrowded org landscape, lack of visible proof of impact). Enthusiastic once engaged with the product demo. Self-aware about the chapter's limitations and his own role in them.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High enthusiasm (self-estimated 8–9/10 for the product itself)<a href="https://fathom.video/calls/658213696?t=3716" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:01:56</a>. Deferred to Bob on institutional decisions but offered substantive product feedback, including a suggestion to expand dream job ranking into a tiered system (similar to college ranking structures)<a href="https://fathom.video/calls/658213696?t=3679" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:01:19</a>. Strong voice for the student perspective on the Product Council.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>The peer-led model — this was the original and primary draw for the Rockefeller Center; it fills a gap that the Center's staff-led programs cannot</li>
+    <li>Career coaching and professional development programming — Travis identified this as the most distinctly valuable piece of NSLS for Dartmouth students</li>
+    <li>Foundations of Leadership as a curriculum base, particularly for incoming freshmen who are still forming their leadership identity and professional direction</li>
+    <li>Goal-setting and self-reflective components — Travis specifically cited the experience of clarifying where he is and where he wants to go as personally meaningful</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Recruitment and retention of upperclassmen — juniors and seniors are already embedded in two or more organizations and are not looking for another club; NSLS must offer something that elevates, not merely adds</li>
+    <li>The traditional Foundations of Leadership invitation cycle has seen declining interest at Dartmouth — Linda confirmed this directly as the catalyst for this meeting</li>
+    <li>NSLS's value proposition is difficult to communicate without visible, local proof of impact — Travis noted he cannot point to evidence on his own campus yet</li>
+    <li>SNT formation and execution remain a friction point — the chapter has not yet reached the point of running peer-led training sessions at scale</li>
+    <li>The leadership curriculum feels redundant to students who have already built leadership experience through Dartmouth's existing co-curricular ecosystem</li>
+    <li>School workload is the dominant competing priority — academic demands cause students to disengage from organizations they have joined</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>President Bylock's institutional pillars include "Dartmouth Dialogues" (civil discourse, pluralism of viewpoints) and a renewed emphasis on leadership training across campus</li>
+    <li>Career readiness has received "revitalized emphasis" — a new hire from Trinity College leads the newly renamed Dartmouth Center for Career Design, with expanded community-based offerings organized by career interest area</li>
+    <li>The Rockefeller Center is actively investing in measurement and evaluation frameworks to demonstrate program impact — attended a Rice University / Doerr Institute course specifically for this purpose</li>
+    <li>Donor stewardship requires the Center to tell a quantitative story about the outcomes of its endowed and current-use funds</li>
+    <li>Pre-professional and public policy internship programming is a major Center function — a competitive first-year fellowship places students with federal agencies and policy organizations in D.C.</li>
+    <li>Bob and his executive director have a strategic interest in knowing how Society would interface with or be distinguishable from the DCCD's existing offerings before committing</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. "Elevate Me, Don't Add to My Plate"</h3>
+    <p>Travis articulated the clearest signal of the meeting: Dartmouth students — especially upperclassmen — are not looking for another organization to join. They want something that demonstrably advances them toward their professional goals. The value proposition must shift from community membership to tangible, personalized career progression. Bob reinforced this by noting that what attracted the Rockefeller Center was the peer-led model, not a generic leadership curriculum.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Proof of Impact Is the Missing Link</h3>
+    <p>Travis acknowledged he personally believes NSLS can help but cannot point to evidence of that impact on campus yet, making peer-to-peer advocacy difficult. The Rockefeller Center has invested directly in learning to measure and evaluate leadership interventions. Society's career readiness score, longitudinal dashboards, and outcome data were received as directly addressing this gap — Bob confirmed he sees the dashboard as a viable starting point for quantitative reporting<a href="https://fathom.video/calls/658213696?t=3118" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 51:58</a>.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Institutional Navigation Is Required Before Any Expansion</h3>
+    <p>Bob was consistently clear that even an augmentation-to-FOL approach would require informing his executive director and potentially coordinating with the DCCD. The revitalized Dartmouth Center for Career Design already performs many of the functions Society is designed to provide. Any deeper integration of Society beyond the chapter context will require a multi-stakeholder conversation that Bob does not currently have authority to initiate alone.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Mobile-First, Frictionless Access Is a Near-Prerequisite</h3>
+    <p>Travis highlighted that students want tools that are immediately accessible — no scheduled meetings, no setup, available in the palm of their hand. Bob echoed this, noting Society being "right at their fingertips" powered by AI was a key part of what made it feel innovative. This reinforces that any Society rollout at Dartmouth should lead with the mobile experience and low-barrier onboarding.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Peer-Led Infrastructure Has Not Yet Been Realized — SNT Friction Remains</h3>
+    <p>Both Bob and Travis acknowledged the chapter has not yet successfully stood up peer-led training experiences at scale. The original vision — that NSLS would bring something the Rockefeller Center's staff-led programs could not — remains aspirational rather than operational. Society's SNT matching, scheduling, attendance tracking, and virtual meeting tools were noted as potentially addressing this directly, though neither advisor had seen these features before and reaction was measured rather than enthusiastic.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+  <div class="enthusiasm-score">8/10</div>
+  <p><em>Chris estimated both Bob and Travis at 7–8; Travis self-reported 8–9 on the product itself. Bob cited institutional cautions as the reason he would not go higher. Score above reflects the composite, weighted toward product enthusiasm rather than commitment readiness.</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>Travis responded immediately and positively to the Career Clarity track — called it "fascinating" and highlighted the flexibility for both beginning and advanced users</li>
+    <li>The mobile-first design was noted by both as essentially a prerequisite for student adoption; Bob specifically appreciated that it puts capability "right at their fingertips"</li>
+    <li>Bob called Society "cutting edge" and a "very innovative and logical reinvention" of career readiness using modern tools, specifically AI</li>
+    <li>The career readiness score concept resonated strongly — Travis confirmed "100%" when asked if the dashboard and outcome data were directionally right</li>
+    <li>The Renee story (68-year-old nontraditional student achieving a 10/10 experience through the Clarity track) was well-received as a proof-of-concept for AI meeting students where they are</li>
+    <li>Bob immediately connected the longitudinal dashboard to his and his executive director's measurement and evaluation work — confirmed it "could be a good starting place"</li>
+    <li>Travis appreciated the flexibility of AI for students at different stages of professional development and suggested expanding dream job tiering as a feature enhancement</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Bob's most immediate reaction to the Career Clarity features was that they fall outside his sphere of authority and into the domain of the DCCD — he said he would almost need to "refer you over to them"</li>
+    <li>Bob raised the question of whether Society was an additional product layered on top of the existing NSLS chapter experience, or something that could replace or reframe parts of it — this was not fully resolved in the meeting</li>
+    <li>Bob noted that even adopting Society purely as an augmentation to Foundations of Leadership would likely require sign-off from the DCCD and his executive director, given the DCCD already offers similar services</li>
+    <li>The curriculum add-on fee model was mentioned briefly — no reaction was captured, but this could be a friction point given donor-funded budget constraints at the Rockefeller Center</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Bob's enthusiasm escalated meaningfully by the end of the meeting — he moved from "I'd almost have to refer you over to them" to "I would love to explore that a little bit further" and agreeing to take a non-proprietary overview to his executive director</li>
+    <li>Travis's suggestion to add tiered dream job ranking (analogous to college choice tiers) was an unsolicited product idea that showed deeper engagement with the feature set than expected</li>
+    <li>Bob's unprompted disclosure that the Rockefeller Center manages endowed funds and has stewardship obligations to donors surfaced a concrete internal use case for the dashboard that Chris had not anticipated</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Career Clarity Track</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Travis called it "fascinating" and confirmed it works for both early-stage and advanced students. Bob called it "cutting edge." Directly addresses Dartmouth's most pressing engagement gap with upperclassmen.</td>
+      </tr>
+      <tr>
+        <td>AI Career Coach (conversational)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Both advisors responded positively to the idea of AI as a thought partner. Bob highlighted "at their fingertips, powered by AI" as the core appeal. Emphasis on AI not doing the work for students was well received given academic integrity sensitivities at an Ivy League institution.</td>
+      </tr>
+      <tr>
+        <td>Dream Job Generator</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Travis suggested expanding this into a tiered ranking model (dream job → realistic options → fallback) — analogous to how students approach college selection. Strong product signal worth logging for the roadmap.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Travis confirmed "100%" alignment with this direction. Bob connected it immediately to donor stewardship reporting and the need to tell a quantitative story about leadership outcomes. High relevance to both internal reporting and potential external visibility (U.S. News, Wall Street Journal framing resonated).</td>
+      </tr>
+      <tr>
+        <td>Advisor / Institutional Dashboard</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Bob confirmed the dashboard could be a "good starting place" for the quantitative measurement work he and his executive director are actively pursuing. Longitudinal cohort data was specifically noted as valuable. This is a direct hook for the Rockefeller Center's current strategic initiative.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching & Meeting Tools</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Bob acknowledged that getting students quickly into organized peer groups would help build excitement and conversation. Travis did not comment directly. Seen as potentially addressing a real friction point, but both advisors framed SNT challenges more as a recruitment/retention issue than a logistics issue — the tool may not fully resolve the root cause.</td>
+      </tr>
+      <tr>
+        <td>Accountability Engine (AI reminders / check-ins)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Not discussed in depth but consistent with what Travis described as the student need: something that nudges progress without requiring meeting scheduling. No objections raised.</td>
+      </tr>
+      <tr>
+        <td>Campus-Specific Curriculum Integration (e.g., Dartmouth course listings surfaced by AI)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Chris introduced this as a near-future feature — the AI surfacing Dartmouth-specific courses, professors, and advisors rather than generic platforms. Bob's immediate reaction was that this is where it starts to overlap with DCCD territory. High interest but requires careful institutional positioning to avoid stepping on an existing department.</td>
+      </tr>
+      <tr>
+        <td>Custom Curriculum Add-On (fee-based)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Bob acknowledged this could be interesting if the Rockefeller Center or other departments wanted to bring their own curriculum into Society. No reaction to the fee model was captured. Given that the Center operates on endowed and current-use funds with donor stewardship obligations, pricing sensitivity should be anticipated.</td>
+      </tr>
+      <tr>
+        <td>Mobile-First Design</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Both advisors independently flagged mobile access as a near-prerequisite for student adoption. Travis framed it as students wanting things "right in the palm of their hands" without having to set up meetings or appointments.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessments (Myers-Briggs, DISC, Holland Code, etc.)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>No explicit reaction from Bob or Travis. At a research university with a sophisticated student body, these tools may be seen as familiar or even elementary. Framing and positioning within the broader Insights track will matter. Worth testing reception with Dartmouth students specifically before leading with this feature.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Prepare a non-proprietary overview of Society (pilot partner offer, product summary, value proposition) that Bob can share directly with his Executive Director at the Rockefeller Center. Chris committed to delivering this approximately one week after the meeting. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Send Bob and Travis the post-meeting survey link (was not sent in advance of this session as planned). <span class="owner-tag">Linda Condon</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Bob and Travis to visit oursociety.org, create accounts, and personally test the Clarity Track. Bob was also encouraged to share the link with his Executive Director. Both agreed to provide feedback — via notes or recorded reactions. <span class="owner-tag">Robert Coates / Travis Owusu</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Schedule a follow-up call in approximately two weeks to continue the pilot partner / Product Council conversation, incorporating feedback from the Executive Director and any DCCD considerations. <span class="owner-tag">Linda Condon / Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Explore whether a future meeting should include the Dartmouth Center for Career Design (DCCD) to discuss how Society could serve as a connective layer across departments rather than a competing offering. Bob flagged this as a necessary conversation before any broader rollout. <span class="owner-tag">Robert Coates / Linda Condon</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>How does Society differentiate from or complement what the Dartmouth Center for Career Design already offers? Bob raised this directly — without a clear answer, the DCCD may be positioned as an obstacle rather than a partner.</li>
+    <li>What is the Rockefeller Center Executive Director's appetite for piloting Society, and does she view it as within the Center's domain or as something that requires DCCD involvement?</li>
+    <li>What is the right entry point for Society at Dartmouth — purely as a chapter-level augmentation to Foundations of Leadership, or is there a path to a broader departmental partnership?</li>
+    <li>How does the fee structure for custom curriculum integration interact with the Rockefeller Center's endowed fund and stewardship model? Is there a pricing approach that fits within their constraints?</li>
+    <li>Can Society surface Dartmouth-specific academic resources (courses, advisors, professors) within the AI coach experience, and what data or integration would be required to enable this?</li>
+    <li>Travis is graduating — who will be the incoming student chapter leadership, and how should they be brought into the Society pilot from the outset?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Dartmouth College</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Hanover, NH</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Private Research University · Ivy League · 4-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>New / Early-Stage — peer-led programming not yet operationalized</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Standard</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>8/10 (composite — Travis self-reported 8–9 on product; Bob cited institutional cautions limiting commitment readiness)</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Conditional — Bob agreed to take a non-proprietary overview to his Executive Director; interest contingent on DCCD coordination and executive director sign-off</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>Possible — Bob expressed openness to exploring it; Travis is a strong candidate for student voice on the council but is graduating</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>Upperclassmen not joining due to org saturation; lack of visible proof of NSLS impact on campus; traditional FOL curriculum not resonating; SNT formation not yet achieved; chapter engagement dropping due to academic workload</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Career Clarity and the career readiness score are the strongest hooks at Dartmouth — both advisors confirmed the professional development angle is where NSLS can add unique value that existing campus resources do not fully address in a peer-led, AI-personalized format</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Linda Condon</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Dartmouth College &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; May 4, 2026
+</footer>
+
+</body>
+</html>

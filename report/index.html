@@ -1,0 +1,2379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSLS Society Roadshow — Spring 2026</title>
+  <!-- Inter from Google Fonts. Add your Adobe Fonts kit <link> here to enable Cigars. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --black:  #1E1414;
+      --yellow: #F2DA4E;
+      --white:  #FFFDF8;
+      --card:   #261A1A;
+      --border: rgba(255,253,248,0.12);
+      --text:   #FFFDF8;
+      --muted:  #C8BEA5;
+      --gold:   #F2DA4E;
+      --green:  #88D86B;
+      --purple: #949AE2;
+      --pink:   #FFA9E8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #F2E9E2;
+      color: var(--black);
+      line-height: 1.6;
+    }
+    h1, h2 { font-family: 'Cigars', Georgia, 'Times New Roman', serif; }
+    a { color: var(--black); text-decoration: none; }
+    a:hover { color: #C96058; }
+
+    /* ── Header ── */
+    .header {
+      background: #F2E9E2;
+      border-bottom: 2px solid #1A3550;
+      padding: 48px 0 9px;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .header-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+    .badge { transition: color .2s;
+      background: transparent;
+      border: 1px solid rgba(36,59,82,0.35);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #243B52;
+    }
+    .header h1 { font-size: 32px; font-weight: 700; margin-bottom: 6px; color: #1A3550; }
+    .header h2 { font-size: 17px; font-weight: 400; color: #6B6357; }
+
+    /* ── Main ── */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 40px 80px;
+    }
+
+    /* ── Summary tiles ── */
+    .summary-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .summary-tile {
+      background: #E8DDD5;
+      border-radius: 10px;
+      border: 1px solid rgba(30,20,20,0.1);
+      padding: 18px 28px;
+      text-align: center;
+      min-width: 130px;
+    }
+    .summary-tile .val {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 5px;
+      font-family: 'Cigars', Georgia, serif;
+    }
+    .summary-tile .lbl {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #6B6357;
+    }
+
+    /* ── Section header ── */
+    .section-header {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1A3550;
+      border-bottom: 2px solid #1A3550;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-family: 'Cigars', Georgia, serif;
+    }
+
+    /* ── School grid ── */
+    .school-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 20px;
+    }
+
+    /* ── School card ── */
+    .school-card {
+      background: #E8DDD5;
+      border-radius: 12px;
+      border: 1px solid rgba(30,20,20,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: box-shadow 0.15s, border-color 0.15s;
+    }
+    .school-card:hover {
+      box-shadow: 0 4px 16px rgba(30,20,20,0.12);
+      border-color: rgba(30,20,20,0.2);
+    }
+    .school-card-header {
+      padding: 20px 22px 16px;
+      border-bottom: 1px solid rgba(30,20,20,0.08);
+    }
+    .school-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .status-chip {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .status-chip.completed { background: rgba(136,216,107,0.18); color: #2a7a10; }
+    .status-chip.scheduled { background: #E2E4F3; color: #4a4faa; border: 1px solid #C8CBE8; }
+    .status-chip.pending   { background: rgba(30,20,20,0.07); color: #6B6357; }
+    .meeting-date { font-size: 12px; color: #6B6357; }
+    .school-card-header h3 {
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 3px;
+      font-family: 'Cigars', Georgia, serif;
+    }
+    .school-card-header .school-sub {
+      font-size: 13px;
+      color: #6B6357;
+    }
+
+    /* ── Stat row ── */
+    .school-stats {
+      display: flex;
+      border-bottom: 1px solid rgba(30,20,20,0.08);
+    }
+    .school-stat {
+      flex: 1;
+      padding: 13px 10px;
+      text-align: center;
+      border-right: 1px solid rgba(30,20,20,0.08);
+    }
+    .school-stat:last-child { border-right: none; }
+    .school-stat .stat-val {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 4px;
+      font-family: 'Cigars', Georgia, serif;
+    }
+    .school-stat .stat-lbl {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #6B6357;
+    }
+
+    /* ── Key signal ── */
+    .school-signal {
+      padding: 14px 22px;
+      font-size: 13px;
+      color: var(--black);
+      border-bottom: 1px solid rgba(30,20,20,0.08);
+      line-height: 1.55;
+      flex: 1;
+    }
+    .school-signal strong { color: var(--black); font-weight: 700; }
+
+    /* ── Card action buttons ── */
+    .school-actions {
+      padding: 14px 22px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .school-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .school-btn.primary {
+      background: #C96058;
+      color: #FFFDF8;
+    }
+    .school-btn.primary:hover { background: #b8534b; color: #FFFDF8; }
+    .school-btn.secondary {
+      background: #243B52;
+      color: #FFFDF8;
+      border: 1px solid #243B52;
+    }
+    .school-btn.secondary:hover { background: #1a2d3e; color: #FFFDF8; }
+
+    /* ── Top two-column row ── */
+    .top-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .top-two-col { grid-template-columns: 1fr; }
+    }
+    .top-col-card {
+      background: #E8DDD5;
+      border: 1px solid rgba(30,20,20,0.1);
+      border-radius: 12px;
+      overflow: visible;
+    }
+    .top-col-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      padding: 16px 20px;
+      border-bottom: 2px solid #1A3550;
+      border-radius: 12px 12px 0 0;
+      user-select: none;
+    }
+    .top-col-header h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1A3550;
+      font-family: 'Cigars', Georgia, serif;
+      margin: 0;
+    }
+    .top-col-body {
+      padding: 16px 20px 20px;
+    }
+
+    /* ── Executive Summary ── */
+    .exec-summary {
+      margin-bottom: 0;
+    }
+    .exec-findings {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .exec-finding {
+      background: #E8DDD5;
+      border: 1px solid rgba(30,20,20,0.1);
+      border-radius: 10px;
+      padding: 20px 22px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .exec-finding.risk {
+      background: #FFF0EE;
+      border-color: rgba(201,96,88,0.25);
+    }
+    .exec-finding-icon {
+      font-size: 20px;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .exec-finding-headline {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1A3550;
+      margin-bottom: 5px;
+      font-family: 'Cigars', Georgia, serif;
+    }
+    .exec-finding.risk .exec-finding-headline { color: #C96058; }
+    .exec-finding-text {
+      font-size: 13px;
+      color: #3a2e2e;
+      line-height: 1.65;
+    }
+    .exec-finding-schools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .exec-school-chip {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(26,53,80,0.1);
+      color: #1A3550;
+    }
+    .exec-finding.risk .exec-school-chip {
+      background: rgba(201,96,88,0.12);
+      color: #C96058;
+    }
+
+    /* ── Stat charts ── */
+    .stat-charts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      overflow: visible;
+    }
+    .stat-chart-tile {
+      background: rgba(30,20,20,0.05);
+      border-radius: 10px;
+      padding: 28px 10px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow: visible;
+    }
+    .stat-chart-wrap {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      margin-bottom: 8px;
+      isolation: isolate;
+      overflow: visible;
+    }
+    .stat-chart-lbl {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #1E1414;
+      line-height: 1.3;
+    }
+    .stat-plain-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .stat-plain-tile {
+      background: rgba(30,20,20,0.05);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .stat-plain-tile .sp-lbl {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #1E1414;
+    }
+    .stat-plain-tile .sp-val {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1A3550;
+      font-family: 'Cigars', Georgia, serif;
+    }
+
+    /* ── Breakdown bar charts ── */
+    .breakdown-charts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .breakdown-chart-card {
+      background: rgba(30,20,20,0.05);
+      border-radius: 10px;
+      padding: 12px 14px 10px;
+    }
+    .breakdown-chart-card canvas { cursor: pointer; }
+    .breakdown-title {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #1E1414;
+      margin-bottom: 8px;
+    }
+    .bar-drill {
+      display: none;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(30,20,20,0.1);
+    }
+    .bar-drill.open { display: flex; }
+    .bar-drill-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #6B6357;
+      width: 100%;
+      margin-bottom: 2px;
+    }
+    .drill-chip {
+      font-size: 11px;
+      font-weight: 600;
+      background: #1A3550;
+      color: #FFFDF8;
+      border-radius: 20px;
+      padding: 3px 10px;
+      white-space: nowrap;
+    }
+
+    /* ── Tab Navigation ── */
+    .tab-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .tab {
+      background: #E8DDD5;
+      border: 1px solid rgba(30,20,20,0.12);
+      border-radius: 999px;
+      padding: 8px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #6B6357;
+      cursor: pointer;
+      font-family: 'Inter', -apple-system, sans-serif;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .tab:hover { background: #DDD0C7; color: #1A3550; }
+    .tab.active {
+      background: #1A3550;
+      color: #FFFDF8;
+      border-color: #1A3550;
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #6B6357;
+      padding: 28px;
+      background: #F2E9E2;
+      border-top: 1px solid rgba(30,20,20,0.1);
+    }
+
+    /* ══════════════════════════════════════════════
+       MARKET INTELLIGENCE SECTION
+    ══════════════════════════════════════════════ */
+
+    .intel-section { margin-bottom: 52px; }
+
+    .intel-card {
+      background: #E8DDD5;
+      border: 1px solid rgba(30,20,20,0.1);
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+    }
+    .intel-card-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6B6357;
+      margin-bottom: 4px;
+    }
+    .intel-card-heading {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1A3550;
+      margin-bottom: 6px;
+      font-family: 'Cigars', Georgia, serif;
+    }
+    .intel-card-sub {
+      font-size: 12px;
+      color: #6B6357;
+      margin-bottom: 20px;
+    }
+
+    /* ── Two-column layout ── */
+    .intel-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    @media (max-width: 760px) {
+      .intel-two-col { grid-template-columns: 1fr; }
+    }
+
+    /* ── Feature Demand Heatmap ── */
+    .heatmap-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-top: 16px;
+    }
+    .heatmap {
+      width: 100%;
+      min-width: 700px;
+      border-collapse: collapse;
+    }
+    .heatmap thead th {
+      padding: 0 4px 12px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #6B6357;
+      text-align: center;
+      vertical-align: bottom;
+      line-height: 1.3;
+      min-width: 64px;
+    }
+    .heatmap thead th.hm-feature-col {
+      text-align: left;
+      min-width: 190px;
+      padding-right: 20px;
+    }
+    .heatmap thead th.hm-count-col {
+      min-width: 44px;
+      text-align: center;
+    }
+    .heatmap tbody tr {
+      border-top: 1px solid rgba(30,20,20,0.07);
+    }
+    .heatmap tbody tr:last-child { border-bottom: 1px solid rgba(30,20,20,0.07); }
+    .hm-feature-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1E1414;
+      padding: 11px 20px 11px 0;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .hm-feature-label .hm-sub {
+      display: block;
+      font-size: 10px;
+      font-weight: 400;
+      color: #6B6357;
+      margin-top: 1px;
+    }
+    .hm-cell {
+      text-align: center;
+      padding: 8px 4px;
+    }
+    .hm-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin: 0 auto;
+    }
+    .hm-dot.filled { background: #1A3550; }
+    .hm-dot.empty  { background: rgba(30,20,20,0.08); }
+    .hm-count {
+      font-size: 14px;
+      font-weight: 800;
+      color: #1A3550;
+      text-align: center;
+      padding: 8px 0 8px 12px;
+    }
+    .hm-legend {
+      display: flex;
+      gap: 20px;
+      margin-top: 14px;
+      font-size: 11px;
+      color: #6B6357;
+      align-items: center;
+    }
+    .hm-legend-item { display: flex; align-items: center; gap: 7px; }
+    .hm-legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ── Priority Bar Chart ── */
+    .priority-rows { display: flex; flex-direction: column; gap: 16px; margin-top: 4px; }
+    .pbar-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+    .pbar-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1E1414;
+    }
+    .pbar-stat {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1A3550;
+      white-space: nowrap;
+    }
+    .pbar-track {
+      background: rgba(30,20,20,0.08);
+      border-radius: 4px;
+      height: 10px;
+      overflow: hidden;
+    }
+    .pbar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: #1A3550;
+    }
+    .pbar-fill.accent { background: #C96058; }
+    .pbar-footnote {
+      font-size: 11px;
+      color: #6B6357;
+      margin-top: 18px;
+      line-height: 1.5;
+    }
+
+    /* ── Product Ideas from the Field ── */
+    .ideas-section { margin-bottom: 52px; }
+    .ideas-intro {
+      font-size: 13px;
+      color: #6B6357;
+      line-height: 1.65;
+      margin: 0 0 20px;
+    }
+    .ideas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 860px) { .ideas-grid { grid-template-columns: 1fr; } }
+    .idea-card {
+      background: #E8DDD5;
+      border-radius: 10px;
+      border: 1px solid rgba(30,20,20,0.1);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .idea-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 20px;
+      margin-bottom: 2px;
+    }
+    .idea-badge.new  { background: rgba(242,218,78,0.35); color: #6B5500; border: 1px solid rgba(200,160,0,0.35); }
+    .idea-badge.multi { background: rgba(26,53,80,0.1); color: #1A3550; border: 1px solid rgba(26,53,80,0.22); }
+    .idea-rank {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+    .idea-rank-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: #1A3550;
+      letter-spacing: 0.03em;
+    }
+    .idea-rank-sep {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(30,20,20,0.2);
+      flex-shrink: 0;
+    }
+    .idea-rank-basis {
+      font-size: 10px;
+      font-weight: 500;
+      color: #6B6357;
+      font-style: italic;
+    }
+    .idea-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1A3550;
+      line-height: 1.3;
+    }
+    .idea-body {
+      font-size: 13px;
+      line-height: 1.65;
+      color: #1E1414;
+      flex: 1;
+    }
+    .idea-quote {
+      font-size: 12px;
+      font-style: italic;
+      color: #1E1414;
+      border-left: 3px solid rgba(26,53,80,0.4);
+      padding-left: 10px;
+      margin-top: 2px;
+    }
+    .idea-attr {
+      font-size: 11px;
+      font-weight: 600;
+      color: #6B6357;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding-top: 4px;
+      border-top: 1px solid rgba(30,20,20,0.08);
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .idea-attr-label {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: #6B6357;
+      display: block;
+      margin-bottom: 1px;
+    }
+    .idea-attr-label.secondary { margin-top: 6px; }
+    .idea-attr-person {
+      font-size: 11px;
+      font-weight: 600;
+      color: #1A3550;
+      display: block;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .idea-school-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .idea-school-chip {
+      font-size: 10px;
+      font-weight: 600;
+      background: rgba(26,53,80,0.08);
+      color: #1A3550;
+      border-radius: 4px;
+      padding: 2px 7px;
+    }
+
+    /* ── Quote Rail ── */
+    .quote-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 4px;
+    }
+    .quote-card {
+      background: #1A3550;
+      color: #FFFDF8;
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+    .quote-text {
+      font-size: 13px;
+      line-height: 1.65;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .quote-attribution {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-meta">
+      <a href="/index.html" class="badge" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="badge">Spring 2026</span>
+    </div>
+    <h1>Society Roadshow</h1>
+  </div>
+</header>
+
+<main>
+
+  <div class="tab-bar">
+    <button class="tab active" data-tab="schools" onclick="switchTab('schools')">Schools</button>
+    <button class="tab" data-tab="findings" onclick="switchTab('findings')">Key Findings</button>
+    <button class="tab" data-tab="stats" onclick="switchTab('stats')">Stats</button>
+    <button class="tab" data-tab="intel" onclick="switchTab('intel')">What Advisors Are Telling Us</button>
+    <button class="tab" data-tab="ideas" onclick="switchTab('ideas')">Product Ideas from the Field</button>
+  </div>
+
+  <!-- Key Findings Tab -->
+  <div id="tab-findings" class="tab-panel">
+    <div class="exec-findings">
+
+      <div class="exec-finding">
+        <div class="exec-finding-icon">📊</div>
+        <div>
+          <div class="exec-finding-headline">Proving program ROI to administration is the universal pressure point.</div>
+          <div class="exec-finding-text">Across every school type — community colleges, technical colleges, private liberal arts, large public research universities — advisors cited outcomes data as their most urgent need. Most are operating without any reporting visibility: one advisor has manually tracked alumni on LinkedIn every year since 2015. Society's reporting layer isn't a feature; it's the strongest internal advocacy tool advisors have been missing.</div>
+          <div class="exec-finding-schools">
+            <span class="exec-school-chip">Mott CC</span>
+            <span class="exec-school-chip">Central Wyoming CC</span>
+            <span class="exec-school-chip">St. John's University</span>
+            <span class="exec-school-chip">UT Rio Grande Valley</span>
+            <span class="exec-school-chip">Western Governors</span>
+          
+            <span class="exec-school-chip">University of North Texas</span>
+          
+            <span class="exec-school-chip">Dartmouth College</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exec-finding">
+        <div class="exec-finding-icon">🎯</div>
+        <div>
+          <div class="exec-finding-headline">The Clarity Track is reaching students that leadership programs never could.</div>
+          <div class="exec-finding-text">Five schools independently flagged a student segment that won't engage a "leadership" frame: trades students, English majors without career direction, non-traditional learners, and commuters skeptical of the program's value. Each advisor saw the Clarity Track as the first credible bridge to these students. This is a significant untapped market, not a product edge case — and it came up without prompting in every school type.</div>
+          <div class="exec-finding-schools">
+            <span class="exec-school-chip">Texas Lutheran</span>
+            <span class="exec-school-chip">Central Wyoming CC</span>
+            <span class="exec-school-chip">South Piedmont CC</span>
+            <span class="exec-school-chip">Madison Area TC</span>
+            <span class="exec-school-chip">UT Rio Grande Valley</span>
+          
+            <span class="exec-school-chip">UNLV</span>
+          
+            <span class="exec-school-chip">Dartmouth College</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exec-finding">
+        <div class="exec-finding-icon">🤝</div>
+        <div>
+          <div class="exec-finding-headline">Enthusiasm is high and broadly distributed — across 19 schools.</div>
+          <div class="exec-finding-text">Fifteen of twenty schools expressed pilot partner interest. The strongest signals came from a diverse cross-section: three 10/10 scores in the April AIN group call (Coastal Carolina, UT Knoxville, and FAMU), a 10/10 from a community college advisor who has been manually tracking alumni on LinkedIn since 2015, a 10/10 from a private Ohio university advisor who is presenting NSLS to their Board of Trustees the day after the meeting, and 9/10s from a rural Wyoming college, a Colorado community college already doing spreadsheet-based analytics, and a Las Vegas research university advisor who gave Society a 10/10 personally and confirmed pilot interest on the spot. Interest is not concentrated in one school type or region — it reflects a broadly felt need for what Society does.</div>
+          <div class="exec-finding-schools">
+            <span class="exec-school-chip">Mott CC — 10/10</span>
+            <span class="exec-school-chip">Coastal Carolina — 10/10</span>
+            <span class="exec-school-chip">UT Knoxville — 10/10</span>
+            <span class="exec-school-chip">FAMU — 10/10</span>
+            <span class="exec-school-chip">Muskingum University — 10/10</span>
+            <span class="exec-school-chip">Drew University — 9/10</span>
+            <span class="exec-school-chip">UT Rio Grande Valley — 9/10</span>
+            <span class="exec-school-chip">Arapahoe CC — 9/10</span>
+          
+            <span class="exec-school-chip">Texas A&M-CC — 7/10</span>
+          
+            <span class="exec-school-chip">University of North Texas — 9/10</span>
+          
+            <span class="exec-school-chip">UNLV — 9/10</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exec-finding">
+        <div class="exec-finding-icon">⚙️</div>
+        <div>
+          <div class="exec-finding-headline">SNT friction is a recurring product bottleneck at the advisor layer.</div>
+          <div class="exec-finding-text">Five schools surfaced specific workflow problems around SNT group management: an advisor who can't facilitate matching because she's occupied with attendance scanning, students confused about group membership visibility, manual workarounds like color-coded paper systems, a large online university already building competing functionality internally, and Henry Stanford at Muskingum confirming the platform-wide 40–60% SNT drop-off pattern firsthand — with students skipping groups entirely or completing only one of three. SNT automation — scheduling, matching, in-app communication, and completion nudges — is the most consistent product gap mentioned by advisors who are otherwise enthusiastic.</div>
+          <div class="exec-finding-schools">
+            <span class="exec-school-chip">Austin Peay</span>
+            <span class="exec-school-chip">Drew University</span>
+            <span class="exec-school-chip">Madison Area TC</span>
+            <span class="exec-school-chip">Western Governors</span>
+            <span class="exec-school-chip">Muskingum University</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exec-finding">
+        <div class="exec-finding-icon">💸</div>
+        <div>
+          <div class="exec-finding-headline">Paying members who don't complete is felt as an ethical failure — and advisors want the platform to share accountability.</div>
+          <div class="exec-finding-text">Dan Balski at Arapahoe Community College named it plainly: over half of paying members don't complete the program, and this has not historically felt like a national-level priority. He framed Society's expanded benefit layers as a direct response — students who don't engage with the leadership track now have meaningful alternatives that justify the membership fee. Henry Stanford at Muskingum University confirmed the same pattern: SNT completion drop-off is the primary point where students disengage, with many skipping groups entirely or completing only one of three. Both advisors explicitly named platform-level nudges as the necessary intervention. This concern is not isolated to one school type — it spans community colleges and private universities alike.</div>
+          <div class="exec-finding-schools">
+            <span class="exec-school-chip">Arapahoe Community College</span>
+            <span class="exec-school-chip">Muskingum University</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exec-finding risk">
+        <div class="exec-finding-icon">⚠️</div>
+        <div>
+          <div class="exec-finding-headline">One competitive risk to monitor: WGU is building SNT-style peer matching internally.</div>
+          <div class="exec-finding-text">Western Governors University's SVP of Student Success disclosed unprompted that WGU has product and engineering teams actively building peer matching functionality similar to Society's SNT feature. WGU operates its own commercialization arm (WGU Labs) and has a history of productizing internal tools. The meeting team's guarded posture suggests they may be evaluating Society against what they're already building. NSLS's defensible advantages — 2.2M alumni network, cross-institutional matching, and brand recognition — should anchor any follow-up with this school.</div>
+          <div class="exec-finding-schools">
+            <span class="exec-school-chip">Western Governors University</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /exec-findings -->
+  </div><!-- /tab-findings -->
+
+  <!-- Stats Tab -->
+  <div id="tab-stats" class="tab-panel">
+    <!-- TOTAL_INVITED: update this when the invite list grows -->
+    <div data-total-invited="22">
+          <div class="stat-charts-grid">
+            <div class="stat-chart-tile">
+              <div class="stat-chart-wrap">
+                <canvas id="chart-met"></canvas>
+              </div>
+              <div class="stat-chart-lbl" id="lbl-met"></div>
+            </div>
+            <div class="stat-chart-tile">
+              <div class="stat-chart-wrap">
+                <canvas id="chart-enthusiasm"></canvas>
+              </div>
+              <div class="stat-chart-lbl" id="lbl-enthusiasm"></div>
+            </div>
+            <div class="stat-chart-tile">
+              <div class="stat-chart-wrap">
+                <canvas id="chart-pilot"></canvas>
+              </div>
+              <div class="stat-chart-lbl" id="lbl-pilot"></div>
+            </div>
+            <div class="stat-chart-tile">
+              <div class="stat-chart-wrap">
+                <canvas id="chart-council"></canvas>
+              </div>
+              <div class="stat-chart-lbl" id="lbl-council"></div>
+            </div>
+          </div>
+          <div class="stat-plain-row">
+            <div class="stat-plain-tile">
+              <span class="sp-lbl">Survey Respondents</span>
+              <span class="sp-val" data-stat="survey-respondents">—</span>
+            </div>
+            <div class="stat-plain-tile">
+              <span class="sp-lbl">Advisors Engaged</span>
+              <span class="sp-val" data-stat="advisors-engaged">—</span>
+            </div>
+          </div>
+
+          <!-- Breakdown bar charts -->
+          <div class="breakdown-charts">
+            <div class="breakdown-chart-card">
+              <div class="breakdown-title">School Type</div>
+              <canvas id="chart-school-type"></canvas>
+              <div class="bar-drill" id="drill-school-type"></div>
+            </div>
+            <div class="breakdown-chart-card">
+              <div class="breakdown-title">Chapter Status</div>
+              <canvas id="chart-chapter-status"></canvas>
+              <div class="bar-drill" id="drill-chapter-status"></div>
+            </div>
+            <div class="breakdown-chart-card">
+              <div class="breakdown-title">Chapter Type</div>
+              <canvas id="chart-chapter-type"></canvas>
+              <div class="bar-drill" id="drill-chapter-type"></div>
+            </div>
+          </div>
+        </div>
+  </div><!-- /tab-stats -->
+
+  <!-- ══════════════════════════════════════════════
+       MARKET INTELLIGENCE
+  ══════════════════════════════════════════════ -->
+  <div id="tab-intel" class="tab-panel">
+
+    <!-- ── Feature Demand Heatmap ────────────────────────────────────── -->
+    <div class="intel-card" style="margin-bottom:20px;">
+      <div class="intel-card-title">Product Intelligence</div>
+      <div class="intel-card-heading">Feature Demand Across 20 Schools</div>
+      <div class="intel-card-sub">Expressed product interest by school — drawn from meeting notes and advisor survey responses. Each dot represents a confirmed need raised in that school's engagement. (Columns reflect original 11 individual meetings; April AIN group session schools aggregated in counts.)</div>
+      <div class="heatmap-wrap">
+        <table class="heatmap">
+          <thead>
+            <tr>
+              <th class="hm-feature-col"></th>
+              <th title="Texas Lutheran University">TLU</th>
+              <th title="Central Wyoming Community College">CWC</th>
+              <th title="Austin Peay State University">APSU</th>
+              <th title="South Piedmont Community College">SPCC</th>
+              <th title="Mott Community College">Mott</th>
+              <th title="Drew University">Drew</th>
+              <th title="St. John's University">SJU</th>
+              <th title="UT Rio Grande Valley">UTRGV</th>
+              <th title="Western Governors University">WGU</th>
+              <th title="Madison Area Technical College">MATC</th>
+              <th title="Muskingum University">Muski</th>
+              <th title="Texas A&M University-Corpus Christi">TAMUCC</th>
+              <th title="University of North Texas">UNT</th>
+              <th title="University of Nevada, Las Vegas">UNLV</th>
+              <th title="Dartmouth College">Dart</th>
+              <th class="hm-count-col">#</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="hm-feature-label">Career Clarity Track<span class="hm-sub">Clarity track, career direction discovery</span></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-count">9</td>
+            </tr>
+            <tr>
+              <td class="hm-feature-label">Outcomes &amp; Reporting<span class="hm-sub">Data dashboards, longitudinal tracking, ROI proof</span></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-count">5</td>
+            </tr>
+            <tr>
+              <td class="hm-feature-label">SNT Automation<span class="hm-sub">Peer matching, in-app scheduling, group mgmt</span></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-count">7</td>
+            </tr>
+            <tr>
+              <td class="hm-feature-label">Campus System Integration<span class="hm-sub">Handshake, LMS, attendance, career services</span></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-count">6</td>
+            </tr>
+            <tr>
+              <td class="hm-feature-label">Mobile-First Platform<span class="hm-sub">Mobile advisor access, modern UX, modular content</span></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-count">6</td>
+            </tr>
+            <tr>
+              <td class="hm-feature-label">Alumni Mentor Matching<span class="hm-sub">2.2M alumni network, near-peer mentorship</span></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-count">4</td>
+            </tr>
+            <tr>
+              <td class="hm-feature-label">Personality Assessments<span class="hm-sub">DISC, Myers-Briggs, StrengthsFinder, Holland Code</span></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-count">4</td>
+            </tr>
+            <tr>
+              <td class="hm-feature-label">AI Coach &amp; Nudges<span class="hm-sub">AI career coach, personalized prompts, goal nudges</span></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-cell"><div class="hm-dot empty"></div></td>
+              <td class="hm-cell"><div class="hm-dot filled"></div></td>
+              <td class="hm-count">5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="hm-legend">
+        <div class="hm-legend-item"><div class="hm-legend-dot" style="background:#1A3550;"></div> Expressed need (meeting notes or survey)</div>
+        <div class="hm-legend-item"><div class="hm-legend-dot" style="background:rgba(30,20,20,0.08);"></div> Not raised in this engagement</div>
+      </div>
+    </div>
+
+    <!-- ── Priority Rankings + Advisor Voices ──────────────────────────── -->
+    <div class="intel-two-col">
+
+      <!-- Priority Bar Chart -->
+      <div class="intel-card">
+        <div class="intel-card-title">Survey Intelligence</div>
+        <div class="intel-card-heading">Advisor Priority Rankings</div>
+        <div class="intel-card-sub">Weighted by rank position across 9 survey respondents</div>
+        <div class="priority-rows">
+          <div class="pbar-row">
+            <div class="pbar-meta">
+              <span class="pbar-label">Develop Career-Ready Skills</span>
+              <span class="pbar-stat">83% &nbsp;&middot;&nbsp; #1 most often</span>
+            </div>
+            <div class="pbar-track"><div class="pbar-fill accent" style="width:83%;"></div></div>
+          </div>
+          <div class="pbar-row">
+            <div class="pbar-meta">
+              <span class="pbar-label">Track &amp; Prove Student Outcomes</span>
+              <span class="pbar-stat">67%</span>
+            </div>
+            <div class="pbar-track"><div class="pbar-fill" style="width:67%;"></div></div>
+          </div>
+          <div class="pbar-row">
+            <div class="pbar-meta">
+              <span class="pbar-label">Help Students Discover Career Direction</span>
+              <span class="pbar-stat">61%</span>
+            </div>
+            <div class="pbar-track"><div class="pbar-fill" style="width:61%;"></div></div>
+          </div>
+          <div class="pbar-row">
+            <div class="pbar-meta">
+              <span class="pbar-label">Build Professional Networks</span>
+              <span class="pbar-stat">39%</span>
+            </div>
+            <div class="pbar-track"><div class="pbar-fill" style="width:39%;"></div></div>
+          </div>
+        </div>
+        <div class="pbar-footnote">Weighted score: P1&nbsp;=&nbsp;4 pts &middot; P2&nbsp;=&nbsp;3 pts &middot; P3&nbsp;=&nbsp;2 pts &middot; P4&nbsp;=&nbsp;1 pt. Score expressed as % of maximum possible (36 pts). Based on 9 completed surveys from 8 schools — APSU and SPCC surveys pending.</div>
+      </div>
+
+      <!-- Advisor Voices -->
+      <div class="intel-card">
+        <div class="intel-card-title">Field Intelligence</div>
+        <div class="intel-card-heading">In Their Own Words</div>
+        <div class="intel-card-sub">Signals from advisors that surfaced organically — not prompted</div>
+        <div class="quote-grid">
+          <div class="quote-card">
+            <div class="quote-text">"Clarity would work well for English majors who don't know what to do with their degree."</div>
+            <div class="quote-attribution">Cody Mazzurana, Chapter Advisor &middot; Texas Lutheran University</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"I've manually tracked every student I've worked with on LinkedIn — every year since 2015. I'd love to stop doing that."</div>
+            <div class="quote-attribution">Dawn Vanniman, Chapter Advisor &middot; Mott Community College</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"If the tech platform is also encouraging that engagement in tandem with me, that would elevate our engagement even more."</div>
+            <div class="quote-attribution">Dan Balski, Advisor &middot; Arapahoe Community College</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"I never want NSLS to get stale."</div>
+            <div class="quote-attribution">Daphne Holland, Chapter Advisor &middot; Coastal Carolina University</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"Society helps legitimize the program to administration."</div>
+            <div class="quote-attribution">Brandon Sanchez, Program Coordinator &middot; UT Rio Grande Valley</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"If NSLS generates shareable reporting data, it would be fantastic."</div>
+            <div class="quote-attribution">Natalie Maio, Chapter Advisor &middot; St. John's University</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">"A student emailed me saying she couldn't attend induction because she hadn't finished the steps — and tried to complete everything in one day. Reminders from just me aren't enough."</div>
+            <div class="quote-attribution">Henry Stanford, Chapter Advisor &middot; Muskingum University</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">&ldquo;I would be open to piloting Society starting with SNT scheduling alone, even if everything else remained in-person.&rdquo;</div>
+            <div class="quote-attribution">Lauren Breckenridge, Advisor · Texas A&M University-Corpus Christi</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">&ldquo;I was like, this is literally what I was thinking.&rdquo;</div>
+            <div class="quote-attribution">Sydney Pickett · University of North Texas</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">&ldquo;Does the career readiness score adapt by track? And can the AI coach tailor to UNLV's course catalog?&rdquo;</div>
+            <div class="quote-attribution">LaDonnia Petersen · University of Nevada, Las Vegas</div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-text">&ldquo;I'd rate it around an eight or nine — but any decision like this is above my pay grade. I'd need to bring something to my boss and get the executive director and DCCD aligned before we could move forward.&rdquo;</div>
+            <div class="quote-attribution">Robert Coates, Advisor · Dartmouth College</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /intel-two-col -->
+  </div><!-- /tab-intel -->
+
+  <!-- ══════════════════════════════════════════════
+       IDEAS FROM THE FIELD
+  ══════════════════════════════════════════════ -->
+  <div id="tab-ideas" class="tab-panel">
+    <p class="ideas-intro">Product signals surfaced across 20 discovery meetings — ideas raised organically by advisors or discussed and validated during demos. Cards are ranked by the number of schools where each idea was discussed; ties broken by signal strength and whether the idea was raised unprompted.</p>
+
+    <div class="ideas-grid">
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#1</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 7 schools</span></div>
+        <div class="idea-name">Career Readiness Score</div>
+        <div class="idea-body">A Career Readiness Score — a composite metric reflecting student progress across skills, assessments, and career milestones — surfaced as the mechanism for bringing Career Services advisors under the NSLS tent. Where advisors currently struggle to demonstrate program ROI to institutional leadership, a visible score creates a shared language between NSLS and career services departments that today have no reason to log into the platform. Cassandra Gonzalez at Drew immediately connected it to how she thinks about student progress beyond induction completion. Natalie Maio at St. John's saw it as a tool that could support university rankings. Hunter Hammock at UTK confirmed it would help make the case to campus partners. Henry Stanford at Muskingum went further: he proposed that the score should include school-customizable components — internships, high-impact experiences, faculty research — because what counts as career readiness at Muskingum may not matter at another school. This is the most specific product-design input the idea has received, and came entirely unprompted. Robert Coates at Dartmouth, who has a background in measurement and evaluation, reacted positively to the score as a tool for donor reporting and demonstrating program ROI to institutional leadership.</div>
+        <div class="idea-school-chips">
+          <span class="idea-school-chip">Drew University</span>
+          <span class="idea-school-chip">St. John's University</span>
+          <span class="idea-school-chip">University of Tennessee, Knoxville</span>
+          <span class="idea-school-chip">Muskingum University</span>
+          <span class="idea-school-chip">University of Nevada, Las Vegas</span>
+          <span class="idea-school-chip">University of North Texas</span>
+          <span class="idea-school-chip">Dartmouth College</span>
+        </div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Cassandra Gonzalez &nbsp;&middot;&nbsp; Drew University</span>
+          <span class="idea-attr-label secondary">Also discussed</span>
+          <span class="idea-attr-person">Natalie Maio &nbsp;&middot;&nbsp; St. John's University</span>
+          <span class="idea-attr-person">Hunter Hammock &nbsp;&middot;&nbsp; University of Tennessee, Knoxville</span>
+          <span class="idea-attr-person">Henry Stanford &nbsp;&middot;&nbsp; Muskingum University</span>
+          <span class="idea-attr-person">LaDonnia Petersen &nbsp;&middot;&nbsp; University of Nevada, Las Vegas</span>
+          <span class="idea-attr-person">Sydney Pickett &nbsp;&middot;&nbsp; University of North Texas</span>
+          <span class="idea-attr-person">Robert Coates &nbsp;&middot;&nbsp; Dartmouth College</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#2</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 6 schools</span></div>
+        <div class="idea-name">School Agent</div>
+        <div class="idea-body">The school agent concept comes up in most meetings: an AI agent trained on school-specific data — the course catalog, staff directory, student services, on-campus programs and resources — so the Society AI coach can give students contextually relevant guidance about their specific institution. Rather than generic career coaching, the school agent would know what TLU's directed studies look like, who the UTRGV career advisors are, and what resources NSLS members at St. John's can access after completing the program. The goal is to turn the AI coach from a general-purpose tool into one that can answer "what do I do next — at my school?" Cody Mazzurana at Texas Lutheran immediately envisioned it routing students to TLU faculty, career development staff, and internship opportunities. Hunter Hammock at UTK followed up with questions about integrating career services and academic advising into the coaching experience. Chris demoed the school-specific agent concept for Dartmouth — showing how the coach could reference Dartmouth's course catalog and the Center for Career Design specifically — and both Bob Coates and Travis Owusu reacted positively.</div>
+        <div class="idea-school-chips">
+          <span class="idea-school-chip">Texas Lutheran University</span>
+          <span class="idea-school-chip">University of Tennessee, Knoxville</span>
+          <span class="idea-school-chip">St. John's University</span>
+          <span class="idea-school-chip">UT Rio Grande Valley</span>
+          <span class="idea-school-chip">University of Nevada, Las Vegas</span>
+          <span class="idea-school-chip">Dartmouth College</span>
+        </div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Cody Mazzurana &nbsp;&middot;&nbsp; Texas Lutheran University</span>
+          <span class="idea-attr-label secondary">Also discussed</span>
+          <span class="idea-attr-person">Hunter Hammock &nbsp;&middot;&nbsp; University of Tennessee, Knoxville</span>
+          <span class="idea-attr-person">Natalie Maio &nbsp;&middot;&nbsp; St. John's University</span>
+          <span class="idea-attr-person">LaDonnia Petersen &nbsp;&middot;&nbsp; University of Nevada, Las Vegas</span>
+          <span class="idea-attr-person">Robert Coates &amp; Travis Owusu &nbsp;&middot;&nbsp; Dartmouth College</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#3</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 6 schools</span></div>
+        <div class="idea-name">Administrator Dashboard</div>
+        <div class="idea-body">An expanded administrator dashboard — going beyond current completion tracking to give Career Services access to student progress data, including the Career Readiness Score, so advisors can prepare for appointments with students who have booked time with them. The framing: get Career Services logging into Society as part of their regular workflow, not just for NSLS-specific advising. Cassandra Gonzalez and Kimberly Giorgio at Drew reacted strongly, noting it would address major gaps in demographic and cohort-level tracking. Natalie Maio at St. John's flagged a specific pain point that makes this concrete: 322 students completed induction but her current dashboard shows only 30–40, with no year-over-year filtering. Robert Coates at Dartmouth — who has a background in measurement and evaluation (Rice/Doerr) — unpromptedly connected the dashboard's longitudinal cohort view to donor reporting and institutional accountability, calling out exactly the kind of data his executive director would need to sustain institutional commitment.</div>
+        <div class="idea-school-chips">
+          <span class="idea-school-chip">Drew University</span>
+          <span class="idea-school-chip">St. John's University</span>
+          <span class="idea-school-chip">Austin Peay State University</span>
+          <span class="idea-school-chip">University of Nevada, Las Vegas</span>
+          <span class="idea-school-chip">University of North Texas</span>
+          <span class="idea-school-chip">Dartmouth College</span>
+        </div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Cassandra Gonzalez &nbsp;&middot;&nbsp; Drew University</span>
+          <span class="idea-attr-label secondary">Also discussed</span>
+          <span class="idea-attr-person">Natalie Maio &nbsp;&middot;&nbsp; St. John's University</span>
+          <span class="idea-attr-person">Janesa Wine &nbsp;&middot;&nbsp; Austin Peay State University</span>
+          <span class="idea-attr-person">LaDonnia Petersen &nbsp;&middot;&nbsp; University of Nevada, Las Vegas</span>
+          <span class="idea-attr-person">Sydney Pickett &nbsp;&middot;&nbsp; University of North Texas</span>
+          <span class="idea-attr-person">Robert Coates &nbsp;&middot;&nbsp; Dartmouth College</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#4</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 5 schools · raised unprompted</span></div>
+        <div class="idea-name">FOL Micro-Learning &amp; Modular Content</div>
+        <div class="idea-body">The Foundations of Leadership curriculum in its current form requires advisors to manually time-stamp long videos and build their own facilitation guides from scratch. Kimberly Giorgio and Cassandra Gonzalez at Drew rebuilt the entire LTD facilitation guide themselves because the existing videos — designed for virtual/asynchronous delivery — don't translate to a live room. Dawn Vanniman at Mott refers to the current video instructor as "Karen" and calls the content scripted and inauthentic; her chapter uses it selectively and supplements with original programming, including Kahoot quizzes that consistently outperform the video for engagement. Melissa De La Cruz at TLU flagged that interactivity is what keeps student interest — the shift away from long-form passive video was immediately welcomed. Henry Stanford at Muskingum requested deeper leadership content specifically (more on emotional intelligence and leadership styles) and the session notes flagged FOL 2.0 with modular, interactive learning as the direct response. The common thread across all four schools: advisors are already doing the curriculum work themselves, building workarounds that the platform should provide natively. The proposal is short, self-contained clips and micro-learning units — concept cards, mini slideshows, embedded quizzes — that advisors can use independently or string together without any manual time-stamping required.</div>
+        <div class="idea-school-chips">
+          <span class="idea-school-chip">Drew University</span>
+          <span class="idea-school-chip">Mott Community College</span>
+          <span class="idea-school-chip">Texas Lutheran University</span>
+          <span class="idea-school-chip">Muskingum University</span>
+          <span class="idea-school-chip">University of Nevada, Las Vegas</span>
+        </div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Kimberly Giorgio &nbsp;&middot;&nbsp; Drew University</span>
+          <span class="idea-attr-label secondary">Also discussed</span>
+          <span class="idea-attr-person">Dawn Vanniman &nbsp;&middot;&nbsp; Mott Community College</span>
+          <span class="idea-attr-person">Melissa De La Cruz &nbsp;&middot;&nbsp; Texas Lutheran University</span>
+          <span class="idea-attr-person">Henry Stanford &nbsp;&middot;&nbsp; Muskingum University</span>
+          <span class="idea-attr-person">LaDonnia Petersen &nbsp;&middot;&nbsp; University of Nevada, Las Vegas</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#5</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 3 schools</span></div>
+        <div class="idea-name">Handshake Integration</div>
+        <div class="idea-body">Pulling student job-search activity and data from Handshake — the dominant campus job board — into the Society dashboard to strengthen the Career Readiness Score, surface student job activity for advisors, and give the AI coach additional context for personalized guidance. Most schools already use Handshake and students are active on it; an integration would close the gap between where students are spending time career-building and where advisors can see their progress. Cassandra Gonzalez at Drew confirmed it directly — she currently uses Handshake for student tracking and noted Society data alongside it would strengthen her reporting. Casey at WGU, who already has deep Handshake access, responded positively and confirmed an integrated view would still be useful. Janesa Wine at APSU described manually reconciling student identities across platforms as an ongoing burden.</div>
+        <div class="idea-school-chips">
+          <span class="idea-school-chip">Drew University</span>
+          <span class="idea-school-chip">Western Governors University</span>
+          <span class="idea-school-chip">Austin Peay State University</span>
+        </div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Cassandra Gonzalez &nbsp;&middot;&nbsp; Drew University</span>
+          <span class="idea-attr-label secondary">Also discussed</span>
+          <span class="idea-attr-person">Casey &nbsp;&middot;&nbsp; Western Governors University</span>
+          <span class="idea-attr-person">Janesa Wine &nbsp;&middot;&nbsp; Austin Peay State University</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#6</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 3 schools</span></div>
+        <div class="idea-name">Multi-Semester Analytics</div>
+        <div class="idea-body">Platform data resets prevent year-over-year comparison — and multiple advisors have built manual workarounds that reveal exactly what's missing. Dan Balski (Arapahoe CC) maintains parallel spreadsheets and has submitted this request through prior NSLS surveys. Dawn Vanniman (Mott CC) has manually tracked every student she's worked with on LinkedIn every year since 2015. Both are doing by hand exactly what Society's data layer should automate. Robert Coates at Dartmouth — who comes from a measurement and evaluation background — reacted positively to the cohort and longitudinal view in the Society dashboard, framing it as the kind of data needed to report program outcomes to donors and institutional leadership.</div>
+        <div class="idea-school-chips">
+          <span class="idea-school-chip">Arapahoe Community College</span>
+          <span class="idea-school-chip">Mott Community College</span>
+          <span class="idea-school-chip">Dartmouth College</span>
+        </div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Dan Balski &nbsp;&middot;&nbsp; Arapahoe Community College</span>
+          <span class="idea-attr-label secondary">Also discussed</span>
+          <span class="idea-attr-person">Dawn Vanniman &nbsp;&middot;&nbsp; Mott Community College</span>
+          <span class="idea-attr-person">Robert Coates &nbsp;&middot;&nbsp; Dartmouth College</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#7</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 2 schools</span></div>
+        <div class="idea-name">Platform-Driven Engagement Nudges</div>
+        <div class="idea-body">The platform displays student progress but doesn't actively drive it. Advisors at two schools independently described wanting the platform to share accountability for pushing students through the program — not just show where they are. Dan Balski put it directly in the session chat:</div>
+        <div class="idea-quote">"If the tech platform is also encouraging that engagement in tandem with me, that would elevate our engagement even more."</div>
+        <div class="idea-school-chips">
+          <span class="idea-school-chip">Arapahoe Community College</span>
+          <span class="idea-school-chip">South Piedmont Community College</span>
+        </div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Dan Balski &nbsp;&middot;&nbsp; Arapahoe Community College</span>
+          <span class="idea-attr-label secondary">Also discussed</span>
+          <span class="idea-attr-person">Connie Gardner &nbsp;&middot;&nbsp; South Piedmont Community College</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#8</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 2 schools · raised unprompted</span></div>
+        <div class="idea-name">Student Email Preferences</div>
+        <div class="idea-body">Students register with whatever email is top of mind at the time — often a school address — and end up unreachable when that address expires at graduation, gets filtered over summer break, or simply goes unchecked. Others register with personal Gmail, which solves the delivery problem but breaks institutional cross-referencing. The fix isn't picking one email type: it's letting students designate a preferred address for communications and update it as their situation changes. The goal is reliable contact across the full member lifecycle, from enrollment through alumni engagement.</div>
+        <div class="idea-school-chips">
+          <span class="idea-school-chip">Coastal Carolina University</span>
+          <span class="idea-school-chip">Gonzaga University</span>
+        </div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Daphne Holland &nbsp;&middot;&nbsp; Coastal Carolina University</span>
+          <span class="idea-attr-label secondary">Also discussed</span>
+          <span class="idea-attr-person">Ayaka Dohi &nbsp;&middot;&nbsp; Gonzaga University</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#9</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 2 schools · raised unprompted</span></div>
+        <div class="idea-name">Gamification &amp; Friendly Engagement Nudges</div>
+        <div class="idea-body">Dawn Vanniman's framing of student reminders is specific and worth preserving: not "hey, you haven't done this" but "hey friend, do you still want to do this?" — a tone shift from punitive nudge to friendly check-in, ideally delivered through a fun animated character rather than a plain system notification. The evidence the model works: students who were passive during instruction became visibly engaged and competitive the moment a Kahoot quiz started; no Kahoot session at Mott has ever flopped with a group. Cody Mazzurana at TLU independently flagged gamification from a different angle — as a tool for officer recruitment, showing prospective officers what growth through NSLS looks like in concrete, trackable terms. Melissa De La Cruz at TLU also affirmed that interactivity is what "piques and keeps" student interest. The full concept is gamifying the engagement layer of Society: progress streaks, friendly reminders with personality, low-stakes quiz moments — so the platform feels like something students want to return to, not something they're required to check. Note: the related idea of platform-driven accountability nudges (see #7) addresses a similar problem from the advisor accountability perspective; this is the student-facing design framing.</div>
+        <div class="idea-school-chips">
+          <span class="idea-school-chip">Mott Community College</span>
+          <span class="idea-school-chip">Texas Lutheran University</span>
+        </div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Dawn Vanniman &nbsp;&middot;&nbsp; Mott Community College</span>
+          <span class="idea-attr-label secondary">Also discussed</span>
+          <span class="idea-attr-person">Cody Mazzurana &nbsp;&middot;&nbsp; Texas Lutheran University</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#10</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 2 schools · raised unprompted</span></div>
+        <div class="idea-name">Personality Assessment Enrichment</div>
+        <div class="idea-body">Society's personality assessments currently present results without much scaffolding for interpretation — and some clinical framing carries unintended baggage (e.g., "high neuroticism" in Big Five). Dawn has built her own workaround: she and her co-advisor share their own DISC profiles with students, assign them nicknames ("the queen woo-hoo" for high-I), and ground the results in concrete, relatable scenarios ("if you want to just cry in someone's office, this is the office; if you want a matter-of-fact solution, come to mine"). Students who might tune out a clinical summary instead respond with "oh yeah, that makes sense." The extension: celebrity or public-figure profiles — mapping a student's results to a well-known person with a matching type creates an immediate, memorable hook. The deeper proposal is reworking the full assessment experience to be explanatory rather than clinical: show students what their profile means in practice, how it connects to the AI coach's guidance, and why self-knowledge makes the platform more useful to them.</div>
+        <div class="idea-school-chips">
+          <span class="idea-school-chip">Mott Community College</span>
+          <span class="idea-school-chip">University of Nevada, Las Vegas</span>
+        </div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Dawn Vanniman &nbsp;&middot;&nbsp; Mott Community College</span>
+          <span class="idea-attr-label secondary">Also discussed</span>
+          <span class="idea-attr-person">LaDonnia Petersen &nbsp;&middot;&nbsp; University of Nevada, Las Vegas</span>
+        </div>
+      </div>
+
+    
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#11</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 1 school · raised unprompted</span></div>
+        <div class="idea-name">Alumni &amp; Lifelong Membership Product</div>
+        <div class="idea-body">Loyal NSLS alumni have nothing to return to after graduation. Hunter Hammock (UTK) raised this unprompted — calling it "money being left on the table" — and envisioned continuing education, professional development, and mentorship products that keep alumni engaged across their full career arc, not just their undergraduate years. He explicitly connected this to Society's Connections track as a potential re-entry point.</div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Hunter Hammock &nbsp;&middot;&nbsp; University of Tennessee, Knoxville</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#12</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 1 school · raised unprompted</span></div>
+        <div class="idea-name">Non-Member On-Ramp</div>
+        <div class="idea-body">A pathway for non-members — career services staff, or students in specific courses — to access certain Society features without full membership. The use case: a career advisor wants to reference a student's Society progress before an appointment; an instructor wants to embed Society content into a freshman seminar. Rather than requiring full membership to interact with the platform at all, a limited-access tier could expand NSLS's footprint into departments that would never budget for membership individually — and create a natural conversion funnel toward full membership for students who first encounter it through a campus touchpoint.</div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Lisa Appelhans &nbsp;&middot;&nbsp; Central Wyoming Community College</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#13</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 1 school · raised unprompted</span></div>
+        <div class="idea-name">Member Drop-off Analytics</div>
+        <div class="idea-body">Advisors know members are paying and disengaging — but have no visibility into when or why the drop happens. Lisa Appelhans (CWCC) flagged this as a missing tool: understanding the specific point in the member journey where engagement is lost would enable targeted intervention rather than blanket follow-up. Currently that pattern is invisible. Related to, but distinct from, multi-semester analytics — this is about the journey funnel, not longitudinal data.</div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Lisa Appelhans &nbsp;&middot;&nbsp; Central Wyoming Community College</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#14</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 1 school · raised unprompted</span></div>
+        <div class="idea-name">School-Specific Onboarding Questions</div>
+        <div class="idea-body">Janesa Wine (APSU) wants to ask custom questions during student onboarding: student org memberships, commuter vs. residential status, weekly work hours — data that would let her identify at-risk students and personalize outreach from day one. Currently onboarding is identical for every student at every school. Janesa saw this as the difference between generic membership and genuinely campus-integrated advising.</div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Janesa Wine &nbsp;&middot;&nbsp; Austin Peay State University</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#15</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 1 school · raised unprompted</span></div>
+        <div class="idea-name">Peer Chapter Benchmarking</div>
+        <div class="idea-body">Advisors want to know how their chapter compares to similar ones — not just their own historical data. Cody Mazzurana (TLU) specifically wanted to benchmark against nearby chapters like Alamo Colleges to bring data to administration as an advocacy tool. Without peer context, advisors can't frame their chapter's performance compellingly to institutional leadership. Cross-chapter comparison data isn't currently accessible in any form.</div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Cody Mazzurana &nbsp;&middot;&nbsp; Texas Lutheran University</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#16</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 1 school · raised unprompted</span></div>
+        <div class="idea-name">Quick-Pulse Student Feedback</div>
+        <div class="idea-body">Advisors currently have no lightweight way to know whether programming is landing or whether students are aware of available NSLS resources. Daphne Holland described wanting 2-question mobile check-ins — short enough that students complete them, specific enough to guide advisor decisions between events. The concept hadn't surfaced in prior meetings. Not deep analytics: a real-time feedback loop that closes the gap between programming and student signal.</div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Daphne Holland &nbsp;&middot;&nbsp; Coastal Carolina University</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#17</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 1 school · raised unprompted</span></div>
+        <div class="idea-name">Student ID Field in the Platform</div>
+        <div class="idea-body">Advisors frequently cross-reference NSLS members with institutional records in Banner or Colleague — but students share names and the platform provides no institutional identifier. Daphne Holland's current process: run an IR report, match by name, reconcile errors manually. A non-sensitive student ID field (not SSN) would eliminate this entirely. This specific request hadn't surfaced before despite the related email identity issue coming up multiple times.</div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Daphne Holland &nbsp;&middot;&nbsp; Coastal Carolina University</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#18</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 1 school · raised unprompted</span></div>
+        <div class="idea-name">Affinity-Based SNT Groupings</div>
+        <div class="idea-body">Henry Stanford at Muskingum proposed replacing random or school-only SNT assignment with cross-discipline, field-of-interest groupings — matching all health-field students together, all pre-law students together, regardless of school. His observation: students who share a vocational direction have more meaningful peer conversations than students thrown together by proximity or enrollment timing. The idea addresses both engagement depth and the SNT completion drop-off pattern — students may persist through groups that feel professionally relevant. Henry suggested this entirely unprompted while discussing what would make the SNT experience more valuable at Muskingum, where the chapter is fully online and cross-institutional networking is especially appealing.</div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Henry Stanford &nbsp;&middot;&nbsp; Muskingum University</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#19</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 1 school · raised unprompted</span></div>
+        <div class="idea-name">In-Platform Messaging &amp; Event Communication Hub</div>
+        <div class="idea-body">Advisors coordinate with students through a fragmented stack of email, personal texts, and third-party apps. Dawn raised the need for a native communication layer inside Society — something closer to Slack meets Band App: direct messaging between advisors and members, event planning tools, chapter announcements, and group channels, all inside the platform. The SMS bridge is what makes it viable: students receive a text when a message arrives in Society so delivery doesn't depend on how often they log in. If Society is where students do their career development, it should also be where the advisor can reach them — not a separate app that competes for attention. SMS as a notification layer means students stay connected across summers and semester breaks when email routinely goes unchecked.</div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Dawn Vanniman &nbsp;&middot;&nbsp; Mott Community College</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#20</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 1 school · raised unprompted</span></div>
+        <div class="idea-name">AI Study &amp; Career Prep Toolkit</div>
+        <div class="idea-body">Dawn specifically named NotebookLM as a reference point for a class of functionality she wants inside Society: tools that help students convert reflection and experience into usable outputs — study guides, journal entries, professional narratives, interview scripts. The most concrete extension she raised was AI-powered mock interviewing: a student on video, an AI acting as interviewer, practicing the kind of first-round video screen that HireVue and similar platforms have made standard at large employers. Dawn's chapter previously offered resume assistance and live mock interviews; demand was consistently high but the time cost made it unsustainable. A built-in async tool would restore that capability without the bandwidth constraint — and get students comfortable with video-format interviews before they face a real one.</div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Dawn Vanniman &nbsp;&middot;&nbsp; Mott Community College</span>
+        </div>
+      </div>
+
+      <div class="idea-card">
+        <div class="idea-rank"><span class="idea-rank-num">#21</span><span class="idea-rank-sep"></span><span class="idea-rank-basis">discussed at 1 school · raised unprompted</span></div>
+        <div class="idea-name">Skill-Level Outcome Data &amp; NACE Competency Reporting</div>
+        <div class="idea-body">Sydney Pickett at UNT was the first advisor in approximately 20 roadshow calls to ask for skill-level learning outcome data — not just participation counts or completion rates, but the specific leadership and career competencies students develop through the program. Her request was precise: a list of the top three skills students gain from NSLS, surfaced at the cohort level, to support budget requests and end-of-semester reports. UNT has formally adopted the NACE competency framework, so the ask maps directly to an institutional standard. Chris flagged this as a unique and unmet need across the entire roadshow. The implication for the advisor dashboard: advisors need more than a completion view — they need a skills-gained view, ideally mapped to recognized frameworks like NACE, that they can excerpt and put in front of deans and provosts.</div>
+        <div class="idea-school-chips">
+          <span class="idea-school-chip">University of North Texas</span>
+        </div>
+        <div class="idea-attr">
+          <span class="idea-attr-label">First discussed</span>
+          <span class="idea-attr-person">Sydney Pickett &nbsp;&middot;&nbsp; University of North Texas</span>
+        </div>
+      </div></div><!-- /ideas-grid -->
+  </div><!-- /tab-ideas -->
+
+  <!-- ── School cards ── -->
+  <div id="tab-schools" class="tab-panel active">
+  <div class="school-grid">
+
+    <!-- ═══ Dartmouth College — May 4, 2026 ═══ -->
+    <a class="school-card" href="schools/dartmouth-college/index.html" data-advisors="1" data-survey-respondents="0" data-school-type="Research University · Private 4-Year" data-chapter-status="TBD" data-chapter-type="TBD">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">May 4, 2026</span>
+        </div>
+        <h3>Dartmouth College</h3>
+        <div class="school-sub">Hanover, NH &nbsp;&middot;&nbsp; Research University · Private 4-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">8/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">🤔</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">🤔</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Peer-led leadership programming and career readiness outcomes with supporting data</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Bob Coates expressed real enthusiasm for Society as a technology platform, rating it around an eight or nine, but consistently framed any adoption decision as a</div>
+      </div>
+    </a>
+
+    <!-- ═══ University of North Texas — April 23, 2026 ═══ -->
+    <a class="school-card" href="schools/university-of-north-texas/index.html" data-advisors="1" data-survey-respondents="1" data-school-type="Research University · Public 4-Year" data-chapter-status="TBD" data-chapter-type="TBD">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">April 23, 2026</span>
+        </div>
+        <h3>University of North Texas</h3>
+        <div class="school-sub">Denton, TX &nbsp;&middot;&nbsp; Research University · Public 4-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">9/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">✅</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">🤔</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Skill-level learning outcomes tied to NACE competencies for budget justification</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Before seeing the Society demo, Sydney had independently conceived and pitched an AI-driven career exploration tool — nearly identical to the Clarity track — du</div>
+      </div>
+    </a>
+
+    
+    <!-- ═══ University of Nevada, Las Vegas — April 21, 2026 ═══ -->
+    <a class="school-card" href="schools/university-of-nevada-las-vegas/index.html" data-advisors="1" data-survey-respondents="0" data-school-type="Research University · Public 4-Year" data-chapter-status="TBD" data-chapter-type="TBD">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">April 21, 2026</span>
+        </div>
+        <h3>University of Nevada, Las Vegas</h3>
+        <div class="school-sub">Las Vegas, NV &nbsp;&middot;&nbsp; Research University · Public 4-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">9/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">✅</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">🤔</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Students need a clear 'why' — practical career direction and workforce readiness, not just leadership theory</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> LaDonnia gave Society a 10/10 excitement score, confirmed pilot interest on the spot, and demonstrated product-level thinking throughout — asking whether the ca</div>
+      </div>
+    </a>
+
+
+  <!-- ═══ Muskingum University — April 16 ═══ -->
+    <a class="school-card" href="schools/muskingum-university/index.html" data-advisors="1" data-survey-respondents="0" data-school-type="Private 4-Year" data-chapter-status="TBD" data-chapter-type="Online">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">April 16, 2026</span>
+        </div>
+        <h3>Muskingum University</h3>
+        <div class="school-sub">New Concord, OH &nbsp;&middot;&nbsp; Private 4-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">10/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">&#x2705;</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Career readiness — preparing students for grad school and first jobs</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Henry surfaced school-customizable career readiness score components and cross-discipline SNT groupings unprompted; Board of Trustees presentation the day after the meeting</div>
+      </div>
+    </a>
+
+    <!-- ═══ Coastal Carolina University — April 10 ═══ -->
+    <a class="school-card" href="schools/coastal-carolina-university/index.html" data-advisors="2" data-survey-respondents="1" data-school-type="Public 4-Year" data-chapter-status="Established" data-chapter-type="TBD">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">April 10, 2026</span>
+        </div>
+        <h3>Coastal Carolina University</h3>
+        <div class="school-sub">Conway, SC &nbsp;&middot;&nbsp; Public 4-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">10/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">&#x2705;</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">&#x2753;</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Student Belonging &amp; Campus Community</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Pre-sold before the demo — both advisors rated 10/10 after discussing Society while completing their pre-meeting survey together</div>
+      </div>
+    </a>
+
+    <!-- ═══ University of Tennessee, Knoxville — April 10 ═══ -->
+    <a class="school-card" href="schools/university-of-tennessee-knoxville/index.html" data-advisors="1" data-survey-respondents="0" data-school-type="Public 4-Year" data-chapter-status="Established" data-chapter-type="Hybrid">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">April 10, 2026</span>
+        </div>
+        <h3>University of Tennessee, Knoxville</h3>
+        <div class="school-sub">Knoxville, TN &nbsp;&middot;&nbsp; Public 4-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">10/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">&#x2705;</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Competitive Differentiation at a Large Flagship</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> UTK runs a university-funded leadership program that engaged 17,000 students last semester — Hunter believes Society wins on depth and completion, not volume</div>
+      </div>
+    </a>
+
+    <!-- ═══ Arapahoe Community College — April 10 ═══ -->
+    <a class="school-card" href="schools/arapahoe-community-college/index.html" data-advisors="1" data-survey-respondents="1" data-school-type="Public 2-Year" data-chapter-status="Established" data-chapter-type="Hybrid">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">April 10, 2026</span>
+        </div>
+        <h3>Arapahoe Community College</h3>
+        <div class="school-sub">Littleton, CO &nbsp;&middot;&nbsp; Public 2-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">9/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">&#x2705;</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Platform Accountability for Member Completion</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Over half of paying members don't complete — Dan wants the platform to actively share responsibility for driving engagement, not just track it</div>
+      </div>
+    </a>
+
+    <!-- ═══ Gonzaga University — April 10 ═══ -->
+    <a class="school-card" href="schools/gonzaga-university/index.html" data-advisors="1" data-survey-respondents="1" data-school-type="Private 4-Year" data-chapter-status="TBD" data-chapter-type="TBD">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">April 10, 2026</span>
+        </div>
+        <h3>Gonzaga University</h3>
+        <div class="school-sub">Spokane, WA &nbsp;&middot;&nbsp; Private 4-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">8/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Graduate &amp; Professional Program Expansion</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Strategic entry point through growing grad programs; Ayaka's top product request is bulk email messaging targeted by induction stage</div>
+      </div>
+    </a>
+
+    <!-- ═══ Florida Agricultural and Mechanical University — April 10 ═══ -->
+    <a class="school-card" href="schools/florida-agricultural-and-mechanical-university/index.html" data-advisors="1" data-survey-respondents="1" data-school-type="Public 4-Year" data-chapter-status="TBD" data-chapter-type="TBD">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">April 10, 2026</span>
+        </div>
+        <h3>Florida Agricultural and Mechanical University</h3>
+        <div class="school-sub">Tallahassee, FL &nbsp;&middot;&nbsp; Public 4-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">10/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Career Outcomes &amp; Student Engagement</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Highest-enthusiasm HBCU in the cohort — Julian's 10/10 is a strong warm signal, but no individual discovery dialogue was captured; immediate follow-up needed</div>
+      </div>
+    </a>
+
+    <!-- ═══ Texas A&M University-Corpus Christi — April 8, 2026 ═══ -->
+    <a class="school-card" href="schools/texas-am-corpus-christi/index.html" data-advisors="1" data-survey-respondents="0" data-school-type="Public 4-Year University" data-chapter-status="TBD" data-chapter-type="TBD">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">April 8, 2026</span>
+        </div>
+        <h3>Texas A&amp;M University-Corpus Christi</h3>
+        <div class="school-sub">Corpus Christi, TX &nbsp;&middot;&nbsp; Public 4-Year University</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">7/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">✅</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">🤔</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> One centralized communication hub for students</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Lauren and Jennifer gave the most detailed, unprompted feedback about SNT operations — describing a multi-step manual process involving facilitator availability</div>
+      </div>
+    </a>
+
+    <!-- ═══ Texas Lutheran University — April 1 ═══ -->
+    <a class="school-card" href="schools/texas-lutheran-university/index.html" data-advisors="2" data-survey-respondents="1" data-school-type="Private 4-Year" data-chapter-status="Established" data-chapter-type="Hybrid">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">April 1, 2026</span>
+        </div>
+        <h3>Texas Lutheran University</h3>
+        <div class="school-sub">Seguin, TX &nbsp;&middot;&nbsp; University &nbsp;·&nbsp; Private 4-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">8/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">&#x2705;</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Student Engagement &amp; Career Development</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Strong interest in peer matching and career clarity features for faith-based institution</div>
+      </div>
+    </a>
+
+    <!-- ═══ Central Wyoming Community College — March 31 ═══ -->
+    <a class="school-card" href="schools/central-wyoming-community-college/index.html" data-advisors="1" data-survey-respondents="1" data-school-type="Public 2-Year" data-chapter-status="Established" data-chapter-type="Online">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">March 31, 2026</span>
+        </div>
+        <h3>Central Wyoming Community College</h3>
+        <div class="school-sub">Riverton, WY &nbsp;&middot;&nbsp; Community College &nbsp;·&nbsp; Public 2-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">9/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">&#x2705;</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Student Success &amp; Career Readiness</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Rural community college focused on practical career development and student engagement</div>
+      </div>
+    </a>
+
+    <!-- ═══ Madison Area Technical College — March 30 ═══ -->
+    <a class="school-card" href="schools/madison-area-technical-college/index.html" data-advisors="1" data-survey-respondents="1" data-school-type="Public 2-Year" data-chapter-status="Established" data-chapter-type="Hybrid">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">March 30, 2026</span>
+        </div>
+        <h3>Madison Area Technical College</h3>
+        <div class="school-sub">Madison, WI &nbsp;&middot;&nbsp; Technical College &nbsp;·&nbsp; Public 2-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">8/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">&#x2705;</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Career Development &amp; Industry Connections</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Technical college emphasizing practical skills and workforce preparation</div>
+      </div>
+    </a>
+
+    <!-- ═══ South Piedmont Community College — March 30 ═══ -->
+    <a class="school-card" href="schools/south-piedmont-community-college/index.html" data-advisors="1" data-survey-respondents="0" data-school-type="Public 2-Year" data-chapter-status="Established" data-chapter-type="Hybrid">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">March 30, 2026</span>
+        </div>
+        <h3>South Piedmont Community College</h3>
+        <div class="school-sub">Polkton, NC &nbsp;&middot;&nbsp; Community College &nbsp;·&nbsp; Public 2-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">7/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">&#x2705;</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">&#x2705;</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Student Engagement &amp; Academic Success</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Community college focused on student retention and career pathways</div>
+      </div>
+    </a>
+
+    <!-- ═══ Austin Peay State University — March 27 ═══ -->
+    <a class="school-card" href="schools/austin-peay-state-university/index.html" data-advisors="1" data-survey-respondents="0" data-school-type="Public 4-Year" data-chapter-status="Established" data-chapter-type="Hybrid">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">March 27, 2026</span>
+        </div>
+        <h3>Austin Peay University</h3>
+        <div class="school-sub">Clarksville, TN &nbsp;&middot;&nbsp; University &nbsp;·&nbsp; Public 4-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">8/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">&#x2705;</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Career Development &amp; Student Success</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Public university focused on comprehensive student development and career readiness</div>
+      </div>
+    </a>
+
+    <!-- ═══ Western Governors University — March 24 ═══ -->
+    <a class="school-card" href="schools/western-governors-university/index.html" data-advisors="5" data-survey-respondents="1" data-school-type="Private Online" data-chapter-status="Established" data-chapter-type="Online">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">March 24, 2026</span>
+        </div>
+        <h3>Western Governors University</h3>
+        <div class="school-sub">Salt Lake City, UT &nbsp;&middot;&nbsp; University &nbsp;·&nbsp; Private Online</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">7-8/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">&#x2705;</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Unified Student Experience &amp; Scalable Personalization</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Online university seeking integration with existing systems and academic program partnerships</div>
+      </div>
+    </a>
+
+    <!-- ═══ Mott Community College — March 23 ═══ -->
+    <a class="school-card" href="schools/mott-community-college/index.html" data-advisors="1" data-survey-respondents="1" data-school-type="Public 2-Year" data-chapter-status="Established" data-chapter-type="In-Person">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">March 23, 2026</span>
+        </div>
+        <h3>Mott Community College</h3>
+        <div class="school-sub">Flint, MI &nbsp;&middot;&nbsp; Community College &nbsp;·&nbsp; Public 2-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">10/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">&#x2705;</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> In-Person Relationship Building &amp; Data-Driven Advocacy</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Dawn has manually tracked student outcomes on LinkedIn since 2015 — already doing what Society automates, making her an ideal Product Council candidate</div>
+      </div>
+    </a>
+
+    <!-- ═══ St. John's University — March 23 ═══ -->
+    <a class="school-card" href="schools/st-john-s-university/index.html" data-advisors="1" data-survey-respondents="1" data-school-type="Private 4-Year" data-chapter-status="Established" data-chapter-type="Online">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">March 23, 2026</span>
+        </div>
+        <h3>St. John's University</h3>
+        <div class="school-sub">Queens, NY &nbsp;&middot;&nbsp; University &nbsp;·&nbsp; Private 4-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">8/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Retention &amp; Outcome Reporting (embedded in university strategic plan)</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Data analyst already requesting 6–7 years of NSLS records — Society's reporting layer is an urgent institutional need, not a future one</div>
+      </div>
+    </a>
+
+    <!-- ═══ University of Texas, Rio Grande Valley — March 23 ═══ -->
+    <a class="school-card" href="schools/utrgv/index.html" data-advisors="2" data-survey-respondents="1" data-school-type="Public 4-Year" data-chapter-status="Established" data-chapter-type="Hybrid">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">March 23, 2026</span>
+        </div>
+        <h3>University of Texas, Rio Grande Valley</h3>
+        <div class="school-sub">Edinburg, TX &nbsp;&middot;&nbsp; University &nbsp;·&nbsp; Public 4-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat"><div class="stat-val">9/10</div><div class="stat-lbl">Excitement</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Pilot Partner</div></div>
+        <div class="school-stat"><div class="stat-val">&#x1F914;</div><div class="stat-lbl">Prod. Council</div></div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Career Readiness &amp; Institutional Credibility</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> Brandon said Society "helps legitimize the program" — advisors framing it as an institutional credibility tool, not just a student engagement tool</div>
+      </div>
+    </a>
+
+    <!-- ═══ Drew University — March 20 ═══ -->
+    <a class="school-card" href="schools/drew-university/index.html" data-advisors="2" data-survey-respondents="2" data-school-type="Private 4-Year" data-chapter-status="New" data-chapter-type="In-Person">
+      <div class="school-card-header">
+        <div class="school-card-meta">
+          <span class="status-chip completed">Discovery Completed</span>
+          <span class="meeting-date">March 20, 2026</span>
+        </div>
+        <h3>Drew University</h3>
+        <div class="school-sub">Madison, NJ &nbsp;·&nbsp; Liberal Arts &nbsp;·&nbsp; Private 4-Year</div>
+      </div>
+      <div class="school-stats">
+        <div class="school-stat">
+          <div class="stat-val">9/10</div>
+          <div class="stat-lbl">Excitement</div>
+        </div>
+        <div class="school-stat">
+          <div class="stat-val">&#x2705;</div>
+          <div class="stat-lbl">Pilot Partner</div>
+        </div>
+        <div class="school-stat">
+          <div class="stat-val">&#x1F914;</div>
+          <div class="stat-lbl">Prod. Council</div>
+        </div>
+      </div>
+      <div class="school-signal">
+        <div><strong>Top priority:</strong> Developing Career-Ready Skills</div>
+        <div style="margin-top:5px;"><strong>Key signal:</strong> AI-skeptical students offered as pilot testers — a valuable stress test for Society's onboarding</div>
+      </div>
+    </a>
+
+
+    
+    
+    </div><!-- /school-grid -->
+  </div><!-- /tab-schools -->
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;·&nbsp; Spring 2026
+</footer>
+
+<script>
+  // ── Tab navigation ────────────────────────────────────────────────────────
+  function switchTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(function(p) {
+      p.classList.remove('active');
+    });
+    document.querySelectorAll('.tab').forEach(function(t) {
+      t.classList.remove('active');
+    });
+    document.getElementById('tab-' + id).classList.add('active');
+    document.querySelector('[data-tab="' + id + '"]').classList.add('active');
+    // Initialize charts on first open of stats tab
+    if (id === 'stats' && !window._chartsInit) {
+      window._chartsInit = true;
+      renderCharts(window._statValues);
+    }
+  }
+
+  // ── Shared chart colors ───────────────────────────────────────────────────
+  var NAVY  = '#1A3550';
+  var TRACK = '#C8BDB5';
+  var RED   = '#C96058';
+
+  // Center-text plugin — draws value + denominator directly onto the canvas
+  var centerTextPlugin = {
+    id: 'centerText',
+    afterDraw: function(chart) {
+      if (!chart._centerVals) return;
+      var idx  = chart._activeIndex || 0;
+      var cVal = String(chart._centerVals[idx]);
+      var cSub = String(chart._centerSubs[idx]);
+      var ctx  = chart.ctx;
+      var cx   = (chart.chartArea.left + chart.chartArea.right)  / 2;
+      var cy   = (chart.chartArea.top  + chart.chartArea.bottom) / 2;
+      ctx.save();
+      ctx.textAlign    = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle    = '#1A3550';
+      ctx.font         = '800 18px Inter, sans-serif';
+      ctx.fillText(cVal, cx, cy - 9);
+      ctx.fillStyle = '#1E1414';
+      ctx.font      = '600 11px Inter, sans-serif';
+      ctx.fillText(cSub, cx, cy + 9);
+      ctx.restore();
+    }
+  };
+  Chart.register(centerTextPlugin);
+
+  // Custom positioner — tooltip appears above the ring, never over center text
+  Chart.Tooltip.positioners.aboveChart = function() {
+    var chart = this.chart;
+    return { x: chart.width / 2, y: 4 };
+  };
+
+  // Per-segment active colors; inactive segments become DIM
+  var SEG_COLORS = [NAVY, '#6B6357'];
+  var DIM = '#D0C8C0';
+
+  function makeDonut(id, lblId, filled, total, centerVal, centerSub, labels) {
+    var el  = document.getElementById(id);
+    var lbl = document.getElementById(lblId);
+    if (!el) return;
+    var empty = Math.max(0, total - filled);
+
+    var activeColors  = [NAVY, '#6B6357'];
+    var inactiveColor = '#D0C8C0';
+
+    function bgFor(activeIdx) {
+      return activeColors.map(function(c, i) {
+        return i === activeIdx ? c : inactiveColor;
+      });
+    }
+
+    function setLabel(idx) {
+      if (lbl) lbl.textContent = labels[idx] || '';
+    }
+
+    var instance = new Chart(el, {
+      type: 'doughnut',
+      data: {
+        labels: labels,
+        datasets: [{
+          data: [filled, empty],
+          backgroundColor: bgFor(0),
+          borderWidth: 0,
+          hoverOffset: 6
+        }]
+      },
+      options: {
+        cutout: '70%',
+        layout: { padding: 10 },
+        animation: { animateRotate: true, duration: 800, easing: 'easeInOutQuart' },
+        plugins: {
+          legend:  { display: false },
+          tooltip: { enabled: false }
+        },
+        onClick: function(evt, elements, chart) {
+          if (!elements || !elements.length) return;
+          var idx = elements[0].index;
+          chart._activeIndex = idx;
+          chart.data.datasets[0].backgroundColor = bgFor(idx);
+          chart.update('none');
+          setLabel(idx);
+        }
+      }
+    });
+
+    instance._activeIndex = 0;
+    instance._centerVals  = [centerVal, Math.round(empty * 10) / 10];
+    instance._centerSubs  = [centerSub, centerSub];
+
+    setLabel(0);
+    return instance;
+  }
+
+  function renderCharts(v) {
+    if (!v) return;
+    makeDonut('chart-met',        'lbl-met',        v.met,           v.totalInvited, v.met,           '/ ' + v.totalInvited, ['Schools Met', 'Schools Remaining']);
+    makeDonut('chart-enthusiasm', 'lbl-enthusiasm', v.avgEnthusiasm, 10,             v.avgEnthusiasm, '/ 10',                ['Avg Enthusiasm', 'Remaining']);
+    makeDonut('chart-pilot',      'lbl-pilot',      v.pilots,        v.met,          v.pilots,        '/ ' + v.met,          ['Pilot Interests', 'Not Interested']);
+    makeDonut('chart-council',    'lbl-council',    v.councils,      v.met,          v.councils,      '/ ' + v.met,          ['Product Council Interest', 'Not Interested']);
+    makeBreakdown('chart-school-type',    v.schoolTypes);
+    makeBreakdown('chart-chapter-status', v.chapterStatuses);
+    makeBreakdown('chart-chapter-type',   v.chapterTypes);
+  }
+
+  // Palette for breakdown charts (navy shades + accents)
+  var BAR_COLORS = ['#1A3550','#C96058','#4a7fa5','#88D86B','#F2DA4E','#9b6ea8'];
+
+  var barCountPlugin = {
+    id: 'barCount',
+    afterDatasetsDraw: function(chart) {
+      if (chart.config.type !== 'bar') return;
+      var ctx = chart.ctx;
+      chart.data.datasets.forEach(function(dataset, i) {
+        var meta = chart.getDatasetMeta(i);
+        meta.data.forEach(function(bar, idx) {
+          var value = dataset.data[idx];
+          if (value == null) return;
+          ctx.save();
+          ctx.fillStyle = '#1A3550';
+          ctx.font = '600 11px Inter, sans-serif';
+          ctx.textBaseline = 'middle';
+          ctx.textAlign = 'left';
+          ctx.fillText(value, bar.x + 6, bar.y);
+          ctx.restore();
+        });
+      });
+    }
+  };
+  Chart.register(barCountPlugin);
+
+  function makeBreakdown(id, counts) {
+    var el = document.getElementById(id);
+    if (!el || !counts) return;
+    var labels = Object.keys(counts);
+    var data   = labels.map(function(l) { return counts[l]; });
+    var total  = data.reduce(function(a,b){return a+b;},0);
+
+    // Build label → school names map from DOM cards
+    var attrMap = {
+      'chart-school-type':    'schoolType',
+      'chart-chapter-status': 'chapterStatus',
+      'chart-chapter-type':   'chapterType'
+    };
+    var dataAttr = attrMap[id];
+    var namesByLabel = {};
+    if (dataAttr) {
+      document.querySelectorAll('.school-card').forEach(function(card) {
+        var key  = card.dataset[dataAttr];
+        var name = (card.querySelector('h3') || {}).textContent || '';
+        if (!key || !name) return;
+        if (!namesByLabel[key]) namesByLabel[key] = [];
+        namesByLabel[key].push(name.trim());
+      });
+    }
+
+    // Drill panel id derived from chart id
+    var drillId = id.replace('chart-', 'drill-');
+
+    new Chart(el, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          data: data,
+          backgroundColor: labels.map(function(_,i){ return BAR_COLORS[i % BAR_COLORS.length]; }),
+          borderWidth: 0,
+          borderRadius: 4,
+          hoverBackgroundColor: labels.map(function(_,i){
+            return BAR_COLORS[i % BAR_COLORS.length].replace(')', ',0.8)').replace('rgb','rgba') || BAR_COLORS[i % BAR_COLORS.length];
+          })
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        animation: { duration: 700, easing: 'easeInOutQuart' },
+        layout: { padding: { right: 28 } },
+        plugins: {
+          legend: { display: false },
+          barCount: {},
+          tooltip: {
+            backgroundColor: '#1A3550',
+            titleColor: '#FFFDF8',
+            bodyColor: '#F2DA4E',
+            padding: 10,
+            cornerRadius: 6,
+            displayColors: false,
+            callbacks: {
+              label: function(ctx) {
+                var n = ctx.parsed.x;
+                var pct = Math.round(n / total * 100);
+                return n + ' school' + (n !== 1 ? 's' : '') + ' (' + pct + '%)';
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            display: false,
+            max: total
+          },
+          y: {
+            grid: { display: false },
+            border: { display: false },
+            ticks: {
+              color: '#1E1414',
+              font: { size: 11, weight: '600', family: 'Inter, sans-serif' }
+            }
+          }
+        },
+        onClick: function(evt, elements) {
+          if (!elements || !elements.length) return;
+          var idx   = elements[0].index;
+          var label = labels[idx];
+          var drill = document.getElementById(drillId);
+          if (!drill) return;
+
+          // Toggle: clicking the same bar again closes the panel
+          if (drill.dataset.active === label && drill.classList.contains('open')) {
+            drill.classList.remove('open');
+            drill.dataset.active = '';
+            return;
+          }
+
+          var names = namesByLabel[label] || [];
+          drill.innerHTML =
+            '<span class="bar-drill-label">' + label + '</span>' +
+            names.map(function(n) {
+              return '<span class="drill-chip">' + n + '</span>';
+            }).join('');
+          drill.dataset.active = label;
+          drill.classList.add('open');
+        }
+      }
+    });
+  }
+
+  // ── Auto-compute stats from school cards ─────────────────────────────────
+  // When adding a school card, set on the <a>:
+  //   data-advisors="N"              — advisors met at that school
+  //   data-survey-respondents="N"    — completed survey responses
+  // Update data-total-invited on the stats container if the invite list grows.
+
+  (function computeStats() {
+    var cards        = document.querySelectorAll('.school-card');
+    var container    = document.querySelector('[data-total-invited]');
+    var totalInvited = container ? parseInt(container.dataset.totalInvited, 10) : 0;
+
+    var met = 0, scores = [], pilots = 0, councils = 0, advisors = 0, respondents = 0;
+    var schoolTypes = {}, chapterStatuses = {}, chapterTypes = {};
+    var metSchools = [], remainingSchools = [], pilotSchools = [], nonPilotSchools = [];
+    var councilSchools = [], nonCouncilSchools = [], surveySchools = [];
+
+    cards.forEach(function(card) {
+      var name = (card.querySelector('h3') || {}).textContent || '';
+      advisors    += parseInt(card.dataset.advisors || 0, 10);
+      var nRes = parseInt(card.dataset.surveyRespondents || 0, 10);
+      respondents += nRes;
+      if (nRes > 0) surveySchools.push(name.trim());
+
+      // Tally breakdown attributes (all cards, not just completed)
+      function tally(obj, key) { if (key) obj[key] = (obj[key] || 0) + 1; }
+      tally(schoolTypes,     card.dataset.schoolType);
+      tally(chapterStatuses, card.dataset.chapterStatus);
+      tally(chapterTypes,    card.dataset.chapterType);
+
+      if (!card.querySelector('.status-chip.completed')) {
+        remainingSchools.push(name.trim());
+        return;
+      }
+      met++;
+      metSchools.push(name.trim());
+
+      var isPilot = false, isCouncil = false;
+      card.querySelectorAll('.school-stat').forEach(function(cell) {
+        var lbl = (cell.querySelector('.stat-lbl') || {}).textContent || '';
+        var val = (cell.querySelector('.stat-val') || {}).textContent || '';
+        if (lbl.trim() === 'Excitement') {
+          var clean = val.replace('/10', '').trim();
+          if (clean.indexOf('-') !== -1) {
+            var p = clean.split('-');
+            scores.push((parseFloat(p[0]) + parseFloat(p[1])) / 2);
+          } else { var n = parseFloat(clean); if (!isNaN(n)) scores.push(n); }
+        }
+        if (lbl.trim() === 'Pilot Partner' && val.indexOf('✅') !== -1) { pilots++; isPilot = true; }
+        if (lbl.trim() === 'Prod. Council' && val.indexOf('✅') !== -1) { councils++; isCouncil = true; }
+      });
+      if (isPilot) pilotSchools.push(name.trim()); else nonPilotSchools.push(name.trim());
+      if (isCouncil) councilSchools.push(name.trim()); else nonCouncilSchools.push(name.trim());
+    });
+
+    var avgEnthusiasm = scores.length
+      ? Math.round(scores.reduce(function(a,b){return a+b;},0) / scores.length * 10) / 10
+      : 0;
+
+    // Store for deferred chart rendering (charts render on first accordion open)
+    window._statValues = { met, totalInvited, avgEnthusiasm, pilots, councils, advisors, respondents,
+      schoolTypes, chapterStatuses, chapterTypes,
+      metSchools, remainingSchools, pilotSchools, nonPilotSchools,
+      councilSchools, nonCouncilSchools, surveySchools };
+
+    // Update center labels and plain tiles
+    function set(attr, val) {
+      var el = document.querySelector('[data-stat="' + attr + '"]');
+      if (el) el.textContent = val;
+    }
+    set('met-num',          met);
+    set('met-denom',        '/ ' + totalInvited);
+    set('enthusiasm-num',   avgEnthusiasm);
+    set('pilot-num',        pilots);
+    set('pilot-denom',      '/ ' + met);
+    set('council-num',      councils);
+    set('council-denom',    '/ ' + met);
+    set('survey-respondents', respondents);
+    set('advisors-engaged',   advisors);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madison Area Technical College — Meeting 1 | NSLS Roadshow | NSLS Roadshow</title>
+  <!-- Inter from Google Fonts. Add your Adobe Fonts kit <link> here to enable Cigars. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+
+  :root {
+    --navy:   #1A3550;
+    --gold:   #F2DA4E;
+    --green:  #88D86B;
+    --teal:   #88D86B;
+    --amber:  #F2DA4E;
+    --red:    #C96058;
+    --bg:     #F2E9E2;
+    --card:   #E8DDD5;
+    --text:   #1E1414;
+    --muted:  #6B6357;
+    --border: rgba(30,20,20,0.1);
+    --yellow: #F2DA4E;
+    --white:  #FFFDF8;
+    --black:  #1E1414;
+    --purple: #4a4faa;
+    --pink:   #C96058;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #F2E9E2;
+    color: var(--black);
+    line-height: 1.6;
+  }
+  h1, h2 { font-family: 'Cigars', Georgia, 'Times New Roman', serif; }
+  a { color: #1A3550; }
+  a:hover { color: #C96058; }
+
+  /* Header */
+  .page-header {
+    background: #F2E9E2;
+    border-bottom: 2px solid #1A3550;
+    padding: 2rem 0 0.56rem;
+  }
+  .page-header .header-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .page-header .header-pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .page-header .header-pill {
+    background: transparent;
+    border: 1px solid rgba(36,59,82,0.35);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #243B52;
+  }
+  .page-header .header-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .page-header a.header-pill:hover{color:#C96058;} .page-header .header-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #243B52;
+    border: 1px solid #243B52;
+    color: #FFFDF8;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .page-header .header-btn:hover { background: #1a2d3e; color: #FFFDF8; }
+  .page-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1A3550;
+    margin-bottom: 0.5rem;
+  }
+  .page-header .recording-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    background: #C96058;
+    border: 1px solid #C96058;
+    border-radius: 6px;
+    color: #FFFDF8;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .page-header .recording-link:hover {
+    opacity: 0.88;
+    color: #FFFDF8;
+  }
+
+  /* Main content */
+  main {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .content { flex: 1; min-width: 0; }
+
+  /* TOC sidebar */
+  .toc-sidebar {
+    width: 185px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 1.5rem;
+  }
+  .toc-nav {
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 0.9rem 1rem;
+  }
+  .toc-nav .toc-heading {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 0.65rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .toc-nav a {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.28rem 0.5rem;
+    border-radius: 4px;
+    line-height: 1.4;
+    margin-bottom: 0.05rem;
+  }
+  .toc-nav a:hover { background: rgba(30,20,20,0.05); color: var(--navy); }
+
+  /* Section */
+  .section {
+    margin-bottom: 2.5rem;
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--navy);
+    margin-bottom: 1rem;
+    font-family: 'Cigars', Georgia, serif;
+  }
+
+  /* Card */
+  .card {
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+  }
+  .card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--yellow);
+    margin-bottom: 0.6rem;
+    margin-top: 1rem;
+  }
+  .card h3:first-child { margin-top: 0; }
+  .card ul { padding-left: 1.25rem; }
+  .card li { margin-bottom: 0.3rem; font-size: 0.93rem; }
+  .card p { font-size: 0.93rem; }
+
+  /* Theme cards */
+  .theme-card {
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+    border-left: 3px solid #1A3550;
+  }
+  .theme-card .theme-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+  .theme-card p { font-size: 0.9rem; color: var(--text); }
+
+  /* Enthusiasm score */
+  .enthusiasm-score {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    font-family: 'Cigars', Georgia, serif;
+  }
+
+  /* Feature table */
+  .feature-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    font-size: 0.88rem;
+  }
+  .feature-table thead tr {
+    background: #1A3550;
+    color: #FFFDF8;
+  }
+  .feature-table th {
+    padding: 0.7rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+  .feature-table td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .feature-table tr:last-child td { border-bottom: none; }
+  .feature-table tr:nth-child(even) { background: rgba(30,20,20,0.03); }
+
+  /* Badges */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-strong   { background: rgba(60,140,30,0.1);    color: #2a7a10; }
+  .badge-positive { background: #E2E4F3;               color: #4a4faa; }
+  .badge-question { background: rgba(180,130,0,0.1);   color: #7a5500; }
+  .badge-care     { background: rgba(201,96,88,0.12);  color: #C96058; }
+
+  /* Metadata table */
+  .metadata-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    font-size: 0.88rem;
+  }
+  .metadata-table th {
+    padding: 0.6rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--muted);
+    font-size: 0.8rem;
+    width: 38%;
+    background: rgba(30,20,20,0.04);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .metadata-table td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .metadata-table tr:last-child th,
+  .metadata-table tr:last-child td { border-bottom: none; }
+
+  /* Section accordion (collapsible metadata) */
+  .section-accordion > summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--navy);
+    margin-bottom: 1rem;
+    font-family: 'Cigars', Georgia, serif;
+  }
+  .section-accordion > summary::-webkit-details-marker { display: none; }
+  .section-accordion > summary::after {
+    content: "▸ Show";
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted);
+    flex-shrink: 0;
+    margin-left: 0.75rem;
+  }
+  details[open].section-accordion > summary::after { content: "▾ Hide"; }
+
+  /* Advisor cards */
+  .advisor-card {
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 0.75rem;
+  }
+  .advisor-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+  .advisor-card p { font-size: 0.9rem; color: var(--text); }
+
+  /* Action items */
+  .action-items {
+    list-style: none;
+    padding: 0;
+  }
+  .action-items li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+  .action-items li:last-child { border-bottom: none; }
+  .action-items input[type=checkbox] { margin-top: 4px; flex-shrink: 0; cursor: pointer; width: 15px; height: 15px; }
+  .action-number {
+    background: #C96058;
+    color: #FFFDF8;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .owner-tag {
+    display: inline-block;
+    background: #E2E4F3;
+    color: #4a4faa;
+    border: 1px solid #C8CBE8;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 6px;
+    white-space: nowrap;
+  }
+
+  /* Subsection content */
+  .section > h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 1.25rem 0 0.5rem;
+    padding: 0.4rem 0.75rem;
+    background: rgba(30,20,20,0.04);
+    border-radius: 4px;
+  }
+  .section > h3:first-of-type { margin-top: 0; }
+  .section > ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    background: rgba(30,20,20,0.02);
+    border-radius: 0 0 6px 6px;
+    border: 1px solid var(--border);
+    border-top: none;
+    padding-top: 0.75rem;
+    padding-right: 1rem;
+    padding-bottom: 0.75rem;
+  }
+  .section > ul li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .section > ul li:last-child { margin-bottom: 0; }
+  .section > p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+    background: rgba(30,20,20,0.02);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #6B6357;
+    padding: 2rem;
+    border-top: 1px solid rgba(30,20,20,0.1);
+    background: #F2E9E2;
+    margin-top: 3rem;
+  }
+
+  </style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">April 03, 2026</span>
+    </div>
+    <h1>Madison Area Technical College — Meeting 1 | NSLS Roadshow</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Madison Area Technical College Hub</a>
+      <a class="recording-link" href="https://fathom.video/share/rpzqj34KwvHY1UQvTiD4u3Qh9AZsS9iY" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 — Section 1</a>
+      <a href="#s2">2 — Section 2</a>
+      <a href="#s3">3 — Section 3</a>
+      <a href="#s4">4 — Section 4</a>
+      <a href="#s5">5 — Section 5</a>
+      <a href="#s6">6 — Section 6</a>
+      <a href="#s7">7 — Section 7</a>
+      <a href="#s8">8 — Section 8</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Madison Area Technical College (Madison College)</p>
+    <p><strong>School Type:</strong> Two-year technical/community college in Wisconsin</p>
+    <p><strong>Size &amp; Culture:</strong> Approximately 120 students serve in paid student organization positions. More than 70% of students are below full-time status (fewer than 12 credits). Student population includes a significant and growing proportion of trades students (auto tech, diesel tech, agricultural mechanics) alongside university transfer and degree-seeking students. The college conducts a 300-employer survey to identify core workforce skills for graduates.</p>
+    <p><strong>Chapter Status:</strong> Established — chapter founded in 2016–2017</p>
+    <p><strong>Chapter Type:</strong> Not explicitly stated; context suggests primarily in-person with hybrid/asynchronous needs</p>
+    <p><strong>Advisors Present:</strong> Cole (last name not stated) — Advisor, Student Life/Leadership Programs, Madison Area Technical College. Also serves as student government advisor. Previously worked at UW-Whitewater.</p>
+    <p><strong>NSLS Staff Present:</strong> Chris Higbee (VP of Product, NSLS); Gregg Gudelinis (CSR)</p>
+    <p><strong>Notable Institutional Context:</strong> Madison College has a new president focused on student feedback, retention, degree completion, and post-completion success. The chapter competes for student attention within a short enrollment window — approximately three semesters at most. NSLS and Phi Theta Kappa are the only two non-academically affiliated honor societies on campus.<a href="https://fathom.video/calls/616652998?t=401" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:41</a> The school is currently navigating Pell Grant full-time enrollment requirements and is developing a credit-bearing class around core workforce skills.</p>
+  </div>
+</section><section class="section">
+  <h2 class="section-title">Section 2 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve (About NSLS)</h3>
+  <ul>
+    <li>The Success Networking Teams (SNTs) and accountability group structures are seen as the highest-value element of the program. Cole stated: "Whatever you all have within your current program that involves students actively having to create those, whether it's a success networking team or an accountability group, that 100% has to stay.<a href="https://fathom.video/calls/616652998?t=266" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:26</a>"</li>
+    <li>Team-building activities during orientation and Leadership Training Day are valued for creating peer connection — especially important given the short enrollment window at a two-year school.<a href="https://fathom.video/calls/616652998?t=285" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:45</a></li>
+    <li>The peer connection and belonging function NSLS provides is considered critical<a href="https://fathom.video/calls/616652998?t=302" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:02</a>, particularly for students who wouldn't otherwise seek out community on campus.</li>
+  </ul>
+
+  <h3>What Isn't Working (Pain Points &amp; Frustrations)</h3>
+  <ul>
+    <li><strong>Leadership Broadcasts:</strong> Cole identified this as "the number one hurdle."<a href="https://fathom.video/calls/616652998?t=342" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:42</a> Students are not attending live or rebroadcast sessions. He noted: "I'm never really getting bites at it — responses.<a href="https://fathom.video/calls/616652998?t=342" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:42</a>" The school's hours and student schedules make timing difficult, and Cole said he cannot measure the impact compared to other program elements.<a href="https://fathom.video/calls/616652998?t=351" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:51</a></li>
+    <li><strong>Low follow-through after enrollment:</strong> Students sign up and pay membership fees but then disengage. Cole described a pattern similar to the Renee example — students join with intention but don't complete the program.</li>
+    <li><strong>SNT coordination is manual:</strong> Currently Cole connects SNT members via email and they figure out logistics themselves.<a href="https://fathom.video/calls/616652998?t=1582" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 26:22</a> There is no centralized meeting or messaging tool.</li>
+    <li><strong>Relevance gap for trades students:</strong> Cole noted difficulty articulating the value of NSLS to students in vocational programs<a href="https://fathom.video/calls/616652998?t=1290" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 21:30</a> (auto tech, diesel, agricultural mechanics) whose pathways differ from traditional four-year transfer students.</li>
+    <li><strong>Institutional positioning tension:</strong> The college's "get your degree and get out" efficiency narrative makes it hard to advocate for involvement. Cole observed: "As soon as you transition to, okay, it's about you're here, get your degree and get out, everything else gets kind of tossed to the side.<a href="https://fathom.video/calls/616652998?t=2088" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 34:48</a>"</li>
+    <li><strong>Short enrollment timeline:</strong> Three semesters is the realistic window, compared to four-plus years at a university.<a href="https://fathom.video/calls/616652998?t=285" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:45</a> This compresses the program timeline significantly.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li><strong>Workforce readiness:</strong> The institution conducts a 300-employer survey on workforce skills<a href="https://fathom.video/calls/616652998?t=420" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:00</a> and is building a credit-bearing class around core workforce competencies. The priority has shifted, in Cole's words, "away from the student involvement aspect and more focus on<a href="https://fathom.video/calls/616652998?t=419" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:59</a>" these skills.</li>
+    <li><strong>Retention and degree completion:</strong> The new president's vision centers on retention, degree completion, and post-completion success.</li>
+    <li><strong>Student feedback and voice:</strong> The new president is "actively involved with wanting to get more student feedback."</li>
+    <li><strong>Alignment of involvement with academic outcomes:</strong> Cole is actively working with the VP of Student Affairs and President's Office<a href="https://fathom.video/calls/616652998?t=391" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:31</a> to demonstrate how involvement and leadership coincide with academic success — not just as supplemental activities.</li>
+    <li><strong>Pell Grant compliance:</strong> Navigating the full-time enrollment requirement for Pell Grant eligibility is a current institutional concern given that most students are part-time.</li>
+  </ul>
+</section><section class="section">
+  <h2 class="section-title">Section 3 — Key Themes &amp; Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Two-Year and Trades Students Require Purpose-Built Positioning</h3>
+    <p>Madison College's student body is meaningfully different from a four-year university chapter. A growing share of students are in trades programs (diesel, auto tech, agricultural mechanics) with certification-based outcomes rather than degree-transfer pathways. Cole expressed genuine enthusiasm for Society's potential to address this gap — particularly the AI career coach's ability to handle non-traditional career paths — but made clear this is an open question that needs to be worked through. Product rollout materials and the Clarity Track framing may need vocational-specific examples to land effectively here.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Leadership Broadcasts Are Effectively Non-Functional at This School</h3>
+    <p>Cole was direct that leadership broadcasts — live or rebroadcast — produce almost no student attendance and that he cannot measure their impact. This is a structural issue tied to school hours and student schedules, not a content quality problem. Society's move toward on-demand, asynchronous, interactive micro-content is well-positioned to address this, but the broadcast format as a program requirement appears to be a systemic friction point worth tracking across other two-year schools on the roadshow.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Career Readiness Data Is the Missing Proof Point</h3>
+    <p>Cole explicitly named career readiness data as the thing he wishes he had. He described fielding frequent student questions about how NSLS applies to their post-Madison path, and noted that having quantifiable readiness data would "cut out a lot of that thinking work and more be able to put into action." This aligns directly with Society's career readiness score feature and positions it as potentially high-value for advisor-level storytelling and institutional reporting.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Involvement Is Under Institutional Pressure — And Needs a New Justification</h3>
+    <p>The college's current strategic direction prioritizes speed-to-degree, which creates structural pressure on co-curricular programs. Cole described involvement as "kind of left out" of the dominant institutional narrative. He is actively working to reframe involvement as integral to student success — not supplemental — and sees Society's career readiness angle as a potential tool to make that case. This is a meaningful strategic signal: NSLS needs to position itself as a retention and workforce readiness asset, not just an engagement program.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Cross-Departmental Integration Is Cole's Instinctive Next Step</h3>
+    <p>After seeing the Society demo, Cole's immediate instinct was to think about how to integrate the AI career coach "homogeneously" between student life and career services. He also referenced plans to build a credit-bearing workforce skills class and saw Society as something that could complement or feed into that work. This suggests that at Madison, the highest-value use case for Society may be as a bridge between student affairs and academic/career services — not just a standalone NSLS member tool.</p>
+  </div>
+</section><section class="section">
+  <h2 class="section-title">Section 4 — Society Reception</h2>
+
+  <div class="enthusiasm-score">7/10</div>
+
+  <p><strong>What Landed Well:</strong></p>
+  <ul>
+    <li>The supplemental, asynchronous nature of the Clarity Track was immediately understood and appreciated — Cole confirmed it addressed his concern about tools that work outside of in-person events.</li>
+    <li>The SNT matching and one-stop communication tool generated clear enthusiasm: "I think it's huge." Cole contrasted it directly with his current manual email-based process.</li>
+    <li>The Renee story resonated. Cole recognized the same enrollment-and-dropout pattern at his school and saw the Clarity Track as a potential hook for re-engaging students who joined but never completed.</li>
+    <li>Cole expressed genuine surprise at the breadth of what was shown: "This was more than what I was expecting, I'll be honest."</li>
+    <li>The career readiness data layer was called out explicitly as something he wishes he already had.</li>
+    <li>The potential for trades-specific applicability — particularly around certifications and financial planning — was noted positively once Cole understood the AI coach's flexibility.</li>
+  </ul>
+
+  <p><strong>What Raised Questions or Friction:</strong></p>
+  <ul>
+    <li>Cole was candid that the advisor dashboard and career readiness score are "a great tool for most four-year schools" but expressed uncertainty about applicability at Madison given low follow-through rates. He estimated it would take two to three semesters to know if engagement improves enough to use the tool meaningfully.</li>
+    <li>He flagged that applicability to trades and vocational students is an open question — specifically how the Clarity Track handles certification-based pathways versus traditional career ladders.</li>
+    <li>Cole's 7/10 score was explicitly conditional: it would increase once he can "drill down" further and identify selling points for trades students.</li>
+  </ul>
+
+  <p><strong>Surprises:</strong></p>
+  <ul>
+    <li>Positive: Cole's reaction exceeded his own expectations. He arrived not knowing what to expect and left expressing interest in both pilot partner and Product Council involvement.</li>
+    <li>Notable: Cole's instinctive pivot toward cross-departmental integration (student life + career services) as the deployment model was unprompted and signals a sophisticated institutional lens on the product.</li>
+  </ul>
+</section><section class="section">
+  <h2 class="section-title">Section 5 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>SNT Matching &amp; Integrated Communication (chat, video, attendance tracking)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Cole called this "huge" and directly contrasted it with his current manual email process for connecting SNT members. Seen as immediately useful at LTD rollout.</td>
+      </tr>
+      <tr>
+        <td>Clarity Track / AI Career Coach</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>High enthusiasm, especially as an asynchronous, on-demand tool. Cole sees it as a potential answer to the perennial student question of "how does this apply to me?" Trades student applicability is an open question but directionally positive.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score &amp; Advisor Dashboard</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Cole explicitly named career readiness data as what he wishes he had. However, he tempered enthusiasm with realistic concern about whether current engagement levels at Madison would generate meaningful data. Estimated 2–3 semesters to validate usefulness.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessments (Myers-Briggs, DISC, Enneagram, etc.)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>No direct comment, but fits within the broader Insights Track framing Cole responded to positively. No friction raised.</td>
+      </tr>
+      <tr>
+        <td>Multi-Track Structure (Insights, Clarity, Leadership, Connections)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Cole quickly grasped the supplemental/parallel nature of the tracks and appreciated that students can engage with Clarity before or independent of in-person events. Confirmed this fits Madison's hybrid reality.</td>
+      </tr>
+      <tr>
+        <td>Leadership Track / FOL in Society (Interactive Micro-Content)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Cole's primary FOL pain point is broadcast attendance. The shift toward interactive, non-video content was implicitly welcomed, but no direct enthusiasm expressed. The broadcast access feature within Society was not commented on — unclear if it resolves the attendance problem or just replicates it on a new platform.</td>
+      </tr>
+      <tr>
+        <td>Leadership Broadcasts Available On-Demand in Platform</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Cole's broadcast problem is attendance and engagement, not access. Making broadcasts available on-demand may not solve the core issue if students still don't watch them. Needs further exploration.</td>
+      </tr>
+      <tr>
+        <td>Cross-School SNT Matching (Future State)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Mentioned by Chris as a future capability. Not directly reacted to by Cole, but his earlier comment about students wanting to connect with peers at transfer schools (e.g., UW-Madison) suggests latent interest.</td>
+      </tr>
+      <tr>
+        <td>Induction via Clarity Track Completion (Future Concept)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Chris floated this as a possibility for students who don't identify as leaders. Cole did not directly respond. Could be relevant given Madison's "what's in it for me" student culture, but needs vetting.</td>
+      </tr>
+      <tr>
+        <td>Vocational / Certification Pathway Support in Clarity Track</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Cole raised this explicitly as a gap: trades students have fundamentally different career pathways. He is "assuming" the LLM can handle certifications and ag mechanic career paths but has not verified. This is a credibility risk if the Clarity Track defaults to white-collar career framing.</td>
+      </tr>
+    </tbody>
+  </table>
+</section><section class="section">
+  <h2 class="section-title">Section 6 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Cole [Last Name Not Stated] — Advisor, Student Life &amp; Leadership Programs, Madison Area Technical College</h3>
+    <p><strong>Background:</strong> Second year at Madison College. Previously worked at UW-Whitewater in a student involvement capacity. Works primarily with student government and leadership programs. Has been working with NSLS and Gregg for approximately two years.</p>
+    <p><strong>Motivations:</strong> Cole is clearly invested in making NSLS work better for a student population that is harder to serve than a typical four-year university chapter. He is trying to bridge the gap between NSLS's traditional leadership development framing and an institutional culture increasingly focused on speed-to-degree and workforce outcomes. He wants tools that help him articulate the value of involvement to skeptical students and institutional leadership alike. He is also personally proactive — Gregg noted Cole had independently initiated a pump-up/intro video idea on his own.</p>
+    <p><strong>Communication Style:</strong> Thoughtful, candid, and detailed. Cole gave nuanced, qualified answers throughout — expressing enthusiasm while consistently naming real constraints (enrollment timelines, trades students, institutional pressure). He thinks institutionally and cross-departmentally, not just at the program level. He does not oversell and did not perform enthusiasm he didn't feel.</p>
+    <p><strong>Pilot Partner Potential:</strong> High. Cole expressed open willingness to participate in either pilot or Product Council. His school presents a genuinely different use case (two-year, trades-heavy, short enrollment window) that would stress-test Society's flexibility in ways a four-year chapter cannot. His candid feedback style and proactive nature make him a valuable beta partner.</p>
+    <p><strong>Product Council Potential:</strong> Strong candidate. His cross-departmental thinking, institutional awareness, and unique school context would add a perspective not well-represented by four-year university advisors. His 7/10 score — conditional and clearly reasoned — suggests he would give honest, actionable feedback rather than performative positivity.</p>
+  </div>
+</section><section class="section">
+  <h2 class="section-title">Section 7 — Next Steps &amp; Open Items</h2>
+
+  <h3>Confirmed Action Items</h3>
+  <ul class="action-items">
+    <li><label><input type="checkbox"> Gregg to schedule a follow-up deep-dive meeting with Cole within 3–4 weeks (after Chris completes initial roadshow meetings). [Owner: Gregg Gudelinis | Timing: Within 3–4 weeks]</label></li>
+    <li><label><input type="checkbox"> Chris to send Cole a meeting summary and recording of this session. [Owner: Chris Higbee | Timing: Immediately post-meeting]</label></li>
+    <li><label><input type="checkbox"> Follow-up meeting agenda to focus on: (1) how Society rolls out within Madison's 18-month student lifecycle, (2) how Clarity Track applies to trades/vocational students, and (3) identifying student beta testers. [Owner: Chris Higbee + Gregg Gudelinis | Timing: Prior to follow-up meeting]</label></li>
+    <li><label><input type="checkbox"> Explore potential integration between Society's AI career coach and Madison College's career services team — Cole expressed interest in a cross-departmental partnership model. [Owner: Gregg Gudelinis to facilitate initial conversation with Cole | Timing: Follow-up meeting]</label></li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>Can the Clarity Track AI coach meaningfully support trades and vocational career pathways (e.g., agricultural mechanics, diesel tech, certifications)? Cole is "assuming" it can — this needs to be validated and demonstrated before his full buy-in.</li>
+    <li>Does making leadership broadcasts available on-demand in Society actually solve Madison's broadcast engagement problem, or does the root cause lie in student motivation rather than access?</li>
+    <li>How does Society's career readiness score function when student follow-through rates are low and the data set is thin? Is there a minimum engagement threshold for the dashboard to be useful?</li>
+    <li>Could induction via Clarity Track completion (rather than FOL) be a viable alternative pathway for trades students who don't identify with leadership framing? Worth exploring with Cole in the follow-up.</li>
+    <li>Does UW-Madison have an NSLS chapter? Cole mentioned students asking about chapter continuity when transferring — Gregg referenced UW-Whitewater as the one he knew. This is a straightforward lookup but relevant to the student transfer continuity story.</li>
+    <li>How should Society be positioned institutionally at Madison — as a student life tool, a career services tool, or both? Cole's instinct is cross-departmental, but the internal alignment question remains open.</li>
+  </ul>
+</section><section class="section">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr><th>School</th><td>Madison Area Technical College (Madison College)</td></tr>
+      <tr><th>Location</th><td>Madison, Wisconsin</td></tr>
+      <tr><th>School Type</th><td>Two-year technical/community college</td></tr>
+      <tr><th>Chapter Status</th><td>Established (founded 2016–2017)</td></tr>
+      <tr><th>Chapter Type</th><td>Not explicitly stated; in-person primary with hybrid/asynchronous needs</td></tr>
+      <tr><th>Segment</th><td>4</td></tr>
+      <tr><th>Meeting 1 Enthusiasm Score</th><td>7/10</td></tr>
+      <tr><th>Pilot Partner Interest</th><td>Yes — Cole expressed openness to either pilot partner or Product Council</td></tr>
+      <tr><th>Product Council Interest</th><td>Yes — Cole open to either; Chris expressed desire to include Madison</td></tr>
+      <tr><th>Top Pain Points</th><td>Leadership broadcast non-attendance; low student follow-through after enrollment; manual SNT coordination; difficulty articulating NSLS value to trades students; institutional pressure to deprioritize involvement</td></tr>
+      <tr><th>Top Feature Signals</th><td>SNT matching &amp; integrated communication (Strong); Clarity Track / AI Career Coach (Strong); Career Readiness Score &amp; Advisor Dashboard (Positive)</td></tr>
+      <tr><th>Primary Concern</th><td>Whether Society's tools — particularly the Clarity Track and career readiness dashboard — can serve trades and vocational students whose pathways differ from traditional four-year transfer students</td></tr>
+      <tr><th>Unique Angle</th><td>Two-year, trades-heavy school with a short enrollment window (~3 semesters), strong institutional pressure toward speed-to-degree, and a growing vocational student population — represents a stress test for Society's flexibility and a genuinely underserved use case within the NSLS network</td></tr>
+      <tr><th>Recommended Next Step</th><td>Schedule follow-up deep-dive in 3–4 weeks focused on: validating trades/vocational Clarity Track use cases, scoping a cross-departmental career services integration, and identifying student beta testers for pilot</td></tr>
+      <tr><th>CSR</th><td>Gregg Gudelinis</td></tr>
+    </tbody>
+  </table>
+</section>
+  </div><!-- /.content -->
+</main>
+
+<footer>
+  Generated by Society Roadshow Reporting System &nbsp;·&nbsp; April 03, 2026
+</footer>
+
+</body></html>

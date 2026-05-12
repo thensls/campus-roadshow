@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University of Tennessee, Knoxville — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header a.header-pill:hover{color:#C96058;} .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">April 10, 2026</span>
+    </div>
+    <h1>University of Tennessee, Knoxville &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; University of Tennessee, Knoxville Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/share/Ysmd5s37xuxmfsK-FQCsxsTaK2Ve68ud" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> University of Tennessee, Knoxville</p>
+    <p><strong>Location:</strong> Knoxville, TN</p>
+    <p><strong>School Type:</strong> Public 4-Year</p>
+    <p><strong>Chapter Status:</strong> Established</p>
+    <p><strong>Chapter Type:</strong> Hybrid (traditionally in-person; actively expanding to online/distance modalities)</p>
+    <p><strong>CSR:</strong> Hunter Hammock</p>
+    <p><strong>Advisors Present:</strong> Hunter Hammock (University of Tennessee, Knoxville)</p>
+    <p><strong>Notable Context:</strong> UT Knoxville is a large flagship public university with approximately 40,000 undergraduate students. The chapter has historically operated as an in-person chapter and is navigating a significant transition as the university pursues growth in graduate enrollment and distance education programs — targeting an increase from ~7,000 to ~10,000 graduate students by 2030. Hunter noted a marked dip in chapter engagement that he attributes directly to the introduction of online modality options<a href="https://fathom.video/calls/631297024?t=645" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 10:45</a>, as students gravitating toward virtual formats are showing lower completion rates<a href="https://fathom.video/calls/631297024?t=643" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 10:43</a>. The university is simultaneously investing tens of millions of dollars in its own internally-funded leadership and career readiness program, which reportedly engaged 17,000 undergrads last semester, creating a competitive dynamic<a href="https://fathom.video/calls/631297024?t=1256" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 20:56</a> that Hunter is actively thinking through. Institutional priorities from the dean and president's office are centered on growing distance ed and graduate programs, and there is strong campus-wide momentum around career and workforce readiness. Hunter flagged the presence of well-resourced campus departments (career services, academic advising) with established programs that can be territorial, making cross-departmental collaboration a nuanced challenge. He also mentioned Susanna Marshman, Assistant Vice Chancellor for Student Life and Professional Development, as a key campus contact<a href="https://fathom.video/calls/631297024?t=3578" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 59:38</a> for potential collaboration.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+  <div class="advisor-card">
+    <h3>Hunter Hammock</h3>
+    <p><strong>Role:</strong> Chapter Advisor, University of Tennessee, Knoxville; CSR for this engagement</p>
+    <p><strong>Background:</strong> Oversees an established, traditionally in-person NSLS chapter at a large public flagship university. Has direct experience managing chapter operations across multiple student modalities (in-person, online, hybrid) and is navigating the chapter through a period of institutional growth, particularly in graduate and distance education programs. Familiar with the competitive campus landscape and cross-departmental dynamics.</p>
+    <p><strong>Motivations:</strong> Hunter is motivated by delivering clear, demonstrable value to members — particularly in an environment where free, university-funded alternatives exist at scale. He is focused on preserving the in-person networking and belonging elements of NSLS that members cite as their best campus experience<a href="https://fathom.video/calls/631297024?t=1295" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 21:35</a>, while also finding ways to serve distance learners and graduate students. He sees a strategic opportunity in lifelong membership and alumni engagement<a href="https://fathom.video/calls/631297024?t=1030" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 17:10</a>, and is thinking proactively about how NSLS can differentiate itself and collaborate — rather than compete — with well-resourced campus departments. He is also interested in monetizing the loyalty of NSLS alumni through continued professional development products.</p>
+    <p><strong>Communication Style:</strong> Candid, strategic, and highly engaged. Hunter asked substantive, multi-part questions, took live notes during the demo<a href="https://fathom.video/calls/631297024?t=1713" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 28:33</a>, and voluntarily flagged campus political realities (e.g., departmental egos) without prompting. He is solutions-oriented and speaks with institutional knowledge and long-term perspective. Comfortable raising complex issues in a group setting.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Very high. Hunter gave Society a 10/10 enthusiasm score and described it as an "excellent" fit for UT's institutional priorities<a href="https://fathom.video/calls/631297024?t=3578" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 59:38</a>. He proactively raised questions about competitive positioning, cross-departmental collaboration, and product roadmap — all signals of a high-quality pilot partner. His mention of a specific campus contact (Susanna Marshman) for outreach, combined with his institution's scale and growth trajectory, makes UT Knoxville a strong Product Council candidate<a href="https://fathom.video/calls/631297024?t=3571" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 59:31</a>.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>In-person chapter experience and the networking and community that comes with physical presence — Hunter stated that multiple members have cited NSLS as their best campus experience specifically because of the people in the room<a href="https://fathom.video/calls/631297024?t=1281" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 21:21</a>.</li>
+    <li>The sense of belonging that in-person engagement creates; Hunter linked this directly to what keeps members coming back and completing the program<a href="https://fathom.video/calls/631297024?t=1295" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 21:35</a>.</li>
+    <li>The integrity and recognition of the NSLS brand, curriculum, and accreditation — Hunter wants innovation layered on top of what already works, not a replacement of it.</li>
+    <li>Flexibility to serve both traditional undergraduates who want the full in-person experience and distance learners or graduate students who need different modalities.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Engagement has dropped significantly since introducing online modality options<a href="https://fathom.video/calls/631297024?t=384" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:24</a>. Hunter attributes this to students choosing the path of least resistance (online) and then not following through — leading to confusion about where they are in the process and ultimately disengaging.</li>
+    <li>Students moving between modalities get confused about their progress, what steps remain, and what is required of them<a href="https://fathom.video/calls/631297024?t=643" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 10:43</a>. Hunter noted this is a communication and platform clarity issue that current comms and marketing have not fully solved.</li>
+    <li>The presence of a large, free, university-funded program covering similar ground (leadership, career modules) creates a competitive environment. Hunter noted 17,000 students "engaged" with it last semester, though he believes engagement is shallow (click-throughs, not completions).</li>
+    <li>Cross-departmental collaboration on campus is difficult due to territorial attitudes from well-funded departments like career services and academic advising.</li>
+    <li>No current mechanism in the platform to track or recognize member value beyond the chapter lifecycle — Hunter flagged that loyal alumni have no product to return to, representing revenue and engagement left unrealized.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Growing graduate student enrollment and distance education programs — the university is targeting an increase from approximately 7,000 to 10,000 graduate students by 2030, per Hunter's direct account of dean and president priorities.</li>
+    <li>Career and workforce readiness at scale — campus now requires all freshmen and sophomores to complete leadership, career services, and academic advising touchpoints before graduation, signaling deep institutional commitment to this area.</li>
+    <li>Serving non-traditional and distance learners with content tailored to their stage of life, not just traditional undergraduate programming.</li>
+    <li>Alumni engagement and lifelong membership — Hunter explicitly called out the opportunity to develop post-graduation products that leverage existing NSLS loyalty.</li>
+    <li>Demonstrating institutional value in a competitive environment where free, internally-funded alternatives are increasingly available to students.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Modality Confusion Is Driving Disengagement</h3>
+    <p>Hunter identified a direct causal link between introducing online modality options and a significant dip in chapter engagement at UT Knoxville. Students are choosing online because it is convenient, then not completing, and losing track of their progress across modalities. This is both a platform UX problem and a student communication problem. Hunter's framing — "if you have a choice between in person and online, most people are going to pick online" — signals that the platform needs to do more work to guide students through the right path regardless of how they access it, and to make the stakes of each modality clear.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. In-Person Belonging Is the Irreplaceable Differentiator</h3>
+    <p>Hunter was emphatic that the real value of NSLS — what members themselves report as their best campus experience — is the networking and human connection that happens in person. He cited this in direct contrast to the university's own free digital program, which he believes students skim and abandon. This theme reinforces that Society must augment, not replace, the in-person layer, and that features like SNT matching, chat, and connections should serve to strengthen — not substitute for — live engagement.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Institutional Competitive Pressure Requires a Collaboration Narrative</h3>
+    <p>UT Knoxville's campus is investing heavily in its own leadership and career readiness infrastructure, and well-resourced departments (career services, academic advising) can be territorial. Hunter's question about competitive differentiation was pointed and pragmatic. He also acknowledged campus ego dynamics directly. The signal here is that NSLS and Society need a clear, data-backed narrative for why they complement — rather than duplicate — existing campus resources, and that the admin dashboard and career readiness score could be powerful tools for making that case to skeptical campus partners.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Graduate Students and Distance Learners Represent an Underserved and Growing Segment</h3>
+    <p>Hunter explicitly connected UT's institutional growth goals (7,000 to 10,000 graduate students by 2030) to a product opportunity. He noted that graduate and professional students are in a different season of life than traditional undergraduates and need tailored content. This aligns with his interest in lifelong membership and alumni products. Society's ability to serve non-traditional students — including through the Clarity track and a flexible modality experience — is directly relevant to UT's near-term institutional priorities.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Alumni Loyalty Is an Untapped Revenue and Engagement Opportunity</h3>
+    <p>Hunter raised unprompted the idea of developing products for NSLS alumni who have graduated and remain loyal to the brand. He framed this as money being left on the table — suggesting that if NSLS offered continuing education, professional development, or mentorship products for alumni, loyal members would purchase them. He also connected this to the mentorship and connections features in Society, noting the value of alumni coming back to mentor the next generation. This is a strategic signal beyond the current platform scope that warrants tracking for future roadmap consideration.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+  <div class="enthusiasm-score">10/10</div>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>Hunter gave Society a 10/10 enthusiasm score, describing it as a "great sales pitch" and expressing genuine excitement to learn more.</li>
+    <li>The Connections track and the concept of matching students for SNTs algorithmically resonated — Hunter has long emphasized the primacy of in-person networking, and the idea of technology facilitating better matches (by major, affinity, personality) clearly aligned with his values.</li>
+    <li>The admin dashboard with cross-year data filtering and the career readiness score landed as directly useful tools — particularly for making the case to other campus departments about the value NSLS provides.</li>
+    <li>The vision of Society as a lifelong platform — carrying students from undergraduate through graduate and beyond — directly mapped to Hunter's stated interest in alumni engagement and post-graduation products.</li>
+    <li>Chris's framing of Society as a "force multiplier" for advisors, not a replacement for their work, appeared to resonate given Hunter's comments about wanting tools that help serve the volume and variety of students at a large flagship institution.</li>
+    <li>The school-specific AI agent concept — trained on the institution's course catalog, academic calendar, and staff directory — was presented as a future roadmap item, and Hunter's follow-up questions about collaboration with career services and academic advising suggest he immediately saw the practical application of this at UT.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Hunter's central question was about competitive positioning: how does Society differentiate from free, university-funded programs that already cover leadership and career readiness at scale? He did not frame this as a dealbreaker but as a real obstacle that needs a clear answer — particularly when approaching territorial campus departments.</li>
+    <li>He flagged that some campus partners (career services, academic advising) have strong institutional identities and may resist collaboration, noting "pretty big egos." This is a relationship and change management challenge that goes beyond the product itself.</li>
+    <li>The complexity of managing students across multiple modalities — and ensuring platform clarity as students move between them — was raised as an unresolved pain point that Society will need to address directly.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Hunter's proactive and unprompted pitch for an alumni/lifelong membership product was the most forward-looking contribution in the session. He went beyond reacting to what was shown and actively proposed a new product direction, signaling a high level of strategic investment in NSLS's long-term trajectory.</li>
+    <li>The candor about campus political dynamics — specifically naming department egos and a specific campus contact (Susanna Marshman) — was notably direct and actionable for a group session. Hunter appeared comfortable advocating for NSLS's position even in complex institutional politics.</li>
+    <li>Hunter's observation that UT's own free program had 17,000 student "engagements" last semester, followed immediately by skepticism about the depth of that engagement, was a sharp and unprompted competitive analysis that reinforced NSLS's differentiation on quality and completion over volume.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Multi-Modality Management (In-Person / Online / Hybrid)</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Hunter identified this as UT's single biggest current pain point. Students switching between modalities lose track of their progress and disengage. Platform must surface student journey status clearly regardless of how they access it. Hunter specifically wants to preserve in-person as a valued, distinct option — not let online default dominate.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching Algorithm (by availability, major, affinity, personality)</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Directly aligned with Hunter's conviction that in-person networking and belonging are NSLS's irreplaceable differentiator. The vision of matching students on richer criteria (personality, interests, major) was compelling. Hunter sees this as a way to make SNTs more impactful and reduce drop-off at the LTD-to-SNT handoff.</td>
+      </tr>
+      <tr>
+        <td>Admin Dashboard (multi-year filtering, export, career readiness score)</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Hunter immediately connected the career readiness score and dashboard data to the use case of making the case to campus partners (career services, academic advising, institutional research). Framed it as the evidence base needed to shift territorial departments from competition to collaboration.</td>
+      </tr>
+      <tr>
+        <td>Career Clarity / AI Coach Track</td>
+        <td><span class="badge-positive">Positive</span></td>
+        <td>Hunter's enthusiasm score reflects strong overall reception. The Clarity track maps well to UT's institutional priority of career and workforce readiness. His question about competitive differentiation vs. free campus programs implicitly positions Clarity as a key differentiator — if it can demonstrate depth and personalization that free campus modules cannot match.</td>
+      </tr>
+      <tr>
+        <td>Graduate &amp; Professional Student Tailored Content</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Hunter explicitly tied this to UT's growth goals (7,000 to 10,000 graduate students by 2030). He noted that graduate and professional students are in a different season of life and need content tailored to them — not repurposed undergraduate programming. Identified as a direct product gap and institutional opportunity.</td>
+      </tr>
+      <tr>
+        <td>Lifelong / Alumni Membership Product</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Hunter raised this unprompted. He argued that loyal NSLS alumni would purchase a post-graduation product offering continuing education, professional development, and mentorship opportunities. Described current absence of such a product as "a lot of money being left on the table." Not currently a Society feature — flagged as a future roadmap signal.</td>
+      </tr>
+      <tr>
+        <td>School-Specific AI Agent (trained on course catalog, calendar, staff directory)</td>
+        <td><span class="badge-positive">Positive</span></td>
+        <td>Hunter's follow-up questions about collaborating with career services and academic advising suggest he immediately saw the practical value of an agent that knows UT's specific resources and can route students accordingly. Reception was positive, though this was presented as a future roadmap item and not yet available.</td>
+      </tr>
+      <tr>
+        <td>Foundations of Leadership 2.0 (modular, modern content)</td>
+        <td><span class="badge-positive">Positive</span></td>
+        <td>Not directly commented on by Hunter in detail, but his concern about engagement drop-off and the platform needing to deliver clear value to students aligns with the FOL 2.0 goals of more digestible, modular content. No objections raised.</td>
+      </tr>
+      <tr>
+        <td>Cross-Departmental Collaboration Tools (career services, academic advising access)</td>
+        <td><span class="badge-question">Open Question</span></td>
+        <td>Hunter expressed strong interest in the concept but raised a practical friction point: campus departments at UT can be territorial and resist external collaboration. He asked directly how NSLS plans to approach this. Chris suggested going to those departments with data and a "we want to help you tell your story better" framing. Hunter agreed this was the right approach and identified a specific contact (Susanna Marshman, Assistant Vice Chancellor for Student Life and Professional Development) for outreach.</td>
+      </tr>
+      <tr>
+        <td>Competitive Differentiation vs. Free Campus Programs</td>
+        <td><span class="badge-care">Needs Care</span></td>
+        <td>UT Knoxville's campus has invested heavily in its own free leadership and career readiness program that reportedly reached 17,000 students last semester. Hunter questioned what Society's competitive edge is in that environment. He expressed skepticism about the depth of engagement in free programs (click-throughs vs. completions) but acknowledged this is a question advisors will face when making the case for NSLS on campus. Needs a clear, data-backed answer in advisor-facing materials.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Schedule a follow-up individual meeting with Hunter Hammock to go deeper on UT Knoxville's specific use case, including multi-modality management needs, graduate student content, and cross-departmental collaboration strategy. <span class="owner-tag">Hunter Hammock + CSR / CSM</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Initiate outreach to Susanna Marshman, Assistant Vice Chancellor for Student Life and Professional Development at UT Knoxville, as identified by Hunter as the appropriate campus contact for exploring NSLS-campus collaboration. Hunter has made prior attempts; a warm introduction facilitated through Chris Higbee or the NSLS team may help move this forward. <span class="owner-tag">Hunter Hammock + Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Follow up on the full list of questions Hunter submitted in the chat during the session. Zoë Wallis noted they were captured; Chris Higbee committed to answering all questions submitted to the shared Google Doc. Ensure Hunter's questions are specifically addressed in writing. <span class="owner-tag">Chris Higbee + Zoë Wallis</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Assess UT Knoxville's suitability for the Society pilot program. Hunter gave a 10/10 enthusiasm score and the institution's scale, growth trajectory, and advisor engagement quality make it a strong candidate. Confirm interest formally and outline pilot scope and timeline. <span class="owner-tag">CSR / NSLS Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Develop and document a clear competitive differentiation narrative for advisors to use when positioning Society against free, university-funded leadership and career readiness programs. Hunter's framing — depth of engagement and completion vs. volume of clicks — should inform this narrative. <span class="owner-tag">Chris Higbee / NSLS Product & Marketing</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Log Hunter's signal regarding alumni/lifelong membership product opportunity for roadmap consideration. Hunter argued that loyal NSLS alumni represent an undermonetized segment and would purchase post-graduation professional development products if offered. <span class="owner-tag">NSLS Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Ensure Society's multi-modality management UX is prioritized in the product roadmap. UT Knoxville's experience — engagement drop-off tied to online option introduction and student confusion across modalities — is a concrete, documented use case to design against. <span class="owner-tag">NSLS Product Team</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>How will Society specifically address the student confusion that arises when members move between in-person, online, and hybrid modalities mid-program? What UX guardrails or progress visibility features will be built to handle this?</li>
+    <li>What is NSLS's go-to-market strategy for approaching territorial campus departments (career services, academic advising) at institutions like UT Knoxville, where internal programs are well-funded and independently operated?</li>
+    <li>Will graduate and professional student-specific content tracks be part of the Society roadmap, and if so, on what timeline? Hunter flagged this as both a chapter need and an institutional priority at UT Knoxville.</li>
+    <li>What does the alumni/lifelong membership product opportunity look like from a product and business model perspective? Is this within scope for Society or a separate future offering?</li>
+    <li>How will the school-specific AI agent be co-created with campus partners? What is the onboarding process for training it on a given institution's course catalog, calendar, and staff directory?</li>
+    <li>How will Society handle students who are currently mid-program in the existing NSLS platform during a transition to Society? What is the migration and continuity plan for established chapters like UT Knoxville?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <td><strong>School</strong></td>
+        <td>University of Tennessee, Knoxville</td>
+      </tr>
+      <tr>
+        <td><strong>Location</strong></td>
+        <td>Knoxville, TN</td>
+      </tr>
+      <tr>
+        <td><strong>School Type</strong></td>
+        <td>Public 4-Year</td>
+      </tr>
+      <tr>
+        <td><strong>Chapter Status</strong></td>
+        <td>Established</td>
+      </tr>
+      <tr>
+        <td><strong>Chapter Type</strong></td>
+        <td>Hybrid (traditionally in-person; expanding to online and distance)</td>
+      </tr>
+      <tr>
+        <td><strong>Segment</strong></td>
+        <td>Tier 2</td>
+      </tr>
+      <tr>
+        <td><strong>Enthusiasm Score</strong></td>
+        <td>10/10</td>
+      </tr>
+      <tr>
+        <td><strong>Pilot Partner Interest</strong></td>
+        <td>Yes — strong. Hunter gave 10/10 and expressed readiness to engage further.</td>
+      </tr>
+      <tr>
+        <td><strong>Product Council Interest</strong></td>
+        <td>Yes — high potential. Hunter demonstrated strategic depth, institutional knowledge, and proactive product thinking throughout the session.</td>
+      </tr>
+      <tr>
+        <td><strong>Top Pain Points</strong></td>
+        <td>Multi-modality student confusion and engagement drop-off; competitive pressure from free university-funded programs; cross-departmental collaboration barriers; no alumni/post-graduation product to retain loyal members; graduate and distance learner content gap</td>
+      </tr>
+      <tr>
+        <td><strong>Key Signal</strong></td>
+        <td>Hunter directly tied Society's graduate student content, lifelong membership concept, and admin dashboard to UT Knoxville's institutional growth priorities — signaling that Society's roadmap is well-positioned to become a strategic campus partner, not just a chapter tool, if deployed thoughtfully.</td>
+      </tr>
+      <tr>
+        <td><strong>CSR</strong></td>
+        <td>Hunter Hammock</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; University of Tennessee, Knoxville &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; April 10, 2026
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University of North Texas — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">April 23, 2026</span>
+    </div>
+    <h1>University of North Texas &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; University of North Texas Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/647685362" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> University of North Texas (UNT)</p>
+    <p><strong>Location:</strong> Denton, TX</p>
+    <p><strong>School Type:</strong> Research University · Public 4-Year</p>
+    <p><strong>Chapter Status:</strong> Established</p>
+    <p><strong>Chapter Type:</strong> Hybrid (in-person and virtual sessions run in parallel)</p>
+    <p><strong>Advisors Present:</strong> Sydney Pickett (primary advisor); Jakita Cofer (CSR, re-assigned account)</p>
+    <p><strong>Notable Context:</strong> UNT is a commuter-heavy campus drawing students from across the DFW metroplex. Approximately 40% of the student body identifies as first-generation college students, making cost sensitivity and accessibility top-of-mind for the chapter. The university recently installed a new president who has reoriented the campus strategic plan away from community service and toward career readiness and leadership articulation — a shift that directly aligns with Society's value proposition. UNT has also formally adopted the NACE competencies as an institutional framework. The chapter has a strong track record of induction and invitation success. The account was originally managed by Jakita Cofer, transferred to Carissa to build her portfolio<a href="https://fathom.video/calls/647685362?t=31" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 0:31</a>, and returned to Jakita following Carissa's medical leave<a href="https://fathom.video/calls/647685362?t=47" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 0:47</a>.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Sydney Pickett</h3>
+    <p><strong>Role:</strong> Chapter Advisor, Leadership & Career Readiness Programs, University of North Texas</p>
+    <p><strong>Background:</strong> Has been at UNT for approximately two years. Also teaches a class on campus where she has observed firsthand that students struggle to articulate their leadership experiences despite having substantive involvement. Has participated in campus workforce readiness ideation sessions and independently conceptualized an AI-driven career exploration tool — essentially describing a version of Society before seeing the demo. Manages the NSLS chapter budget through her department rather than a separate student org bank account.</p>
+    <p><strong>Motivations:</strong> Wants to align NSLS programming tightly with the NACE competencies and the president's career readiness mandate. Seeks outcome data — specifically skill-level learning outcomes — to strengthen internal budget requests and end-of-semester reports. Passionate about helping first-generation and commuter students see concrete career benefits from involvement. Wants to be able to tell a defensible story about what students gain from the program beyond raw participation numbers.</p>
+    <p><strong>Communication Style:</strong> Direct, thoughtful, and practically oriented. Asks pointed questions about accessibility compliance, AI safety, data privacy, and pricing before committing. Thinks ahead to implementation logistics (IT approval, department purchasing, student org compliance). Engaged and enthusiastic but appropriately measured — wants to test before deciding.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Expressed a 9/10 enthusiasm score, agreed to explore the pilot partner program<a href="https://fathom.video/calls/647685362?t=3351" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 55:51</a>, and asked questions consistent with someone already thinking through adoption. Product Council candidacy should be revisited after pilot onboarding is underway.</p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Jakita Cofer</h3>
+    <p><strong>Role:</strong> Customer Success Representative (CSR), NSLS — re-assigned account manager for UNT</p>
+    <p><strong>Background:</strong> Previously managed the UNT chapter for approximately one year before transferring it to Carissa to support portfolio development. Resumed ownership of the account following Carissa's medical leave. Described the UNT chapter and Sydney as high-performing and strong on induction and invitation metrics.</p>
+    <p><strong>Motivations:</strong> Attended the roadshow call to learn more about Society firsthand. Also actively working to connect additional schools to the roadshow (College of Southern Nevada, APUS, Dallas College), showing investment in the broader initiative.</p>
+    <p><strong>Communication Style:</strong> Warm, collaborative, and proactive. Manages scheduling and relationship logistics with care — deliberately holding off on introducing the College of Southern Nevada advisor until that advisor's bandwidth improves post-induction<a href="https://fathom.video/calls/647685362?t=275" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:35</a>.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> N/A (internal CSR role); valuable as a champion and facilitator for pilot rollout coordination at UNT and other accounts.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>Online accessibility — the ability for commuter and remote students to complete the full induction process synchronously or asynchronously is the chapter's single most valued feature of NSLS today.</li>
+    <li>Sydney noted that NSLS has more student interactions than any other program in her office<a href="https://fathom.video/calls/647685362?t=764" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 12:44</a>, largely because of this online flexibility.</li>
+    <li>The existing relationship and support structure with the NSLS team — described as a "pretty good process and relationship."</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>The mobile app has persistent reliability issues: wrong event times displayed, content inaccessible, slow load times, and submissions not registering correctly. The chapter has effectively stopped promoting the app to students as a result<a href="https://fathom.video/calls/647685362?t=275" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:35</a>.</li>
+    <li>Students are directed to use the NSLS website via browser (desktop or mobile) rather than the app for all report submissions — a workaround that adds friction.</li>
+    <li>Approximately half of students who join NSLS never start the induction process<a href="https://fathom.video/calls/647685362?t=1276" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 21:16</a> — a recognized drop-off problem the chapter has not been able to solve with current tools.</li>
+    <li>SNTs are the primary point of student attrition. The chapter runs a manual, ad hoc process to form and track SNT groups (sign-up sheets, breakout rooms, coordinator tracking) that becomes chaotic when students from one session are unresponsive and must be re-paired with another group.</li>
+    <li>The current platform provides participation and completion counts but does not surface skill-level learning outcomes — making it difficult to tell a compelling story in budget and reporting conversations.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>A new university president launched a strategic plan in August focused on student success and career readiness — explicitly shifting institutional emphasis away from community service and general extracurricular involvement.</li>
+    <li>UNT has formally adopted the NACE competencies as an institutional framework. Sydney and her team are actively working to align programming with these competencies for both student-facing clarity and institutional reporting.</li>
+    <li>The office has narrowed its scope to leadership programming specifically, with a lens on how students can articulate leadership skills in career and interview contexts.</li>
+    <li>The school faces reputational pressure as a liberal-arts-heavy, music-focused institution — there is internal and external scrutiny around whether students are graduating career-ready. Outcome data would directly address this narrative.</li>
+    <li>Serving a large first-generation college student population (approximately 40%) and a commuter-dominant student body shapes every program and cost decision the team makes.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Career Readiness Is an Institutional Mandate, Not Just a Program Goal</h3>
+    <p>UNT's new president has explicitly repositioned the student affairs office around career readiness and leadership articulation. Sydney's team is redesigning programs to align with NACE competencies and building reporting infrastructure to demonstrate workforce outcomes. Society's Clarity track and career readiness score land directly in this institutional priority — this is not a peripheral interest but a strategic necessity for Sydney's office.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Skill-Level Outcome Data Is a Unique and Unmet Need</h3>
+    <p>Sydney explicitly stated that no current NSLS platform data surfaces the specific leadership or career skills students develop through participation — only participation and completion counts<a href="https://fathom.video/calls/647685362?t=2901" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 48:21</a>. She described needing the top three skills students gain from NSLS to support budget requests, end-of-semester reports, and institutional justification. Chris noted this was the first time he had heard this request across approximately 20 roadshow calls<a href="https://fathom.video/calls/647685362?t=3060" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 51:00</a>. This is a clear product signal for Society's advisor dashboard and reporting layer.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. App Reliability Has Eroded Trust and Changed Advisor Behavior</h3>
+    <p>Persistent mobile app issues — wrong event times, inaccessible content, failed submissions — have caused Sydney's team to actively stop promoting the app to students. Students are redirected to the browser-based portal instead. This is a notable behavioral workaround that signals a broken experience channel. Any new platform must demonstrate reliability before it will be promoted to students at UNT.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Accessibility and Data Compliance Are Institutional Gatekeepers</h3>
+    <p>Sydney raised two compliance concerns unprompted: (1) Texas accessibility law requiring platforms to support screen readers and assistive technologies<a href="https://fathom.video/calls/647685362?t=2259" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 37:39</a>, and (2) the need for IT department approval and data privacy compliance (FERPA, SOC 2). She noted she would need to check with IT before any rollout. She also raised the topic of AI safety — specifically, whether the AI coach has protocols for surfacing concerning student behaviors<a href="https://fathom.video/calls/647685362?t=2396" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 39:56</a>. These are not hypothetical concerns; they reflect active institutional processes at UNT that will determine adoption timelines.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. First-Generation Students and Cost Sensitivity Shape Every Adoption Decision</h3>
+    <p>With approximately 40% first-generation college students, Sydney flagged that the current $95 membership fee already generates student hesitation. Any increase in price — or perception of added cost for new tracks — would amplify this barrier. She proactively proposed a department-level purchasing model for the Clarity track so that students would only need to pay for the leadership component<a href="https://fathom.video/calls/647685362?t=3643" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:00:43</a>. This pricing sensitivity will need to be addressed clearly in pilot onboarding conversations.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">9/10</div>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The Clarity track and AI coach concept resonated immediately — Sydney had independently conceived of a nearly identical tool in a campus workforce readiness ideation session<a href="https://fathom.video/calls/647685362?t=96" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:36</a>, validating the concept before seeing the demo.</li>
+    <li>The career direction and dream job generation features were described as genuinely exciting. Sydney engaged directly with the AI coach live, asking it a personal career question about education roles beyond K–12 teaching<a href="https://fathom.video/calls/647685362?t=1294" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 21:34</a>.</li>
+    <li>The SNT matching and scheduling tool generated real interest as a solution to a known pain point — Sydney asked specific follow-up questions about how the matching logic would interact with her current coordinator-managed process.</li>
+    <li>The advisor dashboard with longitudinal data and individual student progress tracking was well received as a significant improvement over current reporting capabilities.</li>
+    <li>The career readiness score concept was noted as potentially useful for institutional reporting, especially given the NACE alignment.</li>
+    <li>The framing of Society as an add-on to — not a replacement for — Foundations of Leadership helped reduce concern about disruption to existing workflows.</li>
+    <li>The positioning of AI as a critical thinking support tool rather than a replacement for human judgment was explicitly appreciated.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Accessibility compliance: Sydney asked whether the platform had been tested against Texas accessibility law requirements for screen readers and assistive technology. Chris acknowledged testing is incomplete and that the beta process would help address this.</li>
+    <li>AI safety and concerning behavior protocols: Sydney asked whether the AI coach has mechanisms to flag or escalate if a student discloses distressing or concerning information. Chris acknowledged this had not been deeply addressed yet.</li>
+    <li>IT and data compliance approval: Sydney indicated she would need to route any adoption through IT for FERPA and data security review before committing.</li>
+    <li>Pricing structure uncertainty: Sydney asked directly whether new tracks would cost students more. The current answer (included in existing membership, with modular pricing coming later) was accepted, but she immediately proposed a department purchasing model to protect first-gen students from cost increases.</li>
+    <li>SNT coordinator override: Sydney asked whether her S&T coordinator could manually adjust AI-generated team matches — a workflow the current system does not support. Chris acknowledged this as a gap to explore.</li>
+    <li>Implementation pathway: Sydney wanted to understand how other institutions are integrating Society alongside the existing leadership track before making a final decision.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Sydney had independently conceptualized an AI career exploration tool in a campus ideation session — she described seeing Society as essentially the tool she had already imagined, which created an unusually high baseline of enthusiasm and conceptual alignment.</li>
+    <li>The skill-level outcome data request was flagged by Chris as unique — no other school in approximately 20 roadshow calls had raised this specific need, making UNT a potentially valuable input source for Society's reporting roadmap.</li>
+    <li>UNT already runs SNTs at orientation and Leadership Training Day while students are physically present — a proactive workaround that meaningfully reduces their drop-off exposure compared to schools that rely on students to self-organize post-session.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Clarity Track (AI-powered career direction)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Sydney had independently conceived of nearly this exact tool. She engaged with the live demo personally, calling the experience "really exciting." Sees it as more valuable than the current platform for students who use it fully.</td>
+      </tr>
+      <tr>
+        <td>AI Coach (conversational career exploration)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Sydney asked the coach a personal career question live and was engaged by the results. Noted students could "go down the rabbit hole" productively. Raised safety flag: needs protocol for flagging concerning student disclosures.</td>
+      </tr>
+      <tr>
+        <td>Dream Job Generator (5 options with fit rationale)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Sydney engaged with the concept positively. The personalized career statement ("print it out, put it on your mirror") framing resonated as meaningful for students who lack career direction.</td>
+      </tr>
+      <tr>
+        <td>Accountability Engine (action items + reminders)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Not discussed in depth, but the concept of converting coach outputs into tracked action items and reminders was received as a logical and useful extension of the AI coach experience.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching & Scheduling Tool</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Sydney confirmed SNT dropout is a real problem. However, she asked whether her S&T coordinator could override or influence the algorithm's matches — current system does not support this. UNT's existing in-session grouping process may need to be accommodated. Follow-up conversation with the coordinator flagged as needed.</td>
+      </tr>
+      <tr>
+        <td>Advisor Dashboard (longitudinal data, cohort tracking)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Strong interest. Sydney specifically wants skill-level learning outcome data (e.g., top 3 skills gained from NSLS) to support budget requests and end-of-semester reports — a need not met by the current platform and not raised by any other school in the roadshow to date.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score (student-level composite metric)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Received positively as a potentially useful institutional reporting tool, especially given UNT's NACE alignment mandate and reputational pressure around liberal arts career outcomes.</td>
+      </tr>
+      <tr>
+        <td>Campus Intelligence Agent (course catalog, staff directory integration)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Chris previewed this in-development feature. Sydney did not comment directly, but the concept of the platform knowing UNT's course catalog and advisor directory was framed as a natural extension of what she already wants the tool to do.</td>
+      </tr>
+      <tr>
+        <td>Modular FOL Video Content</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Sydney asked earlier in the call how leadership and career content would work together. The framing of shorter, modular video snippets replacing long-form Karen sessions was presented as a direction — no direct reaction captured, but Sydney had asked specifically about this integration.</td>
+      </tr>
+      <tr>
+        <td>Accessibility Compliance (screen readers, assistive tech)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Sydney raised Texas accessibility law unprompted after meeting with the UNT Office of Accessibility. Platform testing is incomplete. This is a potential blocker to institutional approval if not addressed before rollout conversations with IT.</td>
+      </tr>
+      <tr>
+        <td>AI Safety / Concerning Behavior Protocols</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Sydney asked whether the AI coach can flag or escalate if a student discloses distressing information. Chris acknowledged this has not been deeply addressed. Given UNT's first-gen and commuter population, this is a welfare concern the team needs to take seriously before student-facing rollout.</td>
+      </tr>
+      <tr>
+        <td>Modular / Department-Level Pricing</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Sydney proactively proposed that her department could purchase a block of Clarity Track access so students only pay for the leadership component. Chris confirmed this would be possible. No pricing has been locked down. Given the first-gen student population (~40%), this will likely be a prerequisite for broader adoption at UNT.</td>
+      </tr>
+      <tr>
+        <td>Data Privacy & IT Compliance (FERPA, SOC 2)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Sydney confirmed she would need IT department sign-off and data privacy review before any formal adoption. This is a standard institutional gate but needs to be anticipated and supported with documentation during onboarding.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Send Sydney access to <strong>oursociety.org</strong> for personal exploration. Encourage her to record feedback via video, AI notes, or written notes and return to Chris. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Schedule a follow-up meeting with Sydney within two weeks to begin the pilot partner rollout process and advance to faculty/student group access. <span class="owner-tag">Jakita Cofer</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Share any available SOC 2 Type 2, FERPA, and data privacy documentation with Sydney to support her IT department review and institutional approval process. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Escalate the Texas accessibility law compliance requirement internally. Platform must be tested against screen reader and assistive technology standards before student-facing rollout at UNT. <span class="owner-tag">Chris Higbee / Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Bring AI coach safety protocol question (flagging or escalating concerning student disclosures) to the product team for formal review and policy development. <span class="owner-tag">Chris Higbee / Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Schedule a working session with Sydney's S&T coordinator to understand the current manual SNT group formation process and assess how — or whether — the platform's matching algorithm can accommodate advisor or coordinator override inputs. <span class="owner-tag">Chris Higbee / Jakita Cofer</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Log Sydney's skill-level learning outcome data request as a unique product signal. Explore adding a skill-tagging or competency-mapping layer to the advisor dashboard so advisors can report on top skills gained per track. <span class="owner-tag">Chris Higbee / Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">8</div>
+      <div>After pilot onboarding is underway, revisit Product Council invitation with Sydney. Hold off on formal ask until she has active experience with the platform. <span class="owner-tag">Chris Higbee / Jakita Cofer</span></div>
+    </li>
+    <li>
+      <div class="action-number">9</div>
+      <div>Follow up with College of Southern Nevada after induction season concludes and advisor bandwidth improves — targeting May or later. <span class="owner-tag">Jakita Cofer</span></div>
+    </li>
+    <li>
+      <div class="action-number">10</div>
+      <div>Pursue roadshow conversations with APUS (post-commencement) and Dallas College as the next high-priority school additions to the roadshow pipeline. <span class="owner-tag">Jakita Cofer</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>Can the SNT matching algorithm support a coordinator override or manual adjustment layer? Sydney's current process relies on human judgment to re-pair students when original groups become unresponsive.</li>
+    <li>What does the AI coach's protocol look like when a student discloses distressing, dangerous, or concerning information during a session? Is there an escalation or notification pathway?</li>
+    <li>Has the platform been tested against Texas accessibility law requirements for screen readers and assistive technology? What is the current compliance status and timeline to full accessibility?</li>
+    <li>Can departments purchase a block of Clarity Track access separately from the full membership fee, so first-generation students are shielded from additional cost? What does that pricing model look like?</li>
+    <li>How will Society surface skill-level learning outcomes (e.g., specific NACE competencies or leadership skills developed) at the individual student and cohort level for advisor reporting?</li>
+    <li>How are other pilot schools integrating Society alongside the existing Foundations of Leadership curriculum? Sydney asked this question and did not receive a detailed answer — she will want specifics before committing to a model at UNT.</li>
+    <li>What documentation can NSLS provide to UNT's IT department to support FERPA and data privacy compliance review?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>University of North Texas (UNT)</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Denton, TX</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Research University · Public 4-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Hybrid (in-person and virtual sessions run concurrently)</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>9/10</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — Sydney agreed to explore pilot partnership; access to oursociety.org provided; follow-up meeting to be scheduled within two weeks</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>Deferred — revisit after pilot onboarding is underway</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>Mobile app reliability (wrong times, failed submissions, inaccessible content); no skill-level outcome data for reporting; SNT drop-off and manual group management; half of students never start induction; first-gen cost sensitivity around membership fees</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Sydney independently conceived of a near-identical AI career exploration tool before seeing Society — high conceptual alignment. Unique unmet need: skill-level learning outcome data for NACE-aligned institutional reporting. Accessibility compliance and AI safety protocols are active institutional gatekeepers that must be addressed before rollout.</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Jakita Cofer</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; University of North Texas &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; April 23, 2026
+</footer>
+
+</body>
+</html>

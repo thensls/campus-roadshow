@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Western Governors University — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:   #1A3550;
+    --gold:   #F2DA4E;
+    --green:  #88D86B;
+    --teal:   #88D86B;
+    --amber:  #F2DA4E;
+    --red:    #C96058;
+    --bg:     #F2E9E2;
+    --card:   #E8DDD5;
+    --text:   #1E1414;
+    --muted:  #6B6357;
+    --border: rgba(30,20,20,0.1);
+    --yellow: #F2DA4E;
+    --white:  #FFFDF8;
+    --black:  #1E1414;
+    --purple: #4a4faa;
+    --pink:   #C96058;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #F2E9E2;
+    color: var(--black);
+    line-height: 1.6;
+  }
+  h1, h2 { font-family: 'Cigars', Georgia, 'Times New Roman', serif; }
+  a { color: #1A3550; }
+  a:hover { color: #C96058; }
+
+  .page-header {
+    background: #F2E9E2;
+    border-bottom: 2px solid #1A3550;
+    padding: 2rem 0 0.56rem;
+  }
+  .page-header .header-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .page-header .header-pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .page-header .header-pill {
+    background: transparent;
+    border: 1px solid rgba(36,59,82,0.35);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #243B52;
+  }
+  .page-header .header-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .page-header a.header-pill:hover{color:#C96058;} .page-header .header-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #243B52;
+    border: 1px solid #243B52;
+    color: #FFFDF8;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .page-header .header-btn:hover { background: #1a2d3e; color: #FFFDF8; }
+  .page-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1A3550;
+    margin-bottom: 0.5rem;
+  }
+
+  main {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .content { flex: 1; min-width: 0; }
+
+  .toc-sidebar {
+    width: 185px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 1.5rem;
+  }
+  .toc-nav {
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 0.9rem 1rem;
+  }
+  .toc-nav .toc-heading {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 0.65rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .toc-nav a {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.28rem 0.5rem;
+    border-radius: 4px;
+    line-height: 1.4;
+    margin-bottom: 0.05rem;
+  }
+  .toc-nav a:hover { background: rgba(30,20,20,0.05); color: var(--navy); }
+
+  .section { margin-bottom: 2.5rem; }
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--navy);
+    margin-bottom: 1rem;
+    font-family: 'Cigars', Georgia, serif;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+  }
+  .card p { font-size: 0.93rem; margin-bottom: 0.5rem; }
+  .card p:last-child { margin-bottom: 0; }
+
+  .theme-card {
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+    border-left: 3px solid #1A3550;
+  }
+  .theme-card .theme-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+  .theme-card p { font-size: 0.9rem; color: var(--text); }
+
+  .enthusiasm-score {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    font-family: 'Cigars', Georgia, serif;
+  }
+
+  .feature-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    font-size: 0.88rem;
+  }
+  .feature-table thead tr { background: #1A3550; color: #FFFDF8; }
+  .feature-table th {
+    padding: 0.7rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+  .feature-table td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .feature-table tr:last-child td { border-bottom: none; }
+  .feature-table tr:nth-child(even) { background: rgba(30,20,20,0.03); }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-strong   { background: rgba(60,140,30,0.1);   color: #2a7a10; }
+  .badge-positive { background: #E2E4F3;               color: #4a4faa; }
+  .badge-question { background: rgba(180,130,0,0.1);   color: #7a5500; }
+  .badge-care     { background: rgba(201,96,88,0.12);  color: #C96058; }
+
+  .metadata-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    font-size: 0.88rem;
+  }
+  .metadata-table th {
+    padding: 0.6rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--muted);
+    font-size: 0.8rem;
+    width: 38%;
+    background: rgba(30,20,20,0.04);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .metadata-table td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .metadata-table tr:last-child th,
+  .metadata-table tr:last-child td { border-bottom: none; }
+
+  .advisor-card {
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 0.75rem;
+  }
+  .advisor-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+  .advisor-card p { font-size: 0.9rem; color: var(--text); margin-bottom: 0.3rem; }
+  .advisor-card p:last-child { margin-bottom: 0; }
+
+  .action-items { list-style: none; padding: 0; }
+  .action-items li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+  .action-items li:last-child { border-bottom: none; }
+  .action-number {
+    background: #C96058;
+    color: #FFFDF8;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .owner-tag {
+    display: inline-block;
+    background: #E2E4F3;
+    color: #4a4faa;
+    border: 1px solid #C8CBE8;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 6px;
+    white-space: nowrap;
+  }
+
+  .section > h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 1.25rem 0 0.5rem;
+    padding: 0.4rem 0.75rem;
+    background: rgba(30,20,20,0.04);
+    border-radius: 4px;
+  }
+  .section > h3:first-of-type { margin-top: 0; }
+  .section > ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    background: rgba(30,20,20,0.02);
+    border-radius: 0 0 6px 6px;
+    border: 1px solid var(--border);
+    border-top: none;
+    padding-top: 0.75rem;
+    padding-right: 1rem;
+    padding-bottom: 0.75rem;
+  }
+  .section > ul li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .section > ul li:last-child { margin-bottom: 0; }
+  .section > p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+    background: rgba(30,20,20,0.02);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+  }
+
+  .note-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(242,218,78,0.15);
+    border: 1px solid rgba(242,218,78,0.5);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #6B6357;
+    padding: 2rem;
+    border-top: 1px solid rgba(30,20,20,0.1);
+    background: #F2E9E2;
+    margin-top: 3rem;
+  }
+  </style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">March 24, 2026</span>
+    </div>
+    <h1>Western Governors University &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Western Governors University Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s4">4 &mdash; Society Reception</a>
+      <a href="#s5">5 &mdash; Feature-Level Feedback</a>
+      <a href="#s6">6 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s7">7 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="note-badge" style="background:rgba(201,96,88,0.1);border-color:rgba(201,96,88,0.4);color:#8a2e28;font-weight:600;">&#x26D4; No recording — WGU institutional policy prohibits recording by Fathom or any third-party note-taking tool. This report is based solely on meeting notes.</div>
+  <div class="card">
+    <p><strong>School:</strong> Western Governors University &mdash; Salt Lake City, UT (Online)</p>
+    <p><strong>School Type:</strong> University &middot; Private Non-Profit &middot; Online</p>
+    <p><strong>Presenter:</strong> Chris Higbee, VP of Product (NSLS)</p>
+    <p><strong>Attendees:</strong> Ann Leary, Kristin Stege, Brenna Gillman, Debbie Fowler (SVP, Student Success), Margaret Mancuso</p>
+    <p><strong>Notable Context:</strong> WGU is a fully online, competency-based institution historically serving adult learners and working professionals. The institution is beginning to attract younger, more traditional student populations — creating new alignment opportunities with Society's career development and engagement model. Advisors manage high student-to-advisor ratios, making scalability a core consideration for any new tool.</p>
+    <p><strong>Important — WGU's Technology &amp; Innovation Context:</strong> WGU is widely regarded as one of higher education's most technologically sophisticated institutions. The university maintains dedicated internal software engineering, product management, data science, and machine learning teams that build proprietary tools powering their student experience. WGU also operates <strong>WGU Labs</strong> — a nonprofit R&amp;D and incubation affiliate — and an <strong>innovation group</strong> that not only develops solutions for internal use but actively explores commercializing those solutions externally. This context is essential for interpreting the group's guarded responses during this meeting.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title" id="advisor-profiles">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card" style="border-left:3px solid #C96058;">
+    <h3>Debbie Fowler &mdash; <span style="font-weight:400;color:#6B6357;">SVP, Student Success &mdash; Western Governors University</span></h3>
+    <p><strong>Seniority Note:</strong> Debbie is a member of WGU's University Leadership Council and leads approximately 2,500 employees across five service lines: Enrollment &amp; Lifecycle Operations, Evaluation Operations, Student Success Administration, Office of the Registrar, and Student Experience. Her presence at this meeting is highly significant — this is not a chapter advisor evaluation; this is executive-level sizing up.</p>
+    <p><strong>Key Disclosure:</strong> Debbie noted that WGU has similar functionality to Society's SNT matching currently in development within their own student systems. This is the most consequential signal from the meeting and directly raises the question of whether WGU sees NSLS as a partner, a reference point, or a potential competitor.</p>
+    <p><strong>Demeanor:</strong> Measured and tight-lipped. Did not offer enthusiasm scores or strong positive or negative statements. Engaged, but clearly evaluating from a strategic vantage point rather than an operational one.</p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Ann Leary &mdash; <span style="font-weight:400;color:#6B6357;">Advisor, Western Governors University</span></h3>
+    <p><strong>Enthusiasm Score:</strong> 7–8/10</p>
+    <p><strong>Key Interests:</strong> Strong interest in the SNT matcher for peer connections and virtual meetings. Values reducing barriers by housing everything within a single system. Sees Society as a way to lower friction and encourage continued engagement.</p>
+    <p><em>Note: Specific title not confirmed from public sources.</em></p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Kristin Stege &mdash; <span style="font-weight:400;color:#6B6357;">Lead, Communities — School of Technology, Western Governors University</span></h3>
+    <p><strong>Enthusiasm Score:</strong> 7/10</p>
+    <p><strong>Key Interests:</strong> Values career-focused features and the ability to tell a clear story through data. Interested in Society but cautious about potential overlap with tools WGU already has in place.</p>
+    <p><em>Note: Title based on best available public match; unconfirmed.</em></p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Brenna Gillman &mdash; <span style="font-weight:400;color:#6B6357;">Mentor, Courses &amp; Communities &mdash; Western Governors University</span></h3>
+    <p><strong>Key Concern:</strong> Worried about overwhelming students with too many opportunities — WGU students already have a wide range of options available to them. Acknowledged the value in more scalable, personalized support as a counterpoint.</p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Margaret Mancuso &mdash; <span style="font-weight:400;color:#6B6357;">Advisor, Western Governors University</span></h3>
+    <p><strong>Focus:</strong> Primarily interested in understanding the practical day-to-day impact for advisors — how Society would fit into existing staff workflows and support high student-to-advisor ratios.</p>
+    <p><em>Note: Specific title not confirmed from public sources.</em></p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Key Themes &amp; Signals</h2>
+
+  <div class="theme-card">
+    <div class="theme-title">SNT Experience &amp; Progression</div>
+    <p>The SNT matcher — finding peers, facilitating virtual meetings, and tracking attendance — was well received by the group. Having all of this housed within a single interface was seen as a meaningful advantage. Advisors view it as a way to reduce barriers, drive continued engagement, and help close the gap between LTD completion and active SNT participation.</p>
+  </div>
+
+  <div class="theme-card">
+    <div class="theme-title">Data &amp; Reporting</div>
+    <p>The group showed clear interest in concrete data points across career readiness, networking, and skills development. Reporting dashboards showing cohort progress and engagement trends were highlighted as a standout feature. The ability to "tell the story" through data — and to share those insights up the institutional chain — was called out as a meaningful capability, particularly given WGU's scale.</p>
+  </div>
+
+  <div class="theme-card">
+    <div class="theme-title">Gamification</div>
+    <p>Positive reaction to goal-setting with associated tasks and usage streaks (e.g., multiple consecutive days of engagement). Seen as a practical lever for driving continued participation in an online-only environment where student momentum can stall.</p>
+  </div>
+
+  <div class="theme-card">
+    <div class="theme-title">Integration &amp; Avoiding Duplication</div>
+    <p>A recurring theme was the importance of not duplicating tools WGU already has. The group expressed interest in exploring integration with current systems for data sharing rather than creating a parallel experience. Seen as a longer-term exploration — something to potentially pursue down the road rather than an immediate requirement.</p>
+  </div>
+
+  <div class="theme-card" style="border-left-color:#C96058;">
+    <div class="theme-title" style="color:#C96058;">&#x26A0;&#xFE0F; WGU Building Internally — Competitive Overlap</div>
+    <p>Debbie Fowler disclosed that WGU already has SNT-style peer matching functionality in active development within their own student systems. This is not a vague reference to existing tools — it is a direct description of work in progress that overlaps with one of Society's headline features. WGU has the engineering capacity, product teams, and institutional scale to build and deploy this independently. Critically, their WGU Labs innovation group has a track record of exploring commercialization of internally-built solutions — meaning WGU could, in theory, become a competitor rather than a customer. The tight-lipped, strategic posture of the group throughout the meeting is most easily explained by this context: they were evaluating Society against what they are already building.</p>
+  </div>
+
+  <div class="theme-card">
+    <div class="theme-title">Academic Integration Opportunity</div>
+    <p>One academic dean raised the idea of tying NSLS into undergraduate programs directly. The group questioned whether Society would be even more effective within an academic program context — a signal worth tracking as a potential institutional partnership model.</p>
+  </div>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Society Reception</h2>
+  <div class="enthusiasm-score">7–8</div>
+  <p>The group was notably guarded throughout the meeting. Scored enthusiasm reflects individual comments from Ann Leary (7–8/10) and Kristin Stege (7/10) — the other three attendees, including the most senior person in the room (Debbie Fowler, SVP Student Success), did not offer enthusiasm scores and shared limited qualitative feedback. The restrained engagement is best understood in the context of WGU's internal development activity: the group was evaluating Society against capabilities they are already building, making it difficult to read genuine interest vs. competitive reconnaissance.</p>
+
+  <h3>What Resonated</h3>
+  <ul>
+    <li>SNT matcher as a low-friction peer connection tool within a single platform — though Debbie Fowler's disclosure suggests WGU is already building this capability</li>
+    <li>Reporting dashboards for cohort progress, engagement trends, and career readiness data</li>
+    <li>Gamification (goal setting, usage streaks) as a driver of continued engagement</li>
+    <li>Scalable, personalized support — particularly relevant given high advisor-to-student ratios</li>
+    <li>Alignment with WGU's growing younger student population and their expectations</li>
+  </ul>
+
+  <h3>Key Concerns</h3>
+  <ul>
+    <li><strong>WGU is building SNT matching internally</strong> — Debbie Fowler disclosed this directly; the feature that resonated most with the group is one WGU is actively developing on its own</li>
+    <li>Risk of overwhelming students who already have many opportunities available through WGU</li>
+    <li>Potential duplication with existing WGU tools — the group was notably careful about this throughout; now understood to be more than a general concern</li>
+    <li>Day-to-day workflow fit for advisors — need to understand practical support impact</li>
+    <li>Strategic ambiguity: WGU Labs has a commercialization mandate; it is unclear whether WGU views NSLS as a potential partner or as a competitive reference point for their own product roadmap</li>
+  </ul>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Feature-Level Feedback</h2>
+  <table class="feature-table">
+    <thead>
+      <tr><th>Feature</th><th>Signal</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>SNT Matcher</td>
+        <td><span class="badge badge-care">⚠ Competitive Risk</span></td>
+        <td>Well received on its merits — but Debbie Fowler disclosed that WGU has similar peer matching functionality already in active development within their own student systems. Strong interest in this feature may reflect validation rather than intent to adopt.</td>
+      </tr>
+      <tr>
+        <td>Data &amp; Reporting Dashboards</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Highlight of the demo; ability to "tell the story" through data and share insights up the institutional chain</td>
+      </tr>
+      <tr>
+        <td>Gamification (Goals / Streaks)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Positive reaction; seen as practical for driving engagement in online-only environment</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Tracking</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Interest in concrete career readiness data points; aligns with WGU's outcomes-oriented mission</td>
+      </tr>
+      <tr>
+        <td>System Integration</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Noted as important to avoid duplication; integration with existing WGU tools preferred over parallel systems</td>
+      </tr>
+      <tr>
+        <td>Academic Program Tie-In</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Academic dean raised potential to embed Society within undergraduate curriculum — worth exploring further</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Next Steps &amp; Open Items</h2>
+  <div style="background:rgba(201,96,88,0.07);border:1px solid rgba(201,96,88,0.3);border-left:4px solid #C96058;border-radius:8px;padding:16px 20px;font-size:14px;line-height:1.65;margin-bottom:1.5rem;">
+    <strong style="color:#C96058;">&#x26A0;&#xFE0F; Key Signal — Competitive Overlap &amp; Strategic Ambiguity:</strong> The most important takeaway from this meeting is not enthusiasm level — it is Debbie Fowler's disclosure that WGU is already building SNT matching internally. WGU is one of higher education's most technologically capable institutions, with a dedicated product and engineering organization and a commercialization-oriented innovation group (WGU Labs). The group's tight-lipped demeanor throughout the meeting is most plausibly explained by this context: they were evaluating Society against what they are already building, not as a straightforward adoption decision. Society's clearest differentiators — the 2.2M alumni mentor network, cross-institutional peer matching, and the NSLS brand and credential — are features WGU cannot easily replicate on their own. Any continued engagement should lead with these, and NSLS leadership should assess whether this is a genuine partnership opportunity or competitive reconnaissance before investing further resources.
+  </div>
+
+  <h3>Action Items</h3>
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Assess the strategic intent behind Debbie Fowler's attendance and her disclosure about WGU's internal SNT development — determine whether WGU is a genuine prospect, a competitive intelligence source, or both. Consider whether to pursue further engagement or deprioritize. <span class="owner-tag">Chris Higbee</span><span class="owner-tag">Olivia Orend</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Follow up with WGU team on pilot partner and Product Council interest — confirm which advisors want to stay engaged and in what capacity, keeping the competitive context in mind. <span class="owner-tag">Olivia Orend</span><span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Research WGU Labs' commercialization pipeline and any public signals about their student peer-matching or engagement platform work — understand how close they are to deploying competing functionality. <span class="owner-tag">Chris Higbee</span><span class="owner-tag">NSLS Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>If continuing engagement, frame Society's differentiators around what WGU cannot easily replicate: the 2.2M alumni mentor network, cross-institutional peer matching, and the NSLS brand &amp; credential recognition. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Reconnect with the academic dean who raised the undergraduate program integration idea — this partnership angle (embedding NSLS in curriculum) is the most defensible foothold given WGU's internal build capacity. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul>
+    <li><strong>What is the true intent of WGU's engagement?</strong> Was this meeting primarily a competitive intelligence-gathering exercise, or is there genuine interest in adopting Society?</li>
+    <li>How far along is WGU's internal SNT matching development, and what is their timeline for deployment?</li>
+    <li>Does WGU Labs intend to commercialize their peer matching or engagement tools — and if so, could WGU become a direct competitor rather than a customer?</li>
+    <li>What does Society offer that WGU fundamentally cannot build internally — and how do we lead with that in any follow-up?</li>
+    <li>Would Society be more effective if embedded within an academic program rather than as a standalone co-curricular offering — and does this model avoid the competitive overlap entirely?</li>
+    <li>How can Society be positioned to avoid overwhelming students at a school already offering many opportunities?</li>
+  </ul>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Roadshow Metadata</h2>
+  <table class="metadata-table">
+    <tbody>
+      <tr><th>School</th><td>Western Governors University</td></tr>
+      <tr><th>Location</th><td>Salt Lake City, UT (fully online)</td></tr>
+      <tr><th>School Type</th><td>University &middot; Private Non-Profit &middot; Online</td></tr>
+      <tr><th>Meeting Date</th><td>March 24, 2026</td></tr>
+      <tr><th>Presenter</th><td>Chris Higbee, VP of Product (NSLS)</td></tr>
+      <tr><th>Attendees</th><td>Ann Leary (Advisor); Kristin Stege (Lead, Communities — School of Technology); Brenna Gillman (Mentor, Courses &amp; Communities); Debbie Fowler (SVP, Student Success); Margaret Mancuso (Advisor)</td></tr>
+      <tr><th>Recording</th><td>Not available — WGU institutional policy prohibits recording by Fathom or any third-party note-taking tool</td></tr>
+      <tr><th>Enthusiasm Score</th><td>7–8/10 (Ann Leary); 7/10 (Kristin Stege); not scored (Brenna Gillman, Debbie Fowler, Margaret Mancuso)</td></tr>
+      <tr><th>Pilot Partner Interest</th><td>Unsure — follow-up needed</td></tr>
+      <tr><th>Product Council Interest</th><td>Yes &#x2705;</td></tr>
+      <tr><th>Top Value Areas</th><td>Peer connection (SNT), data &amp; reporting, scalable personalization</td></tr>
+      <tr><th>Primary Concern</th><td>WGU actively building internal SNT matching (Debbie Fowler disclosure); student overwhelm; tool duplication</td></tr>
+      <tr><th>Competitive Risk</th><td>WGU has strong internal product &amp; engineering teams and a commercialization-oriented innovation group (WGU Labs). SNT matching is in active internal development. Strategic intent of this meeting is unclear.</td></tr>
+      <tr><th>Unique Angle</th><td>Academic dean exploring embedding NSLS in undergraduate curriculum — most defensible partnership angle given WGU's internal build capacity</td></tr>
+    </tbody>
+  </table>
+</section>
+
+  </div><!-- /.content -->
+</main>
+
+<footer>
+  NSLS Society Platform Roadshow &nbsp;&middot;&nbsp; Western Governors University &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; March 24, 2026
+</footer>
+
+</body>
+</html>

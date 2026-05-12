@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>South Piedmont Community College — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header a.header-pill:hover{color:#C96058;} .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">March 30, 2026</span>
+    </div>
+    <h1>South Piedmont Community College &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; South Piedmont Community College Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/share/6w9C7iAgGRc5yxrZe9JK5WzKy2saLZs4" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> South Piedmont Community College (SPCC)</p>
+    <p><strong>Location:</strong> Monroe, North Carolina</p>
+    <p><strong>School Type:</strong> Community College · Public 2-Year</p>
+    <p><strong>Chapter Status:</strong> Established — Advisor has led the chapter since 2016 (~10 years)<a href="https://fathom.video/calls/616653035?t=68" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:08</a></p>
+    <p><strong>Chapter Type:</strong> Primarily in-person; orientation and some components offered online</p>
+    <p><strong>Advisors Present:</strong> Connie Gardner (sole advisor on call)</p>
+    <p><strong>Notable Context:</strong> SPCC serves a diverse student population including traditional-age students, older non-traditional students, a significant early college and dual-enrollment high school population, and students in skilled trades programs. The college is actively pushing to bring students back to campus post-COVID. A new president (less than one year in office as of the meeting) has reinforced a student-first institutional focus. The college is in a growth phase — new buildings are under construction (entrepreneurship and septic/trades), and an esports program is launching soon. SPCC competes with nearby community colleges for enrollment and has faced a community identity challenge (being mistaken for a satellite campus of a neighboring institution). The career area has been hosting job fairs open to community members. Connie also serves as Director of the Communication Center, a role she took on after years as a public speaking faculty member, and she has retained her NSLS advisory role through that transition out of personal commitment to student care.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+  <div class="advisor-card">
+    <h3>Connie Gardner</h3>
+    <p><strong>Role:</strong> Director, Communication Center; NSLS Chapter Advisor — South Piedmont Community College</p>
+    <p><strong>Background:</strong> Connie began at SPCC as a public speaking faculty member and has since moved into the Director of Communication Center role, which is less than one year old as a physical space. She has advised the NSLS chapter since 2016 — approximately 10 years — and has deliberately not handed off the role because she wants to ensure the next advisor will care for students as deeply as she does<a href="https://fathom.video/calls/616653035?t=73" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:13</a>. She still teaches courses while holding the director title. She accompanied students to a national NSLS leadership summit in New Jersey (2022 or 2023) and has been a consistent internal advocate for NSLS, educating college leadership on the program's credibility and value.</p>
+    <p><strong>Motivations:</strong> Connie is driven by student outcomes and authentic relationships. She values NSLS primarily for its ability to build leaders and help students develop interpersonal communication skills — something she sees as increasingly deficient among today's students. She is motivated by capturing more students who might not otherwise engage, including non-traditional students, trades-track students, and early college students. She wants NSLS to be credible and well-represented at the institutional level and to have data that demonstrates real impact. She shared a success story of a former chapter president who went on to earn a teaching position and a Teacher of the Year award, illustrating her focus on long-term alumni outcomes.</p>
+    <p><strong>Communication Style:</strong> Warm, candid, and reflective. Connie speaks from direct classroom and advising experience. She raises practical concerns clearly and without hesitation (e.g., the orientation video confusion, the loss of the activity-tracking dashboard, the risk of Clarity being perceived as "less than" FOL). She asks clarifying questions and engages substantively with product details. She is not a pushover — she articulates nuanced feedback — but she is also enthusiastic and collaborative.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Connie expressed interest in both the Pilot Partner and Product Council programs when asked directly, saying "both of them, actually."<a href="https://fathom.video/calls/616653035?t=14" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 0:14</a> She is an experienced, deeply engaged advisor with a long institutional history, a diverse student population, and a genuine desire to expand what NSLS can offer. CSR Dejeahn Brown describes her as "a prime candidate" for this feedback process. Follow-up meeting to discuss pilot rollout was agreed upon before the call ended.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>The core mission of building leaders — Connie said explicitly: "Don't stop building leaders.<a href="https://fathom.video/calls/616653035?t=407" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:47</a>"</li>
+    <li>The induction ceremony — Connie asked directly whether it would still exist and was relieved to hear it would remain unchanged<a href="https://fathom.video/calls/616653035?t=399" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:39</a>.</li>
+    <li>The reputation and prestige of NSLS as an honors society — students at SPCC join specifically for the honor cords and the recognition at graduation; the program's credibility precedes itself on campus.</li>
+    <li>The in-person, community-building aspect of the program — Connie emphasized that NSLS helps students practice face-to-face communication, which she sees as a critical and eroding skill.</li>
+    <li>The SNT (Success Networking Team) model — she values SNTs as a structured way to get students meeting and working together<a href="https://fathom.video/calls/616653035?t=399" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:39</a>.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>The orientation video conflates in-person and online chapter messaging<a href="https://fathom.video/calls/616653035?t=553" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:13</a> — students who do orientation independently (without Connie present) receive mixed signals about deadlines and self-pacing<a href="https://fathom.video/calls/616653035?t=597" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:57</a>, leading to incomplete step completion. Connie noted the materials portal separates "live" and "online" versions, but the distinction is not clear enough in the video itself.</li>
+    <li>Loss of the activity-tracking dashboard — Connie noted that a previous dashboard allowed the chapter to track community service projects, fundraising, and other pillar-based activities. That functionality is gone, and she now can only see membership counts and step-completion status. This limits her ability to report chapter impact to institutional leadership and to show Executive Board members their individual contributions.</li>
+    <li>Advisor administrative burden — Connie described spending significant time sending repeated manual emails to students who have not completed steps, a task she described as time-consuming given that advising is on top of her full-time director role.</li>
+    <li>The old strategic plan requirement (already removed) — Connie mentioned this as something cumbersome that has since been eliminated; she was relieved it is gone.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Student retention and on-campus engagement — getting students back on campus post-COVID is a top institutional priority under the new president.</li>
+    <li>Student-first culture — the new president (less than one year in office) has centered the student experience as the primary institutional value, including listening sessions with students, faculty, and staff.</li>
+    <li>Expanding campus offerings to attract and retain students — new buildings (entrepreneurship, trades/septic), an incoming esports program, and community-facing job fairs are all active initiatives.</li>
+    <li>Community identity and visibility — SPCC is actively working to distinguish itself from a nearby college it is sometimes mistaken for, and to establish its presence and legitimacy in the surrounding community.</li>
+    <li>Career readiness across all student types — the college serves welders, trades students, dual-enrollment high schoolers, and transfer-track students alike; career readiness must be relevant across all of these populations, not just four-year-transfer-bound students.</li>
+    <li>Accessibility and accommodations awareness — Connie noted that some students in career-readiness tracks have varying intellectual abilities and need differentiated attention; she suggested the platform should ask about accommodations.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. In-Person Connection Is a Core Value, Not Just a Preference</h3>
+    <p>Connie repeatedly returned to the importance of face-to-face interaction. She teaches public speaking, directs a communication center, and views NSLS as one of the few programs that actively builds students' in-person interpersonal skills. She noted that since COVID, students have defaulted to online engagement and are struggling to communicate one-on-one or in small groups. Any platform feature that pulls students further into solo digital experiences — without reinforcing in-person touchpoints — risks undermining what she values most about the program.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Community College Student Diversity Demands Flexible Pathways</h3>
+    <p>Connie made clear that SPCC's student body is not monolithic. It includes traditional-age students, students in their 40s, 50s, and 60s, early college high schoolers, trades-track students who plan to go directly to work, and students with special needs. She expressed strong enthusiasm for the Clarity Track specifically because it could serve students for whom the leadership track feels misaligned — welders, certificate-seekers, and career-changers. Her concern was that Clarity must be positioned as equally valuable, not as a lesser alternative to FOL.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Data and Evidence Are Critical for Internal Advocacy</h3>
+    <p>Connie described a recurring challenge: educating institutional leadership about what NSLS actually is and demonstrating that her chapter is producing real outcomes. She previously relied on a pillar-based activity dashboard (now removed) to show engagement data to administrators and Executive Board members. She asked for that functionality to return in some form and specifically requested real student testimonials and outcome data — not celebrity endorsements or hypothetical scenarios — to make the case for Society internally and with skeptical stakeholders.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Advisor Capacity Is Stretched — Automation Would Be Genuinely Relieving</h3>
+    <p>Connie is a full-time director who advises the chapter on top of her primary job. She described the manual effort of chasing students via email to complete steps as a significant burden. She responded positively when Chris described the AI coach sending accountability reminders on behalf of the system rather than requiring her to do it personally. Reducing administrative overhead — especially around student follow-up and SNT matching — was cited as a direct personal benefit.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Positioning of Clarity vs. FOL Will Determine Student and Advisor Buy-In</h3>
+    <p>Connie raised a pointed concern: students at SPCC are motivated by the honor cord and the prestige of induction. If Clarity is presented as a separate track that does not lead to induction (as is currently the case), students may perceive it as a second-tier path. She stated this plainly: "I would make it important to be able to define clarity in a way that it doesn't seem less than." She acknowledged NSLS is working toward accrediting Clarity for induction purposes and supported that direction strongly.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+  <div class="enthusiasm-score">8/10</div>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The Clarity Track resonated immediately — Connie said "that's awesome" when it was introduced and connected it directly to her non-traditional and trades-track students who may not self-identify as aspiring leaders.</li>
+    <li>Renee's story (the 68-year-old student who engaged deeply with the AI coach) was well received — Connie immediately mapped it to her own older members who are already established in life and looking to refine or redirect their careers.</li>
+    <li>The AI coach framing as "Connie in their pocket" — she responded positively to the idea of students having a guided, guardrailed assistant rather than open-ended AI, and to the idea of her having access to student data (with permission) to inform in-person conversations.</li>
+    <li>Personality assessments built into the platform — Connie noted these are typically expensive and that having them embedded would be genuinely valuable for students.</li>
+    <li>Automated student reminders — the idea that the system (not Connie) would send follow-up nudges was directly cited as something that would reduce her workload.</li>
+    <li>SNT matching tool — she expressed support for students being able to self-schedule and match into groups, especially in a hybrid or in-person context like end-of-Leadership-Training-Day matching.</li>
+    <li>Gradual rollout approach — she appeared reassured that Society would not abruptly replace the current system but would be introduced incrementally over two years.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Clarity Track and induction eligibility — Connie asked directly whether students who only complete Clarity would be inducted. The answer (currently no, but that is the goal) created a moderate concern. She anticipates students will ask this and wants a clear answer.</li>
+    <li>Clarity being perceived as "less than" FOL — this was her most substantive concern. She returned to it multiple times and framed it as a real risk given how honor-motivated her student population is.</li>
+    <li>The orientation video mixing in-person and online messaging — this is an existing friction point, not introduced by Society, but she raised it in the context of what is not working and what she would want fixed.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Connie proactively raised the need for accessibility and accommodations awareness in the platform — she noted that some students in career-readiness tracks have varying intellectual abilities and that the system should ask about accommodations. This was an unprompted and specific product suggestion that Chris noted had not come up in this way before.</li>
+    <li>The loss of the pillar-based activity dashboard was a stronger pain point than expected — Connie described it as something she actively used to legitimize NSLS internally and to motivate Executive Board members, and its absence is a current gap she wants filled.</li>
+    <li>Connie expressed interest in both the Pilot Partner and Product Council programs without hesitation when asked — her enthusiasm for co-shaping the product was genuine and immediate.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Clarity Track (AI Career Coach)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Connie immediately connected this to non-traditional students, older members, and trades-track students. Said it's "a great option for those students that are more on a technical track." Enthusiastic and specific in her reception.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching / Scheduling Tool</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Connie confirmed this would be valuable. Specifically validated the use case of matching students at the end of a Leadership Training Day in-person session. Sees it reducing her manual coordination burden.</td>
+      </tr>
+      <tr>
+        <td>AI-Driven Student Reminders / Accountability Nudges</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Directly addressed her pain point of manually emailing students who haven't completed steps. She described this as a relief given advising is on top of her full-time director role.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessments (Myers-Briggs, Enneagram, Holland Code, DISC, Big Five)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Connie noted these assessments are typically expensive and having them embedded in the platform would be valuable. She had recently discussed this topic outside of NSLS in a separate meeting.</td>
+      </tr>
+      <tr>
+        <td>Advisor Dashboard with Longitudinal Data</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Connie flagged the loss of the previous pillar-tracking dashboard as an active pain point. She needs data to report NSLS value to institutional leadership and to show Executive Board members their contributions. A new dashboard with filtering and longitudinal views was described by Chris — Connie responded positively.</td>
+      </tr>
+      <tr>
+        <td>Student Profile / Career Statement Generation</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Connie did not comment extensively but was engaged during the demo. The framing of a career statement as a student's "North Star" aligned with her values around personal direction and growth.</td>
+      </tr>
+      <tr>
+        <td>Advisor Access to Student Data (with Permission)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Connie responded well to the idea of being "superpowered" in in-person conversations by having access to what students have shared with the AI coach. Aligns with her preference for in-person engagement supported by digital tools.</td>
+      </tr>
+      <tr>
+        <td>Clarity Track as an Induction-Eligible Pathway</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Currently Clarity does not lead to induction; FOL is still required. Connie asked about this directly and anticipated students will ask the same. She supports the long-term goal of making Clarity induction-eligible but wants a clear, honest answer to give students now.</td>
+      </tr>
+      <tr>
+        <td>Positioning of Clarity vs. FOL (Perceived Equivalence)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Connie's most sustained concern. Her students are honor-motivated (joining for graduation cords, recognition). If Clarity appears to be a lesser path, it could deter uptake or create resentment. She said: "I would make it important to be able to define clarity in a way that it doesn't seem less than."</td>
+      </tr>
+      <tr>
+        <td>Orientation Video (In-Person vs. Online Messaging)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Existing friction point — not Society-specific. The current orientation video conflates messaging for in-person and online chapters. Students completing orientation independently receive confusing signals about deadlines and pacing. Connie always pre-explains this in person but cannot for students who do it remotely.</td>
+      </tr>
+      <tr>
+        <td>Short-Form FOL Content (FOL 2.0)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Connie did not comment extensively on this feature but was attentive during the demo. The idea of an advisor being able to show a short clip in-person and then direct students to complete steps on the app aligns with her hybrid chapter model.</td>
+      </tr>
+      <tr>
+        <td>Alumni Mentor Matching (2.2M Network)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Mentioned by Chris during the demo; Connie did not push back or raise concerns. The concept of connecting students to alumni in their industry of interest is consistent with her school's career-readiness priorities and job fair initiatives.</td>
+      </tr>
+      <tr>
+        <td>Accessibility / Accommodations Awareness in Platform</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Unprompted suggestion from Connie. She noted that some students in career-readiness tracks have varying intellectual abilities and the platform should ask about accommodations. Chris confirmed this was a new and valuable signal and connected it to his own experience with a daughter on the autism spectrum.</td>
+      </tr>
+      <tr>
+        <td>Real Student Testimonials in Platform / Marketing</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Connie explicitly said celebrity testimonials in the orientation video do not resonate with all students. She wants real peer success stories — students who started at a community college, went through NSLS, and achieved concrete outcomes. She shared a detailed example of a former chapter president who became a teacher of the year. She asked NSLS to find and feature more stories like this.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Schedule a follow-up meeting within 3–4 weeks to discuss Pilot Partner rollout plan for SPCC — including student cohort size, testing structure, and timeline. <span class="owner-tag">Dejeahn Brown</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Send Connie a written summary report of today's meeting (Chris noted this may take a few days). <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Share the advisor dashboard demo with Connie once computer issues are resolved — specifically the longitudinal data view and filtering capabilities that were unable to be shown during the call. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Flag Connie's suggestion to add an accommodations/accessibility question to the Clarity Track onboarding flow for Product team consideration. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Explore inviting NSLS to have a presence (e.g., a table) at SPCC's community-facing career and job fair events to increase program visibility and community legitimacy. <span class="owner-tag">Dejeahn Brown</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Escalate Connie's request to restore activity-tracking data (community service, fundraising, pillar-based engagement) in the new advisor dashboard — this was a named gap affecting internal advocacy and Executive Board motivation. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Evaluate whether the orientation video can be more cleanly separated for in-person vs. online chapter contexts to reduce student confusion for those who complete orientation without advisor guidance. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">8</div>
+      <div>Identify and develop real student success story testimonials (community college alumni preferred) for use in platform onboarding and marketing — move away from celebrity-only endorsements per Connie's direct feedback. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>When will the Clarity Track become an accredited, induction-eligible pathway, and what messaging should advisors use in the interim when students ask whether completing Clarity alone leads to induction?</li>
+    <li>How will Society position the Clarity Track vs. FOL to ensure neither students nor advisors perceive Clarity as a lesser or second-tier option — especially at honor-motivated schools where induction prestige is a primary recruitment driver?</li>
+    <li>What is the scope and timeline for the new advisor dashboard, and will it restore the ability to track pillar-based activities (community service, fundraising, etc.) that were previously available?</li>
+    <li>Should the Clarity Track onboarding flow include an optional accommodations or accessibility disclosure to allow the AI coach to adapt its guidance for students with documented needs?</li>
+    <li>What would the Pilot Partner cohort look like at SPCC — how many students, which population (e.g., non-traditional, trades-track, early college), and what does success look like at the end of the pilot?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>South Piedmont Community College</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Monroe, North Carolina</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Community College · Public 2-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established (~10 years; advisor since 2016)</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Primarily In-Person / Hybrid</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>8/10</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — confirmed verbally; follow-up meeting to be scheduled within 3–4 weeks</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>Yes — expressed interest in both programs; to be revisited after pilot is established</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>1) Manual student follow-up burden on advisor; 2) Loss of pillar/activity tracking dashboard; 3) Orientation video conflating in-person and online chapter messaging; 4) Lack of real student outcome data to use for internal institutional advocacy</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Clarity Track resonated strongly for non-traditional and trades-track students; accessibility/accommodations awareness raised as an unprompted product suggestion; positioning of Clarity vs. FOL is a critical risk to manage given honor-motivated student population</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Dejeahn Brown</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; South Piedmont Community College &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; March 30, 2026
+</footer>
+
+</body>
+</html>

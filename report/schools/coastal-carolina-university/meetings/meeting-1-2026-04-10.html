@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coastal Carolina University — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header a.header-pill:hover{color:#C96058;} .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">April 10, 2026</span>
+    </div>
+    <h1>Coastal Carolina University &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Coastal Carolina University Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/share/Ysmd5s37xuxmfsK-FQCsxsTaK2Ve68ud" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Coastal Carolina University</p>
+    <p><strong>Location:</strong> Conway, SC</p>
+    <p><strong>School Type:</strong> Public 4-Year</p>
+    <p><strong>Chapter Status:</strong> Established — Daphne Holland identified herself as a veteran advisor with an active executive board and documented history of attending national summits (including one held in Raleigh). Megan Grandey is a co-advisor at the same institution.</p>
+    <p><strong>Chapter Type:</strong> Standard (in-person; no hybrid or online modality concerns raised specific to Coastal Carolina)</p>
+    <p><strong>Advisors Present:</strong> Daphne Holland (primary/veteran advisor) and Megan Grandey (co-advisor)</p>
+    <p><strong>Notable Context:</strong> Coastal Carolina is not facing enrollment challenges — retention is up. The school's current institutional priority is addressing students' <em>sense of belonging</em> in a post-COVID environment. The advisors were already discussing Society's potential value before the meeting, having reviewed a pre-meeting survey together. Daphne noted the chapter benefited from proximity to the Raleigh national summit and expressed strong interest in regional leadership summits. The chapter has an active executive board that Daphne described as transformed by the summit experience.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Daphne Holland</h3>
+    <p><strong>Role:</strong> Chapter Advisor, Coastal Carolina University (veteran advisor)</p>
+    <p><strong>Background:</strong> Identified by meeting facilitator as a veteran advisor. Has experience attending the NSLS national summit (Raleigh location). Works closely with institutional reporting systems (e.g., Banner/Colleague) and collaborates with Institutional Research for student data. Familiar with cross-referencing student records and navigating FERPA considerations. Has presented feedback to NSLS in prior meetings, including the student ID concept and email configuration concerns.</p>
+    <p><strong>Motivations:</strong> Deeply invested in student engagement and belonging. Wants NSLS to remain innovative and research-driven. Interested in tools that provide real-time student feedback (e.g., quick mobile surveys), reduce administrative burden around data cross-referencing, and help students discover and articulate their value from NSLS membership. Strongly advocates for more regional leadership summits as a high-impact engagement lever. Motivated by outcomes she can observe directly — notably the executive board transformation after the national summit.</p>
+    <p><strong>Communication Style:</strong> Candid, conversational, and constructive. Raises recurring institutional pain points with specificity (e.g., email primary field, student ID in reporting). Asks student-centered questions during live demos (e.g., asking about major alignment in the AI coach). Builds rapport naturally and speaks with authority from experience. Comfortable raising ideas that challenge the current product design.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Very High. Rated Society 10/10. Noted she and Megan were "ready" before the session even began, based on the pre-meeting survey.<a href="https://fathom.video/calls/631297024?t=3727" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:02:07</a> Proactive, feedback-oriented, and institutionally well-connected. Strong candidate for both pilot partner and Product Council inclusion.</p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Megan Grandey</h3>
+    <p><strong>Role:</strong> Co-Advisor, Coastal Carolina University</p>
+    <p><strong>Background:</strong> Co-advises the Coastal Carolina chapter alongside Daphne Holland. Participated in the pre-meeting survey process with Daphne. Had to leave the session early but engaged enough to confirm her score before departing.</p>
+    <p><strong>Motivations:</strong> Aligned with Daphne's enthusiasm for Society. Confirmed shared excitement about the platform's direction prior to the meeting ("we were just ready for it").<a href="https://fathom.video/calls/631297024?t=1103" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 18:23</a></p>
+    <p><strong>Communication Style:</strong> Brief in this session due to early departure; communicated via chat. Collaborative — operates in tandem with Daphne rather than independently during group settings.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Rated Society 10/10 via chat before leaving. As co-advisor with Daphne at a school already demonstrating strong engagement and institutional fit, Megan would be a natural secondary contact in any pilot or council context.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>Speaker broadcasts — Daphne explicitly named these as a valued, must-keep feature.<a href="https://fathom.video/calls/631297024?t=264" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:24</a></li>
+    <li>The Foundations of Leadership curriculum and class opportunities — Daphne noted these are appreciated, while also flagging interest in revisiting the curriculum.<a href="https://fathom.video/calls/631297024?t=268" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:28</a></li>
+    <li>NSLS's responsiveness and accessibility — Daphne praised NSLS's culture of listening to feedback and acting on it, calling it a distinguishing characteristic she would never want lost.<a href="https://fathom.video/calls/631297024?t=287" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:47</a></li>
+    <li>NSLS's innovation orientation — Daphne emphasized that NSLS's commitment to staying current with research and trends is core to its value. She said she never wants NSLS to "get stale."<a href="https://fathom.video/calls/631297024?t=290" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:50</a></li>
+    <li>Community collaboration opportunities — Daphne values that NSLS engages not just with schools but with broader community initiatives.<a href="https://fathom.video/calls/631297024?t=282" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:42</a></li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li><strong>Email configuration confusion:</strong> Daphne raised a recurring issue (previously surfaced in another meeting) where students do not set their school email as their primary address.<a href="https://fathom.video/calls/631297024?t=817" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 13:37</a> This creates communication failures, Gmail bounce-backs, and student confusion about which email to use. She proposed enforcing school email as primary with an optional secondary field.</li>
+    <li><strong>No student ID field in the platform:</strong> Daphne requested the ability to capture student IDs (not SSNs) in the platform to streamline cross-referencing with institutional systems (Banner/Colleague). Current process requires running IR reports manually, which is time-consuming and error-prone when students share names.</li>
+    <li><strong>Sense of belonging gap:</strong> Daphne flagged this as a campus-wide institutional challenge — students feel less connected post-COVID, and Coastal Carolina is actively working to address it. This is where NSLS programming can play a direct role.</li>
+    <li><strong>Engagement drop-off and membership value perception:</strong> Daphne referenced the broader concern (echoed across advisors) that too many students pay dues and disengage. She is motivated by tools that help surface NSLS value more explicitly to students.</li>
+    <li><strong>Limited regional event infrastructure:</strong> Daphne raised the need for more regional leadership summits. She noted the national summit in Raleigh was accessible due to geography, but most schools don't have that advantage. She observed a direct behavioral shift in her executive board following summit attendance and believes regional events would replicate that impact more broadly.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li><strong>Student sense of belonging:</strong> Daphne explicitly named this as the top institutional priority right now. Retention is strong, enrollment is not a concern — belonging is the gap being actively addressed.</li>
+    <li><strong>Real-time student feedback mechanisms:</strong> Daphne referenced wanting quick-pulse surveys (e.g., 2-question mobile check-ins) to understand whether programming is meeting student needs and to surface available NSLS resources students may not know to ask for.</li>
+    <li><strong>Career readiness and workforce outcomes:</strong> Implicitly aligned with Society's direction — Daphne engaged actively with the career clarity demo and asked the AI coach a student-facing question about major alignment, indicating she sees this as directly relevant to her students' needs.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Belonging as the Core Institutional Driver</h3>
+    <p>Daphne was unambiguous: Coastal Carolina's top priority is students' sense of belonging, not enrollment or retention (both of which are currently healthy). This positions Society's community, SNT matching, and connections features as directly mission-aligned tools — not add-ons. Any pitch or pilot framing at Coastal Carolina should lead with belonging and community-building outcomes, not just career readiness metrics.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Advisors Were Pre-Sold Before the Demo</h3>
+    <p>Daphne noted that she and Megan had already discussed Society's potential while completing the pre-meeting survey. Their 10/10 ratings were not reactive to the presentation — they reflected existing alignment between their institutional needs and the direction Society is heading. This signals that the pre-meeting touchpoints (surveys, prior AIN discussions) are doing real priming work and that Coastal Carolina is an exceptionally warm prospect for early partnership.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Data Infrastructure Friction Is Slowing Advisor Effectiveness</h3>
+    <p>Daphne raised two specific, actionable data pain points: the inability to set a student's school email as primary (causing communication breakdowns), and the absence of a student ID field (forcing manual IR report pulls and cross-referencing). Both are administrative burdens that erode the advisor experience and slow down student support workflows. These are not aspirational requests — they are recurring, documented frustrations with clear technical solutions.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Regional Events as a High-ROI Engagement Lever</h3>
+    <p>Daphne provided direct observational evidence that summit attendance drives executive board engagement and chapter momentum. She noted that most schools cannot access the national summit affordably or logistically, making regional summits a scalable way to replicate that impact. This is not a product feature request but a program design signal that NSLS should consider as it thinks about engagement architecture beyond the platform itself.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Real-Time Student Pulse as a Missing Feedback Loop</h3>
+    <p>Daphne described a gap between programming delivery and student signal — advisors currently lack lightweight, in-the-moment tools to know whether students are getting what they need or are aware of available NSLS benefits. She envisioned short mobile surveys (2 questions) as a mechanism to close that loop. This is a distinct feature signal: not deep analytics, but quick-pulse feedback to inform advisor decision-making in near real time.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">10/10</div>
+  <p><em>Daphne Holland: 10/10 (verbal). Megan Grandey: 10/10 (chat, before departing early).</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li><strong>Career Clarity track and AI coach:</strong> Daphne engaged immediately with the live demo, asking the AI coach a real student-facing question about which majors align with a dream job. The responsiveness of the tool and its ability to generate relevant, personalized output was visibly compelling to her.</li>
+    <li><strong>The Renee story:</strong> The non-traditional student narrative resonated with advisors who work with diverse student populations. Daphne's school serves students with varied life circumstances, and the idea that Society can re-engage a student that leadership alone didn't capture was clearly meaningful.</li>
+    <li><strong>Society as an upgrade, not a replacement:</strong> Chris's framing that Society builds on NSLS's existing foundation without uprooting current work was well-received. Daphne's concerns had previously been about NSLS staying innovative, and Society directly answers that.</li>
+    <li><strong>Pilot partner invitation:</strong> Both advisors expressed readiness. The framing of a co-creative, phased rollout matched the collaborative relationship Daphne described valuing in NSLS.</li>
+    <li><strong>Campus-wide potential (career services, academic advising integration):</strong> The idea of Society becoming a hub that pulls in other departments aligned with Daphne's instinct to use NSLS as a community collaboration vehicle.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li><strong>Major alignment in the AI coach:</strong> Daphne's live question — "what majors make the most sense to guide me toward my dream job?" — revealed an expectation that the platform should bridge career direction and academic planning. The coach answered generically in the demo; Daphne's question implied she wants school-specific course and major mapping. This is a near-term capability gap to acknowledge honestly.</li>
+    <li><strong>Volume of content layers:</strong> While not raised directly by Daphne or Megan, the broader group concern (raised by Dan) about how all the new tracks and features get communicated digestibly to students is worth tracking for Coastal Carolina's pilot planning. Daphne's engagement with the belonging and quick-pulse themes suggests she will want a streamlined student onboarding experience.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Daphne and Megan had already reached a 10/10 disposition <em>before</em> seeing the demo, based on the pre-session survey alone. This is an unusually strong early signal for a school in Tier 2.</li>
+    <li>Daphne's student ID request was novel — Chris noted he had not heard this specific suggestion before, despite having heard the email issue previously. It reflects a deeper systems-integration mindset than typical advisor feedback.</li>
+    <li>Daphne asked a live, unscripted question to the AI coach during the demo — treating it as a real tool in the moment rather than a passive observer. This behavioral signal indicates high personal investment in the product's utility.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Career Clarity Track (AI Coach)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Daphne engaged live during the demo, asking the coach a real student question about major alignment. She sees immediate applicability for students navigating career direction. Rated it a clear value-add.</td>
+      </tr>
+      <tr>
+        <td>Speaker Broadcasts</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Daphne named speaker broadcasts as a must-preserve feature. High existing value; Society should maintain and surface this prominently.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching & In-Platform SNT Tools</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>No direct comment from Daphne or Megan, but the belonging priority at Coastal Carolina makes this feature highly relevant. SNT matching by availability (and eventually affinity) aligns directly with their school's stated need to improve student connection.</td>
+      </tr>
+      <tr>
+        <td>Student ID Field in Platform</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Daphne raised this as a new, specific request — not previously heard by Chris. Would enable advisors to cross-reference student records in Banner/Colleague without manual IR report pulls. Not a FERPA concern per Daphne (not SSN). Flagged as a recurring time burden.</td>
+      </tr>
+      <tr>
+        <td>School Email as Primary Field</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Recurring pain point raised by Daphne (also flagged in a prior meeting). Students default to Gmail, causing bounce-backs and communication confusion. Proposed fix: enforce school email as primary, allow optional secondary. Also noted by Ayaka (Gonzaga) — not Coastal Carolina-specific, but Daphne was the primary voice.</td>
+      </tr>
+      <tr>
+        <td>Admin Dashboard (Multi-Semester Filtering & Export)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Not raised directly by Daphne or Megan, but the data cross-referencing friction they described (IR reports, manual spreadsheets) suggests this feature would reduce significant advisor burden at Coastal Carolina. Likely to resonate strongly in follow-up conversations.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>No direct comment from Daphne or Megan, but the school's focus on belonging and student success outcomes makes this a relevant institutional story. Could support internal reporting to leadership about NSLS's impact on student readiness.</td>
+      </tr>
+      <tr>
+        <td>Quick-Pulse / Mobile Survey Feedback Tool</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Daphne explicitly described wanting short (2-question) in-app surveys to gather real-time student feedback on programming relevance and NSLS benefit awareness. This feature does not currently exist in Society — it is an advisor-identified gap and a direct product signal.</td>
+      </tr>
+      <tr>
+        <td>School-Specific AI Agent (Course Catalog, Advising Integration)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Daphne's live question about major alignment implies strong interest in school-contextualized AI guidance. The vision of a campus-trained agent that knows course catalogs and staff contacts would directly address her students' needs — but this is a future-state capability, not current.</td>
+      </tr>
+      <tr>
+        <td>FOL 2.0 (Modular, Modern Content)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Daphne noted openness to revisiting curriculum, and the concern about video length and content feeling dated was raised across the broader group. Coastal Carolina's active chapter would benefit from more modular, interactive FOL content — especially to support sense of belonging programming.</td>
+      </tr>
+      <tr>
+        <td>Cross-Department Data Sharing (Career Services, Academic Advising)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Daphne values community collaboration and sees NSLS as a vehicle for campus-wide initiatives. However, no direct discussion of how Coastal Carolina's career services or academic advising teams would receive or use Society data. Worth exploring in follow-up: who are the internal stakeholders and is there appetite to bring them in?</td>
+      </tr>
+      <tr>
+        <td>Regional Leadership Summits</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Daphne provided direct evidence of summit impact (executive board transformation post-Raleigh) and called for more regional events as an engagement and belonging solution. Not a platform feature — a program design signal with product implications for the Connections track and event infrastructure.</td>
+      </tr>
+      <tr>
+        <td>Lifelong / Alumni Membership Products</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Raised by Hunter (UT), not Daphne or Megan. Noted here as a broader group signal that may inform future Society roadmap conversations, but no direct Coastal Carolina input captured on this theme.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Schedule individual follow-up meeting with Daphne Holland (and optionally Megan Grandey) to discuss pilot partner participation and next steps for Society at Coastal Carolina. Daphne expressed readiness; Chris extended the offer directly. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Log student ID field request as a new product signal from Daphne Holland (Coastal Carolina). Chris confirmed this had not been heard before. Route to product team for evaluation. <span class="owner-tag">CSR / Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Log school email as primary field (with optional secondary) as a recurring, confirmed pain point — raised by Daphne in a prior meeting and again here. Escalate priority in product backlog. <span class="owner-tag">Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Log quick-pulse mobile survey capability as an advisor-identified product gap. Daphne described wanting 2-question in-app surveys for real-time student feedback on programming and NSLS benefit awareness. This feature does not currently exist. <span class="owner-tag">Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Confirm Daphne Holland and Megan Grandey as pilot partner candidates for Society. Both rated 10/10, pre-session engagement was high, and institutional fit (belonging priority, established chapter, veteran advisor) is strong. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>In follow-up with Coastal Carolina, explore cross-departmental collaboration potential: identify whether career services or academic advising at CCU could be brought into a Society pilot conversation, given Daphne's interest in campus-wide community initiatives. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Share Google Doc question repository link with Daphne and Megan post-meeting so any additional questions can be captured and addressed by Chris Higbee. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>What is the timeline for school-specific AI agent capability (course catalog, staff directory integration)? Daphne's live demo question about major alignment surfaced this expectation — when can Coastal Carolina expect this functionality?</li>
+    <li>How will Society's belonging and community-building features (SNT matching, Connections track) be framed to align with CCU's institutional priority language around sense of belonging?</li>
+    <li>Is there appetite among Coastal Carolina's career services or academic advising teams to participate in a Society pilot or receive dashboard access? Who would be the right internal contact?</li>
+    <li>What would a regional leadership summit infrastructure look like, and is NSLS exploring this formally? Daphne raised this as both a product and program signal — is there a roadmap item or working group she could contribute to?</li>
+    <li>Will the student ID field require any data governance or FERPA review at the NSLS level before implementation, and what is the expected timeline?</li>
+    <li>How will Society's onboarding communicate the volume of available tracks (Insights, Clarity, Leadership, Connections) to students without overwhelming them — particularly for chapters like Coastal Carolina that already run active in-person programming?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Coastal Carolina University</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Conway, SC</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Public 4-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Standard (in-person)</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 2</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>10/10 — Daphne Holland (verbal); 10/10 — Megan Grandey (chat)</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — both advisors confirmed readiness; Daphne noted she and Megan were discussing Society before the session began</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>High — Daphne's feedback depth, specificity, and track record of raising recurring issues makes her a strong Product Council candidate</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>(1) Students not setting school email as primary, causing communication failures; (2) No student ID field for cross-referencing with Banner/Colleague; (3) Students' sense of belonging post-COVID; (4) Lack of real-time student feedback mechanism; (5) Limited access to regional leadership events</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Coastal Carolina advisors were pre-aligned to Society before the demo based on the pre-session survey. Daphne engaged the AI coach live with a real student question, demonstrating high practical investment. Strongest pilot candidate in this session cohort based on enthusiasm, institutional fit, and advisor readiness.</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Maryanna Laferriere</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Coastal Carolina University &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; April 10, 2026
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drew University — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header a.header-pill:hover{color:#C96058;} .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">March 22, 2026</span>
+    </div>
+    <h1>Drew University &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Drew University Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/share/xydfhSqJ46gXD6fdWZy5-b9KzM-a7b_H" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School Type:</strong> Liberal Arts · Private 4-Year</p>
+    <p><strong>Location:</strong> Madison, NJ</p>
+    <p><strong>Culture:</strong> Described by advisors as "quirky," small, and close-knit — "everybody knows everybody." Theater and athletics are prominent programs; approximately 70% of students are athletes.<a href="https://fathom.video/calls/607089519?t=59" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 0:59</a> The campus skews creative and independent-minded, with a vocal subset of students who are skeptical of AI on ethical and environmental grounds.</p>
+    <p><strong>Chapter Status:</strong> New — launched this semester (Spring). First chapter at Drew.</p>
+    <p><strong>Chapter Type:</strong> Standard (in-house). No hybrid or online option. Advisors are handling all facilitation, SNT management, and student tracking themselves without NSLS SNT support.</p>
+    <p><strong>Advisors Present:</strong> Cassandra Gonzalez (Student Engagement / Leadership Development) and Kimberly Giorgio (Career Services). Kim joined partway through the call. CSR Zoë Wallis was also present and provided context.</p>
+    <p><strong>Notable Context:</strong> Both advisors are relatively new to Drew. Kim (nearly 3 years) came from corporate recruitment and built the chapter from the ground up, securing the grant. Cassandra joined in August from Lehigh University, where she had prior exposure to NSLS. The school's president is focused on innovation, and Drew is actively piloting a skill-based, non-major academic model. With 130 students inducted in their first semester, engagement exceeded expectations.<a href="https://fathom.video/calls/607089519?t=675" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 11:15</a></p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Kimberly Giorgio</h3>
+    <p><strong>Role:</strong> Career Services (primary chapter lead; secured the NSLS grant and launched the chapter)</p>
+    <p><strong>Background:</strong> Corporate recruitment background — built early talent and internship/co-op programs. Joined Drew nearly 3 years ago. New to higher education. Has been added to numerous innovation councils and advisory boards at Drew, including a new skill-based learning initiative. Familiar with HireVue (recognized Chris as a co-founder during the call).</p>
+    <p><strong>Motivations:</strong> Building leadership development and career readiness infrastructure that didn't exist at Drew before her arrival. Focused on alumni engagement, employer relations, elevator pitching, and interpersonal skill-building. Wants students to organically own their development — "make it their idea." Also building out employee performance and HR development under her umbrella.</p>
+    <p><strong>Communication Style:</strong> Direct, candid, and energetic. Speaks in concrete operational terms. Quick to identify pain points and articulate them clearly. Rejoined the call late but immediately contributed substantively.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Kim is the primary decision-maker on chapter direction. She was not present for the full demo but Zoë flagged the need to share the recording with her. Cassandra noted Kim would "definitely ask" about time commitments<a href="https://fathom.video/calls/607089519?t=3609" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:00:09</a> — follow-up conversation needed before confirming.</p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Cassandra Gonzalez</h3>
+    <p><strong>Role:</strong> Student Engagement / Leadership Development (co-facilitator; joined Drew in August from Lehigh University)</p>
+    <p><strong>Background:</strong> Came from Lehigh University, where NSLS was launching and she heard positive student feedback firsthand. New to Drew but experienced in student engagement. Has been managing SNT group assignment, facilitation design, and student tracking alongside Kim.</p>
+    <p><strong>Motivations:</strong> Deep personal investment in leadership development. Redesigned NSLS facilitation materials independently to make in-person delivery more engaging and interactive.<a href="https://fathom.video/calls/607089519?t=929" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 15:29</a> Thinking about how to help undecided students find direction early. Interested in engagement data that can demonstrate real student impact beyond surface-level participation metrics.</p>
+    <p><strong>Communication Style:</strong> Warm, reflective, and self-aware. Openly enthusiastic ("I'm easily impressed") but balanced with practical skepticism — raised the AI sentiment concern unprompted and offered to recruit anti-AI students as test cases.<a href="https://fathom.video/calls/607089519?t=3349" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 55:49</a> Self-described as "never a 10 out of 10 girl."</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Expressed personal interest in both pilot and Product Council. Rated enthusiasm 9/10. Volunteered to recruit student testers, including AI-skeptical students.<a href="https://fathom.video/calls/607089519?t=3679" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:01:19</a> Was the primary voice for the remainder of the call after Kim dropped.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>Leadership development as a core program focus — both advisors cited this as a shared passion and a foundational value of NSLS they want maintained.<a href="https://fathom.video/calls/607089519?t=324" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:24</a></li>
+    <li>Speaker broadcasts — both Kim and Cassandra independently called these out as a feature they love and want kept.<a href="https://fathom.video/calls/607089519?t=363" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:03</a></li>
+    <li>The physical invitation letter — Kim emphasized the mailed envelope drove unexpectedly high student engagement<a href="https://fathom.video/calls/607089519?t=425" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:05</a> ("kids now don't get mail<a href="https://fathom.video/calls/607089519?t=425" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:05</a>") and cautioned against losing that touch even though it's cost-prohibitive.</li>
+    <li>The inspirational video clips — advisors want to keep short, motivational video content; they object to the format of watching long videos passively, not to the content itself.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>SNT management and visibility — the current platform does not show who is in which SNT group, whether groups have actually met, or allow cohort-based tracking. Advisors are maintaining a separate spreadsheet with group numbers to compensate.</li>
+    <li>Student data and reporting — the platform does not surface major, year, ethnicity, or engagement breakdown. When faculty ask how many marketing majors were inducted, there is no way to answer that from the NSLS system. Advisors are building workarounds manually.</li>
+    <li>Email/identity fragmentation — students can register with any email (NSLS, personal, or school), which creates reconciliation issues when trying to cross-reference with Handshake or send targeted communications. With 130 students, they had to manually locate Drew emails for students who didn't register with one.</li>
+    <li>Communication effectiveness — emails sent from NSLS are less likely to get student responses than emails sent directly from Kim or Cassandra. The platform's communication tools don't match the relationship dynamics of a small school.</li>
+    <li>Passive video format for in-person LTD — the existing videos were designed for virtual/asynchronous delivery and are not suited for in-person facilitation. Advisors rebuilt the entire facilitation guide from scratch and used only short clips from the existing content.</li>
+    <li>Induction pricing — students questioned the additional cost on top of tuition. Kim noted she cannot subsidize all students and acknowledged this as an ongoing friction point.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Career readiness and workforce preparation — Kim built out employer relations and leadership infrastructure from zero. Career outcomes are the primary lens through which she evaluates programs.</li>
+    <li>Skill development beyond goal-setting — advisors want students to develop communication, collaboration, and interpersonal skills, not just SMART goal frameworks. Kim asked: "What other skills can they learn — could you put a presentation into it?"</li>
+    <li>Cross-group collaboration — both advisors intentionally structured SNT assignments to prevent friend groups from clustering, because working with new people is itself a transferable skill.</li>
+    <li>Innovation alignment with institutional direction — Drew's president is focused on forward-facing innovation, and Kim is on multiple learning councils. She explicitly asked how NSLS can bring innovative, forward-thinking opportunities to campus.</li>
+    <li>Engagement data with depth — Cassandra needs data that shows whether students are genuinely getting value from clubs and programs, not just attendance counts. She described this as a gap shared by most professionals in her area.</li>
+    <li>Skill-based education model — Drew is piloting a new school model where students earn degrees through skills rather than designated majors, with employers embedded in the curriculum.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Standard Chapter Operational Strain</h3>
+    <p>Drew is running a fully in-house chapter with no SNT facilitation support from NSLS. Kim and Cassandra — both self-described Type A — are compensating with custom spreadsheets, redesigned facilitation guides, and manual email reconciliation across 130 students. Kim noted that someone less organized "would die" in the current system. This chapter represents a critical use case for small schools running everything in-house, and their pain points are disproportionately sharp because of it.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. SNT Infrastructure Is a Core Operational Failure Point</h3>
+    <p>The inability to see SNT group membership, meeting status, or attendance reports directly in the platform was the most detailed and urgent pain point raised. Advisors cannot verify whether groups are actually meeting, have no cohort-based view, and must maintain parallel tracking outside the system. This is creating real risk of the SNT process becoming meaningless — Kim said, "We can just say forget it, but we want it to be meaningful."</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Career Clarity as Student Activation Entry Point</h3>
+    <p>Cassandra responded with immediate enthusiasm to the clarity track, connecting it directly to her daily conversations with students who say "I don't know what to do with my life." She framed it as a powerful first step before students come to the Career Center. The Renee story resonated — the idea that a student who didn't engage with leadership framing might engage immediately with career framing was not abstract to her; it reflects her lived experience on campus.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. AI Skepticism Among the Student Body Is a Real Adoption Risk</h3>
+    <p>Cassandra raised unprompted that Drew students — particularly those in creative and socially conscious communities — are actively skeptical of AI on ethical and environmental grounds. Students wrote a formal letter to Drew's admissions team objecting to AI-generated Instagram captions. Cassandra acknowledged her own office avoids publicly disclosing AI use. She offered to recruit anti-AI students as pilot testers, framing Drew's student body as a meaningful test case for how to position AI-assisted tools with resistant audiences.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Data Depth Is a Strategic Need, Not Just a Convenience</h3>
+    <p>Both advisors articulated a need for engagement data that goes beyond participation counts — major breakdowns, cohort tracking, evidence of actual skill development, and ROI for students paying the membership fee. Kim noted she cannot answer faculty questions like "how many marketing majors were inducted" from the NSLS platform. Cassandra described wanting data to show whether students are genuinely benefiting from clubs and programs — a gap she believes is widespread across student affairs professionals. A Handshake integration was flagged as potentially high-value.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">9/10</div>
+  <p><em>Scored by Cassandra Gonzalez. She explained she is "never a 10 out of 10 girl" and held back one point specifically because she was thinking about AI-skeptical students who might not share her open-mindedness — not because of any deficit in the product itself.</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The clarity track concept resonated immediately — Cassandra connected it to her daily conversations with undecided students and called it "amazing" as a first step before students come to the Career Center.</li>
+    <li>The SNT management features shown in the demo directly addressed the biggest operational pain point the advisors had just described. Chris's preview of group visibility, meeting tracking, and in-platform SNT reporting was well-received.</li>
+    <li>The advisor dashboard with filtering by cohort, major, and semester spoke directly to the data gaps Kim had raised. Cassandra confirmed it would be useful, particularly if Handshake data could be surfaced alongside it.</li>
+    <li>The career statement output — Cassandra said she could picture students printing it and taping it to their mirror as a North Star.</li>
+    <li>The gamification elements (streaks, confetti, accomplishment tracking) were acknowledged positively in context.</li>
+    <li>The pilot rollout model (advisors first, then small cohorts, then general release) made sense and felt manageable.</li>
+    <li>Cassandra's overall reaction: "This is not what I was thinking about. I love this."</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>AI visibility and framing — Cassandra raised a direct concern that some Drew students will see "AI" and disengage immediately, citing the Instagram letter incident. She noted her own office deliberately avoids publicizing its AI use. The question of how to position an AI-forward product to AI-skeptical students is unresolved.</li>
+    <li>Profile privacy — Cassandra asked whether student profiles would be visible to other students or to administrators/employers, and whether that data could be used to assess engagement across clubs broadly. The answer was "not fully nailed down yet," with FERPA noted as a guiding constraint.</li>
+    <li>Student activation — Cassandra's overarching concern was adoption: "How do we get them to log in and start it?" She acknowledged Society is only valuable for students who actually use it, and noted that low-utilization is already a pattern with NSLS broadly.</li>
+    <li>Human connection in next steps — Cassandra noted the platform felt "very AI heavy" and wondered whether the pathway after clarity would connect students to real people, not just more AI interactions. She couldn't fully articulate it in the moment but flagged it as something she'd follow up on.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Cassandra had filled out a pre-meeting survey and said she had "no idea" what would be shown — and that Society was "definitely not" what she had imagined. Her reaction was genuinely surprised and enthusiastic.</li>
+    <li>The depth of the AI skepticism at Drew was unexpected and specific — it wasn't general tech anxiety but a values-driven concern about ethics and environmental impact, articulated by students who took formal action against the university over it.</li>
+    <li>Cassandra volunteered, without prompting, to personally recruit anti-AI students to serve as pilot testers — framing it as a way to get perspective from the hardest-to-convert segment.</li>
+    <li>Kim recognized Chris as a HireVue co-founder, creating an immediate credibility moment around the career and HR technology connection.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Clarity Track (Career Readiness / AI Coach)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Cassandra's highest-enthusiasm moment. Directly connected to her daily conversations with undecided students. Called it "amazing" as a first step before Career Center visits. Surprise reaction — "this is not what I was thinking about."</td>
+      </tr>
+      <tr>
+        <td>SNT Group Management &amp; Visibility in Platform</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Addresses the most painful operational gap described in discovery. Kim described not being able to see who is in which group or whether they've met as a core failure of the current system. The preview of in-platform group visibility, attendance tracking, and SNT reports was well-received.</td>
+      </tr>
+      <tr>
+        <td>Advisor Dashboard with Cohort / Major Filtering</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Directly responsive to Kim's complaint that she cannot answer faculty questions about major breakdowns or track students across demographics. Cassandra confirmed usefulness, especially if Handshake data could be pulled in alongside it.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Concept aligned well with how advisors think about student progress — not just induction completion but holistic readiness. Not deeply probed but framed clearly by Chris and not questioned.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessments (Myers-Briggs, DISC, Holland Code, etc.)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Introduced as part of the clarity track MVP. No objections raised. Consistent with what Kim described wanting — helping students understand themselves as a precondition for career direction.</td>
+      </tr>
+      <tr>
+        <td>Dream Job Selection &amp; Career Statement Generation</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Cassandra responded positively to the career statement as a tangible artifact. Chris's framing of printing it and taping it to a dorm room mirror connected well. No friction raised.</td>
+      </tr>
+      <tr>
+        <td>AI Coach / Conversational Interface</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Cassandra raised unprompted that Drew students are actively anti-AI on ethical/environmental grounds and that her office deliberately avoids publicizing AI use. She flagged this as a potential adoption barrier at the moment of login. Offered to recruit skeptical students as pilot testers. Chris acknowledged this is a "fine line" that needs to be walked carefully.</td>
+      </tr>
+      <tr>
+        <td>Student Profile (Public/Private Visibility)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Cassandra asked whether profiles would be visible to other students or to administrators/employers, and whether the data could be used to assess engagement across campus clubs broadly. Answer was "not fully nailed down yet." FERPA compliance noted as a guiding constraint. Cassandra's broader interest was in using profile data as a cross-campus engagement indicator.</td>
+      </tr>
+      <tr>
+        <td>Handshake Integration</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Chris mentioned the team had discussed a Handshake integration the day before the meeting. Cassandra confirmed it would be useful for her — she currently uses Handshake for student tracking and noted Society data alongside Handshake data would strengthen her reporting. Kim had previously described the email-reconciliation problem caused by students not using their Drew email in NSLS.</td>
+      </tr>
+      <tr>
+        <td>Gamification (Streaks, Confetti, Win Tracking)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Cassandra responded positively to streaks in particular ("I like the streaks"). Presented in context of keeping students returning to the platform. No friction raised, though student adoption broadly remains an open question.</td>
+      </tr>
+      <tr>
+        <td>Mentor / Alumni Matching</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Mentioned by Chris as a future roadmap item. Consistent with Kim's emphasis on alumni engagement and employer relations. Not deeply discussed but directionally aligned with school priorities.</td>
+      </tr>
+      <tr>
+        <td>Modular / In-Person Facilitation Support for LTD</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Advisors rebuilt the entire facilitation guide themselves because the existing video format was designed for virtual delivery and is ill-suited for in-person use. Cassandra offered to share their custom materials. Both advisors expressed clear relief that shorter, modular content is in development. Chris confirmed new video content is being created.</td>
+      </tr>
+      <tr>
+        <td>Human Connection After AI Interactions</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Cassandra noted the platform feels "very AI heavy" and wondered whether next steps after the clarity track would connect students to real people. She couldn't fully articulate the concern in the moment but flagged it for follow-up. Directionally, she wants the AI to be a bridge to human relationships, not a replacement for them.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Send meeting recording to Kim and Cassandra so Kim can review the portion of the demo she missed and provide informed feedback before any pilot or Product Council decision is made. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Send written meeting summary (key themes, pain points, ideas discussed) to both advisors as a follow-up artifact. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Follow up with Kim and Cassandra within 1–2 weeks to gauge interest in Pilot Partner and Product Council participation, after Kim has had a chance to review the recording and discuss internally. <span class="owner-tag">Zoë Wallis</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>If pilot interest is confirmed, schedule a follow-up session to walk Kim and Cassandra through Society before any student cohort is invited — allow them to run through it, give feedback, and approve before student rollout. <span class="owner-tag">Chris Higbee / Zoë Wallis</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Explore Cassandra's offer to personally recruit AI-skeptical Drew students to serve as pilot testers — coordinate logistics and timing if pilot moves forward. <span class="owner-tag">Zoë Wallis</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Share Drew's custom LTD facilitation guide with the product/curriculum team as a reference artifact for designing in-person modular facilitation materials. Cassandra offered to share it. <span class="owner-tag">Zoë Wallis</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Advance internal scoping of Handshake integration — Chris flagged this was already being discussed with the team. Confirm feasibility and timeline, given Drew's active use of Handshake for student tracking. <span class="owner-tag">Chris Higbee / Product Team</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>How will student profile visibility be controlled — what can other students see, what can advisors see, and what can employers or external parties access? FERPA compliance framework needed before this is defined.</li>
+    <li>How should Society be positioned to AI-skeptical students who may disengage at the mention of AI? What language, framing, or UX decisions will help bridge this gap — especially at campuses like Drew where the resistance is organized and values-driven?</li>
+    <li>After the clarity track, how does Society connect students to real people — advisors, mentors, alumni — rather than continuing to route them back to the AI coach? This transition was flagged as potentially missing or underdeveloped.</li>
+    <li>What is the confirmed timeline for general Society release (noted as "most likely this fall") and what are the specific milestones between now and then that pilot partners should expect?</li>
+    <li>What are the exact time commitments for the Product Council — Cassandra asked specifically about hours per quarter and start date (noted as May, ~10 hours/quarter + 1 hour meeting). Kim has not yet reviewed or responded to this ask.</li>
+    <li>Can Society's advisor dashboard surface engagement data across campus broadly (clubs, events, admissions touchpoints) — or is it scoped only to NSLS activity? Cassandra's use case suggests broader cross-campus engagement data is the real need.</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <td><strong>School</strong></td>
+        <td>Drew University</td>
+      </tr>
+      <tr>
+        <td><strong>Location</strong></td>
+        <td>Madison, NJ</td>
+      </tr>
+      <tr>
+        <td><strong>School Type</strong></td>
+        <td>Liberal Arts · Private 4-Year</td>
+      </tr>
+      <tr>
+        <td><strong>Chapter Status</strong></td>
+        <td>New — first semester, just launched</td>
+      </tr>
+      <tr>
+        <td><strong>Chapter Type</strong></td>
+        <td>Standard (fully in-house; no hybrid or online support)</td>
+      </tr>
+      <tr>
+        <td><strong>Segment</strong></td>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <td><strong>Enthusiasm Score</strong></td>
+        <td>9/10 (Cassandra Gonzalez; held back one point due to concern about AI-skeptical students, not product quality)</td>
+      </tr>
+      <tr>
+        <td><strong>Pilot Partner Interest</strong></td>
+        <td>Yes — Cassandra expressed personal interest; Kim has not yet reviewed the demo and needs to be consulted before confirming</td>
+      </tr>
+      <tr>
+        <td><strong>Product Council Interest</strong></td>
+        <td>Likely — Cassandra interested; time commitment (~10 hrs/quarter + 1 hr meeting, starting May) needs Kim's review and agreement</td>
+      </tr>
+      <tr>
+        <td><strong>Top Pain Points</strong></td>
+        <td>SNT group visibility and tracking; student data/reporting by major, year, and demographics; email identity fragmentation; passive video format for in-person LTD; student adoption and activation</td>
+      </tr>
+      <tr>
+        <td><strong>Key Signal</strong></td>
+        <td>AI skepticism is a real, organized student sentiment at Drew — Cassandra volunteered to recruit anti-AI students as pilot testers, making this campus a valuable stress-test for Society's positioning and onboarding language</td>
+      </tr>
+      <tr>
+        <td><strong>CSR</strong></td>
+        <td>Zoë Wallis</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Drew University &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; March 22, 2026
+</footer>
+
+</body>
+</html>

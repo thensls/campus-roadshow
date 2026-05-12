@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University of Nevada, Las Vegas — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">April 21, 2026</span>
+    </div>
+    <h1>University of Nevada, Las Vegas &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; University of Nevada, Las Vegas Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/644114643" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> University of Nevada, Las Vegas (UNLV)</p>
+    <p><strong>Location:</strong> Las Vegas, NV</p>
+    <p><strong>School Type:</strong> Research University · Public 4-Year</p>
+    <p><strong>Chapter Status:</strong> Established</p>
+    <p><strong>Chapter Type:</strong> Standard (in-person with online participation)</p>
+    <p><strong>Segment / Tier:</strong> Tier 3</p>
+    <p><strong>Advisors Present:</strong> Dr. Elana Paladino (Faculty Advisor) and LaDonnia Petersen (Staff/Board Advisor, Lee Business School)</p>
+    <p><strong>Notable Context:</strong> UNLV is a commuter-heavy campus, which advisors identified as a persistent challenge for student engagement and SNT participation. The university is actively pursuing Carnegie Community Engagement Classification, placing increased institutional emphasis on service learning and community partnerships. The Lee Business School is piloting workforce readiness tools including an AI resume tool (VMOC). The school is broadly prioritizing micro-credentials, badging, and AI-integrated skill-based training. Advisors noted that SNT attendance has been disappointing and that a restructure of the format is already under consideration. Most NSLS members skew first- and second-year, many of whom have limited work experience and do not yet self-identify as leaders.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Dr. Elana Paladino</h3>
+    <p><strong>Role:</strong> Faculty Advisor, NSLS Chapter at UNLV</p>
+    <p><strong>Background:</strong> Faculty member actively developing a service learning course tied to UNLV's Carnegie Community Engagement Classification initiative. She has participated in NSLS's national Leadership Day (online) and values the national team's support in reviewing student-submitted goals and work — something she noted she could not manage alone.</p>
+    <p><strong>Motivations:</strong> Deeply committed to goal-setting as NSLS's core value. Wants to preserve the SMART goal framework and expand in-person attendance at national leadership events. Focused on ensuring students graduate with tangible skills and meaningful experiences. Concerned about long-term cost sustainability and university buy-in as Society scales.</p>
+    <p><strong>Communication Style:</strong> Thoughtful and measured. Acknowledged when she needed more time to reflect before answering (e.g., deferred detailed "what needs to change" feedback to the survey). Warm and collaborative in tone. Had a hard stop at 11:00 AM but engaged genuinely throughout.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Expressed clear openness to piloting Society with NSLS members in the fall. Enthusiasm score of 8–9/10.<a href="https://fathom.video/calls/644114643?t=3243" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 54:03</a> Cost and institutional sustainability are her primary hesitations, not product skepticism. Strong candidate for pilot partner; Product Council role would depend on time availability given her faculty responsibilities.</p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>LaDonnia Petersen</h3>
+    <p><strong>Role:</strong> Advisor/Board Member, NSLS Chapter at UNLV — affiliated with the Lee Business School</p>
+    <p><strong>Background:</strong> Brings significant professional workforce experience, which she actively channels into the chapter (e.g., proposing soft skills and resume writing workshops for SNTs). Currently reading "The Six Types of Working Genius" by Patrick Lencioni, which informed her pointed questions about the Clarity Track and personality-based career tools. Has firsthand negative experience with the school's existing AI career tool (VMOC), finding it poorly suited for students with real work history.</p>
+    <p><strong>Motivations:</strong> Wants NSLS to bridge the gap between leadership theory and practical, real-world application — especially for younger, undeclared students who don't yet see themselves as leaders. Focused on making students want to contribute and participate meaningfully. Highly attuned to the student demographic (first- and second-years, some with no work experience).</p>
+    <p><strong>Communication Style:</strong> Direct, intellectually engaged, and detail-oriented. Asked the sharpest product questions of the session — about school-tailored AI recommendations, career readiness score logic, and induction eligibility via alternative tracks. Offered spontaneous positive feedback on Society's visual rebrand. Highly articulate in translating student experience into product insight.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Rated Society 10/10.<a href="https://fathom.video/calls/644114643?t=113" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:53</a> Immediately open to piloting. Her background in workforce, eye for student UX, and familiarity with competing tools (VMOC, Working Genius) make her an exceptionally strong Product Council candidate. She asked follow-up questions that revealed she was already thinking like a co-creator.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>The SMART goal-setting framework — both advisors identified this as the core of what makes NSLS valuable and said it should never be lost.<a href="https://fathom.video/calls/644114643?t=245" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:05</a></li>
+    <li>National team support in reviewing student-submitted goals and work — Dr. Paladino said this is something she could not replicate on her own and deeply appreciates.<a href="https://fathom.video/calls/644114643?t=457" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:37</a></li>
+    <li>The inspirational quality of NSLS video content — LaDonnia noted the motivational segments "really get the teams fired up" and are "stitched together very well."<a href="https://fathom.video/calls/644114643?t=611" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 10:11</a></li>
+    <li>High-profile speaker credibility (e.g., Barack Obama with the NSLS crest) — cited as adding legitimacy to the program.</li>
+    <li>Leadership Training Day and national Summit events — Dr. Paladino sees these as valuable networking experiences and wants more in-person attendance from members.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>SNT attendance is low and disappointing — advisors are already considering restructuring the format.<a href="https://fathom.video/calls/644114643?t=411" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:51</a></li>
+    <li>The commuter campus model makes sustained on-campus engagement difficult — this is a known, persistent structural challenge, not a new one.</li>
+    <li>Video content feels dated and inflexible — LaDonnia noted it "doesn't seem to have been updated to work for us instead of us working for it."<a href="https://fathom.video/calls/644114643?t=605" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 10:05</a> Dr. Paladino noted that long, unbroken videos don't hold engagement well during events.<a href="https://fathom.video/calls/644114643?t=540" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:00</a></li>
+    <li>The "why" of NSLS is unclear to students — particularly first- and second-year students who don't identify as leaders and have no workforce context to anchor the value proposition.</li>
+    <li>Leadership as a standalone value proposition is hard to defend — students are skeptical of the value of college broadly and want demonstrable, practical outcomes, not just a stole and cord.<a href="https://fathom.video/calls/644114643?t=1609" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 26:49</a></li>
+    <li>Existing career tools at the school are poorly designed — LaDonnia called out VMOC (the Lee Business School's AI resume tool) as ineffective for students with real work history, using templates geared only toward traditional undergraduates.<a href="https://fathom.video/calls/644114643?t=2532" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 42:12</a></li>
+    <li>Workforce readiness resources are siloed by school/college — students outside the Business School may not have access to the same career preparation tools or awareness.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Carnegie Community Engagement Classification — UNLV is working to maintain this designation, which requires faculty-led service learning and community-partnered curriculum. Dr. Paladino is personally developing a service learning course in support of this.</li>
+    <li>Workforce readiness and skill-based training — the university is actively exploring micro-credentials, digital badging, and AI-integrated learning modules to prepare students for the labor market.</li>
+    <li>Community and employer partnerships — advisors are actively recruiting external partners for the chapter; LaDonnia has been leading those outreach efforts.</li>
+    <li>Student engagement on a commuter campus — keeping students connected and progressing when they are not consistently on campus is an ongoing institutional challenge.</li>
+    <li>AI integration across campus — UNLV is leaning into AI as a tool for student support, though existing implementations (like VMOC) have not fully delivered.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Students Need a "Why" Before Leadership Can Land</h3>
+    <p>Both advisors independently surfaced the same core problem: students — especially undeclared first-years with no work experience — don't see themselves as leaders<a href="https://fathom.video/calls/644114643?t=1079" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 17:59</a> and can't connect NSLS's leadership framing to anything personally meaningful. LaDonnia articulated this sharply: "If they're undeclared in their major...what do I need to know about leadership right now?" Chris's reframe — that career clarity may be a more compelling entry point than leadership identity — resonated strongly with both advisors and aligned directly with the Renee story.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Service Learning Is an Institutional Mandate, Not Just a Nice-to-Have</h3>
+    <p>UNLV's Carnegie Classification pursuit means service learning is a top-down institutional priority, not just an advisor preference. Dr. Paladino is personally building a service learning course. This creates a direct alignment opportunity: embedding service-oriented SNTs or community partnership tracks into Society could help the chapter tie NSLS participation to formal institutional goals — a significant lever for budget justification and cross-departmental buy-in.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Commuter Culture Demands Flexibility and Asynchronous Options</h3>
+    <p>UNLV's commuter-heavy student body was cited multiple times as a structural barrier to engagement. Students are not reliably on campus, which limits synchronous programming like SNTs. The Society platform's ability to support asynchronous self-paced tracks, mobile-first SNT setup, and online meeting/chat tools within the platform was seen as directly responsive to this challenge — not a feature, but a necessity for this campus profile.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Career Readiness Data Is a Competitive Institutional Asset</h3>
+    <p>Dr. Paladino flagged micro-credentials, badging, and workforce readiness as active school priorities. Chris's mention of Wall Street Journal and U.S. News rankings incorporating career readiness metrics landed as a meaningful institutional argument. The career readiness score concept — with longitudinal cohort tracking — was framed as something that could help UNLV demonstrate outcomes in budget conversations, accreditation discussions, and enrollment marketing. This reframes Society from a student tool to an institutional reporting asset.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Existing Career Tools Are Failing — and Advisors Know It</h3>
+    <p>LaDonnia offered an unprompted critique of VMOC, the Lee Business School's AI resume tool, citing its inability to serve students with real work experience as a concrete failure. This signals both an unmet need Society could address and a heightened standard of scrutiny: LaDonnia will evaluate Society's career tools with a discerning, experienced eye. Her question about whether the career readiness score adapts to a student's chosen track shows she is already thinking about edge cases and personalization depth.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">9/10</div>
+  <p><em>LaDonnia: 10/10. Dr. Paladino: 8–9/10 (held back by long-term cost and institutional sustainability concerns, not product skepticism).</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The Renee story — the narrative of a non-traditional student who ignored NSLS but spent 70 minutes deeply engaged in the Clarity Track resonated immediately and was received as a credible proof point, not a sales pitch.</li>
+    <li>The Clarity Track concept — LaDonnia immediately connected it to the Working Genius assessment framework she was personally studying, showing strong conceptual alignment. She called it "a really good starting point" and said, "I feel like we were taking them from point A to G."</li>
+    <li>The AI coach's ability to tailor to a student's school — the prospect of the agent knowing UNLV's course catalog, departments, and staff and directing students internally (rather than to University of Virginia) was described as exactly what LaDonnia wanted to know was possible. She had been writing this as a question before Chris addressed it.</li>
+    <li>The SNT scheduling and online meeting tool — Dr. Paladino said it would be "really valuable in facilitating that and making sure people follow through," connecting it directly to their current SNT attendance problem.</li>
+    <li>The visual rebrand — LaDonnia offered spontaneous positive feedback: "The colors, the entire topography, it feels very fresh and modern... it looks more visually appealing to the demographic that we're targeting."</li>
+    <li>The advisor dashboard and career readiness score — the ability to see a student's readiness score before a meeting was received as practically useful, with Chris's framing of freeing advisors from low-value tasks (like resume cleanup) resonating well.</li>
+    <li>Personality assessments (Myers-Briggs, DISC, Big Five, etc.) embedded in the profile — directly validated by LaDonnia's interest in the Working Genius framework.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Long-term pricing — Dr. Paladino's primary hesitation. She is already thinking about whether the university will fund this as it scales and whether it will be sustainable. Pricing flexibility was appreciated but not fully reassuring without specifics.</li>
+    <li>Career readiness score logic — LaDonnia asked whether the score differs based on the student's chosen track, and offered a concrete example (a student with 10 years of workforce experience vs. a traditional undergrad) to illustrate why a one-size score would be inadequate. Chris acknowledged this was not yet resolved.</li>
+    <li>Induction eligibility via alternative tracks — LaDonnia asked directly whether completing the Clarity Track (instead of Foundations of Leadership) could count toward induction. Chris confirmed this is the long-term vision but is 12+ months away. The question signals advisors are already planning around this use case.</li>
+    <li>Integration timeline with existing NSLS dashboard — LaDonnia asked whether Society would replace the current student dashboard. Chris confirmed yes, over approximately two years. The multi-phase rollout was understood but advisors will need clarity on what runs in parallel during the transition.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>LaDonnia rated Society a 10/10 without hesitation — the depth and specificity of her engagement throughout (Working Genius comparison, VMOC critique, score logic question, induction eligibility question) made her enthusiasm feel fully informed rather than reflexive.</li>
+    <li>The visual rebrand was called out spontaneously and positively — this was not prompted and suggests the design work is connecting with the target demographic as intended.</li>
+    <li>Dr. Paladino had difficulty identifying what "needs to change" on their end — she acknowledged the national team's support has been genuinely helpful and that there are no major pain points screaming at her. This is a positive signal for the relationship, though it may mean product feedback will come more from LaDonnia than Dr. Paladino.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Clarity Track (Career Direction)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>LaDonnia immediately compared it to the Working Genius assessment she is actively studying. Called it "a really good starting point." Both advisors agreed it addresses the student "why" gap better than the leadership framing alone.</td>
+      </tr>
+      <tr>
+        <td>AI Coach (Conversational Career Guidance)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>The Renee story drove strong reception. Advisors responded to the idea of a student spending 70 minutes self-directing through career reflection. Seen as directly addressing commuter campus disengagement.</td>
+      </tr>
+      <tr>
+        <td>School-Tailored AI Recommendations (Campus Agent)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>LaDonnia was literally writing this as a question when Chris addressed it. The concept of the AI knowing UNLV's course catalog, departments, and advisors — and directing students internally — was the single most practically exciting feature discussed.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessments (Myers-Briggs, DISC, Big Five, etc.)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Validated by LaDonnia's Working Genius interest. Chris noted more context/explanation is being added so students don't misread results (e.g., "low neuroticism"). No friction raised.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>LaDonnia asked whether the score adapts by track chosen and gave a concrete counterexample (experienced professional vs. traditional undergrad). Chris confirmed this logic has not yet been fully designed. Critical to resolve before advisor-facing rollout.</td>
+      </tr>
+      <tr>
+        <td>Advisor Dashboard & Student Roster View</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>The framing of pre-meeting prep (checking a student's readiness score before they walk in) resonated. Longitudinal cohort tracking and rankings data tie-in (WSJ, U.S. News) landed as an institutional argument. No friction raised.</td>
+      </tr>
+      <tr>
+        <td>SNT Scheduling & In-Platform Meeting Tool</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Dr. Paladino called it "really valuable in facilitating that and making sure people follow through." Directly addresses their SNT attendance problem. Availability-based matching algorithm received without questions. Attendance tracking also noted positively.</td>
+      </tr>
+      <tr>
+        <td>Gamification (Streaks, Action Item Completion)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Mentioned by Chris during the demo; no pushback or questions. Advisors did not expand on it, but it was received without friction in the context of student engagement.</td>
+      </tr>
+      <tr>
+        <td>Modular / Shorter Video Content</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Dr. Paladino confirmed that long-form videos lose engagement during events and that breaking content into shorter, interactive segments "might actually help." LaDonnia noted inspirational segments are strong but content feels un-updated.</td>
+      </tr>
+      <tr>
+        <td>Induction via Alternative Track (Clarity as FOL Substitute)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>LaDonnia asked directly whether completing Clarity could satisfy induction requirements if FOL were removed. Chris confirmed this is the long-term vision (~1 year away) but not current. Advisors are already planning around this use case — timeline transparency will matter.</td>
+      </tr>
+      <tr>
+        <td>Service / Community Partnership Features (SNTs as Service Groups)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Chris raised the concept of service-based SNTs (tied to One Kind Act a Day Foundation). Dr. Paladino is personally building a service learning course for Carnegie Classification. Strong institutional alignment, but this feature is not yet built. Worth tracking as a high-priority roadmap item for this school.</td>
+      </tr>
+      <tr>
+        <td>Pricing Model (Future)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Dr. Paladino's only real hesitation. She is already thinking about long-term university budget sustainability. Chris described pricing as flexible and co-created, but no specifics were shared. This needs a clear and reassuring answer before formal pilot commitment from Dr. Paladino.</td>
+      </tr>
+      <tr>
+        <td>Society as NSLS Dashboard Replacement (Transition Plan)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>LaDonnia asked whether Society replaces the current student dashboard. Chris confirmed yes, over ~2 years, with phased integration. The parallel-running period needs to be clearly documented for advisors to manage student expectations without confusion.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Schedule a follow-up meeting within the next two weeks to walk through the initial Society rollout plan for UNLV, incorporating feedback from this session. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Send advisors the post-meeting survey link (shared in chat during the call) and encourage completion — this session's discussion should inform their responses. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Prepare and send a written summary/reflection report to Dr. Paladino and LaDonnia Petersen capturing key themes heard in this session, as committed to by Chris during the meeting. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Provide Dr. Paladino and LaDonnia Petersen with initial (advisor-level) access to Society for hands-on testing prior to fall student rollout. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Define and document the phased pilot rollout plan for UNLV: advisor testing → small student cohort → full NSLS membership → potential broader UNLV expansion, with fall as the target for NSLS member launch. <span class="owner-tag">Chris Higbee / Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Bring LaDonnia Petersen's career readiness score question (does the score adapt by track / student profile?) to the product team as a design input for the scoring model. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Assess UNLV's service learning and Carnegie Classification priorities as a potential input for service-oriented SNT or community partnership features on the Society roadmap. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">8</div>
+      <div>Formally invite LaDonnia Petersen to the Society Product Council given her 10/10 enthusiasm, product instincts, and workforce background. Assess Dr. Paladino's availability for the same. <span class="owner-tag">Chris Higbee / Maryanna Laferriere</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>How will the career readiness score be calibrated for students with significant prior work experience versus traditional undergraduates with none? Does the score logic account for the track a student is completing?</li>
+    <li>What is the specific timeline and criteria for Clarity Track completion to count toward induction as an alternative to Foundations of Leadership?</li>
+    <li>What will the pricing structure look like as Society adds tracks and features — and how will UNLV (and other schools) be involved in co-designing that model?</li>
+    <li>How will the parallel period between the current NSLS student dashboard and Society be managed to avoid advisor and student confusion during the ~2-year transition?</li>
+    <li>Is there a roadmap pathway for service-based SNTs or community partnership features that would align with UNLV's Carnegie Classification requirements?</li>
+    <li>How will the school-tailored campus agent be trained — what data inputs are needed from UNLV (course catalog, staff directory, departments), and who manages that process?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>University of Nevada, Las Vegas (UNLV)</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Las Vegas, NV</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Research University · Public 4-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Standard</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>9/10 (LaDonnia Petersen: 10/10; Dr. Elana Paladino: 8–9/10)</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — both advisors confirmed openness to piloting; fall student rollout targeted</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>High — LaDonnia Petersen is a strong candidate; Dr. Paladino's availability TBD</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>Low SNT attendance; commuter campus disengagement; students lack a clear "why" for NSLS; leadership framing not resonating with younger/undeclared students; siloed workforce readiness resources across colleges; outdated/inflexible video content</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Career Clarity Track and school-tailored AI coach directly address UNLV's top student engagement and workforce readiness gaps; service learning alignment with Carnegie Classification is an institutional leverage point for broader Society adoption</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Maryanna Laferriere</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; University of Nevada, Las Vegas &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; April 21, 2026
+</footer>
+
+</body>
+</html>

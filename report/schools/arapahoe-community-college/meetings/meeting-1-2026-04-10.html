@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arapahoe Community College — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header a.header-pill:hover{color:#C96058;} .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">April 10, 2026</span>
+    </div>
+    <h1>Arapahoe Community College &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Arapahoe Community College Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/share/Ysmd5s37xuxmfsK-FQCsxsTaK2Ve68ud" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Arapahoe Community College</p>
+    <p><strong>Location:</strong> Littleton, CO</p>
+    <p><strong>School Type:</strong> Public 2-Year</p>
+    <p><strong>Chapter Status:</strong> Established (advisor references multi-semester experience and longitudinal data concerns)</p>
+    <p><strong>Chapter Type:</strong> Hybrid — Dan explicitly noted that the chapter offers both in-person engagement opportunities and flexible online options for students who cannot attend every element in person.</p>
+    <p><strong>Advisors Present:</strong> Dan Balski</p>
+    <p><strong>Notable Context:</strong> Arapahoe CC serves a student population that Dan described as benefiting significantly from flexible programming — students who would not otherwise engage in campus involvement<a href="https://fathom.video/calls/631297024?t=381" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:21</a>. Dan is an experienced advisor who tracks chapter data independently using spreadsheets due to platform limitations. He expressed long-standing concern about low completion/induction rates and the lack of platform-level accountability for member engagement. His enthusiasm for Society was high (9/10 overall, 10/10 on content)<a href="https://fathom.video/calls/631297024?t=397" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:37</a>, tempered only by questions about student-facing onboarding clarity.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+  <div class="advisor-card">
+    <h3>Dan Balski</h3>
+    <p><strong>Role:</strong> Advisor, Arapahoe Community College (Littleton, CO)</p>
+    <p><strong>Background:</strong> Experienced NSLS chapter advisor at a public 2-year institution. Manages chapter operations with a hybrid model. Maintains his own spreadsheet-based tracking system to compensate for platform data limitations across semesters. References having submitted related feedback through a prior survey, indicating ongoing engagement with NSLS feedback channels.</p>
+    <p><strong>Motivations:</strong> Dan is primarily motivated by genuine student outcomes — he wants students who pay for NSLS membership to complete the program and derive real value. He is troubled by high non-completion rates and what he perceives as a historical lack of urgency at the national level to address engagement drop-off. He actively works to connect NSLS members to broader campus involvement opportunities<a href="https://fathom.video/calls/631297024?t=381" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:21</a>, treating the chapter as a pipeline for student engagement. He is drawn to tools that reduce his manual administrative burden and create platform-level accountability.</p>
+    <p><strong>Communication Style:</strong> Measured, analytical, and candid. Dan raises concerns directly but constructively. He speaks in specific operational terms (e.g., induction rates resetting before semester ends, cross-semester data comparison) and frames feedback around institutional and student outcomes rather than personal preferences. He engages via both voice and chat.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Dan is an engaged, data-oriented advisor who has already been providing structured feedback through NSLS surveys. His focus on completion rates, multi-semester analytics, and student-facing clarity makes him a valuable early tester. His 9/10 enthusiasm score (10/10 on content) and explicit openness to Society's direction indicate strong pilot partner alignment.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>Flexibility of programming — Dan emphasized that flexible participation options (both in-person and asynchronous) are essential for Arapahoe CC's student population<a href="https://fathom.video/calls/631297024?t=397" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:37</a>, many of whom cannot attend every program element in person.</li>
+    <li>NSLS as a gateway to broader campus involvement — Dan values that NSLS reaches students who would not otherwise engage on campus and connects them to additional opportunities.</li>
+    <li>Centralized platform management — Dan appreciates having a single platform through which students and advisors can manage the member experience<a href="https://fathom.video/calls/631297024?t=438" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:18</a>, even while acknowledging its current limitations.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Cross-semester data visibility — Dan cannot easily compare induction rates or engagement metrics across semesters or years within the platform<a href="https://fathom.video/calls/631297024?t=532" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:52</a>. Data resets before semesters even conclude, forcing him to maintain parallel spreadsheets<a href="https://fathom.video/calls/631297024?t=540" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:00</a>.</li>
+    <li>Low engagement and completion rates — Dan expressed long-standing concern that more than half of paying members do not complete the program, and that this has not felt like a national-level priority. He framed it as a values issue: students are paying and not receiving proportional value.</li>
+    <li>Platform does not actively drive engagement — Dan noted that he does significant work to encourage students to engage with Foundations of Leadership content and reach induction, but the platform itself does not reinforce that engagement in tandem with his efforts<a href="https://fathom.video/calls/631297024?t=958" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 15:58</a>.</li>
+    <li>Student-facing complexity — Dan raised concern that adding new tracks (Insights, Clarity, Connections) on top of existing Foundations of Leadership content could overwhelm students<a href="https://fathom.video/calls/631297024?t=1213" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 20:13</a> if not introduced clearly and digestibly.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Serving a non-traditional, flexible-needs student population — Arapahoe CC students require program structures that accommodate varied schedules and participation modes.</li>
+    <li>Improving member completion and induction rates — This is Dan's clearest stated priority; he wants the platform itself to share responsibility for driving students through the program<a href="https://fathom.video/calls/631297024?t=420" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:00</a>.</li>
+    <li>Reducing manual administrative work — Dan wants multi-semester analytics and data comparisons handled within the platform rather than through external spreadsheets<a href="https://fathom.video/calls/631297024?t=540" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:00</a>.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Platform Must Share Accountability for Engagement</h3>
+    <p>Dan stated directly that he does a great deal to push students toward Foundations of Leadership content and induction, but the platform does not work in tandem with those efforts. He wants the technology to actively encourage engagement — not passively display it. His comment in the chat ("If the tech platform is also encouraging that engagement in tandem with me, that would elevate our engagement even more") signals a clear product need for proactive, AI-driven nudges or prompts built into the student experience.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Multi-Semester Analytics Are a Critical Gap</h3>
+    <p>Dan described a specific and frustrating workflow: induction rate data disappears before the semester even ends, and there is no way to compare metrics across terms or years within the platform. He compensates with personal spreadsheets. This is a named, recurring pain point that Dan has also submitted through NSLS survey feedback, indicating it is not a passing complaint but an entrenched operational issue.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Non-Completion Rates Are a Values and Trust Issue</h3>
+    <p>Dan framed the ~50% non-completion rate not just as a program challenge but as an ethical concern — students are paying for membership and not receiving value. He noted that Society's additional benefit layers (Clarity, Insights, Connections) address this concern by giving non-completing students something meaningful to engage with. He expressed that this shift makes the membership feel more defensible and worthwhile.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Flexibility Is Non-Negotiable for a 2-Year Population</h3>
+    <p>Dan's opening contribution emphasized that Arapahoe CC students benefit from NSLS precisely because they are not required to attend every element in person. Any evolution of the platform must preserve and deepen flexible access — both for students who engage in-person and those who need fully asynchronous options. This aligns with Society's stated multi-modality goals but requires deliberate execution.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Student-Facing Onboarding Clarity Is a Launch Risk</h3>
+    <p>Dan raised a specific concern about how Society's expanded track structure will be introduced to students. He acknowledged that all of the new content is valuable, but noted that explaining multiple tracks on top of existing Foundations of Leadership requirements could overwhelm students if not handled carefully. He signaled confidence that NSLS will solve this but identified it as the primary open question affecting his enthusiasm score (9 rather than 10).</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+  <div class="enthusiasm-score">9/10</div>
+  <p><em>Dan scored Society 9/10 overall, clarifying that content alone would be a 10. The single point withheld reflects uncertainty about student-facing onboarding and how the expanded platform complexity will be communicated to students.</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The Career Clarity track and AI coach — Dan responded positively to the idea that students who don't connect with leadership content will now have an alternative pathway that still delivers meaningful value for their membership fee.</li>
+    <li>Society's framing as a solution to low completion rates — Dan explicitly said that adding benefit layers "takes away" his long-standing concern about students paying without engaging. The broader value proposition resonated directly with his stated frustrations.</li>
+    <li>The promise of multi-semester analytics in the new admin dashboard — Dan had already raised cross-semester data comparison as a pain point, so the dashboard feature addressing this was a direct hit on a named need.</li>
+    <li>The AI coach as a force multiplier for advisors — The concept of a platform-level engagement driver that works alongside (not instead of) the advisor aligned with Dan's stated desire for the tech to support his efforts in real time.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Student-facing complexity — Dan's primary concern was how the full suite of tracks (Insights, Clarity, Leadership, Connections) will be introduced to students in a way that is clear and digestible, especially given that Foundations of Leadership is already a multi-step commitment.</li>
+    <li>Rollout pacing and translation — Dan was curious about how Society's features would be sequenced for students and how advisors would be supported in communicating the new structure to their chapters.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Dan's candor about feeling that national-level urgency around engagement had historically been lacking was a notable moment. He framed Society's direction as a positive shift but was clear that this concern has been present for years — suggesting that trust will need to be built through demonstrated follow-through, not just product vision.</li>
+    <li>Dan confirmed he had already submitted the cross-semester analytics concern via a prior NSLS survey, indicating he is an active feedback contributor whose documented input should be cross-referenced in the product backlog.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Multi-Semester / Cross-Year Analytics Dashboard</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Dan named this as a critical gap explicitly and confirmed he had submitted it in a prior NSLS survey. Currently compensates with personal spreadsheets. Data resets before semester ends, causing active data loss. This is a high-priority, named, documented need.</td>
+      </tr>
+      <tr>
+        <td>AI Coach (Platform-Driven Engagement Nudges)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Dan's chat comment directly requested that the platform drive student engagement in tandem with advisor efforts. The AI coach concept was framed as a direct answer to this — described by Chris as a "force multiplier." Dan responded positively to this framing.</td>
+      </tr>
+      <tr>
+        <td>Career Clarity Track</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Dan welcomed additional benefit layers as a way to address his concern about members paying without completing. Clarity gives non-leadership-oriented students a meaningful alternative engagement pathway, which Dan sees as solving a values-level problem with the current model.</td>
+      </tr>
+      <tr>
+        <td>Flexible / Hybrid Program Delivery</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Dan opened the session by identifying flexibility as a core reason NSLS works for Arapahoe CC's student population. Any Society feature set must preserve asynchronous and hybrid access options. This is a non-negotiable for a 2-year institution context.</td>
+      </tr>
+      <tr>
+        <td>Expanded Track Structure (Insights + Clarity + Leadership + Connections)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Dan acknowledged the value of all tracks but raised a direct concern about how the full structure will be introduced to students. He described the onboarding communication challenge as the one thing preventing him from scoring Society a 10. Needs a clear, staged rollout plan and advisor-facing communication support.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching Algorithm (In-Platform)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Not directly commented on by Dan, but the concept of platform-facilitated SNT matching aligns with his stated desire for the technology to reduce advisor burden and drive student connection without requiring manual coordination.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score (Admin Dashboard)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Not directly commented on by Dan, but the concept of a holistic student readiness view in the admin dashboard is directly relevant to his stated need for better longitudinal student tracking and data export capability.</td>
+      </tr>
+      <tr>
+        <td>Foundations of Leadership 2.0 (Modular, Modern Content)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Dan did not comment on FOL 2.0 content directly, but his concern about student-facing complexity applies here. Adding modular content alongside new tracks requires careful scaffolding so that the student experience feels streamlined rather than additive.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Flag Dan Balski as a high-priority pilot partner candidate and initiate outreach through his CSM (TBD) to schedule an individual follow-up meeting with Chris Higbee. <span class="owner-tag">CSR / CSM (TBD)</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Cross-reference Dan's prior NSLS survey submission regarding cross-semester analytics with the Society product backlog to confirm it is tracked and prioritized. <span class="owner-tag">Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Develop and document a student-facing onboarding plan for Society's multi-track structure that addresses Dan's concern about complexity and digestibility — to be shared with pilot partners before rollout. <span class="owner-tag">Product Team / Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Ensure the Society admin dashboard includes exportable, cross-semester/cross-year data views as a core feature — not a future enhancement — given the frequency and specificity of this request across advisor conversations. <span class="owner-tag">Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Share the Google Doc follow-up link with Dan Balski to capture any additional questions or feedback post-session. <span class="owner-tag">CSR / CSM (TBD)</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>How will Society's multiple tracks (Insights, Clarity, Leadership, Connections) be sequenced and introduced to students in a way that does not feel overwhelming, particularly for community college populations managing competing priorities?</li>
+    <li>What is the specific rollout plan for pilot partners — will advisors like Dan begin with a small student cohort, and what support will NSLS provide during that phase?</li>
+    <li>Will the admin dashboard's cross-semester analytics be available at Society launch, or is this a roadmap item? Dan's current workaround (personal spreadsheets) is active and ongoing.</li>
+    <li>How will the AI coach's proactive engagement nudges be configured — will advisors have control over frequency or targeting parameters (e.g., nudging students at specific induction stages)?</li>
+    <li>Is Career Clarity being considered as an accredited curriculum pathway to induction? Dan's concern about non-completing members paying without value would be substantially addressed if Clarity could serve as an alternate induction route.</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Arapahoe Community College</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Littleton, CO</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Public 2-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Hybrid (In-Person + Flexible/Asynchronous)</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>9/10 (Content: 10/10)</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>High — Dan responded positively to Society's direction and the pilot offer was extended to the group; individual follow-up needed to confirm.</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>High — Dan is an active feedback contributor (prior survey submissions confirmed), analytically oriented, and focused on outcomes. Strong Product Council profile.</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>1. No cross-semester/cross-year data visibility in platform; 2. Platform does not actively drive student engagement; 3. High non-completion rates feel unaddressed at national level; 4. Student-facing onboarding complexity as Society expands</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Dan wants the platform to share accountability for engagement — not just reflect it. Society's AI coach and proactive nudge capabilities are a direct answer to his longest-standing frustration.</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>TBD</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Arapahoe Community College &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; April 10, 2026
+</footer>
+
+</body>
+</html>

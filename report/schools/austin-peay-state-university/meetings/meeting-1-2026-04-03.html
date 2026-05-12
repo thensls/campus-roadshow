@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Austin Peay State University — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header a.header-pill:hover{color:#C96058;} .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">March 27, 2026</span>
+    </div>
+    <h1>Austin Peay State University &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Austin Peay State University Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/share/hrveWh2RrXxA4SD4hJ-WxK6Bzrb6bXJ7" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>Institution:</strong> Austin Peay State University (APSU), Clarksville, Tennessee — approximately one hour northwest of Nashville, adjacent to Fort Campbell, Kentucky.<a href="https://fathom.video/calls/615625094?t=54" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 0:54</a></p>
+    <p><strong>School Type:</strong> Public 4-Year University</p>
+    <p><strong>Student Population:</strong> Large commuter and non-traditional student base. Approximately 33% of students are military-affiliated in some form.<a href="https://fathom.video/calls/615625094?t=59" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 0:59</a> Several active-duty students are currently deployed.<a href="https://fathom.video/calls/615625094?t=300" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:00</a> The population skews toward students balancing heavy academic loads, employment, childcare, and off-campus living.</p>
+    <p><strong>Chapter Status:</strong> Established</p>
+    <p><strong>Chapter Type:</strong> Hybrid (shifted to fully in-person for Spring after virtual speaker broadcasts underperformed in Fall<a href="https://fathom.video/calls/615625094?t=394" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:34</a>; supplemental events run alongside core induction steps)</p>
+    <p><strong>NSLS Organizational Home:</strong> Housed within the Office of Student Life and Engagement. Advisor's formal title is focused on Leadership and Student Organizations, making NSLS a natural fit within her portfolio.</p>
+    <p><strong>Departmental Context:</strong> Career Success Center (formerly Career Services) is located across the hall and falls under the same Student Affairs division. The center recently signed a contract with Handshake through 2030. A campus Leadership Department exists but provides minimal hands-on chapter support — described by the advisor as largely hands-off beyond formal affiliation.</p>
+    <p><strong>Campus Tech Stack:</strong> Recently transitioned from Anthology to Ready Education for event tracking. Students use mobile ID scanners for event check-in. The advisor currently tracks NSLS attendance manually using two monitors — one for the NSLS portal and one for attendance records — and spends approximately 30 minutes manually assigning orientation and leadership training day credit per event.</p>
+    <p><strong>Notable Context:</strong> The chapter hosts supplemental programming beyond required induction steps, including community service events, a de-stress event around midterms, a campus cleanup, and a general board meeting open to all members. APSU students have responded strongly to in-person programming this spring. The chapter participates in homecoming annually. A Gov's Lead program also sits within the advisor's portfolio.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+  <div class="advisor-card">
+    <h3>Janesa Wine</h3>
+    <p><strong>Role:</strong> Student Life and Engagement Staff — Leadership and Student Organizations; Primary NSLS Chapter Advisor</p>
+    <p><strong>Background:</strong> Works directly within the Office of Student Life and Engagement at APSU. Manages all student organizations on campus in addition to NSLS and other leadership initiatives including the Gov's Lead program. Experienced with full platform implementations — noted the campus has recently completed two major technology implementations. Familiar with tools like Ready Education, Handshake, and CliftonStrengths. Recently hosted a leadership conference that drew 100 students on a Monday evening.</p>
+    <p><strong>Motivations:</strong> Highly self-described competitive ("competition is in my top five CliftonStrengths"). Driven by data and year-over-year improvement metrics. Motivated to keep students engaged beyond induction, reduce drop-off, and continuously benchmark chapter performance. Personally invested in understanding the full profile of each student — including commute status, work hours, and co-curricular involvement — to better serve them. Wants to enhance what is already working, not simply respond to external pressure.</p>
+    <p><strong>Communication Style:</strong> Direct, candid, and highly engaged. Asks specific, operational questions mid-demo. Offers concrete examples from her own workflow to illustrate friction points. Comfortable redirecting conversation to flag real-world implementation concerns. Warm and personable; builds rapport quickly.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Strong. Enthusiastic about data access, advisor dashboard features, and the SNT matching tool. Expressed openness to scheduling a follow-up meeting within two to four weeks. Identified as a thoughtful co-creator who surfaces operationally grounded feedback. Chris Higbee explicitly invited her to join as a pilot partner and noted her feedback as "gold." High potential for Product Council given engagement quality and institutional fit.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>The step-based induction model — students value it because it differentiates NSLS from other honor societies that require only a GPA threshold with no ongoing engagement.</li>
+    <li>The sense of challenge and progression — students like having clear milestones to work toward ("I've got to hit this step and this step").</li>
+    <li>In-person programming — after a Fall experiment with virtual speaker broadcasts underperformed, the chapter shifted to fully in-person for Spring and saw significantly better attendance and student satisfaction.</li>
+    <li>Supplemental community events that keep inducted members engaged and visible on campus (e.g., homecoming, community service, de-stress events, general board meetings open to all members).</li>
+    <li>The current mobile app experience — students prefer it over the web portal for ease of navigation.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>SNT group formation and portal language is confusing for students, especially commuters, non-traditional students, and those who are deployed.<a href="https://fathom.video/calls/615625094?t=283" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:43</a> Students often do not understand what to do if they lack a ready group of NSLS peers nearby.</li>
+    <li>Students who procrastinate frequently hit a wall when they realize SNT meetings cannot be compressed into one week — leading to semester deferrals rather than completion.</li>
+    <li>Induction step volume feels overwhelming to students who are already managing heavy course loads (up to 20 credit hours), jobs, and family responsibilities, even though the advisor noted the actual time commitment is approximately 10 hours.</li>
+    <li>Post-induction engagement gap — students complete induction and then ask "now what?" The chapter has addressed this with supplemental programming, but there is no structural platform support for ongoing involvement.</li>
+    <li>Attendance tracking is entirely manual. The advisor uses two monitors simultaneously — NSLS portal on one screen and attendance records on the other — and manually enters names to assign credit. This workflow is incompatible with real-time SNT matching at in-person events.</li>
+    <li>Pulling progress reports requires filtering by specific date ranges, which is cumbersome. The advisor wants to compare milestone completion rates (e.g., SNT completions by March 1 year-over-year) without needing to run custom exports.</li>
+    <li>Basic professional readiness gaps among students — the advisor noted that teaching students how to read and reply to emails is a real and ongoing challenge, attributed in part to COVID-era disruptions to professional skill development.</li>
+    <li>Student org involvement data is siloed — the advisor has no way to see within NSLS tools whether a student is involved in other campus organizations, which she believes correlates with induction completion rates.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Student engagement is the overarching institutional priority — keeping students connected, active, and progressing both inside and outside of formal programs.</li>
+    <li>Career and workforce readiness is addressed in fragmented ways across departments (NACE competency programming through Career Success Center, leadership through Student Life, etc.) but is not integrated into a single experience.</li>
+    <li>The Career Success Center recently signed with Handshake through 2030, which limits near-term integration opportunities on the career tools side.</li>
+    <li>No formal SLO-based reporting requirements are currently tied to NSLS — the advisor operates on self-directed metrics and a competitive drive to improve year over year.</li>
+    <li>CliftonStrengths is institutionally embedded — the campus is a CliftonStrengths division, and the advisor noted this as a meaningful part of student development programming.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Military and Non-Traditional Students Demand Flexible Engagement Infrastructure</h3>
+    <p>Approximately 33% of APSU students are military-affiliated. Several are currently deployed. Commuter and working-student populations dominate. The current SNT model — which requires scheduled group meetings with peers — creates structural barriers for these students. The advisor has developed informal workarounds (e.g., allowing deployed students to meet with peers in the field) but described the portal language as actively confusing. Society's virtual SNT support and matching algorithm were flagged as directly relevant to this problem.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Manual Attendance Workflows Are a Functional Blocker for Real-Time Features</h3>
+    <p>The advisor's current attendance process — manually cross-referencing Ready Education exports with the NSLS portal — takes approximately 30 minutes per event and cannot be completed in real time during a leadership training day. This directly conflicts with Society's proposed SNT matching feature, which would require students to be marked as present before being matched. The advisor specifically flagged this as a workflow that would break down at scale during in-person events. Chris Higbee identified this as a broadly shared problem and flagged it for engineering follow-up.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Data Access Is a Personal and Operational Driver — Not Just a Reporting Requirement</h3>
+    <p>The advisor is not under institutional pressure to produce outcome reports for NSLS, but she is intrinsically motivated to track progress data. She wants year-over-year comparisons, milestone completion rates by date, and student-level context (living situation, work hours, co-curricular involvement) to inform how she guides students and pushes her executive board. The Society advisor dashboard and career readiness score were well-received as potential answers to this need.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Students Are Already AI-Native — Society Enters a Receptive Environment</h3>
+    <p>When Chris Higbee noted that students tend to be skeptical of AI, Janesa immediately pushed back: "Not here. They love it and they use it." Student workers in her office actively use ChatGPT and Gemini throughout the day, copying and pasting between tools. She framed Society's AI coach as a natural fit — students would likely treat it as another brainstorming tool, but with the added benefit of persistent record-keeping in one place. This is a meaningful positive signal for adoption.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Cross-Campus Involvement Data Could Unlock Deeper Student Success Insights</h3>
+    <p>The advisor hypothesized — without having data to confirm — that students who complete NSLS induction tend to be involved in multiple student organizations, while students who fall off are often less embedded in campus life overall. She asked whether Society's onboarding questionnaire could capture student org membership (e.g., Alpha Lambda Delta, ODK) alongside NSLS participation. She sees this as a way to identify at-risk students earlier and personalize support. This surfaced as a novel product idea not previously raised in the presentation.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">8/10</div>
+  <p><em>Self-reported. Janesa noted her 8 was not negative — she is genuinely excited, particularly about data capabilities — but tempered by realistic concern about integration complexity and implementation growing pains, given that APSU has recently completed two full platform implementations.</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The Renee story resonated — the idea that a student who never engaged with leadership content spent 70+ minutes on Career Clarity was compelling evidence of meet-them-where-they-are design.</li>
+    <li>The Career Clarity track and AI coach concept were well-received. The advisor immediately connected them to her students' existing AI habits and saw Society as a natural extension of tools they already use.</li>
+    <li>The advisor dashboard and ability to filter and export student progress data over time directly addressed a pain point she described unprompted — wanting easier access to milestone completion data for year-over-year comparison.</li>
+    <li>The SNT matching algorithm was exciting to her — particularly the idea of running it at the end of leadership training day to assign groups in real time.</li>
+    <li>CliftonStrengths integration potential was noted with enthusiasm. The advisor confirmed competition is in her top five and responded positively when Chris mentioned active talks with Gallup.</li>
+    <li>The career readiness score concept aligned with her self-described competitive drive to benchmark and improve student outcomes over time.</li>
+    <li>The framing of Society as an upgrade to NSLS — not a replacement — was reassuring.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>App experience: The advisor asked directly whether Society would be a separate app or integrated into the existing NSLS app. She expressed concern that a second downloadable app could create friction for students who already prefer and use the current app. Chris confirmed they will initially be separate, with partial accessibility from the existing app, and full migration planned years out.</li>
+    <li>Attendance integration: The SNT matching feature as demoed would require students to be credited for attendance before matching can occur. The advisor's current manual process makes this infeasible in real time. She raised this as a concrete blocker during the demo — not a hypothetical concern.</li>
+    <li>Career Success Center overlap: The center recently signed with Handshake through 2030. The advisor was uncertain what a Society career tools layer would mean for that relationship and how the two would coexist.</li>
+    <li>Implementation complexity: The advisor referenced APSU having recently gone through two full platform implementations and acknowledged that growing pains are inevitable with any new tool — she was realistic, not dismissive, but it was a noted hesitation.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Students at APSU are enthusiastic AI adopters — not skeptical. This is a meaningful divergence from the assumption built into the demo framing and should be noted for future roadshow positioning.</li>
+    <li>The advisor proposed an entirely unprompted feature: the ability to collect student org membership data during onboarding to help identify whether co-curricular involvement correlates with induction completion. This is a novel signal worth tracking across the roadshow.</li>
+    <li>The advisor's hypothesis — that students who fall off the induction path tend to be less involved in campus life overall — offers a potential early-warning model that Society's data layer could help validate at scale.</li>
+    <li>Despite the lack of formal institutional pressure to report outcomes, the advisor is one of the most data-oriented advisors encountered — entirely self-motivated by competitive benchmarking.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Career Clarity Track / AI Coach</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Advisor immediately connected it to students' existing AI habits (ChatGPT, Gemini). Framed it as a natural fit — "just another option" — but with the key advantage of persistent record-keeping in one place. Renee story landed well as proof of concept.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching Algorithm</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Advisor was excited by the concept of in-room matching at the end of leadership training day. Currently uses round-table seating as a manual proxy — students often forget who they sat with. Matching tool seen as a direct improvement. Blocked by attendance credit workflow issue (see below).</td>
+      </tr>
+      <tr>
+        <td>Advisor Dashboard &amp; Progress Reporting</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Directly addresses a pain point raised unprompted. Advisor wants year-over-year milestone comparisons (e.g., SNT completions by March 1) without custom date-range exports. Competitive motivation — she tracks numbers to push her executive board and benchmark against prior semesters.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Well-received conceptually. Advisor sees it as a tool to understand where students are across multiple dimensions. No formal institutional reporting requirement tied to this, but her personal drive to measure success makes it relevant.</td>
+      </tr>
+      <tr>
+        <td>Personality &amp; Strengths Assessments (Myers-Briggs, DISC, Big Five, etc.)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Positive reception. Campus is a CliftonStrengths division — advisor noted competition is in her top five and responded warmly to the mention of Gallup integration talks. Clifton integration would be high-value for this school specifically.</td>
+      </tr>
+      <tr>
+        <td>CliftonStrengths Integration (planned)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Campus is institutionally embedded in CliftonStrengths. This integration — if delivered — would be a meaningful differentiator for APSU. Advisor's personal enthusiasm was visible when Chris referenced it.</td>
+      </tr>
+      <tr>
+        <td>Attendance Credit Integration / Ready Education Sync</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Critical operational blocker. Advisor spends ~30 minutes per event manually assigning orientation and leadership training day credit by cross-referencing two systems. Real-time SNT matching is not feasible under the current workflow. She asked specifically whether attendance could be uploaded or synced more easily. Chris flagged for engineering follow-up and proposed a dedicated second meeting on this topic.</td>
+      </tr>
+      <tr>
+        <td>Virtual SNT / Video Conferencing Within Platform</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Directly relevant to deployed students and commuters. Advisor currently advises deployed students to meet with peers in the field informally. An in-platform virtual SNT option would provide structure for this population without requiring workarounds.</td>
+      </tr>
+      <tr>
+        <td>SNT Portal Language / Guidance for Students Without a Group</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Advisor flagged this as a top friction point. Students — especially commuters and deployed — are confused by the current portal language and don't know what to do if they can't form a group. Suggested adding guidance text (e.g., "Don't have a group? Reach out and we can help.") as a low-lift near-term fix.</td>
+      </tr>
+      <tr>
+        <td>App Experience (Separate vs. Integrated)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Advisor asked directly whether Society would be a second downloadable app. Students currently prefer the existing NSLS app over the web portal. Two-app model raises adoption friction concerns. Chris confirmed initial separation with partial access from the existing app and full migration planned years out — advisor accepted this but it remains a watch item.</td>
+      </tr>
+      <tr>
+        <td>Custom School-Specific Onboarding Questions (e.g., org membership, living situation, work hours)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Advisor proposed this feature unprompted in two separate moments. Wants to ask students about other org memberships (Alpha Lambda Delta, ODK), living situation (on/off campus, with parents), and work hours. Believes this data would help identify at-risk students and personalize outreach. Chris indicated the authoring tool architecture may support this and committed to raising it with the team.</td>
+      </tr>
+      <tr>
+        <td>AI Coach as Advisor Tool (meeting prep, student record access)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Concept of using the AI coach to prepare for student advising meetings (e.g., "Alex is coming in — help me build a plan") was well-received. Advisor has deep knowledge of individual students but acknowledged she doesn't have that context for everyone. This feature could scale that personal touch.</td>
+      </tr>
+      <tr>
+        <td>Gamification</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Mentioned briefly by Chris. Not discussed in depth. Given the advisor's self-described competitive nature and existing step-based model that students enjoy, gamification likely has positive potential — but no direct feedback was captured.</td>
+      </tr>
+      <tr>
+        <td>APSU Freshman Course Curriculum Integration (APSU 1000)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Advisor mentioned that all freshman students go through APSU 1000, which includes a career-related component. She began asking whether Society could connect to this. Chris offered two options: integrate with existing curriculum or provide Society as the platform for that experience. No firm direction was set — flagged as a future exploration area.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Schedule a follow-up meeting with Janesa within 2–4 weeks to dig into the in-person SNT setup workflow, the Ready Education attendance integration problem, and what a feasible real-time or near-real-time solution could look like. Janesa will share available times with Olivia to coordinate scheduling. <span class="owner-tag">Olivia Orend + Janesa Wine</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Bring the Ready Education / attendance credit sync issue to the engineering team for evaluation. Determine whether an import mechanism, API connection, or manual bulk upload could allow advisors to credit attendance in or near real time, enabling the SNT matching flow during in-person events. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Evaluate feasibility of allowing schools to inject custom onboarding questions into the Society track (e.g., student org membership, living situation, employment hours). Assess whether the existing authoring tool architecture supports school-level customization of this kind. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Formally extend pilot partner invitation to Janesa Wine / Austin Peay State University. Confirm interest, scope of student beta cohort, and timeline for early access onboarding. <span class="owner-tag">Chris Higbee + Olivia Orend</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Send meeting summary to Janesa following this session to confirm alignment on what was heard and next steps discussed. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Explore whether and how the Career Success Center (currently contracted with Handshake through 2030) could be looped into a future Society demo — specifically around the career tools layer — to identify overlap, complementarity, or a coordinated campus approach. <span class="owner-tag">Olivia Orend</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Explore whether APSU's freshman APSU 1000 course curriculum could be integrated into Society — either as a data input or as the delivery platform for that career development component. Bring options back to Janesa in the follow-up meeting. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">8</div>
+      <div>Flag CliftonStrengths integration as high-priority for APSU. Campus is a CliftonStrengths division. Provide update on Gallup integration talks and estimated timeline when available. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>Can Society support a real-time or near-real-time attendance credit workflow that is compatible with Ready Education and mobile ID scanner check-in, allowing SNT matching to happen during an in-person event without requiring 30 minutes of manual data entry first?</li>
+    <li>Can the Society onboarding track be configured at the school level to include custom questions (e.g., student org membership, commute/living status, weekly work hours) that would allow advisors to build a richer student profile?</li>
+    <li>What is the realistic timeline for the Society app and the existing NSLS member app to merge into a single experience? How will the two-app model affect student adoption in the interim, particularly for students who currently prefer the app over the portal?</li>
+    <li>How does Society's career tools layer interact with schools that have existing Handshake contracts? Is there a positioning framework for coexistence, or does this create a perceived conflict?</li>
+    <li>Is there a hypothesis worth testing — using Society data — that students completing NSLS induction are more likely to be members of multiple student organizations, and that co-curricular involvement is a predictor of induction completion rates?</li>
+    <li>Could adding simple guidance language to the SNT portal ("Don't have a group? Reach out and we can help") reduce confusion and drop-off among commuter and deployed students — and is this a near-term fix that can be made in the current platform before Society launches?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Austin Peay State University</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Clarksville, TN</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>University · Public 4-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Hybrid (fully in-person for Spring; supplemental virtual/hybrid options explored previously)</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>8/10 — Self-reported. Excited about data and AI features; tempered by implementation complexity concerns and recent experience with two full platform rollouts.</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — accepted invitation; follow-up meeting to be scheduled within 2–4 weeks</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>High potential — advisor's feedback quality, data orientation, and engagement style make her a strong candidate; not formally confirmed in this session</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>1. Manual attendance tracking incompatible with real-time SNT matching; 2. SNT portal language confusing for commuter and deployed students; 3. No easy way to pull year-over-year milestone comparison data; 4. No visibility into student co-curricular involvement or life context within NSLS tools; 5. Post-induction engagement gap</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>APSU students are AI-native and enthusiastic adopters — framing Society's AI coach as a productivity and record-keeping tool (not a novelty) will resonate strongly. Attendance integration is a functional blocker for in-person SNT matching and must be solved before that feature can be fully utilized on this campus.</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Olivia Orend</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Austin Peay State University &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; March 27, 2026
+</footer>
+
+</body>
+</html>

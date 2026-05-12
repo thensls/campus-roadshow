@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSLS Society Roadshow — Central Wyoming College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#1A3550; --gold:#F2DA4E; --light:#F2E9E2; --border:rgba(30,20,20,0.1);
+      --text:#1E1414; --muted:#6B6357; --card:#E8DDD5; --yellow:#F2DA4E;
+      --white:#FFFDF8; --black:#1E1414; --blue:#4a4faa; --purple:#4a4faa;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    a{color:#1A3550;text-decoration:none;} a:hover{color:#C96058;}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+    h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+    .header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:48px 40px 9px;}
+    .header-meta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
+    .badge{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+    .header h1{font-size:32px;font-weight:700;margin-bottom:6px;color:#1A3550;}
+    .header h2{font-size:18px;font-weight:400;color:#6B6357;margin-bottom:20px;}
+    .recording-link{display:inline-flex;align-items:center;gap:8px;background:#C96058;color:#FFFDF8;text-decoration:none;padding:10px 22px;border-radius:8px;font-weight:600;font-size:14px;transition:opacity .2s;}
+    .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+    .container{max-width:1200px;margin:0 auto;padding:40px 32px;}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+    @media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
+    .card{background:var(--card);border-radius:12px;border:1px solid var(--border);padding:28px;}
+    .card-title{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+    .card-title::after{content:'';flex:1;height:1px;background:var(--border);}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:32px;}
+    @media(max-width:900px){.stat-grid{grid-template-columns:1fr 1fr;}}
+    .stat-tile{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;}
+    .stat-tile .label{font-size:11px;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);font-weight:600;margin-bottom:6px;}
+    .stat-tile .value{font-weight:700;color:var(--navy);line-height:1;font-family:'Cigars',Georgia,serif;}
+    .stat-tile .sub{font-size:12px;color:var(--muted);margin-top:4px;}
+    .stat-tile.highlight{border-left:4px solid #C96058;}
+    .stat-tile.green{border-left:4px solid #3a8a40;}
+    .stat-tile.red{border-left:4px solid #C96058;}
+    .stat-tile.blue{border-left:4px solid var(--navy);}
+    .section-header{font-size:20px;font-weight:700;color:var(--navy);margin:40px 0 20px;padding-bottom:10px;border-bottom:2px solid var(--navy);font-family:'Cigars',Georgia,serif;display:flex;align-items:baseline;justify-content:space-between;gap:16px;}
+    .section-header a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;white-space:nowrap;}
+    .section-header a:hover{color:var(--navy);text-decoration:underline;}
+    .attendee{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+    .attendee:last-child{border-bottom:none;padding-bottom:0;}
+    .avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0;color:#fff;}
+    .avatar.navy{background:#1A3550;} .avatar.gold{background:#C8A000;} .avatar.muted{background:var(--muted);}
+    .attendee-info .name{font-weight:600;font-size:15px;}
+    .attendee-info .role{font-size:13px;color:var(--muted);margin-top:2px;}
+    .attendee-info .note{font-size:12px;color:var(--text);margin-top:4px;font-style:italic;}
+    .finding-list{list-style:none;}
+    .finding-list li{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.5;align-items:flex-start;}
+    .finding-list li:last-child{border-bottom:none;}
+    .finding-list .icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+    .quote{border-left:4px solid #1A3550;background:rgba(26,53,80,0.06);border-radius:0 8px 8px 0;padding:14px 18px;margin:12px 0;font-style:italic;color:var(--text);font-size:14px;}
+    .quote cite{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:6px;font-weight:600;}
+    .signal-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:8px;font-size:12px;font-weight:600;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;}
+    .signal-chip.top{background:rgba(201,96,88,0.12);color:#C96058;border-color:rgba(201,96,88,0.3);}
+    .callout{background:rgba(26,53,80,0.06);border:1px solid rgba(26,53,80,0.2);border-left:4px solid #1A3550;border-radius:8px;padding:16px 20px;font-size:14px;line-height:1.65;margin-top:20px;}
+    .callout strong{color:#1A3550;}
+    .action-list{list-style:none;}
+    .action-list li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;}
+    .action-list li:last-child{border-bottom:none;}
+    .action-list input[type=checkbox]{margin-top:5px;flex-shrink:0;cursor:pointer;width:15px;height:15px;}
+    .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+    .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;}
+    .footer{text-align:center;color:#6B6357;font-size:12px;padding:40px 32px;border-top:1px solid rgba(30,20,20,0.1);margin-top:20px;background:#F2E9E2;}
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div style="max-width:1200px;margin:0 auto;padding:0 8px;">
+    <div class="header-meta">
+      <a href="../../index.html" class="badge" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="badge" id="last-updated-badge">Latest Update: March 31, 2026</span>
+    </div>
+    <h1>Central Wyoming College</h1>
+    <h2>Riverton, WY &nbsp;&middot;&nbsp; Community College · Public 2-Year</h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+      <a class="recording-link" href="../../index.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Roadshow Home
+      </a>
+      <a class="recording-link" href="https://fathom.video/share/JnzX4kewexrMfZTqhjE8fyiMB1zQfajv" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Watch Fathom Recording &mdash; 69 min
+      </a>
+      <a class="recording-link" href="meetings/meeting-1-2026-04-03.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Discovery &amp; Demo Meeting &mdash; Report
+      </a>
+      <a class="recording-link" href="survey.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Survey Results
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="stat-grid"><div class="stat-tile highlight">
+      <div class="label">Excitement Score</div>
+      <div class="value" style="font-size:30px;padding-top:0;line-height:1.2;">9/10</div>
+      <div class="sub">Lisa Appelhans</div>
+    </div><div class="stat-tile green">
+      <div class="label">Pilot Partner Interest</div>
+      <div class="value" style="font-size:30px;padding-top:0;line-height:1.2;">✅ Yes</div>
+      <div class="sub">Lisa Appelhans confirmed pilot interest; Chris Higbee suggested starting with pilot program and revisiting Product Council in fall; CTE Dean TBD as potential additional participant</div>
+    </div><div class="stat-tile blue">
+      <div class="label">Product Council</div>
+      <div class="value" style="font-size:18px;padding-top:6px;line-height:1.2;">🤔 Unsure</div>
+      <div class="sub">Lisa said both sounded cool but Chris suggested deferring Product Council decision until fall rollout; no firm commitment made</div>
+    </div><div class="stat-tile red">
+      <div class="label">What Matters Most?</div>
+      <div class="value" style="font-size:18px;padding-top:6px;line-height:1.2;">Practical career readiness experiences and cross-program peer connections that go beyond induction completion</div>
+      <div class="sub">Source: Lisa Appelhans</div>
+    </div></div>
+
+  <h2 class="section-header">School &amp; Chapter Snapshot</h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">About Central Wyoming College</div>
+      <ul class="finding-list"><li><span class="icon">🏔️</span><span>Central Wyoming College is a rural public 2-year institution in Riverton, WY, situated near the Wind River Range with the Wind River Reservation in its backyard, shaping a student population that is heavily commuter-based, part-time, and connected to tribal communities. <a href="https://fathom.video/calls/619307758?t=1043" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 17:23</a></span></li><li><span class="icon">🔧</span><span>CWC operates a robust Career Technical and Entrepreneurship division covering welding, cosmetology, culinary, automotive, medical assistant, and more, alongside two Bachelor of Applied Science degrees with specialty tracks including Tribal Leadership, Agricultural Management, and Outdoor Education Management. <a href="https://fathom.video/calls/619307758?t=1306" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 21:46</a></span></li><li><span class="icon">💼</span><span>A Recompete Grant supports on-the-job training and certifications for low- or underemployed adults aged 25–55, while a collaborative grant with Wind River Development Fund focuses on CNA, culinary, and trail-building certifications for tribal members and local workforce needs. <a href="https://fathom.video/calls/619307758?t=999" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 16:39</a></span></li></ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Chapter Status</div>
+      <ul class="finding-list"><li><span class="icon">🌐</span><span>Established chapter that transitioned to a fully online model this academic year; 30 new members joined this semester — the strongest recruitment since COVID — but induction completion rates have not improved despite the shift online.</span></li></ul>
+    </div>
+  </div>
+
+  <h2 class="section-header">Advisors
+    <a href="meetings/meeting-1-2026-04-03.html#advisor-profiles">Full Advisor Profiles in Meeting Report &rsaquo;</a>
+  </h2>
+  <div class="grid-2"><div class="card">
+      <div class="attendee" style="padding-top:0;">
+        <div class="avatar navy">LA</div>
+        <div class="attendee-info">
+          <div class="name">Lisa Appelhans</div>
+          <div class="role">NSLS Chapter Advisor, Student Services — Central Wyoming College</div>
+          <div class="note">Long-tenured student services professional who has managed the CWC chapter through COVID recovery and the recent transition to a fully online model. She is proactively exploring NSLS introduction into CTE advisory council meetings in the fall and is motivated by helping students gain practical, career-relevant skills and understanding why members pay fees but don't participate.</div>
+        </div>
+      </div>
+    </div></div>
+
+  <h2 class="section-header">Meeting Highlights
+    <a href="meetings/meeting-1-2026-04-03.html">Full Meeting Report &rsaquo;</a>
+  </h2>
+  <div class="grid-2" style="margin-bottom:20px;">
+    <div class="card">
+      <div class="card-title">&#x2705; What&#x27;s Working / What Landed</div>
+      <ul class="finding-list"><li><span class="icon">🤝</span><span><strong>Cross-program peer connections</strong> <a href="https://fathom.video/calls/619307758?t=478" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:58</a> &mdash; Lisa identified cross-degree peer interactions as one of the most valued aspects of NSLS — students meeting others they wouldn't normally encounter. This was cited as something the online transition has weakened and must be preserved.</span></li><li><span class="icon">🎯</span><span><strong>Career clarity demo resonated strongly</strong> <a href="https://fathom.video/calls/619307758?t=2503" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 41:43</a> &mdash; Lisa responded enthusiastically to the Society career clarity track demo, immediately connecting it to students who need realistic expectations about salaries, cost of living, and career pathways — especially those who may not want to engage in traditional extracurriculars.</span></li><li><span class="icon">📊</span><span><strong>Data for grants and accreditation storytelling</strong> <a href="https://fathom.video/calls/619307758?t=2748" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 45:48</a> &mdash; Lisa validated the value of a career readiness score and longitudinal reporting, noting it could support grant writing, state-mandated outcomes, and marketing — especially as career services grant funding is ending.</span></li></ul>
+    </div>
+    <div class="card">
+      <div class="card-title">&#x274C; What Isn&#x27;t Working</div>
+      <ul class="finding-list"><li><span class="icon">📉</span><span><strong>Induction completion rate unchanged after going online</strong> <a href="https://fathom.video/calls/619307758?t=600" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 10:00</a> &mdash; Lisa expected the online chapter transition to make it easier for students to complete induction steps on their own schedule, but completion rates have remained flat. Scheduling mismatches and commuter lifestyles continue to be barriers.</span></li><li><span class="icon">💸</span><span><strong>Members paying fees but not participating</strong> <a href="https://fathom.video/calls/619307758?t=3285" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 54:45</a> &mdash; Lisa repeatedly flagged the frustration of students paying $95 in membership fees and then not engaging at all — despite outreach from her and other members. She wants data to understand why this happens.</span></li><li><span class="icon">🔗</span><span><strong>Online SNTs losing cross-program connection value</strong> <a href="https://fathom.video/calls/619307758?t=478" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:58</a> &mdash; Because online SNTs now allow students to use their existing friend groups, the stretch of connecting with members from different programs is lost. New members are not getting the peer discovery experience that prior members valued most.</span></li><li><span class="icon">📹</span><span><strong>Existing video content length and quality</strong> <a href="https://fathom.video/calls/619307758?t=2905" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 48:25</a> &mdash; Though Lisa did not raise this herself, Chris confirmed it is a consistent theme across school visits — long-form video content leaves something to be desired and students need shorter, more modular formats.</span></li></ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>&#x26A0;&#xFE0F; Key Signal<a href="https://fathom.video/calls/619307758?t=1075" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 17:55</a> &mdash; Rural Community College with CTE + Tribal Pipeline Is an Untapped Society Use Case:</strong> CWC's combination of a CTE-heavy curriculum, tribal community ties, Recompete Grant workforce programming, and a commuter student population that resists traditional extracurricular engagement makes it a distinctive and high-value pilot context. Lisa proactively connected with the CTE Dean to explore introducing NSLS through advisory council meetings in the fall, signaling institutional appetite beyond student services. Society's career clarity track was immediately seen as a tool that could reach students who join NSLS but never engage with leadership programming — and as a complement to grant-funded workforce initiatives that are losing funding.
+  </div>
+
+
+
+  <h2 class="section-header">Action Items</h2>
+  <div class="card">
+    <ul class="action-list"><li>
+        <input type="checkbox">
+        <div class="action-number">1</div>
+        <div>Schedule follow-up meeting 3–4 weeks out with Lisa Appelhans to plan pilot rollout, identify initial student testers, and build a calendar through fall launch. <a href="https://fathom.video/calls/619307758?t=4001" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:06:41</a> <span class="owner-tag">Dejeahn Brown</span><span class="owner-tag">Chris Higbee</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">2</div>
+        <div>Send Lisa a written recap of the meeting and next steps by early the following week. <a href="https://fathom.video/calls/619307758?t=2754" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 45:54</a> <span class="owner-tag">Chris Higbee</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">3</div>
+        <div>Confirm whether CTE Dean should be included in the pilot kickoff meeting or scheduled separately to explore NSLS integration into fall CTE advisory council meetings. <a href="https://fathom.video/calls/619307758?t=4013" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:06:53</a> <span class="owner-tag">Lisa Appelhans</span><span class="owner-tag">Chris Higbee</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">4</div>
+        <div>Ensure pilot scheduling accommodates Lisa's spring break window, end-of-semester timeline (mid-May), and summer vacation schedule. <a href="https://fathom.video/calls/619307758?t=3973" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:06:13</a> <span class="owner-tag">Dejeahn Brown</span><span class="owner-tag">Chris Higbee</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">5</div>
+        <div>Identify 2–3 student testers Lisa has in mind — including early-career students and near-graduates uncertain about next steps — to onboard into Society pilot. <a href="https://fathom.video/calls/619307758?t=3925" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:05:25</a> <span class="owner-tag">Lisa Appelhans</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">6</div>
+        <div>Follow up to confirm Lisa completed the post-meeting survey shared via Google Meet chat. <a href="https://fathom.video/calls/619307758?t=4092" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:08:12</a> <span class="owner-tag">Dejeahn Brown</span></div>
+      </li></ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  NSLS Society Platform Roadshow &nbsp;&middot;&nbsp; Central Wyoming College &nbsp;&middot;&nbsp; March 31, 2026<br>
+  Source: <a href="https://fathom.video/share/JnzX4kewexrMfZTqhjE8fyiMB1zQfajv" target="_blank">Fathom Recording</a> &nbsp;&middot;&nbsp; Generated for NSLS Product &amp; Development Teams
+</div>
+
+<script>
+document.getElementById('last-updated-badge').textContent =
+  'Latest Update: ' + new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+</script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Florida Agricultural and Mechanical University — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header a.header-pill:hover{color:#C96058;} .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">April 10, 2026</span>
+    </div>
+    <h1>Florida Agricultural and Mechanical University &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Florida Agricultural and Mechanical University Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/share/Ysmd5s37xuxmfsK-FQCsxsTaK2Ve68ud" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Florida Agricultural and Mechanical University (FAMU)</p>
+    <p><strong>Location:</strong> Tallahassee, FL</p>
+    <p><strong>School Type:</strong> Public 4-Year (HBCU)</p>
+    <p><strong>Segment / Tier:</strong> 3</p>
+    <p><strong>Chapter Status:</strong> Not explicitly stated in transcript</p>
+    <p><strong>Chapter Type:</strong> Not explicitly stated in transcript</p>
+    <p><strong>Advisors Present:</strong> Julian Bourne Smothers</p>
+    <p><strong>Notable Context:</strong> Julian Bourne Smothers participated in this multi-school virtual AIN (Advisor Information Network) roadshow session led by Chris Higbee, VP at NSLS. The session was facilitated by Whitney Jett and Zoë Wallis<a href="https://fathom.video/calls/631297024?t=92" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:32</a>. Julian was one of approximately ten advisors in attendance. His contribution was brief but direct — he provided an enthusiasm score of 10/10<a href="https://fathom.video/calls/631297024?t=1561" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 26:01</a> when polled by Chris Higbee at the close of the presentation<a href="https://fathom.video/calls/631297024?t=1561" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 26:01</a>. No extended commentary or school-specific context was shared by Julian during the session. The broader meeting included advisors from Coastal Carolina University, Arapahoe Community College, University of Tennessee, and Gonzaga University, among others.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+  <div class="advisor-card">
+    <h3>Julian Bourne Smothers</h3>
+    <p><strong>Role:</strong> NSLS Chapter Advisor, Florida Agricultural and Mechanical University</p>
+    <p><strong>Background:</strong> Not detailed in transcript. Julian was present for the full Society platform demo and roadshow session but did not provide biographical or role context beyond being identified by name and school affiliation.</p>
+    <p><strong>Motivations:</strong> Cannot be determined from transcript. Julian did not share specific pain points, priorities, or goals during the session.</p>
+    <p><strong>Communication Style:</strong> Minimal verbal participation in this session. Julian's only recorded contribution was a concise verbal response ("10") when asked to rate enthusiasm for the Society platform on a scale of 0–10. No follow-up questions or chat contributions from Julian were noted in the transcript.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Moderate — warrants follow-up. Julian's 10/10 enthusiasm score signals strong initial receptivity to Society. However, no substantive discovery dialogue occurred. A direct one-on-one conversation is needed to assess depth of interest, institutional fit, and capacity to participate in a pilot or Product Council role.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>No specific preservation priorities were stated by Julian Bourne Smothers during the session. Discovery in this area remains open.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>No specific pain points or frustrations were raised by Julian Bourne Smothers. Discovery in this area remains open.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>No institutional priorities specific to FAMU were shared by Julian or any other participant on behalf of FAMU during this session. Discovery in this area remains open.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Strong But Surface-Level Enthusiasm</h3>
+    <p>Julian Bourne Smothers gave Society a 10/10 enthusiasm score — the highest possible rating — when polled at the end of the presentation. This is a strong positive signal, but given that Julian did not engage verbally beyond this response, the depth of that enthusiasm and its connection to specific FAMU needs cannot yet be confirmed. A follow-up conversation is essential to convert this signal into actionable partnership.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Engagement Drop-Off as a Likely Shared Pain Point</h3>
+    <p>While not raised by Julian directly, the session surfaced a widely shared concern across the advisor group: a significant percentage of students (reportedly 40–50%) pay dues and never complete the NSLS program<a href="https://fathom.video/calls/631297024?t=1500" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 25:00</a>. As an HBCU serving a diverse student population, FAMU is likely to have its own version of this challenge. The Career Clarity track and AI coach were positioned by Chris Higbee as direct responses to this problem<a href="https://fathom.video/calls/631297024?t=1597" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 26:37</a> — which may explain Julian's strong positive reaction.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Career Readiness and Workforce Outcomes as Institutional Priorities</h3>
+    <p>The session framed career outcomes and workforce readiness as top institutional pressures across higher education. HBCUs like FAMU often carry particular emphasis on economic mobility and career preparedness for their student populations. Society's Career Clarity track and career readiness scoring dashboard are directly relevant to this context, though FAMU-specific confirmation is still needed.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. AI-Powered Personalization as a New Value Layer</h3>
+    <p>The demonstration of the AI coach — including personalized dream job generation, academic planning, and advisor-facing dashboards — generated broad positive reactions across the group<a href="https://fathom.video/calls/631297024?t=1713" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 28:33</a>. Julian's 10/10 score was given after witnessing this full demonstration, suggesting the AI-driven personalization features landed well with him specifically<a href="https://fathom.video/calls/631297024?t=1004" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 16:44</a>.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Limited Discovery — FAMU Context Remains Unknown</h3>
+    <p>Julian did not contribute to discovery questions about what to preserve, what isn't working, or what institutional priorities are shifting. No FAMU-specific context emerged in this session. This is the most significant gap in this report and must be addressed through a direct one-on-one meeting before any pilot or Product Council conversation can be meaningfully advanced.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">10/10</div>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>Julian gave Society a perfect 10/10 enthusiasm score when asked directly by Chris Higbee at the close of the presentation — one of four respondents to give the top score.</li>
+    <li>Based on session timing, his score was given after viewing the full platform demo, including the Career Clarity track, AI coach interaction, the admin dashboard, career readiness scoring, and the SNT matching feature.</li>
+    <li>No specific features were called out by Julian verbally, but the aggregate demo — particularly the AI-driven personalization and career readiness framework — appears to have resonated strongly.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Julian did not raise any questions, concerns, or friction points during the session. No hesitations or skepticism were expressed.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Julian's high score is notable given his near-total silence during the discovery and Q&A portions of the meeting. He did not signal interest or engagement through questions or chat contributions, making the 10/10 score somewhat unexpected in context.</li>
+    <li>It is worth noting whether Julian was fully engaged throughout the session or whether the score reflects a brief but favorable impression at the close of the demo without deep engagement with the content.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Career Clarity Track (AI Coach)</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Julian's 10/10 score was given after full demo of this feature. No verbal feedback provided, but strong implied receptivity. FAMU-specific fit not yet confirmed.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score (Admin Dashboard)</td>
+        <td><span class="badge-positive">Positive</span></td>
+        <td>No direct comment from Julian, but feature was demonstrated prior to his enthusiasm rating. Likely relevant given HBCU emphasis on economic mobility and career outcomes.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching via Platform</td>
+        <td><span class="badge-question">Open Question</span></td>
+        <td>Julian made no comment on this feature. Relevance to FAMU's chapter structure and modality is unknown.</td>
+      </tr>
+      <tr>
+        <td>Foundations of Leadership 2.0 (Modular, Interactive)</td>
+        <td><span class="badge-question">Open Question</span></td>
+        <td>No feedback from Julian. Whether FAMU uses full FOL video content or partial delivery is unknown.</td>
+      </tr>
+      <tr>
+        <td>Multi-Year / Cross-Semester Data Reporting</td>
+        <td><span class="badge-question">Open Question</span></td>
+        <td>Raised as a strong need by other advisors (Dan Balski). Julian did not comment. Whether this is a pain point at FAMU is undetermined.</td>
+      </tr>
+      <tr>
+        <td>Bulk Email Messaging &amp; Segmentation</td>
+        <td><span class="badge-question">Open Question</span></td>
+        <td>Raised positively by other advisors. No signal from Julian on this feature.</td>
+      </tr>
+      <tr>
+        <td>School-Specific AI Agent (Course Catalog, Advisors, Calendar)</td>
+        <td><span class="badge-positive">Positive</span></td>
+        <td>Described by Chris Higbee as a future roadmap item. Julian's 10/10 score was given after this was introduced. No explicit comment, but timing suggests favorable reception.</td>
+      </tr>
+      <tr>
+        <td>Pilot Partner Program</td>
+        <td><span class="badge-care">Needs Care</span></td>
+        <td>Julian did not verbally respond to the pilot partner invitation. Follow-up required to determine interest and institutional readiness.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Schedule a one-on-one follow-up meeting with Julian Bourne Smothers to conduct full discovery: institutional priorities, chapter structure, student population needs, current pain points with the NSLS platform, and capacity for pilot participation. <span class="owner-tag">CSR / TBD</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Confirm chapter status, chapter type (standard/hybrid/online), and modality model currently in use at FAMU to inform platform fit assessment. <span class="owner-tag">CSR / TBD</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Formally extend the pilot partner invitation to Julian Bourne Smothers in a direct communication following the one-on-one discovery call, once institutional context is better understood. <span class="owner-tag">CSR / TBD</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Assess Product Council candidacy for Julian Bourne Smothers after discovery call. His 10/10 enthusiasm score makes him worth evaluating, but substantive engagement has not yet occurred. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Share Google Doc follow-up link (referenced at close of meeting by Chris Higbee) with Julian to capture any additional questions or reactions he may have after the session. <span class="owner-tag">CSR / TBD</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>What are FAMU's current institutional priorities as communicated by the president's or dean's office? Are career outcomes, enrollment, belonging, or graduate program growth among them?</li>
+    <li>What is the current chapter status and delivery modality at FAMU (in-person, hybrid, online)?</li>
+    <li>What percentage of FAMU's NSLS members currently complete the program through induction? Is drop-off a recognized problem?</li>
+    <li>Does Julian currently face cross-semester data tracking challenges similar to those raised by other advisors in this session?</li>
+    <li>Is Julian the sole advisor at FAMU, or are there additional chapter advisors or institutional stakeholders who should be included in future conversations?</li>
+    <li>What is Julian's awareness of and relationship with other campus departments (career services, academic advising) that could be relevant to Society's collaborative positioning?</li>
+    <li>Is Julian interested in and empowered to participate in a pilot program? What institutional approval process, if any, would be required?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <td><strong>School</strong></td>
+        <td>Florida Agricultural and Mechanical University (FAMU)</td>
+      </tr>
+      <tr>
+        <td><strong>Location</strong></td>
+        <td>Tallahassee, FL</td>
+      </tr>
+      <tr>
+        <td><strong>School Type</strong></td>
+        <td>Public 4-Year (HBCU)</td>
+      </tr>
+      <tr>
+        <td><strong>Chapter Status</strong></td>
+        <td>Not confirmed in transcript</td>
+      </tr>
+      <tr>
+        <td><strong>Chapter Type</strong></td>
+        <td>Not confirmed in transcript</td>
+      </tr>
+      <tr>
+        <td><strong>Segment</strong></td>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <td><strong>Enthusiasm Score</strong></td>
+        <td>10/10 (Julian Bourne Smothers)</td>
+      </tr>
+      <tr>
+        <td><strong>Pilot Partner Interest</strong></td>
+        <td>Undetermined — invitation was extended in the group session; no direct response from Julian captured in transcript. Follow-up required.</td>
+      </tr>
+      <tr>
+        <td><strong>Product Council Interest</strong></td>
+        <td>Undetermined — 10/10 enthusiasm score is a positive signal, but no substantive discovery dialogue occurred. Evaluate after one-on-one meeting.</td>
+      </tr>
+      <tr>
+        <td><strong>Top Pain Points</strong></td>
+        <td>None confirmed for FAMU specifically. Julian did not contribute to discovery questions in this session.</td>
+      </tr>
+      <tr>
+        <td><strong>Key Signal</strong></td>
+        <td>Unprompted 10/10 enthusiasm score for Society platform following full demo, including Career Clarity track, AI coach, career readiness dashboard, and SNT matching feature.</td>
+      </tr>
+      <tr>
+        <td><strong>CSR</strong></td>
+        <td>TBD</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Florida Agricultural and Mechanical University &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; April 10, 2026
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Central Wyoming Community College — Meeting 1 | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+
+  :root {
+    --navy: #1B2A4A;
+    --gold: #F5C518;
+    --green: #4CAF50;
+    --teal: #26A69A;
+    --amber: #FFC107;
+    --red: #F44336;
+    --bg: #F7F8FA;
+    --card: #FFFFFF;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  a { color: var(--navy); }
+  a:hover { color: var(--gold); }
+
+  /* Header */
+  .page-header {
+    background: var(--navy);
+    color: white;
+    padding: 2rem 2.5rem 1.5rem;
+  }
+  .page-header .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .page-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .page-header .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 1rem;
+    align-items: center;
+  }
+  .page-header .meta-chip {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.75);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .page-header .recording-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    background: rgba(245,197,24,0.15);
+    border: 1px solid rgba(245,197,24,0.4);
+    border-radius: 6px;
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .page-header .recording-link:hover {
+    background: rgba(245,197,24,0.25);
+    color: var(--gold);
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 2.5rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .breadcrumb a { color: var(--navy); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { margin: 0 0.4rem; }
+
+  /* Main content */
+  main { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+  /* Section */
+  .section {
+    margin-bottom: 2.5rem;
+  }
+  .section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    padding-left: 0.85rem;
+    border-left: 4px solid var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  /* Card */
+  .card {
+    background: var(--card);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+    padding: 1.25rem 1.5rem;
+  }
+  .card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+    margin-top: 1rem;
+  }
+  .card h3:first-child { margin-top: 0; }
+  .card ul { padding-left: 1.25rem; }
+  .card li { margin-bottom: 0.3rem; font-size: 0.93rem; }
+  .card p { font-size: 0.93rem; }
+
+  /* Theme cards */
+  .theme-card {
+    background: var(--card);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+    border-left: 3px solid var(--navy);
+  }
+  .theme-card .theme-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+  .theme-card p { font-size: 0.9rem; color: #374151; }
+
+  /* Enthusiasm score */
+  .enthusiasm-score {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  /* Feature table */
+  .feature-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    font-size: 0.88rem;
+  }
+  .feature-table thead tr {
+    background: var(--navy);
+    color: white;
+  }
+  .feature-table th {
+    padding: 0.7rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+  .feature-table td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .feature-table tr:last-child td { border-bottom: none; }
+  .feature-table tr:nth-child(even) { background: #fafafa; }
+
+  /* Badges */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-strong   { background: #dcfce7; color: #166534; }
+  .badge-positive { background: #ccfbf1; color: #0f766e; }
+  .badge-question { background: #fef9c3; color: #854d0e; }
+  .badge-care     { background: #fee2e2; color: #991b1b; }
+
+  /* Advisor cards */
+  .advisor-card {
+    background: var(--card);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 0.75rem;
+  }
+  .advisor-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+  .advisor-card p { font-size: 0.9rem; color: #374151; }
+
+  /* Action items / open questions */
+  .action-items, .open-questions {
+    list-style: none;
+    padding: 0;
+  }
+  .action-items li, .open-questions li {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+  .action-items li:last-child, .open-questions li:last-child { border-bottom: none; }
+  .action-items label { display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer; }
+  .action-items input[type=checkbox] { margin-top: 0.2rem; flex-shrink: 0; }
+
+  /* Metadata table */
+  .metadata-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    font-size: 0.88rem;
+  }
+  .metadata-table th {
+    padding: 0.6rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--muted);
+    font-size: 0.8rem;
+    width: 38%;
+    background: #f9fafb;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .metadata-table td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .metadata-table tr:last-child th,
+  .metadata-table tr:last-child td { border-bottom: none; }
+
+  /* School index — meeting cards */
+  .meeting-card {
+    background: var(--card);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    padding: 1rem 1.4rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.15s;
+  }
+  .meeting-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .meeting-card .meeting-info h3 { font-size: 1rem; font-weight: 700; color: var(--navy); }
+  .meeting-card .meeting-info p { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; }
+  .meeting-card .meeting-score {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--gold);
+    background: var(--navy);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Roadshow index — school rows */
+  .school-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .school-card {
+    background: var(--card);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    padding: 1.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.15s;
+    border-top: 3px solid var(--navy);
+  }
+  .school-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .school-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+  .school-card .chip-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
+  .chip {
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: #e5e7eb;
+    color: #374151;
+  }
+  .chip.tier { background: #dbeafe; color: #1e40af; }
+  .school-card p { font-size: 0.82rem; color: var(--muted); }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--muted);
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  </style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="eyebrow">NSLS Society Platform Roadshow</div>
+  <h1>Central Wyoming Community College — Meeting 1</h1>
+  <div class="meta-row">
+    <span class="meta-chip">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      2026-04-03
+    </span>
+    <a class="recording-link" href="https://fathom.video/share/JnzX4kewexrMfZTqhjE8fyiMB1zQfajv" target="_blank">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+      View Recording
+    </a>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <a href="../../index.html">Roadshow Home</a>
+  <span>›</span>
+  <a href="../index.html">Central Wyoming Community College</a>
+  <span>›</span>
+  Meeting 1
+</nav>
+
+<main>
+<section class="section">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Central Wyoming Community College (CWC)</p>
+    <p><strong>Location:</strong> Riverton, Wyoming — a rural community approximately 20 miles from Lander, situated near the Wind River Range and in close proximity to the Wind River Indian Reservation.</p>
+    <p><strong>School Type:</strong> Community college with a notable breadth of programming, including CTE (Career and Technical Education), a Bachelor of Applied Science (BAS) program with specialty tracks (Tribal Leadership, Organizational Management, Agricultural Management, Outdoor Education Management, Early Childhood Education), and workforce development partnerships.</p>
+    <p><strong>Size/Culture:</strong> Small, rural institution serving a diverse student population that includes part-time commuter students, tribal community members, and working adults. Many students complete coursework primarily or entirely online.<a href="https://fathom.video/calls/619307758?t=600" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 10:00</a> Student population described as transient, with many balancing outside obligations.</p>
+    <p><strong>Chapter Status:</strong> Established</p>
+    <p><strong>Chapter Type:</strong> Online (transitioned to fully online this academic year<a href="https://fathom.video/calls/619307758?t=543" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:03</a>)</p>
+    <p><strong>Advisors Present:</strong> Lisa Appelhans (sole advisor present) — Student Services, chapter advisor</p>
+    <p><strong>Notable Institutional Context:</strong> CWC recently revamped its mission statement and Institutional Learning Outcomes (ILOs), which now include civic engagement, personal and professional responsibility, and communication. The college has a CTE advisory council structure and active workforce development partnerships, including a Recompete Grant in collaboration with Wind River Development Fund. A grant-funded career services program is ending this year, creating an active need for sustainable career readiness infrastructure.<a href="https://fathom.video/calls/619307758?t=948" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 15:48</a> State legislative priorities in Wyoming have elevated CTE, workforce training, and on-the-job certification programs. CWC is one of seven community colleges in Wyoming and is uniquely positioned on or adjacent to the Wind River Indian Reservation.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Section 2 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve (about NSLS)</h3>
+  <ul>
+    <li>The opportunity for students to develop and strengthen leadership skills and their own sense of what leadership means to them — described as one of the core values of NSLS membership.</li>
+    <li>Cross-program student connections — Lisa specifically valued students "getting to know students that they might not interact with otherwise because they're not in the same degree<a href="https://fathom.video/calls/619307758?t=420" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:00</a> programs." This peer mixing was seen as a distinctive benefit of NSLS that is being eroded by the shift to online.</li>
+    <li>The belief that membership is worthwhile: "I truly believe that it's worth whatever they're going to put [into it]." Lisa sees the program as high-value when students engage fully.</li>
+    <li>The community-building energy that engaged members bring: "The students that are excited and have lots of energy, like they get other students wound up, but they also show up for things."</li>
+    <li>The full suite of NSLS components (speaker broadcasts, SNTs, leadership training) — Lisa expressed no desire to eliminate any element, only to improve the experience around them.</li>
+  </ul>
+
+  <h3>What Isn't Working (Pain Points & Frustrations)</h3>
+  <ul>
+    <li><strong>Online transition has weakened peer connection:</strong> Since moving to a fully online chapter this year, Lisa noted that "things are so scattered" and there are "not as many face-to-face connections with students." The cross-program mixing that made NSLS distinctive is no longer happening organically.</li>
+    <li><strong>SNT completion is not improving online:</strong> The move online was expected to make induction steps easier to complete, but completion rates have remained roughly the same. Students are not moving through steps faster despite the flexibility.</li>
+    <li><strong>Scheduling mismatches persist:</strong> Even when Lisa offered both live Zoom and fully asynchronous options, students struggled to sync schedules — with each other and with her.</li>
+    <li><strong>High drop-off after joining:</strong> A significant number of students pay the membership fee (~$95–$100) and then don't engage at all. Lisa expressed genuine puzzlement: "Why do you spend that and then not participate in anything?" She wants data to understand the dropout pattern.</li>
+    <li><strong>Post-induction re-engagement is very difficult:</strong> Inducted members rarely return to mentor newer students. Lisa attributes some of this to the transient, part-time nature of the student body but sees it as a systemic gap.</li>
+    <li><strong>Lack of meaningful reflection data:</strong> Speaker broadcast completions no longer generate qualitative feedback ("We used to ask students, what did you get out of this speaker broadcast…and we don't really see that as much anymore"). This limits her ability to assess learning outcomes.</li>
+    <li><strong>Video content quality:</strong> Lisa did not raise this proactively, but aligned when Chris mentioned it — existing video content is seen as too long and not engaging enough for the current student population.</li>
+    <li><strong>Generic community service vs. career-aligned volunteering:</strong> Current community service opportunities are driven by "what does the community need" rather than student career interests. Students in fields like social work or psychology don't get hands-on experience relevant to their goals.</li>
+    <li><strong>Career services grant ending:</strong> The grant that has funded career services for 3–6 years is expiring this year, leaving a resource gap the school is actively trying to fill.</li>
+  </ul>
+
+  <h3>School Priorities (What the Institution Is Focused on Right Now)</h3>
+  <ul>
+    <li><strong>Workforce readiness and CTE expansion:</strong> Highlighted at the state legislative level and embedded in CWC's institutional direction. Current active tracks include CNA certification, culinary certification, and trail building, with plans to expand.</li>
+    <li><strong>Serving underemployed adults:</strong> The Recompete Grant targets adults ages 25–55 who are low or underemployed, connecting them to certification pathways that lead to better-paying work — particularly through the Wind River Development Fund partnership.</li>
+    <li><strong>Tribal community engagement:</strong> CWC has a BAS specialty track in Tribal Leadership and collaborates with Wind River Development Fund. Serving tribal members is a meaningful institutional and community priority.</li>
+    <li><strong>Demonstrating outcomes for accreditation and grants:</strong> While the institution no longer requires co-curricular assessment data for accreditation as it once did, Lisa is actively interested in data that could support grant applications and demonstrate workforce readiness outcomes.</li>
+    <li><strong>Increasing student engagement and sense of belonging:</strong> Lisa wants students to feel connected to CWC as an institution, not just complete a checklist. Society was framed as something that could support belonging as well as career clarity.</li>
+    <li><strong>CTE advisory council integration:</strong> Lisa has already initiated a conversation with the CTE dean about introducing NSLS to the CTE advisory council in the fall — a proactive institutional bridge she is building without prompting from NSLS.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Section 3 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Online Transition Has Broken the Social Engine of NSLS</h3>
+    <p>CWC moved to a fully online chapter this year, and the outcome has been a measurable erosion of what Lisa identifies as NSLS's core value: connecting students across programs who wouldn't otherwise interact. SNT completion rates have not improved, peer energy is lower, and the distinctive community-building dynamic is fading. This is not a dissatisfaction with NSLS itself — Lisa remains a true believer — but a signal that the current online format is not recreating the experience that made NSLS work. Society's online SNT matching tool and integrated video conferencing were received as a direct and meaningful response to this problem.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Career Clarity Resonates as a Re-Engagement Hook for Disengaged Students</h3>
+    <p>Lisa immediately identified a use case that mirrors the "Renee" story Chris shared: students who are close to graduating but uncertain about what comes next, and students early in their academic careers who need direction. She described Society's career clarity track as a potential on-ramp for students who would never engage with NSLS through the leadership door alone — including students who attend CWC purely for a credential and resist extracurricular participation. Her framing was that the platform could give students "usable skills" and ongoing support rather than feeling like "one more thing on campus."</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Data Infrastructure Is a Strategic Institutional Need, Not Just a Nice-to-Have</h3>
+    <p>With a career services grant expiring and workforce outcomes as a state legislative priority, CWC needs demonstrable data. Lisa responded positively to the career readiness score and administrator dashboard concepts — not just as tools for advisor convenience, but as instruments for grant writing, institutional reporting, and marketing. She specifically noted that being able to "not just tell the CWC story, but figure out why students are participating in NSLS" would help her know where to invest her energy and validate the program's impact.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Rural, Tribal, and Workforce-Focused Context Makes CWC a Distinctive Pilot Voice</h3>
+    <p>CWC sits at the intersection of multiple underserved contexts: rural Wyoming, proximity to the Wind River Indian Reservation, CTE-heavy programming, and adult learners targeted by the Recompete Grant. Lisa has already initiated a conversation with the CTE dean about bringing NSLS into fall advisory council meetings. This proactive institutional bridge-building, combined with the unique demographic mix, makes CWC a high-value pilot partner whose feedback could shape Society's relevance for community colleges, tribal-serving institutions, and workforce-focused programs nationwide.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Student Recognition and Success Storytelling Are Underutilized Engagement Levers</h3>
+    <p>Lisa identified a pattern: CWC recognizes NSLS members at big events (graduation, TRIO celebrations) but does very little to highlight student progress along the way. She expressed a desire to shift from "begging students to participate" toward celebrating what members are gaining. She connected this directly to the career readiness score and profile features — framing them as tools that could help students see their own progress and help the institution tell a more compelling, ongoing story of student success, both internally and for external marketing and grant purposes.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Section 4 — Society Reception</h2>
+
+  <div class="enthusiasm-score">~10/10</div>
+  <p><em>Self-reported: "Like almost a 10." The only reservation expressed was timing (spring break week, classes ending mid-May), not the platform itself.</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li><strong>Career clarity track:</strong> Lisa immediately connected this to real students she has in mind — both early-career and near-graduation students who are uncertain about direction. She described it as giving students "incentive, but also resources" and praised its ability to make career planning feel ongoing rather than transactional.</li>
+    <li><strong>Financial realism features:</strong> The budgeting and cost-of-living elements resonated strongly. Lisa noted that students often look at national average salaries without understanding local costs or what life after financial aid actually looks like. She saw the platform as addressing a real gap in how students plan.</li>
+    <li><strong>Online SNT matching tool:</strong> This was received as a direct solution to the core problem she described — students struggling to connect across programs and schedules. The ability to match, schedule, and meet within the platform addressed her pain point about the online transition breaking peer connection.</li>
+    <li><strong>Career readiness score and admin dashboard:</strong> Lisa framed this not just as an advisor tool but as something students themselves would value — being able to "see on their own" where they stand and what their next steps are. She also saw clear grant and marketing utility.</li>
+    <li><strong>AI coach as guide, not substitute:</strong> Lisa did not comment on this explicitly, but the framing of the coach as a confidence-builder and support structure — "it gives them some incentive to do that, but also some support and confidence" — aligned well with her instinct that students sometimes need a lower-stakes entry point before approaching people or institutions directly.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li><strong>Timing:</strong> Lisa's only stated concern was the end-of-semester calendar. Spring break is the current week, classes end mid-May, and post-break student engagement is historically difficult. She was not resistant — she already had specific students in mind — but flagged this as a practical constraint to plan around.</li>
+    <li><strong>Implicit question about non-NSLS students:</strong> When Chris raised the possibility of extending Society access to non-members through career services or class assignments, Lisa responded positively. This suggests she is already thinking about whether the platform's value proposition can extend beyond the current NSLS membership base — a question worth exploring in the pilot design.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li><strong>Positive — Proactive CTE bridge already in motion:</strong> Without any prompting, Lisa disclosed that she had already spoken with the CTE dean about introducing NSLS to the fall CTE advisory council. This level of institutional initiative was not solicited and suggests Lisa is already thinking about Society as a program with broader campus reach, not just a membership add-on.</li>
+    <li><strong>Positive — Immediate student identification:</strong> By the end of the demo, Lisa had already identified specific students she would want to put into the pilot — both early-career and near-graduation. This readiness to act is a strong pilot partner signal.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Section 5 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Career Clarity Track (AI-guided dream job exploration)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Immediate resonance. Lisa identified specific near-graduation and early-career students she wants to run through it. Described as giving students "incentive and resources" rather than leaving them to figure it out later.</td>
+      </tr>
+      <tr>
+        <td>AI Coach (conversational career guide)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Framed as a confidence-builder and low-stakes entry point for students who find it intimidating to walk into a department or ask for a job shadow directly. The "guide, not substitute" design philosophy aligned with Lisa's instincts about student support.</td>
+      </tr>
+      <tr>
+        <td>Financial Realism / Cost-of-Living Planning</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Lisa called out explicitly that students overestimate national average salaries and don't understand post-financial-aid costs. This feature addresses a real and recurring advising gap she experiences.</td>
+      </tr>
+      <tr>
+        <td>Online SNT Matching Tool</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Directly addresses the core pain point of the online transition — students losing the ability to connect across programs. The scheduling, team chat, and in-platform video conferencing were received as a coherent and needed solution.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Lisa valued this both for student self-tracking and for institutional reporting (grants, marketing, state outcomes). Noted it would help students see progress and next steps, not just a final grade. Still in design — no live demo friction to evaluate.</td>
+      </tr>
+      <tr>
+        <td>Administrator Dashboard with Cohort/Longitudinal Reporting</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Relevant given expiring career services grant and need to demonstrate workforce outcomes. Lisa confirmed interest in data that goes beyond completion tracking to capture why students join, disengage, or succeed.</td>
+      </tr>
+      <tr>
+        <td>Student Career Profile (values, strengths, assessments, career statement)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Received as exciting. Lisa liked the idea of students being able to see a codified picture of themselves. The career statement ("North Star") concept resonated as a motivational tool.</td>
+      </tr>
+      <tr>
+        <td>Mentor Matching via Platform (future feature)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Lisa described the intimidation barrier students face in approaching professionals directly. A platform-facilitated go-between was seen as removing friction. Noted as "not built yet" — reception is based on concept, not demo.</td>
+      </tr>
+      <tr>
+        <td>Short-Form / Modular Video Content (FOL redesign)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Lisa did not raise this proactively but confirmed alignment when Chris mentioned it. Existing long-form video is a known pain point. Modular, self-paced content fits the online student population at CWC.</td>
+      </tr>
+      <tr>
+        <td>Speaker Broadcast Reflection / Qualitative Feedback Capture</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Lisa noted that students used to be asked what they got out of speaker broadcasts, and that data is no longer being captured. She would find it valuable to have that again. Whether Society will reintroduce this mechanic is unclear and worth confirming with product team.</td>
+      </tr>
+      <tr>
+        <td>Engagement Data / Drop-off Analytics</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Lisa's most pressing unanswered question: why do students pay the membership fee and then not engage? She wants data to understand this pattern — not just completion rates but motivational and behavioral signals. It is not clear whether Society's current roadmap addresses this.</td>
+      </tr>
+      <tr>
+        <td>Career-Aligned Volunteering / Job Shadow Integration</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Lisa explicitly described wanting students to be able to do job shadowing or volunteering in their specific field of interest — not generic community service — and have that count toward induction. It is unclear whether Society's roadmap accommodates field-specific experiential credit.</td>
+      </tr>
+      <tr>
+        <td>Non-Member / Open Access Model (e.g., via career services or classes)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Chris raised this as a future possibility; Lisa responded positively. CWC has a large population of students who qualify for NSLS but don't join. Whether and how Society could serve as a membership funnel through non-NSLS channels is a strategic question that needs further definition.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Section 6 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Lisa Appelhans — Chapter Advisor, Student Services, Central Wyoming Community College</h3>
+    <p><strong>Background:</strong> Lisa has a history with Utah (graduated high school at Judge Memorial, attended University of Utah) before landing at CWC in Riverton. She operates within Student Services and serves as the primary NSLS chapter advisor. She is deeply familiar with the NSLS program structure and has navigated multiple transitions — including COVID disruption, the shift to online, and institutional changes to ILOs and accreditation requirements. She has existing relationships with the CTE dean and is actively engaged in grant-funded workforce development work (Recompete Grant, Wind River Development Fund).</p>
+    <p><strong>Motivations:</strong> Lisa is motivated by genuine student outcomes — she wants students to find direction, build confidence, and leave CWC prepared for meaningful work. She is frustrated by students who pay the membership fee and disappear, and she wants to understand why. She values recognition and storytelling as engagement tools, and she is drawn to programs that give students "usable skills" and ongoing support rather than one-time checkboxes. She also cares about institutional credibility — having data that justifies her program, supports grant applications, and tells a compelling story to leadership.</p>
+    <p><strong>Communication Style:</strong> Thoughtful, candid, and unhurried. Lisa thinks out loud and is comfortable sitting in complexity — she doesn't rush to tidy conclusions. She asks clarifying questions and flags practical constraints honestly (timing, student schedules, her own summer vacation) without being obstructive. She is warm and collaborative, and she clearly trusts Dejeahn as a relationship anchor.</p>
+    <p><strong>Pilot Partner Potential:</strong> High. Lisa agreed to pilot participation by end of meeting, immediately identified specific students for the first cohort, and has already taken proactive institutional steps (CTE dean conversation) that go beyond what was asked of her. She brings a distinctive institutional context — rural, tribal-adjacent, CTE-heavy — that would make her feedback especially valuable for product decisions affecting non-traditional and community college populations.</p>
+    <p><strong>Product Council Potential:</strong> Moderate-to-high. Lisa expressed interest in both programs and deferred the Product Council decision to fall. Her thoughtfulness, institutional range, and willingness to engage substantively make her a strong candidate. The primary variable is bandwidth — her student population and institutional pace may make quarterly product sessions a heavier lift than pilot participation.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <h3>Confirmed Action Items</h3>
+  <ul class="action-items">
+    <li><label><input type="checkbox"> Dejeahn to schedule a follow-up meeting with Lisa approximately 3–4 weeks out to plan the pilot rollout — confirmed during the meeting wrap-up, to be coordinated on the next day's monthly call. [Owner: Dejeahn Brown | Timing: Schedule within 1 week; meeting ~3–4 weeks out]</label></li>
+    <li><label><input type="checkbox"> Chris to send Lisa a written summary of the meeting discussion and confirmed next steps. [Owner: Chris Higbee | Timing: Early the following week]</label></li>
+    <li><label><input type="checkbox"> Lisa to complete the follow-up survey shared via Google Meet chat. [Owner: Lisa Appelhans | Timing: Following the meeting]</label></li>
+    <li><label><input type="checkbox"> At the pilot planning meeting: work with Lisa to identify the initial small student cohort for Society testing (Lisa already has specific students in mind — early-career and near-graduation). [Owner: Chris Higbee + Lisa Appelhans | Timing: At follow-up meeting]</label></li>
+    <li><label><input type="checkbox"> At the pilot planning meeting: establish a calendar for the broader fall rollout to all CWC members, accounting for Lisa's summer schedule and the end-of-spring-semester timeline. [Owner: Chris Higbee + Lisa Appelhans | Timing: At follow-up meeting]</label></li>
+    <li><label><input type="checkbox"> Lisa to follow up with the CTE dean regarding the fall CTE advisory council date and the potential for an NSLS/Society introduction at that meeting. [Owner: Lisa Appelhans | Timing: Before end of school year]</label></li>
+    <li><label><input type="checkbox"> Determine whether CTE dean and/or VP should be invited to the pilot planning meeting or a separate dedicated meeting. [Owner: Lisa Appelhans + Chris Higbee | Timing: At follow-up meeting or before]</label></li>
+    <li><label><input type="checkbox"> Revisit Product Council invitation with Lisa in the fall when pilot is underway and she has more context. [Owner: Chris Higbee + Dejeahn Brown | Timing: Fall 2025]</label></li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>Will the Society platform capture qualitative reflection data from speaker broadcast completions (e.g., "what did you get out of this")? Lisa identified this as previously valuable and now missing — is it on the roadmap?</li>
+    <li>Can Society surface engagement drop-off data and behavioral signals (e.g., why students who paid the membership fee never complete any steps)? This is Lisa's most pressing unanswered data question.</li>
+    <li>Is there a pathway in Society for career-aligned volunteering or job shadowing to count toward induction credit? Lisa described this as an unmet need for students in fields like social work and psychology.</li>
+    <li>How will Society be positioned for students who are not NSLS members — particularly through career services or class-based assignments? This was raised as a potential membership funnel but the model is undefined.</li>
+    <li>What is the plan for serving CWC's non-traditional student population (part-time, adult learners, tribal community members) within Society? The Recompete Grant population (ages 25–55, underemployed) may have different engagement patterns than traditional undergrads.</li>
+    <li>Will the pilot include access for the advisor (Lisa) to the admin dashboard, even in its current early state, so she can track student progress in real time?</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr><th>School</th><td>Central Wyoming Community College (CWC)</td></tr>
+      <tr><th>Location</th><td>Riverton, Wyoming</td></tr>
+      <tr><th>School Type</th><td>Community college; rural; CTE-heavy; tribal-adjacent; Bachelor of Applied Science programs offered</td></tr>
+      <tr><th>Chapter Status</th><td>Established</td></tr>
+      <tr><th>Chapter Type</th><td>Online (transitioned fully online this academic year)</td></tr>
+      <tr><th>Segment</th><td>4</td></tr>
+      <tr><th>Meeting 1 Enthusiasm Score</th><td>~10/10 ("like almost a 10")</td></tr>
+      <tr><th>Pilot Partner Interest</th><td>Yes — confirmed during meeting; Lisa agreed to proceed with pilot and identified initial student candidates</td></tr>
+      <tr><th>Product Council Interest</th><td>Deferred — expressed interest but wants to start with pilot first; revisit in fall</td></tr>
+      <tr><th>Top Pain Points</th><td>Online transition eroding peer connection; low SNT/induction completion rates unchanged by going online; students paying membership fee and not engaging; no qualitative data from speaker broadcasts; career services grant ending; generic community service not aligned to student career goals</td></tr>
+      <tr><th>Top Feature Signals</th><td>Career Clarity Track (Strong); AI Coach as confidence-builder (Strong); Financial realism/cost-of-living planning (Strong); Online SNT matching tool (Strong); Career Readiness Score and admin dashboard (Positive)</td></tr>
+      <tr><th>Primary Concern</th><td>Timing — spring break week, end of semester mid-May, and summer schedule make immediate student recruitment challenging; not a resistance to the platform itself</td></tr>
+      <tr><th>Unique Angle</th><td>Rural community college adjacent to the Wind River Indian Reservation; active CTE advisory council structure; Recompete Grant targeting underemployed adults 25–55; Lisa has proactively initiated a conversation with the CTE dean about introducing NSLS/Society at fall advisory council — an institutional bridge not prompted by NSLS</td></tr>
+      <tr><th>Recommended Next Step</th><td>Schedule pilot planning meeting in 3–4 weeks (Dejeahn to confirm via tomorrow's monthly call); define initial student cohort; establish fall rollout calendar; determine whether CTE dean should join the next meeting</td></tr>
+      <tr><th>CSR</th><td>Dejeahn Brown</td></tr>
+    </tbody>
+  </table>
+</section>
+</main>
+
+<footer>
+  Generated by Society Roadshow Reporting System &nbsp;·&nbsp; April 03, 2026
+</footer>
+
+</body>
+</html>

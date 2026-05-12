@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University of Texas, Rio Grande Valley — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header a.header-pill:hover{color:#C96058;} .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">March 23, 2026</span>
+    </div>
+    <h1>University of Texas, Rio Grande Valley &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; University of Texas, Rio Grande Valley Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/share/eHry3PGgPyAvzhsYMymv87qx8LMqzyoy" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> University of Texas, Rio Grande Valley (UTRGV)</p>
+    <p><strong>Location:</strong> Edinburg, TX (primary); Brownsville, TX (second major campus)</p>
+    <p><strong>School Type:</strong> Public 4-Year University</p>
+    <p><strong>Enrollment:</strong> Approximately 30,000 students</p>
+    <p><strong>Chapter Status:</strong> Established</p>
+    <p><strong>Chapter Type:</strong> Hybrid (in-person and online cohorts both active)</p>
+    <p><strong>Advisors Present:</strong> Brandon Sanchez (Program Coordinator, Civic Engagement & Leadership) and Ashley (Center for Student Involvement — last name not captured in transcript)</p>
+    <p><strong>Notable Context:</strong> UTRGV operates two primary campuses approximately one hour apart — Brownsville and Edinburg. Brownsville is predominantly a commuter campus with one dormitory; Edinburg has four to five residence halls<a href="https://fathom.video/calls/602086654?t=552" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:12</a> and more evening activity. The university is celebrating its 10th anniversary and recently launched its first football program, which has energized campus community engagement. The school is actively redeveloping its leadership development programming and evaluating where NSLS fits within that broader structure. Two student advisors hired within the department also help oversee the chapter alongside Brandon and Ashley. The chapter uses both tabling, social media, and in-person events to create awareness, with actual sign-ups driven largely by the formal invitation emails NSLS sends out.<a href="https://fathom.video/calls/602086654?t=1035" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 17:15</a></p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Brandon Sanchez</h3>
+    <p><strong>Role:</strong> Program Coordinator, Civic Engagement & Leadership — oversees both Brownsville and Edinburg campuses for leadership programs and civic engagement<a href="https://fathom.video/calls/602086654?t=167" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 2:47</a>, including NSLS chapter management, SNTs, and inductions.</p>
+    <p><strong>Background:</strong> Started at UTRGV in November 2025 (recently onboarded).<a href="https://fathom.video/calls/602086654?t=162" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 2:42</a> Recently completed his master's degree, making him a near-peer to the student population. Has taken a more proactive approach to NSLS marketing than predecessors — tabling at large campus events and running social media campaigns.</p>
+    <p><strong>Motivations:</strong> Wants students to see tangible, credible value from participating in NSLS — resume value, skills, and career readiness. Personally identified with what Society offers, noting he would have valued a tool like this as a student. Interested in how students will actually respond and engage with the platform.</p>
+    <p><strong>Communication Style:</strong> Open, enthusiastic, and candid. Quick to affirm ideas and share honest reactions. Comfortable deferring to Ashley on broader programming strategy questions.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High interest. Expressed enthusiasm of 9–10 out of 10.<a href="https://fathom.video/calls/602086654?t=3418" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 56:58</a> Wants to see student response before fully committing. Receptive to follow-up conversation after internal discussion with Ashley.</p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Ashley (Last Name Not Captured)</h3>
+    <p><strong>Role:</strong> Staff member, Center for Student Involvement at UTRGV. Oversees the Traditions Keeper program (points-based student engagement system), cultural programming, student organizations, and fraternity and sorority life.<a href="https://fathom.video/calls/602086654?t=240" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:00</a> Works alongside Brandon on NSLS and broader leadership development initiatives.</p>
+    <p><strong>Background:</strong> Has existing relationships with the NSLS/CSR team (referenced prior conversations with Maryanna). Currently surveying students about existing programming and desired changes. Leading a redevelopment of UTRGV's leadership development programs and evaluating NSLS's role within that new structure.</p>
+    <p><strong>Motivations:</strong> Focused on data, assessment, and demonstrating student outcomes (retention, GPA, campus involvement). Interested in how Society could integrate with or feed into existing programming structures such as the Freshman Leadership Academy and student mentor program. Wants communication tools with engagement metrics.</p>
+    <p><strong>Communication Style:</strong> Thoughtful, strategic, and systems-minded. Asks detailed operational questions (e.g., advisor dashboard access, SNT scheduling visibility, communication metrics). Measured in enthusiasm — wants to see fit with existing timelines and programming before committing.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Moderate-to-strong. Rated enthusiasm 8–9 out of 10.<a href="https://fathom.video/calls/602086654?t=955" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 15:55</a> Flagged the need to discuss internally with Brandon and align with existing programming timelines before deciding. Expressed genuine interest in co-creating a mentoring/career development pathway using Society.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>The existing NSLS online platform — described as user-friendly, clean, and self-guiding for students even without staff support.<a href="https://fathom.video/calls/602086654?t=434" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:14</a></li>
+    <li>The step-by-step structure that allows students to navigate independently while still having advisor backup.</li>
+    <li>The in-person community and connection experience — students are actively asking for group chats and ways to connect with each other<a href="https://fathom.video/calls/602086654?t=480" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:00</a>, which advisors already encourage informally.</li>
+    <li>The hybrid flexibility — students value being able to attend in-person SNTs or complete requirements online depending on their schedule<a href="https://fathom.video/calls/602086654?t=1166" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 19:26</a> and class conflicts.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Student skepticism that NSLS is a scam — a persistent barrier, especially at first contact via email invitations. Even students who attended orientation still questioned its legitimacy. Advisors trace this to a broader campus culture of distrust toward paid leadership programs received by email.</li>
+    <li>Difficulty switching between in-person and online modalities seamlessly — some features require students to contact advisors to enable, creating friction.</li>
+    <li>Enrollment timing may be tied to financial aid disbursement cycles — advisors observed (anecdotally) that sign-ups are higher when deadlines align with when students receive financial aid.</li>
+    <li>Communication tools feel limited — chapter leaders and student advisors need more robust, flexible communication channels with segmentation and engagement metrics.</li>
+    <li>Leadership development as a standalone value proposition is becoming harder to defend in budget conversations — there is a growing need to connect programming to workforce readiness and demonstrate outcomes with data.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Data collection and assessment — demonstrating year-over-year improvements in student outcomes (retention, GPA, campus involvement) to institutional leadership.</li>
+    <li>Rebuilding and redefining the university's leadership development program — actively evaluating what NSLS offers and how it fits within a redesigned programming structure.</li>
+    <li>Increasing campus engagement post-COVID — the school has seen a bounce-back in student willingness to get involved and wants to capitalize on that momentum.</li>
+    <li>Student awareness and marketing — an internal awareness campaign is being planned; Brandon's proactive tabling and social media work this year drove stronger NSLS results than in prior years.</li>
+    <li>Career readiness and workforce outcomes — students want to know the concrete benefit of any program (resume value, credentials, tangible skills), and the institution needs to demonstrate those outcomes externally.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Connection Is the Core Student Need</h3>
+    <p>Both advisors independently identified student desire for peer connection as a central and recurring theme. Students have asked advisors to set up group chats for them. Ashley noted this as a pattern across all leadership programming at UTRGV, not just NSLS. For a predominantly commuter student body, the platform's ability to facilitate peer matching, SNT scheduling, and in-app chat directly addresses this unmet need.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Career Readiness Outperforms Leadership as a Student Hook</h3>
+    <p>Brandon explicitly shared that students want to know what they get out of any program — whether it's a resume line, a credential, or a tangible skill. The platform's Clarity track and career readiness framing resonated strongly with both advisors as a more compelling entry point for students than leadership development alone. Brandon noted that as a recent grad, he personally would have valued this kind of tool as a student.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Legitimacy and Trust Are Active Barriers to Enrollment</h3>
+    <p>Student skepticism about NSLS being a scam is a real and recurring obstacle at UTRGV. This distrust is shaped by a broader campus culture where students are conditioned to dismiss paid programs delivered via email. Brandon described students questioning legitimacy even during orientation. Tabling and in-person presence help build credibility over time, with email invitations converting better once students have seen the program on campus first.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Advisor Dashboard and Communication Tools Are High-Priority Operational Needs</h3>
+    <p>Ashley raised detailed, specific questions about the advisor-facing side of Society — including visibility into SNT scheduling patterns, bulk messaging with segmentation, engagement metrics (opens, clicks, views), and the ability to use availability data to reserve campus rooms proactively. These are not aspirational wants; they reflect real operational pain points in running the chapter across two campuses with student staff.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Society Could Serve as a Programmatic Bridge Across Campus Initiatives</h3>
+    <p>Ashley identified potential for Society to function as a feeder or connector between UTRGV's Freshman Leadership Academy, student mentor program, and NSLS. She specifically asked whether Society's mentoring capability could mirror the structured cohort model used in their freshman program. This signals an opportunity to position Society not just as an NSLS tool but as infrastructure for broader campus leadership and career development programming.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">8.5/10</div>
+  <p><em>Brandon: 9–10 out of 10. Ashley: 8–9 out of 10. Score averaged across both advisors.</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The visual design — Brandon called it "very pretty" and "inviting," noting it was functional and aesthetically engaging for students.</li>
+    <li>The SNT scheduling and availability-matching feature — both Brandon and Ashley reacted positively and immediately saw operational value. Ashley began brainstorming room reservations based on group availability data.</li>
+    <li>The Clarity track and career readiness framing — resonated as a more accessible student hook than leadership development alone. Brandon reflected that he would have personally benefited from this as a student.</li>
+    <li>The AI coach experience — the Renee story and the ability to draft outreach emails, find courses, and set reminders were seen as genuinely useful student supports.</li>
+    <li>Personality assessments (Myers-Briggs, Big Five, etc.) — Ashley noted UTRGV is currently exploring StrengthsFinder, making this feature timely and relevant.</li>
+    <li>The program outcomes report concept — Ashley saw immediate utility in being able to report student outcomes upward to leadership and for grant applications.</li>
+    <li>Brandon's overall reaction was one of positive surprise: "I wasn't expecting all of this."</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Ashley asked specifically whether advisors would have a back-end view of aggregated student availability for SNTs — she wanted to use this data to reserve campus rooms proactively.</li>
+    <li>Ashley asked whether communication tools would include engagement metrics (link clicks, views, message opens) — Chris confirmed intent but noted full advisor access is still being scoped.</li>
+    <li>Both advisors expressed a need to discuss internally and align Society's rollout with existing programming timelines before committing to pilot or Product Council participation.</li>
+    <li>Ashley noted FERPA and privacy considerations as a natural constraint when discussing the advisor-facing AI coach that could surface student data.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Ashley immediately began ideating on Society as a potential feeder program connecting the Freshman Leadership Academy and student mentor program to NSLS — an integration use case not prompted by the presentation.</li>
+    <li>Brandon's framing that students are sometimes more comfortable interacting with technology than with a human advisor — and that Society could serve as a bridge to human connection — was an unprompted and insightful observation.</li>
+    <li>Brandon's observation that Society could help "legitimize" NSLS and tie it more credibly to the university's institutional goals was offered organically, suggesting strong alignment between Society's value proposition and UTRGV's strategic positioning needs.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>SNT Scheduling & Availability Matching</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Both advisors reacted immediately and positively. Ashley asked specifically about back-end visibility into group availability to inform room reservations on campus. Brandon said "that would be very helpful" upon seeing it.</td>
+      </tr>
+      <tr>
+        <td>Clarity Track (Career Direction)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Resonated strongly as a more compelling student hook than leadership framing alone. Brandon said he would have valued this as a student. Aligns directly with what advisors say students are asking for — tangible, career-relevant outcomes.</td>
+      </tr>
+      <tr>
+        <td>AI Career Coach</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>The Renee story and the email drafting, course-finding, and reminder-setting capabilities were well received. Brandon noted it could help bridge students who are more comfortable with technology than with advisors.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessments (Big Five, Myers-Briggs, DISC, Enneagram, Holland Code)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Ashley noted UTRGV is currently exploring StrengthsFinder — making this timely. Chris flagged StrengthsFinder/Gallup as a potential future partnership. No friction raised on the assessments themselves.</td>
+      </tr>
+      <tr>
+        <td>Advisor Dashboard & Student Progress Tracking</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Ashley saw potential and asked clarifying questions about what data would be surfaced and when. She is thinking about how this maps across all UTRGV programming, not just NSLS. Full access scope still needs to be defined.</td>
+      </tr>
+      <tr>
+        <td>Communication Tools (Bulk Messaging, SMS, In-App Notifications)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Maryanna flagged this as a known pain point. UTRGV has two student advisors managing chapter communications across two campuses. The ability to segment, personalize delivery channel, and track engagement metrics was described as "huge." Ashley asked specifically about metrics (clicks, views).</td>
+      </tr>
+      <tr>
+        <td>Program Outcomes Report</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Ashley immediately connected this to use cases: reporting to institutional leadership, grant applications, and external rankings. No friction raised — seen as directly addressing an existing need.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Chris introduced this as an ideation-stage feature. Both advisors were receptive. Brandon noted it could help the university demonstrate credibility and career preparedness as a 10-year-old institution still building its reputation.</td>
+      </tr>
+      <tr>
+        <td>Mentoring Capability (Connections Track)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Ashley raised this organically — she asked whether Society could serve as a structured feeder program after UTRGV's Freshman Leadership Academy, pairing students with mentors in a cohort model. Chris confirmed this capability is being built into the Connections track.</td>
+      </tr>
+      <tr>
+        <td>Gamification & Goal Tracking</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Chris mentioned gamification and goal reminders as planned features. No explicit reaction from advisors, but Ashley runs a points-based Traditions Keeper program — this feature area may resonate more on follow-up.</td>
+      </tr>
+      <tr>
+        <td>In-App Video Chat for SNTs</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Shown in Figma mockups. No explicit reaction from advisors. Worth revisiting — given the commuter population and hybrid chapter model, this could be high value but needs follow-up validation.</td>
+      </tr>
+      <tr>
+        <td>School-Specific AI Agent (Faculty/Advisor Directory Integration)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Chris described this as a future capability — the AI would learn faculty contacts, office hours, and course sign-up links for each institution. Advisors did not react to this specifically, but FERPA and privacy concerns were raised by Ashley in the context of student data sharing. Will require careful framing around data governance.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Brandon and Ashley to discuss internally whether UTRGV would like to participate as a Pilot Partner, Product Council member, or both, and communicate their decision back to Maryanna (copying Chris if desired). <span class="owner-tag">Brandon Sanchez / Ashley (UTRGV)</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Maryanna to follow up with Brandon and Ashley after their internal discussion to collect their decision and coordinate next steps. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Chris to send a summary of key takeaways from this meeting back to Brandon and Ashley for review and alignment. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>If UTRGV moves forward, schedule a follow-up meeting to discuss onboarding logistics, rollout timeline, and alignment with UTRGV's existing programming calendar and internal deadlines. <span class="owner-tag">Chris Higbee / Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Explore StrengthsFinder/Gallup as a potential integration or partnership for Society's personality and strengths assessment feature set, given UTRGV's active interest in that tool. <span class="owner-tag">Chris Higbee / Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Schedule a dedicated follow-up conversation to dig deeper into the financial aid disbursement timing hypothesis and its relationship to NSLS enrollment — Ashley flagged this as an anecdotal observation worth exploring with data. <span class="owner-tag">Chris Higbee / Maryanna Laferriere</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>What level of back-end advisor visibility into student SNT availability data will be available — and can it be surfaced in a way that allows advisors to proactively reserve campus rooms for groups?</li>
+    <li>Will advisors have access to communication engagement metrics (link clicks, message views, open rates) directly within Society, or will those require a data request to the NSLS team?</li>
+    <li>How will FERPA compliance be handled when the advisor-facing AI coach surfaces or summarizes individual student profile data?</li>
+    <li>Can Society's mentoring matching capability be structured to mirror UTRGV's cohort-based Freshman Leadership Academy model — and if so, what configuration options would advisors have?</li>
+    <li>Is the financial aid disbursement timing pattern a common signal across other schools, and is there a way to account for it in enrollment strategy recommendations?</li>
+    <li>How will the school-specific AI agent (faculty directory, course links) be built, maintained, and governed for privacy at each institution?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>University of Texas, Rio Grande Valley (UTRGV)</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Edinburg, TX (primary); Brownsville, TX (secondary campus)</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>University · Public 4-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Hybrid (in-person and online cohorts)</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>8.5/10 (Brandon: 9–10; Ashley: 8–9)</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — pending internal discussion between Brandon and Ashley; need to align with existing programming timelines</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>Possible — Ashley and Brandon expressed openness; decision deferred to follow-up after internal review</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>Student skepticism/scam perception; limited hybrid flexibility in current platform; communication tools lacking segmentation and metrics; difficulty demonstrating program outcomes with data; leadership-only value prop hard to defend in budget conversations</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Strong alignment between Society's career readiness framing and what UTRGV students are asking for; Ashley independently ideated on Society as a cross-campus programmatic bridge (Freshman Leadership Academy → mentoring → NSLS pipeline); both advisors reacted positively to SNT scheduling, communication tools, and the program outcomes report</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Maryanna Laferriere</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; University of Texas, Rio Grande Valley &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; March 23, 2026
+</footer>
+
+</body>
+</html>

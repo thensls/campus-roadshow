@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Survey Results — Muskingum University | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#1A3550; --border:rgba(30,20,20,0.1);
+      --text:#1E1414; --muted:#6B6357; --card:#E8DDD5; --black:#1E1414;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    a{color:#1A3550;text-decoration:none;} a:hover{color:#C96058;}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+    h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+    .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.75rem;}
+    .inner{max-width:1180px;margin:0 auto;padding:0 2rem;}
+    .pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
+    .pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+    .page-header h1{font-size:1.9rem;font-weight:700;color:#1A3550;margin-bottom:0.3rem;}
+    .page-header .sub{font-size:1rem;color:#6B6357;margin-bottom:1rem;}
+    .btn-row{display:flex;gap:10px;flex-wrap:wrap;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;background:#243B52;color:#FFFDF8;border:1px solid #243B52;transition:opacity .2s;}
+    .btn:hover{opacity:0.88;color:#FFFDF8;}
+    main{max-width:1180px;margin:0 auto;padding:2.5rem 2rem 5rem;}
+    .section{margin-bottom:2.5rem;}
+    .section-title{font-size:1.2rem;font-weight:700;color:#1A3550;padding-bottom:10px;border-bottom:2px solid #1A3550;margin-bottom:1.25rem;font-family:'Cigars',Georgia,serif;}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+    @media(max-width:860px){.grid-2{grid-template-columns:1fr;}}
+    .card{background:var(--card);border-radius:12px;border:1px solid var(--border);padding:24px;}
+    .card-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+    .card-label::after{content:'';flex:1;height:1px;background:var(--border);}
+    /* Priority list */
+    .priority-list{list-style:none;}
+    .priority-list li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.5;}
+    .priority-list li:last-child{border-bottom:none;}
+    .medal{font-size:18px;flex-shrink:0;margin-top:1px;}
+    /* Feature table */
+    .feature-table{width:100%;border-collapse:collapse;font-size:13px;}
+    .feature-table tr{border-bottom:1px solid var(--border);}
+    .feature-table tr:last-child{border-bottom:none;}
+    .feature-table td{padding:10px 12px;vertical-align:top;}
+    .feature-table td:first-child{width:38%;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);padding-right:8px;}
+    .feat-pick{display:block;font-weight:600;color:#1A3550;margin-bottom:4px;font-size:13px;}
+    .feat-runner{display:block;color:var(--muted);font-size:12px;margin-top:3px;}
+    /* Open questions */
+    .oq-row{padding:16px 0;border-bottom:1px solid var(--border);}
+    .oq-row:last-child{border-bottom:none;}
+    .oq-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:var(--muted);margin-bottom:8px;}
+    .oq-answer{font-size:14px;line-height:1.65;color:var(--black);}
+    .oq-empty{color:var(--muted);font-style:italic;}
+    /* Stats row */
+    .stats-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:2.5rem;}
+    .stat-tile{background:var(--card);border-radius:12px;border:1px solid var(--border);padding:18px 22px;min-width:180px;}
+    .stat-tile .lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);margin-bottom:8px;}
+    .stat-tile .val{font-size:17px;font-weight:700;color:#1A3550;line-height:1.3;}
+    /* Profile */
+    .profile-box{background:var(--card);border-radius:12px;border:1px solid var(--border);padding:20px 24px;display:flex;align-items:flex-start;gap:14px;font-size:14px;line-height:1.65;}
+    .profile-icon{font-size:24px;flex-shrink:0;margin-top:2px;}
+    /* Extra fields */
+    .extra-table{width:100%;border-collapse:collapse;font-size:13px;}
+    .extra-table tr{border-bottom:1px solid var(--border);}
+    .extra-table tr:last-child{border-bottom:none;}
+    .extra-table th{padding:9px 14px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);background:rgba(30,20,20,0.03);width:35%;vertical-align:top;}
+    .extra-table td{padding:9px 14px;vertical-align:top;}
+    .footer{text-align:center;color:#6B6357;font-size:12px;padding:32px;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="inner">
+    <div class="pills">
+      <a href="../../index.html" class="pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="pill">Pre-Meeting Survey</span>
+    </div>
+    <h1>Muskingum University &mdash; Pre-Meeting Survey</h1>
+    <div class="sub">Henry Stanford &mdash; Chapter Advisor</div>
+    <div class="btn-row">
+      <a class="btn" href="index.html">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Muskingum University Hub
+      </a>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="stats-row"><div class="stat-tile"><div class="lbl">Role</div><div class="val">Chapter Advisor</div></div><div class="stat-tile"><div class="lbl">Product Council Interest</div><div class="val">Very interested</div></div></div>
+
+  <div class="section">
+    <h2 class="section-title">What Matters Most?</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label">Priority Rankings</div>
+        <ul class="priority-list"><li><span class="medal">🥇</span><span>Develop career-ready skills — Leadership, communication, teamwork, and professional competencies</span></li>
+<li><span class="medal">🥈</span><span>Build professional networks — Peer connections, alumni mentorship, industry relationships</span></li>
+<li><span class="medal">🥉</span><span>Help students discover career direction — Clarity about strengths, interests, and career paths</span></li>
+<li><span class="medal">4️⃣</span><span>Track and prove student outcomes — Data showing student progress, career readiness, employment success</span></li>
+</ul>
+      </div>
+      <div class="card">
+        <div class="card-label">Top Feature Picks by Category</div>
+        <table class="feature-table"><tbody><tr><td>Career Clarity</td><td><span class="feat-pick">Skills gap identification</span><span class="feat-runner">↳ Personalized learning paths</span><span class="feat-runner">↳ Career clarity assessment & career path identification</span></td></tr><tr><td>Leadership & Skills</td><td><span class="feat-pick">Evidence-based curriculum (NACE competencies, etc.)</span><span class="feat-runner">↳ Success Networking Teams (SNTs)</span><span class="feat-runner">↳ Growth mindset & resilience development</span></td></tr><tr><td>Networking & Connection</td><td><span class="feat-pick">Professional association partnerships</span><span class="feat-runner">↳ Geographic proximity meetups</span><span class="feat-runner">↳ Cross-institutional peer matching by major</span></td></tr><tr><td>Outcomes & Data</td><td><span class="feat-pick">Dynamic career readiness score</span><span class="feat-runner">↳ Institutional outcomes reporting</span><span class="feat-runner">↳ Real-time progress dashboards</span></td></tr><tr><td>Engagement & Experience</td><td><span class="feat-pick">Mobile-first modern platform</span><span class="feat-runner">↳ AI-driven personalized nudges</span><span class="feat-runner">↳ Weekly engagement habits</span></td></tr></tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Additional Responses</h2>
+    <div class="card">
+      
+    <div class="oq-row">
+      <div class="oq-label">What’s Working That’s Essential to Keep</div>
+      <div class="oq-answer">SNT</div>
+    </div>
+    <div class="oq-row">
+      <div class="oq-label">Top Concerns</div>
+      <div class="oq-answer">N/A</div>
+    </div>
+    <div class="oq-row">
+      <div class="oq-label">Missing Capability</div>
+      <div class="oq-answer">Based on the selections, I do not see any major gaps.</div>
+    </div>
+    <div class="oq-row">
+      <div class="oq-label">What Would Make Students Use It Weekly?</div>
+      <div class="oq-answer">Communication and overall soft skills development.</div>
+    </div>
+    <div class="oq-row">
+      <div class="oq-label">Data / Reporting Needed to Prove ROI</div>
+      <div class="oq-answer">Data reports that assess NACE career readiness type skill development.</div>
+    </div>
+    <div class="oq-row oq-blank">
+      <div class="oq-label">Other / Additional Comments</div>
+      <div class="oq-answer oq-empty">No response provided</div>
+    </div>
+    <div class="oq-row">
+      <div class="oq-label">Product Council Interest</div>
+      <div class="oq-answer">Very interested</div>
+    </div>
+    </div>
+  </div>
+
+
+
+  <div class="section">
+    <h2 class="section-title">Additional Fields</h2>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <table class="extra-table"><tbody><tr><th>What would students need to see to actively use Society weekly (not just complete it once)?</th><td>Communication and overall soft skills development.</td></tr><tr><th>What data or reporting would you need to prove ROI to your leadership?</th><td>Data reports that assess NACE career readiness type skill development.</td></tr><tr><th>How interested would you be in serving on a Product Council to help shape Society's development? Instructions: Select one</th><td>Very interested</td></tr><tr><th>What's working that is essential to keep for your organization?</th><td>SNT</td></tr></tbody></table>
+    </div>
+  </div>
+
+</main>
+
+<div class="footer">
+  NSLS Society Platform Roadshow &nbsp;&middot;&nbsp; Muskingum University &nbsp;&middot;&nbsp; Henry Stanford<br>
+  Airtable Record: recJPW5dKHUlJQn7U &nbsp;&middot;&nbsp; Generated April 21, 2026
+</div>
+
+</body>
+</html>

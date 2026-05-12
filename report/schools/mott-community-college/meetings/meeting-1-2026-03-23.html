@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mott Community College — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header a.header-pill:hover{color:#C96058;} .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">March 23, 2026</span>
+    </div>
+    <h1>Mott Community College &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Mott Community College Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/share/xvLsZWpPGSmNGa8tE9rbJTWqxqn7yziF" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Mott Community College — Flint, MI</p>
+    <p><strong>School Type:</strong> Community College · Public 2-Year</p>
+    <p><strong>Chapter Status:</strong> Established</p>
+    <p><strong>Chapter Type:</strong> Standard (in-person focused; advisor expressed strong preference against fully online delivery<a href="https://fathom.video/calls/602086664?t=267" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:27</a>)</p>
+    <p><strong>Advisors Present:</strong> Dawn Vanniman (Chapter Advisor); Brielle Jones (CSR, NSLS); Chris Higbee (VP of Product, NSLS); Trina Limpert (Product Operations, NSLS — observer)</p>
+    <p><strong>Notable Context:</strong> Mott is under new leadership — a new president and nearly a full board of trustees turnover.<a href="https://fathom.video/calls/602086664?t=491" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:11</a> Institutional focus is currently on enrollment and workforce development programs<a href="https://fathom.video/calls/602086664?t=539" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:59</a>; retention has not yet been formally prioritized at the administrative level, though Dawn is already tracking and working on it independently.<a href="https://fathom.video/calls/602086664?t=501" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:21</a> Dawn has a long-tenured, deeply personal approach to the chapter — she has tracked student outcomes since 2015 and maintains ongoing contact with alumni via LinkedIn. She was aware of and warmly connected to NSLS leadership (Kevin) predating this meeting.<a href="https://fathom.video/calls/602086664?t=78" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:18</a> Trina Limpert joined as a fly-on-the-wall observer to learn the Society roadshow presentation.<a href="https://fathom.video/calls/602086664?t=0" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 0:00</a></p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Dawn Vanniman</h3>
+    <p><strong>Role:</strong> Chapter Advisor, Mott Community College</p>
+    <p><strong>Background:</strong> Psychology degree. Has been running the NSLS chapter at Mott for many years — tracking student outcomes since at least 2015. Previously took a two-year leave to finish her own degree, during which chapter drop-off rates increased. Reports to the Athletic Director (now AVP). Has a co-advisor named Caitlin. Works with a large and diverse student population including non-traditional students, dual-enrolled students, and a significant nursing cohort.</p>
+    <p><strong>Motivations:</strong> Building personal relationships with members is her primary driver — she explicitly stated this as what she loves most about NSLS and what she never wants to lose<a href="https://fathom.video/calls/602086664?t=256" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:16</a>. She is motivated by student outcomes and retention. She has independently built her own data tracking system to compensate for gaps in NSLS reporting. She wants to use outcomes data to earn stronger institutional support for the chapter. She values achievement recognition (cited the loss of chapter pillars as a meaningful gap) and wants tools that help her make the case to administration.</p>
+    <p><strong>Communication Style:</strong> Direct, candid, and warm. Volunteered critical feedback unprompted (Karen/video content). Comfortable sharing detailed operational specifics. Enthusiastic and conversational — used humor naturally throughout. Asks pointed follow-up questions, including raising the pricing question directly at the end of the meeting.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Very high. Rated enthusiasm 10/10. Already operating above standard chapter advisor expectations — tracking longitudinal alumni data, modifying curriculum, building her own reporting, integrating AI tools (ChatGPT, NotebookLM) into student coaching. Expressed openness to a follow-up meeting and willingness to engage further. Strong Product Council candidate.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>Personal relationships between advisor and members — Dawn called this "the biggest thing" and her favorite part of NSLS.</li>
+    <li>In-person programming — she stated she is "not a fan of 100% online programs" because they prevent relationship building.</li>
+    <li>The SNT structure and SMART goal conversations — she has adapted these to whole-group format and finds peer-to-peer sharing (e.g., a student sharing his time-blocking calendar) especially impactful.</li>
+    <li>The DISC assessment — she has built extended DISC content into Leadership Training Day and wants more depth, not less.</li>
+    <li>The human element of advising — she wants any platform to be an assistant, not a replacement for in-person programming.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Video content (Karen): Dawn and her students find it scripted and inauthentic — "an actress instead of a real person talking."<a href="https://fathom.video/calls/602086664?t=322" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:22</a> Her chapter uses it selectively and supplements heavily with their own curriculum.<a href="https://fathom.video/calls/602086664?t=330" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:30</a></li>
+    <li>Loss of chapter pillars: Dawn valued the pillars as an achievement framework and an administrative reporting tool.<a href="https://fathom.video/calls/602086664?t=436" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:16</a> She misses having a formal recognition system to show how hard the chapter is working — she noted PTK's "five-star chapter" designation as a competitive comparison point.<a href="https://fathom.video/calls/602086664?t=445" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:25</a></li>
+    <li>Advisor-side app access: She can no longer access the chapter leader view on the mobile app. She must use a laptop to check messages, which delays her responsiveness to students.</li>
+    <li>Messaging lag: Students send messages and wait; Dawn would prefer something closer to instant messaging — but does not want to give students her personal phone number. Tried the Band app with mixed results.</li>
+    <li>Completion drop-off: A large portion of students who join do nothing or only complete orientation. She has manually worked to reduce this from ~50% dropout to ~16% before her leave, but it remains a core operational challenge.</li>
+    <li>Manual data work: She digs through SNT reports to extract goal completion data herself. There is no automated report for this.</li>
+    <li>Limited DISC depth: Students and Dawn want more detailed results from the personality assessment — she has had to build supplemental content herself to fill the gap.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>New administration (new president, near-full board turnover) is focused on enrollment growth and workforce development programs.</li>
+    <li>Retention is not yet a stated institutional priority, but Dawn believes it should be and is building a case for it to present to her boss (the AVP, formerly Athletic Director).</li>
+    <li>Workforce development at Mott refers to a separate, non-credit division running trades training, certificate programs, pharmacy tech, and adult re-entry programs — these students are not currently in the NSLS invitation pool.</li>
+    <li>Dual-enrolled and non-traditional students are significant populations at Mott, each with very different needs.</li>
+    <li>Institutional support for the NSLS chapter is currently limited — Dawn described it as "just me doing my job and Caitlin helping me." She believes better outcomes data could change that.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Relationship-First Philosophy at Risk from Digital Drift</h3>
+    <p>Dawn's identity as an advisor is built on deep, personal, longitudinal relationships with students — she is still tracking alumni from 2015 on LinkedIn. She is enthusiastic about Society but drew a clear line: it must augment in-person programming, not replace it. Any feature that reduces human touchpoints risks eroding what she considers the core value of NSLS at Mott.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Data Vacuum — Advisor Is Compensating Manually</h3>
+    <p>Dawn has independently built her own student tracking system because NSLS does not provide the longitudinal outcome data she needs. She tracks enrollment, completion, SNT goals, and alumni career paths herself. She explicitly said having a structured outcomes report would help her make the case to administration for more institutional support and resources. The advisor dashboard and career readiness score resonated immediately and strongly.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Recognition and Achievement Matter for Administrative Advocacy</h3>
+    <p>Dawn cited the removal of the chapter pillars as a meaningful loss — not because she is competitive, but because the pillars gave her a visible, tangible way to show administration what the chapter was achieving. She referenced PTK's "five-star chapter" designation as a benchmark she no longer has an equivalent for. Society's career readiness score and outcomes reporting were flagged as potential replacements for that advocacy function.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Time Management as the Central Student Struggle</h3>
+    <p>When asked what students need most, Dawn pointed to help organizing their lives and managing their time — not career content or leadership theory. She described students consistently claiming they "don't have time" while actually having significant unstructured hours. She has integrated time-blocking into SNT conversations and found peer-led demonstrations (a student sharing his calendar) more effective than advisor instruction. She described a task-reminder app students used with "cutesy" cartoon animal prompts as highly effective — directly relevant to Society's gamification and notification concepts.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. AI-Savvy Advisor Already Using Tools — High Adoption Potential</h3>
+    <p>Dawn is already actively using AI tools (ChatGPT for content summarization, NotebookLM for converting materials into podcasts and infographics) and coaching students to do the same. She described a specific example of a 47-year-old nursing student who, guided by a younger peer, converted all her assignments into audio podcasts using NotebookLM. Dawn's view: if Society's AI is genuinely useful, students will engage. She is not a skeptic — she is an early practitioner.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">10/10</div>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li><strong>Career Clarity Track:</strong> Dawn said "I would have enjoyed this" and immediately connected it to her students' need to explore career paths more deeply — particularly the nursing example of students not knowing what kind of nurse they want to be.</li>
+    <li><strong>Personality Assessments (DISC, Myers-Briggs, Enneagram, Holland Code, Big Five):</strong> Dawn's reaction was enthusiastic and personal — she referenced her existing DISC programming and called the deeper assessment integration something she has always wanted ("that has always been one of our questions, like why do we not get more information").</li>
+    <li><strong>Advisor Dashboard and Outcomes Data:</strong> Strong and immediate reaction — she described herself as a data person who currently has to track everything manually. Seeing a structured report and career readiness score drove her to say "I'm really excited about this."</li>
+    <li><strong>Career Readiness Score:</strong> Specifically called out as something she could use to show administration that the program has measurable impact — she said "100%" when asked if it could serve that function.</li>
+    <li><strong>Gamification and Notifications:</strong> She had already described a cartoon-animal task reminder app that students loved before the demo — so when Society's gamification and notification concepts were introduced, the connection was immediate and validated.</li>
+    <li><strong>SNT Matching and Tracking:</strong> Her response to automated SNT meeting credit and reporting was "that would be amazing right there" — directly addressing her current manual SNT data burden.</li>
+    <li><strong>AI as a Partner, Not a Replacement:</strong> The framing of AI as a tool that empowers students resonated — she echoed it back organically with her NotebookLM anecdote.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li><strong>Pricing:</strong> Dawn raised the pricing question directly at the end of the meeting — asking whether the added AI capabilities would change what students or the school pay. This was not resolved in the meeting; Chris acknowledged pricing models are still being evaluated (one-time fee, modular, or subscription).</li>
+    <li><strong>In-person programming preservation:</strong> She was clear that Society should not replace in-person sessions — she wants it to extend reach, not substitute for the human elements of her chapter model.</li>
+    <li><strong>MVP / early-stage caution:</strong> Chris proactively noted the platform is an MVP, and Dawn acknowledged it was "a lot" to take in, though her overall reaction remained positive.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Dawn's grief over losing the chapter pillars was unexpected by Chris — he said it was "not really what I expected to hear." She framed it explicitly as an administrative advocacy tool, not a vanity metric.</li>
+    <li>The depth of her existing DIY data infrastructure (tracking students since 2015, annual LinkedIn check-ins across hundreds of alumni) was notable — she has been doing manually what Society would automate.</li>
+    <li>Her existing AI fluency and coaching of students around AI tools (ChatGPT, NotebookLM) positioned her as a potential Society champion rather than a skeptic to be convinced.</li>
+    <li>Workforce development at Mott is a fully separate, non-credit division — NSLS currently has no reach into that population, and those students do not appear in invitation lists.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Career Clarity Track</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Dawn said "I would have enjoyed this" and immediately connected it to her students' career exploration needs. Used nursing specialization as a concrete example of the gap it would fill.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessments (DISC, Myers-Briggs, Enneagram, Holland Code, Big Five)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Reacted with "stop, you're talking dirty to me" — described it as her jam. Has been supplementing DISC with her own content because current depth is insufficient. Wants much more detailed results.</td>
+      </tr>
+      <tr>
+        <td>Advisor Dashboard / Outcomes Reporting</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Self-described data person who currently tracks everything manually. Said having a structured report would be "amazing." Sees it as a tool to earn institutional support and funding.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Said "100%" when asked if it could serve as an administrative advocacy touchpoint. Directly addresses her ongoing challenge of proving NSLS program value to administration.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching and Automated Meeting Tracking / Reporting</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>"That would be amazing right there." Currently reads 84+ SNT reports manually per semester to extract goal data. Automated credit confirmation and reporting would directly reduce this burden.</td>
+      </tr>
+      <tr>
+        <td>Gamification and Progress Tracking</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>She had already described a cartoon-animal task-reminder app students loved before the demo, validating this concept organically. She connected it to student engagement and time management.</td>
+      </tr>
+      <tr>
+        <td>AI Coach (student-facing)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Responded well to the Renee story and the concept of students doing career work on their own time. Said "anything that's going to help them figure out [their path]… they would absolutely do it." Wants it to supplement, not replace, her role.</td>
+      </tr>
+      <tr>
+        <td>In-App Messaging / Instant Communication</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Raised this unprompted. Wants something closer to instant messaging within the platform so she can be responsive without giving students her personal number. Cannot currently access chapter leader view on mobile app.</td>
+      </tr>
+      <tr>
+        <td>AI Coach (advisor-facing, pre-meeting prep)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Responded positively to the concept of querying the AI about a student before a meeting. Said it would make her "a much better advisor" by giving her access to more information.</td>
+      </tr>
+      <tr>
+        <td>Task Reminders / Notifications</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Explicitly described students responding well to a "cutesy" app with cartoon animal prompts. Endorsed the concept of friendly, personalized nudges — directly maps to the notification features discussed.</td>
+      </tr>
+      <tr>
+        <td>Video Content (Karen / FOL Videos)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Dawn and her students find the current videos scripted and inauthentic. Her chapter uses them selectively and supplements with original programming. Chris confirmed new content is in development. High priority to resolve before broader rollout.</td>
+      </tr>
+      <tr>
+        <td>Pricing / Subscription Model</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Dawn asked directly whether Society's AI features would change pricing. Chris acknowledged this is still being evaluated — options include one-time fee, modular pricing, or subscription. Not resolved in this meeting.</td>
+      </tr>
+      <tr>
+        <td>Chapter Achievement / Recognition Framework (Pillars Replacement)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Dawn explicitly mourned the loss of the pillars as an administrative advocacy tool. Career readiness score and outcomes reports may partially fill this gap, but a formal chapter-level recognition framework has not been announced and was not addressed directly in the demo.</td>
+      </tr>
+      <tr>
+        <td>Mobile App (Advisor / Chapter Leader View)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Dawn noted that the chapter leader view is no longer accessible on the mobile app — she must use a laptop to check messages, which creates delays. This is a current platform regression, not a Society-specific issue, but should be flagged.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Send Dawn a written summary of key themes and feedback captured from this meeting, as promised during the call. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Send Dawn the Society feedback survey that was referenced but not yet completed. <span class="owner-tag">Chris Higbee / Brielle Jones</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Coordinate with Dawn to schedule a follow-up meeting (within approximately one month) for a deeper feature dive specific to Mott and to begin discussing a rollout plan. <span class="owner-tag">Brielle Jones</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Share CSR meeting notes with Chris Higbee to consolidate into the full meeting record. <span class="owner-tag">Brielle Jones</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Formally extend Pilot Partner and Product Council invitation to Dawn Vanniman following the follow-up meeting. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Bring Dawn's pricing question into internal pricing model discussions — she is an engaged, cost-conscious advisor at a Tier 3 school and her reaction to pricing options will matter for this segment. <span class="owner-tag">Chris Higbee / Product Team</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>Will Society's pricing change for schools receiving AI-enhanced features? Dawn asked this directly and it was not resolved. A clear answer is needed before her follow-up meeting.</li>
+    <li>How will the platform handle the chapter leader / advisor mobile experience? Dawn noted the chapter leader view was removed from the mobile app — is this being restored in Society or is web-only the intended model for advisors?</li>
+    <li>Is there a planned replacement for the chapter achievement/pillars recognition framework? Dawn used the pillars to demonstrate chapter performance to administration. The career readiness score may partially fill this gap, but a chapter-level recognition tier has not been announced.</li>
+    <li>What is the timeline for replacing or supplementing the current video content (Karen)? Dawn's chapter already works around it — this is a known friction point across the advisor base and was acknowledged as in progress but with no committed timeline.</li>
+    <li>Could Society's career tools eventually extend to Mott's workforce development population (non-credit, certificate programs)? This population does not currently appear in NSLS invitation lists, but represents a large group of adult learners who could benefit from the Clarity Track.</li>
+    <li>What level of student data will advisors be able to access under FERPA constraints? Chris raised this briefly — the advisor dashboard concept is compelling to Dawn, but the privacy boundary needs to be clearly defined before rollout.</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Mott Community College</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Flint, MI</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Community College · Public 2-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Standard (strong in-person preference; advisor supplements curriculum with original programming)</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>10/10 (self-reported by Dawn Vanniman)</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — expressed openness to early access and follow-up engagement</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>High — meets all qualitative indicators: longitudinal data tracking, curriculum customization, AI fluency, direct feedback on pain points, strong engagement throughout session</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>Manual data tracking and lack of automated reporting; video content authenticity; completion drop-off; loss of chapter achievement framework (pillars); no mobile advisor view; messaging lag with students</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Advisor is already doing manually what Society is designed to automate — longitudinal student tracking, SNT goal extraction, DISC supplementation, AI-assisted coaching. High fit, high urgency, high receptivity.</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Maryanna Laferriere</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Mott Community College &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; March 23, 2026
+</footer>
+
+</body>
+</html>

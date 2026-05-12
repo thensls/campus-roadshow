@@ -1,0 +1,24 @@
+{
+  "meetings": [
+    {
+      "number": 1,
+      "type": "Meeting 1",
+      "date": "2026-04-03",
+      "file": "meeting-1-2026-04-03.html",
+      "score": null,
+      "next_step": ""
+    },
+    {
+      "number": 2,
+      "type": "Meeting 1",
+      "date": "2026-04-03",
+      "file": "meeting-2-2026-04-03.html",
+      "score": null,
+      "next_step": ""
+    }
+  ],
+  "name": "Madison Area Technical College",
+  "slug": "madison-area-technical-college",
+  "tier": 4,
+  "csr": "Gregg Gudelinis"
+}

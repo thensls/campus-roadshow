@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texas A&M University-Corpus Christi — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header a.header-pill:hover{color:#C96058;} .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">April 8, 2026</span>
+    </div>
+    <h1>Texas A&M University-Corpus Christi &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Texas A&M University-Corpus Christi Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/share/DxroLkgjsx5EGn2xDSr2erB23psNJqc3" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Texas A&M University-Corpus Christi (TAMUCC)</p>
+    <p><strong>Location:</strong> Corpus Christi, TX</p>
+    <p><strong>School Type:</strong> Public 4-Year University</p>
+    <p><strong>Chapter Status:</strong> Established — runs cohorts each semester with new and returning members</p>
+    <p><strong>Chapter Type:</strong> Hybrid — primarily in-person programming with a limited online track reserved for fully online students</p>
+    <p><strong>CSR:</strong> Linda Condon</p>
+    <p><strong>Advisors Present:</strong> Lauren Breckenridge (Activity Coordinator, Leadership &amp; Traditions) and Jennifer Randolph (Director-level supervisor overseeing leadership umbrella including NSLS)</p>
+    <p><strong>Notable Context:</strong> TAMUCC was named NSLS Chapter of the Year (2024). Their chapter is widely regarded as a model program — so much so that Texas A&M International reached out to adopt their operational approach. NSLS serves as the primary and foundational leadership program at TAMUCC; the university has built its broader leadership infrastructure around it. The chapter runs multiple in-person orientation sessions, leadership training days, speaker broadcast events, and SNTs per semester. A new AVP joined the university the day prior to this meeting, signaling incoming scrutiny around measurable goals and reporting. The chapter is also navigating active DEI restrictions under Texas state policy, which affects how certain Foundations of Leadership materials are delivered.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Lauren Breckenridge</h3>
+    <p><strong>Role:</strong> Activity Coordinator for Leadership and Traditions, Texas A&M University-Corpus Christi. Directly manages NSLS chapter operations day-to-day, including SNT scheduling, facilitator coordination, roster management, and student communications.</p>
+    <p><strong>Background:</strong> Former NSLS student member at Eastern Washington University; completed full induction as a transfer student at TAMUCC.<a href="https://fathom.video/calls/628777527?t=227" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 3:47</a> Has been involved with NSLS since 2022 and has been a full-time advisor since 2023 (approximately two and a half years).<a href="https://fathom.video/calls/628777527?t=232" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 3:52</a> Currently enrolled in a Higher Education Administration master's program, which she noted shapes how she frames operational and product questions.</p>
+    <p><strong>Motivations:</strong> Driven by reducing manual labor in chapter administration — she built a custom Google Site to replicate the functionality of the deprecated SNT Manager portal. Values intentional use of student data to drive outreach (e.g., targeting students who need resume help with relevant campus resources). Wants students to have one centralized communication hub rather than fragmented channels (GroupMe, email, iEngage, NSLS platform). Motivated by incentive-driven engagement strategies and in-person programming outcomes.</p>
+    <p><strong>Communication Style:</strong> Direct, operationally detailed, and candid. Asks precise follow-up questions about platform mechanics and edge cases. Volunteered to send written follow-up questions framed from her graduate-student analytical lens. Proactively offered to share her Google Site as a reference artifact.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Expressed openness to piloting the platform herself and with the e-board before broader student rollout. Proactively suggested a phased approach. Her graduate background and hands-on operational knowledge make her a strong Product Council candidate.</p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Jennifer Randolph</h3>
+    <p><strong>Role:</strong> Supervises Lauren and oversees the broader leadership umbrella at TAMUCC, of which NSLS is the centerpiece. Has institutional authority over program direction and goal-setting.</p>
+    <p><strong>Background:</strong> Approximately 20 years in the student affairs/higher education field. Has worked with NSLS for several years. Manages relationship with senior university administration and is responsible for demonstrating program outcomes upward.</p>
+    <p><strong>Motivations:</strong> Focused on induction rates as the primary metric of chapter health (currently tracking 45–50%, with 40% as the historical baseline target). Wants tools that produce reportable data she can present to new AVP leadership. Interested in Society as a "passive" resource delivery mechanism — something students can engage with on their own without requiring constant advisor intervention. Values any tool that reduces the operational overhead she and Lauren currently absorb through manual outreach (texts, emails, personal follow-ups).</p>
+    <p><strong>Communication Style:</strong> Measured, strategic, and institution-aware. Raised the DEI compliance concern proactively and without prompting — reflecting institutional risk-consciousness. Asked clarifying questions about advisor-facing dashboards and data visibility. Acknowledged needing time to "digest" before fully committing, signaling a deliberate decision-making style.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Moderate-to-High. Expressed clear intrigue and institutional alignment but wants to evaluate fit before committing. A follow-up meeting in 3–4 weeks was agreed upon. Her seniority and institutional influence make her a valuable Product Council voice, particularly on compliance, reporting, and administrative burden themes.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>Lifetime membership access — cited as a key differentiator from Greek life, giving students ongoing access to leadership development without requiring organizational membership.<a href="https://fathom.video/calls/628777527?t=481" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:01</a></li>
+    <li>The quality and integrity of NSLS content (Foundations of Leadership curriculum) — Jennifer noted that TAMUCC has built its entire leadership program around it and considers the content foundational, not supplemental.<a href="https://fathom.video/calls/628777527?t=518" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:38</a></li>
+    <li>Optional advanced and executive tracks — Lauren personally completed these and values student choice in how deeply they engage.<a href="https://fathom.video/calls/628777527?t=488" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:08</a></li>
+    <li>In-person programming model — multiple orientation sessions, leadership training days, speaker broadcasts, and SNTs are run live on campus each semester and are considered the chapter's core identity.</li>
+    <li>The "Grad Gear" incentive program — a homegrown engagement and reward system tied to community service, socials, and career development event attendance, which functions as a student motivation engine.</li>
+    <li>The SNT facilitator pipeline — facilitators must be inducted members, go through an application/interview process, complete training, and are limited to one or two SNT meetings per semester. This structure is considered a quality control mechanism.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Loss of the SNT facilitator portal — previously provided a structured, automated view of SNT weeks, facilitator assignments, rosters, contact details, and communication links in one place.<a href="https://fathom.video/calls/628777527?t=540" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:00</a> Its removal forced Lauren to manually replicate the functionality via a custom Google Site and shifted significant administrative labor back to advisors and S&T co-coordinators.<a href="https://fathom.video/calls/628777527?t=540" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:00</a></li>
+    <li>Dual email registration confusion — students register with both a school email and personal email, creating downstream problems: some students miss communications because they don't monitor one address; parents sometimes register students using the wrong email; students lose access to their school email post-graduation, threatening the "lifetime membership" benefit. Additionally, students who have already signed up continue to receive "you haven't signed up yet" reminder emails, causing confusion and prompting unnecessary advisor inquiries.</li>
+    <li>Communication fragmentation — the chapter currently uses iEngage, the NSLS platform, GroupMe, and direct email simultaneously, creating notification fatigue and disengagement among students. Lauren explicitly named "one designated spot" as a felt need.</li>
+    <li>Loss of pillar-based goal tracking — the chapter previously used NSLS pillars as internal benchmarks. With pillars removed, there is currently no structured replacement metric system, and the arrival of a new AVP has made this gap more urgent.</li>
+    <li>Manual SNT matching and roster distribution — advisors collect facilitator availability, manually build schedules, place students, export rosters, and communicate individually — a time-intensive process that Lauren has partially automated with a Google Site but which remains largely manual.</li>
+    <li>High advisor workload for induction follow-up — even with multi-channel communication, the team often resorts to personal texts and phone calls to push students across induction requirements, which is unsustainable at scale.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Induction rate — the chapter's primary KPI. Currently tracking 45–50%; the historical floor was 40%.<a href="https://fathom.video/calls/628777527?t=980" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 16:20</a> With a new AVP starting, Jennifer expects increased pressure to demonstrate clear, documented goals and outcomes.</li>
+    <li>Showing program longevity and completion — not just new member enrollment but tracking members from prior semesters who have not yet been inducted and moving them through the program.</li>
+    <li>Career and workforce readiness — the university values career outcomes; TAMUCC's NSLS chapter supports this through its "Grad Gear" program, which awards credit for attending career development events (e.g., financial wellness sessions with the Dean of Students Office). There is an acknowledged gap in formal coordination with the Career and Development Center.</li>
+    <li>DEI compliance under Texas state law — the chapter has already removed certain Foundations of Leadership materials (e.g., the "iceberg" activity) from student packets to comply with state DEI restrictions. Jennifer explicitly flagged concern about AI-generated content potentially surfacing DEI-adjacent material in ways that could create institutional risk.<a href="https://fathom.video/calls/628777527?t=3660" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:01:00</a></li>
+    <li>Reporting upward — with a new AVP in place, producing clear, quantifiable metrics on student engagement and program impact has become a near-term institutional priority.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes &amp; Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Operational Automation Is the Highest-Urgency Need</h3>
+    <p>The single most concrete pain point in this meeting was the loss of the SNT Manager portal. Lauren rebuilt its functionality herself using a Google Site — a clear signal that the workflow had real value and that its absence created sustained friction. The manual processes around facilitator scheduling, student matching, roster distribution, and attendance tracking consume disproportionate advisor time. Any Society feature that automates or streamlines these workflows will have immediate, tangible impact at this school and should be treated as a priority design input.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Communication Consolidation Is a Student Engagement Lever</h3>
+    <p>Lauren named notification fatigue directly — students receive messages across iEngage, NSLS platform, GroupMe, and email and have begun tuning them out.<a href="https://fathom.video/calls/628777527?t=1397" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 23:17</a> She anticipated that Society's centralized communication hub would address this before it was formally introduced, suggesting this is a genuine felt need rather than a product-prompted response. The centralized SNT chat feature in Society was received positively in this context. A single, authoritative channel could meaningfully improve engagement rates without requiring more advisor effort.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. In-Person Programming Must Be Respected and Protected</h3>
+    <p>Lauren raised an immediate and pointed concern when she saw the Foundations of Leadership online flow: students having self-directed access to steps they complete in person (orientation, LTD, speaker broadcasts) would undermine the chapter's in-person model and attendance. This is not a minor preference — it is a core part of how TAMUCC runs its award-winning chapter. The platform must be configurable to selectively enable or disable tracks and features based on each chapter's programming model. This chapter will not adopt Society as a full online replacement; they need it as a complement to, not a substitute for, their live programming.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Data Reportability Is Becoming an Institutional Imperative</h3>
+    <p>With a new AVP starting and the removal of the pillar-based tracking system, TAMUCC is currently without a formal internal benchmark structure. Jennifer's interest in the advisor dashboard was explicitly tied to producing shareable metrics — for the new AVP, for the university, and potentially for external rankings (Jennifer responded positively when career readiness scores were mentioned in the context of U.S. News &amp; World Report). Lauren added a specific use case: using data about students' resume completion status to trigger targeted outreach to campus career workshops. Both advisors are data-forward and would use this reporting capability actively.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. DEI Compliance Is a Real Platform Risk in Texas</h3>
+    <p>Jennifer raised the DEI concern without prompting and with specificity — she named the "iceberg activity" that has already been removed from student materials, and she expressed concern about AI-generated responses surfacing DEI-adjacent content in ways that could be screenshotted and escalated. This is not theoretical risk-aversion; it reflects active institutional compliance behavior. Society's AI guardrails and content moderation capabilities need to be explicitly communicated to Texas-based schools, and the ability for institutions to configure or restrict AI response parameters should be surfaced early in any pilot onboarding conversation.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">7/10</div>
+  <p><em>Lauren self-reported: "Excited — 7, Intrigued — 10." Jennifer aligned with this framing. Both expressed genuine interest but noted they need time to process how Society fits into their existing operational model before committing more fully. The 7 reflects considered enthusiasm from a chapter that already runs a sophisticated, high-performing program and is evaluating fit carefully rather than reacting with uncritical excitement.</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The Clarity Track concept — both advisors responded positively to the idea of a career direction tool as a complement to Foundations of Leadership, particularly as a passive resource students can engage with on their own terms.</li>
+    <li>The Renee story — the example of a non-traditional student who didn't engage with leadership content but spent 70+ minutes in the Clarity Track resonated, reflecting their own experience with students who don't self-identify as leaders.</li>
+    <li>The advisor dashboard / career readiness score — Jennifer immediately identified this as useful for reporting metrics to new AVP leadership. Lauren connected it directly to an operational use case (targeted outreach to students who need resume help).</li>
+    <li>Centralized SNT communication — the idea of a built-in chat tool for SNT teams that advisors can also access was received as a direct answer to Lauren's stated communication fragmentation problem.</li>
+    <li>SNT matching automation concept — both advisors engaged substantively with this feature, offering detailed input about how their current facilitator scheduling and capping process works. The concept of automating that workflow was clearly appealing.</li>
+    <li>AI guardrails — Chris's explanation that the AI can be configured with content restrictions partially addressed Jennifer's DEI concern and was received with some relief.</li>
+    <li>Phased rollout approach — the suggestion to start with just the two advisors and the e-board, rather than an immediate full student deployment, reduced perceived commitment risk and enabled buy-in.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Online FOL access risk — Lauren's concern that students might bypass in-person sessions if FOL steps are available online was the most significant friction point of the meeting. She asked explicitly whether the platform could be configured to give access to some features (SNT matching, career tools) without enabling the full online Foundations flow.</li>
+    <li>Course recommendations (paid vs. free) — Jennifer asked whether courses surfaced by the AI coach would be free or paid and how students would be directed. This reflects both student financial concern and advisor accountability for what is being recommended to members.</li>
+    <li>Advisor data access and student privacy — Jennifer asked what advisors would be allowed to see. The permission-based model (students control their data visibility) was explained, but the concept of students opting out of advisor visibility is a potential operational gap for a chapter that relies on proactive advisor-student touchpoints.</li>
+    <li>Practical fit with existing workload — Jennifer was candid that she and Lauren are already stretched thin and need to evaluate whether this adds to or reduces their load before committing. The "how does this help with the extra 10 hours of work" framing reflects real capacity concern.</li>
+    <li>DEI compliance and AI-generated content — Jennifer's concern about AI responses surfacing content that could be screenshotted and escalated under Texas DEI restrictions was not fully resolved by the meeting's end. This needs dedicated follow-up in the pilot onboarding conversation.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Lauren anticipated the centralized communication hub feature before it was formally introduced, naming "one designated spot for it all" unprompted — a strong signal that this is a genuine, pre-existing need rather than a product-prompted reaction.</li>
+    <li>The chapter has already built a workaround (Google Site) to replace the deprecated SNT Manager — demonstrating both the real value of that lost feature and the advisors' resourcefulness. Chris requested access to the site as a design reference, and Lauren agreed to share it.</li>
+    <li>Jennifer raised DEI compliance as a platform concern without any prompting, and with specific reference to a content element already removed from their FOL materials. This level of institutional compliance awareness was not anticipated and should be flagged as a consideration for all Texas-based school communications.</li>
+    <li>Both advisors framed Society's Clarity Track as a potential Grad Gear incentive mechanism on their own — recognizing it as a tool that fits naturally into their existing engagement reward structure without being prompted to do so.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>SNT Matching &amp; Scheduling Automation</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Both advisors engaged deeply with this feature. Jennifer asked specifically about pre-loading facilitator availability and capping group sizes — directly mirroring their current manual process. Lauren confirmed facilitators can host 1–2 meetings per semester and availability is collected upfront. This feature directly replaces the deprecated SNT Manager portal that Lauren rebuilt as a Google Site workaround. Highest-priority feature for operational impact at this school.</td>
+      </tr>
+      <tr>
+        <td>Centralized SNT Communication / Chat</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Lauren named "one designated spot" as a felt need before this feature was introduced. The ability for advisors to access SNT chats alongside students was specifically welcomed. Directly addresses their multi-platform fragmentation problem (iEngage, GroupMe, email, NSLS platform).</td>
+      </tr>
+      <tr>
+        <td>Advisor Dashboard &amp; Career Readiness Score</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Jennifer immediately identified this as a reporting tool for her new AVP. Lauren added a specific workflow: using resume completion data to trigger targeted outreach to career workshop resources. Both advisors confirmed they would actively use this data. Aggregate progress tracking across semesters and cohorts (not just per-term) was noted as an upgrade over current reporting capabilities.</td>
+      </tr>
+      <tr>
+        <td>Clarity Track (Career Direction)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Well-received conceptually. Jennifer framed it as a "passive" resource delivery mechanism — something students engage with independently. Both advisors noted it fits naturally into their Grad Gear incentive model. Jennifer also identified it as a potential data source for showing student progress to administration. Some uncertainty remains about how it fits into their primarily in-person model and whether it would be used as a standalone add-on or integrated into the induction pathway.</td>
+      </tr>
+      <tr>
+        <td>AI Coach</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>The concept of a guided, non-doing coach was well-received. Jennifer described it as giving students the ability to "dive as deep as they want." Lauren noted it could reduce the volume of personal texts and emails advisors send to keep students on track. DEI guardrail capability partially addressed Jennifer's compliance concern. No hands-on testing occurred; reception is based on demo observation only.</td>
+      </tr>
+      <tr>
+        <td>School-Specific AI Agent (Course Catalog Integration)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Jennifer asked about course recommendations (free vs. paid) before this feature was introduced, and Chris's description of a school-specific agent that learns the TAMUCC course catalog and professor contacts was received positively. Not yet built; flagged as a future roadmap item. High relevance for a school where the Career &amp; Development Center relationship is underdeveloped.</td>
+      </tr>
+      <tr>
+        <td>Configurable Track Access (Selective FOL Enablement)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Lauren raised this concern directly and with urgency: if students can complete FOL steps online, they will not attend in-person sessions. Chris confirmed configurability is planned (e.g., enabling only SNT matching and career tools while keeping FOL offline). This is a non-negotiable requirement for TAMUCC adoption. Must be clearly confirmed and demonstrated before student rollout.</td>
+      </tr>
+      <tr>
+        <td>Student Permission / Data Visibility Controls</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Jennifer asked what advisors can see. The student-controlled permission model was explained, but the possibility of students opting out of advisor visibility was not fully addressed. For a chapter that relies on proactive advisor-student touchpoints and personal outreach as a last resort, a model where students can fully block advisor access may create gaps. Needs further discussion during pilot onboarding.</td>
+      </tr>
+      <tr>
+        <td>Multi-Email / Identity Management</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Lauren described students missing communications because parents registered them with personal emails, and students losing access to school emails post-graduation. Linda confirmed this is a known, cross-school issue. The "you haven't signed up yet" reminder emails reaching already-registered students were flagged as a second related pain point. Chris acknowledged this has been raised by multiple schools. Not a Society-specific feature but a foundational platform hygiene issue that affects lifetime membership value and communication reliability.</td>
+      </tr>
+      <tr>
+        <td>DEI Content Guardrails in AI</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Jennifer raised this proactively, citing Texas DEI restrictions and the chapter's existing practice of removing the "iceberg activity" from FOL materials. She expressed concern about AI-generated content surfacing DEI-adjacent material that could be screenshotted and escalated institutionally. Chris noted guardrails are being built, but this was not fully resolved in the meeting. Requires explicit follow-up and clear documentation of what content parameters are configurable before this chapter engages students with the AI coach.</td>
+      </tr>
+      <tr>
+        <td>SNT Attendance Tracking</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Currently tracked via paper sign-in sheets, with facilitators expected to submit reports before leaving the meeting room. Chris noted the platform can track attendance digitally and optionally access meeting recordings. Received without friction. Fits naturally into their existing facilitator reporting workflow and would reduce manual overhead.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessments (Myers-Briggs, DISC, Holland Code, etc.)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Shown in the demo as part of the Insights/profile-building track. No specific feedback was given by Lauren or Jennifer. Not discussed in depth. Reception is unknown; warrants a follow-up question during pilot access phase.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps &amp; Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Schedule a follow-up meeting approximately 3–4 weeks out to provide Lauren and Jennifer with pilot partner access to Society, walk through what pilot participation entails, and discuss a phased rollout starting with the two advisors and then expanding to the e-board. <span class="owner-tag">Linda Condon</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Obtain access to Lauren's Google Site (shared during the meeting) and review it as a design reference artifact for the SNT scheduling and management feature currently in development. Incorporate relevant workflow logic into product requirements. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Send Lauren and Jennifer the post-meeting survey link (shared in chat during the session) and follow up to confirm completion. <span class="owner-tag">Linda Condon</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Receive and review written follow-up questions from Lauren, who committed to drafting them from her higher education administration graduate student perspective and sending them to both Linda and Chris. <span class="owner-tag">Chris Higbee / Linda Condon</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Prepare a clear, written explanation of Society's DEI content guardrail capabilities and configuration options to share with TAMUCC prior to or during the pilot onboarding meeting. Address Jennifer's specific concern about AI-generated content and Texas DEI compliance risk. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Confirm and document the track-level access configurability (i.e., ability to enable SNT matching and Clarity Track independently of online FOL access) and communicate this clearly to Lauren before any student-facing rollout discussion. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Flag the dual-email / identity management issue (personal vs. school email, post-graduation access loss, duplicate "sign up" reminder emails) as a cross-school platform hygiene issue requiring a dedicated resolution roadmap item. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>Can the Society platform be configured so that TAMUCC students only have access to the SNT matching tool and Clarity Track, while Foundations of Leadership steps remain locked to in-person completion only? Chris confirmed this is the plan, but it has not yet been demonstrated or formally documented for this chapter.</li>
+    <li>What happens when a student opts out of advisor data visibility? For a chapter that relies on proactive personal outreach as a fallback engagement strategy, a full opt-out option could create blind spots. How does the product team plan to balance student privacy with advisor utility?</li>
+    <li>How will the school-specific AI agent (TAMUCC course catalog, professor contacts) be built and maintained? Who at the school is responsible for keeping it current? What is the implementation timeline?</li>
+    <li>Will course recommendations from the AI coach clearly distinguish between free and paid options, and will the platform surface TAMUCC-specific courses before external ones once the school agent is live?</li>
+    <li>How will the replacement for pillar-based goal tracking be structured within Society's reporting dashboard? The new AVP will require clear, documented benchmarks — will Society support custom goal-setting at the chapter level?</li>
+    <li>What are the specific DEI content parameters currently built into the AI guardrails, and how can TAMUCC configure or request modifications to those parameters to comply with Texas state DEI restrictions?</li>
+    <li>Lauren indicated she has detailed questions from her graduate-student analytical perspective that she hasn't yet fully formulated. What product or access needs will those questions surface once submitted?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Texas A&M University-Corpus Christi (TAMUCC)</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Corpus Christi, TX</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Public 4-Year University</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established — multi-cohort, semester-based model</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Hybrid (primarily in-person; limited online track for fully online students only)</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>7/10 (Excited); 10/10 (Intrigued) — per Lauren Breckenridge; Jennifer Randolph aligned</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — agreed to a phased approach: advisors and e-board first, then student rollout pending evaluation. Follow-up meeting to be scheduled in 3–4 weeks.</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>Tentative — intrigued but wants to experience pilot access before committing. Lauren flagged as high-potential candidate given operational depth and graduate-level analytical background.</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>
+          1. Loss of SNT Manager portal → manual administrative burden (highest urgency)<br>
+          2. Communication fragmentation across multiple platforms → student notification fatigue<br>
+          3. Dual-email identity confusion → missed communications and post-graduation membership access issues<br>
+          4. No replacement for pillar-based goal tracking → reporting gap with new AVP arriving<br>
+          5. DEI compliance risk with AI-generated content under Texas state restrictions
+        </td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>TAMUCC runs one of the most operationally sophisticated and high-performing NSLS chapters in the network (2024 Chapter of the Year; 45–50% induction rate; model adopted by peer institutions). Their feedback carries outsized signal value for product development. The SNT scheduling/matching automation feature and configurable track access are must-haves for adoption. The advisors are data-forward and would actively use reporting tools — making them strong candidates for surfacing real-world use cases during the pilot phase.</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Linda Condon</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Texas A&M University-Corpus Christi &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; April 8, 2026
+</footer>
+
+</body>
+</html>

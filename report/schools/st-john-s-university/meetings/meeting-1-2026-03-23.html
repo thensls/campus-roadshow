@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>St. John's University — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header a.header-pill:hover{color:#C96058;} .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">March 23, 2026</span>
+    </div>
+    <h1>St. John's University &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; St. John's University Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/share/Gku8Cjzbjr_Jc92MegLQqVoo3w31ub1s" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> St. John's University — Queens, NY</p>
+    <p><strong>School Type:</strong> Private 4-Year University</p>
+    <p><strong>Chapter Status:</strong> Established — Natalie Maio has been the sole advisor for the NSLS chapter at St. John's for approximately 13–14 years.</p>
+    <p><strong>Chapter Type:</strong> Live Online (hybrid model offered; virtual attendance dominates in practice)</p>
+    <p><strong>Advisors Present:</strong> Natalie Maio (Director-level, Career Services & Leadership Development); Maryanna Laferriere (CSR, NSLS)</p>
+    <p><strong>Notable Context:</strong> St. John's is currently navigating a university-wide strategic reorganization under a new presidential plan. This includes a 5–10% workforce reduction across faculty, staff, and administrators planned for May. Career Services — Natalie's department — is explicitly named in the strategic plan as a priority area tied to student retention, graduation outcomes, and career readiness. The university's data analyst has recently requested 6–7 years of NSLS induction data to analyze the relationship between leadership program participation and student retention. Natalie manually maintains her own tracking data because the existing NSLS dashboard does not reflect full academic-year views. The chapter consistently inducts 300–500 students per year.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Natalie Maio</h3>
+    <p><strong>Role:</strong> Advisor, NSLS Chapter at St. John's University; also serves in Career Services and Leadership Development at the institutional level</p>
+    <p><strong>Background:</strong> Has been at St. John's for 25 years (commuting from Baldwin, Nassau County, Long Island). Has been the sole NSLS chapter advisor since the chapter's founding approximately 13–14 years ago. Runs parallel institutional leadership programs including an Emerging Leadership Program and a Professional Development Program. Uses Handshake as her primary career services data and advising platform. Maintains her own manual tracking systems for NSLS data due to dashboard limitations.</p>
+    <p><strong>Motivations:</strong> Deeply invested in student outcomes — particularly retention, graduation, and post-graduation career readiness. Motivated by data she can actually use and report upward. Values programs that require students to earn their participation (not just GPA-based membership). Wants to reduce administrative burden and manual workarounds. Interested in being able to demonstrate NSLS's impact to university leadership during a period of restructuring. Expressed interest in student program evaluations and feedback loops that currently don't exist or aren't shared with her.</p>
+    <p><strong>Communication Style:</strong> Direct, experienced, and candid. Asks clarifying questions repeatedly until she fully understands. Draws on deep institutional knowledge of student behavior to stress-test ideas. Self-described as someone who "dummies things down" for students and anticipates confusion before it happens. Not averse to expressing skepticism — said "I'm not saying no, but I don't want to give a hard yes just yet." Proactively offers to help and engage further.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Conditional interest — rated enthusiasm at 8/10. Open to piloting once language concerns (specifically around "tracks" and perceived chronological requirements) are addressed and the platform is more refined. Said "let's discuss once you've made some of the updates." High value partner given chapter scale (300–500 inductees/year), 13+ years of tenure, institutional alignment with career outcomes, and her ability to think critically about student UX. Strong Product Council candidate.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>The earned-membership model — students must complete steps to be inducted, not just meet a GPA threshold. Natalie described this as something she "genuinely loved about it in the beginning."<a href="https://fathom.video/calls/604127644?t=358" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:58</a></li>
+    <li>All existing steps toward induction: orientation, Leadership Training Day, SNTs, and speaker broadcast. No issues with the program structure itself.</li>
+    <li>The change that moved the first SNT meeting to the end of Leadership Training Day — Natalie praised this as "a really great change."<a href="https://fathom.video/calls/604127644?t=416" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:56</a></li>
+    <li>The live online chapter format — described as "fantastic" because it accommodates students who are commuting, working, or at internships<a href="https://fathom.video/calls/604127644?t=422" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:02</a> and cannot reliably attend in person.</li>
+    <li>The accredited FOL curriculum — emphasized that the curriculum should not change, only be modernized in delivery.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li><strong>Dashboard shows semester-only data:</strong> The current dashboard only reflects students who registered in the current semester. Natalie has 322 students who completed induction steps this academic year, but the dashboard shows only 30–40.<a href="https://fathom.video/calls/604127644?t=545" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:05</a> She cannot view full academic-year statistics without manual workarounds.</li>
+    <li><strong>Attendance data mismatch:</strong> Dashboard attendance figures only count students who registered in the current semester. Students who joined in prior semesters but still attend events are not counted, causing significant discrepancies between dashboard numbers and Natalie's own records.</li>
+    <li><strong>No year-over-year member progress view:</strong> There is no easy way to see how students from prior cohorts are progressing through the program over time. Pulling member progress requires many manual exports.</li>
+    <li><strong>Email system behaves like Gmail threading:</strong> Deleting a reply in a threaded conversation also deletes the original sent email. Natalie now saves every sent email as a Word document on her computer as a workaround. Notification emails arrive in her St. John's inbox but the original message is often already in trash when she goes to look for it in the dashboard.</li>
+    <li><strong>Leadership Training Day video — end sequence:</strong> The video's transition to SNTs doesn't work for live online chapters. The presenter instructs students to discuss questions, return to breakout rooms, and re-enter — which is not possible with randomly assigned Zoom breakout rooms. Natalie recommended the end of the video simply display discussion questions and transition cleanly into SNT time.</li>
+    <li><strong>No program evaluation data shared with advisor:</strong> Natalie has been the only advisor since the chapter's founding and has never received program evaluation data from NSLS, even if surveys were sent to students. She has no visibility into what students report learning or gaining from the program.</li>
+    <li><strong>Manual data tracking:</strong> Because the platform doesn't support academic-year views, Natalie maintains all her own data externally. She described it as doing "everything manually."</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Student retention is the primary institutional focus under the new strategic plan — leadership and co-curricular program data is being evaluated for its contribution to keeping students enrolled.</li>
+    <li>Career outcomes and graduation rates are central to the university's strategic direction. Career Services is explicitly named in the strategic plan as a priority area.</li>
+    <li>The university's data analyst has requested 6–7 years of NSLS induction records to analyze retention correlations with leadership program participation.</li>
+    <li>The university is undergoing a 5–10% workforce reduction in May; departments must demonstrate their contribution to retention and outcomes to remain funded and staffed.</li>
+    <li>Natalie needs reportable, shareable outcome data she can surface to university leadership — data currently requires significant manual effort to compile.</li>
+    <li>Students predominantly prefer virtual or hybrid engagement. In-person events are offered but attendance is low in practice. Students are often attending programs from their cars, during lunch breaks, or between work commitments.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Outcomes Data Is Now an Institutional Survival Issue</h3>
+    <p>St. John's is in active restructuring. Natalie's department is protected in part because it's tied to outcomes in the strategic plan — but she needs data to prove impact. She is already being asked for years of NSLS induction records to demonstrate retention correlations. The Society admin dashboard and career readiness score landed directly on this need. Natalie explicitly said that if NSLS can provide this data, "I don't have to do anything additional on my end."</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. The Dashboard Doesn't Reflect How Advisors Actually Work</h3>
+    <p>Natalie's single most persistent pain point — raised multiple times — is that the dashboard operates on a semester view while she operates on an academic-year view. She has 322 students who completed induction steps this year, but the dashboard shows a fraction of that. She has compensated by building and maintaining her own external data systems. This is a significant time cost and a trust issue with the platform's data accuracy.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Student Confusion Is a Predictable, Pre-emptable Problem</h3>
+    <p>Natalie raised a detailed, experience-based concern about the "tracks" language in Society — predicting that students will interpret numbered tracks as a sequential requirement, even when told otherwise. She drew on real examples: students who won't register for Leadership Training Day because they haven't done orientation yet, students who email asking if it's a fraud, parents who enroll their kids but never engage. She recommended considering "paths" over "tracks" and noted this concern was not unique to Society — it's a recurring issue with any NSLS communication. This is a high-signal UX and onboarding risk that she said has already come up in other roadshow conversations.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Virtual-First Is the Reality, Not a Compromise</h3>
+    <p>Natalie was clear that while students say they want in-person options, actual attendance data tells a different story. Students attend programs from their cars, on lunch breaks at internships, and between classes. The live online chapter format has been essential to maintaining participation. Any platform changes need to reinforce — not undercut — that flexibility. She also noted that this generation of students ("COVID students") has normalized remote engagement in ways that are unlikely to reverse.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Advisors Need Feedback Loops That Currently Don't Exist</h3>
+    <p>Natalie has never received student program evaluation data from NSLS despite being the sole advisor for 13+ years. She runs her own evaluations for institutional programs and explicitly described how that data helps her connect students to additional resources. She requested a structured, timely end-of-program evaluation — sent in April, not June — and suggested a cohesive report be shared with advisors. She framed this both as a program improvement tool and a way to generate outcome narratives she can use internally at St. John's.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">8/10</div>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The career readiness score concept resonated immediately — Natalie connected it directly to the outcome reporting she is already being asked to provide to university administration.</li>
+    <li>The new administrator dashboard with year-over-year filtering addressed her most chronic pain point. She said having access to that data would mean "I don't have to do anything additional on my end."</li>
+    <li>The AI-powered career clarity track was understood and appreciated, particularly the framing of AI as a thought partner that helps students rather than replaces their own thinking.</li>
+    <li>SNT matching within the platform — the concept of students entering availability during Leadership Training Day and being matched in real time — landed well. Natalie immediately understood how it would eliminate the breakout room drop-off problem.</li>
+    <li>The comparison to Handshake was made by Natalie herself, suggesting she sees Society's advisor dashboard as a natural fit with tools she already uses and values.</li>
+    <li>The confirmation that FOL curriculum would not change — only the delivery and platform — was important reassurance for her.</li>
+    <li>Hearing that membership pricing would not increase (and might even be reduced with new models) was a meaningful detail she probed for.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li><strong>"Tracks" language:</strong> Natalie raised this concern twice and at length. She predicted students would read numbered tracks as a sequential requirement and generate significant advisor support burden. She suggested "paths" as a stronger alternative and offered a reframe: Insights and Foundations should arguably be positioned as step one and two given that FOL is the actual requirement, with Clarity and Connections framed as membership benefits rather than program steps.</li>
+    <li><strong>What is required vs. optional:</strong> Natalie asked multiple times — in different framings — whether the Society tracks are required for induction or additional resources. The answer (only FOL is required; everything else is supplemental) was eventually clear, but the repetition of the question signals the distinction needs to be more immediately visible in the platform and onboarding communications.</li>
+    <li><strong>Incentive structure for optional content:</strong> Natalie raised the question of what would motivate students to engage with Clarity and Connections if they aren't required. She suggested certificates, credentials, or explicit framing as "NSLS membership benefits" could help drive engagement. She noted that NSLS already offers job banks and career coaching that many students don't use.</li>
+    <li><strong>Whether Insights should be required:</strong> Natalie proposed that requiring the Insights profile at registration (since it gathers personal information similar to what registration already collects) would guarantee a baseline data set and remove the ambiguity of whether students need to "complete" it before starting FOL.</li>
+    <li><strong>Workload concern:</strong> Natalie was direct that she does not want to take on a platform that creates more work for her. She said she would not give a hard yes "because I also don't want to create more work for myself."</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Natalie's institutional context — a live restructuring with a 5–10% staff reduction and an active request for NSLS outcome data — was more urgent and specific than typical advisor feedback. Society's outcome reporting features are not just nice-to-have for her; they are directly relevant to her department's position at the university right now.</li>
+    <li>Natalie has never received any NSLS student evaluation data despite being the sole advisor for over 13 years. The absence of this feedback loop — and the fact that it has apparently not been surfaced before — is a significant gap with a long-tenured, high-performing partner school.</li>
+    <li>Natalie spontaneously reframed Society's track structure as an extension of existing NSLS membership benefits (job banks, career coaching, letters of recommendation) rather than a new program layer — a positioning angle the product team may not have articulated in that way yet.</li>
+    <li>Chris Higbee noted this was not the first time the concern about "tracks" implying sequential order had come up — validating Natalie's feedback as a cross-school signal.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Admin Dashboard — Academic Year / Year-Over-Year Filtering</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Natalie's most persistent pain point. She currently builds all year-over-year tracking manually. Confirmed this would directly reduce her administrative burden and provide the reporting her university now requires. Maryanna reinforced that this addresses a known cross-chapter issue with manual data pulls.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Immediately connected to institutional need — Natalie is already being asked to demonstrate how NSLS participation contributes to retention and outcomes. She noted this type of data could support university rankings (U.S. News, Forbes) and internal reporting to administration.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching Within Platform (Availability-Based)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Natalie understood the use case quickly and connected it to the existing practice of starting SNTs at the end of Leadership Training Day. She confirmed this would work for both virtual and in-person training day formats. Addressed the known drop-off between training day and first SNT meeting.</td>
+      </tr>
+      <tr>
+        <td>AI Career Coach (Clarity Track)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Received positively once the distinction between AI-driven vs. human-response-driven outputs was clarified. The framing of AI as "a Natalie in their pocket" — a support tool, not a replacement — resonated. No concerns raised about the AI itself; primary confusion was about whether Clarity was required or supplemental.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessments (Myers-Briggs, DISC, Enneagram, Holland Code, Enneagram)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>No explicit friction. Natalie did not comment directly, but the Insights track's function of gathering personal data for AI personalization was understood and she proposed it could be merged with or made part of the registration flow.</td>
+      </tr>
+      <tr>
+        <td>FOL / Leadership Track in Society (FOL 2.0)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Relief expressed when confirmed the curriculum would not change. Natalie asked directly whether it was different curriculum — reassurance that it is the same accredited content, modernized and broken into smaller video segments, was well received. She had previously flagged that long, uninterruptible videos are a problem for live online chapters.</td>
+      </tr>
+      <tr>
+        <td>Video Content — Shorter Segments / Modular Format</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Natalie had raised the Leadership Training Day video end-sequence issue before and acknowledged the segmented approach would help. Directly addresses her existing complaint about stop-and-start video instructions that don't work with random Zoom breakout rooms.</td>
+      </tr>
+      <tr>
+        <td>In-Platform Video Conferencing for SNTs</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Received without friction. Natalie confirmed the utility of having meeting recordings stored to the system and attendance tracked directly. No concerns raised.</td>
+      </tr>
+      <tr>
+        <td>Advisor AI Agent (School-Specific Knowledge)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Future-state feature — described as an agent that would surface St. John's-specific certificates, contacts, and resources within the coach chat. Natalie did not comment extensively, but the concept of a student-facing coach that knows St. John's resources aligned with her stated goal of connecting students to university offerings after program completion.</td>
+      </tr>
+      <tr>
+        <td>"Tracks" Nomenclature (Insights / Clarity / Leadership / Connections)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Natalie raised this concern twice and at length. She predicted students would interpret numbered tracks as sequential requirements, generating confusion and advisor support burden. She proposed "paths" as a better word and recommended that if tracks are numbered, Insights (1) and Leadership/FOL (2) should be the required sequence, with Clarity (3) and Connections (4) framed explicitly as membership benefits. Chris acknowledged this concern had come up in other roadshow conversations.</td>
+      </tr>
+      <tr>
+        <td>Required vs. Optional Track Distinction</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Natalie asked this question in multiple forms across the demo. The distinction — only FOL is required; everything else is supplemental — eventually landed, but its repetition signals that this needs to be surfaced far earlier in the platform UX and student onboarding communications. She also raised the question of student incentive to engage with optional tracks absent a certificate or credential.</td>
+      </tr>
+      <tr>
+        <td>Student Program Evaluation / End-of-Program Feedback</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Natalie asked whether NSLS conducts end-of-program evaluations and whether that data is shared with advisors. She has never received any such data in 13+ years as sole advisor. Maryanna acknowledged some surveys may have gone out but said they were not sent chapter-wide and she would follow up with leadership. Chris noted this as a future Society use case. No current answer provided.</td>
+      </tr>
+      <tr>
+        <td>Membership Pricing with Society</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Natalie asked directly whether the new platform would increase the student membership fee. Chris indicated pricing is not expected to increase and that new models could potentially reduce cost for certain access tiers. Natalie followed up to confirm students would retain access through graduation. Chris confirmed that is the expectation. No formal pricing structure shared.</td>
+      </tr>
+      <tr>
+        <td>Goal Tracking, Gamification, and Wins</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Shown in the demo but not commented on by Natalie. No explicit reaction captured in the transcript.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Maryanna to investigate whether NSLS currently sends end-of-program student evaluations, when they go out, and whether advisor-level reports are available. Copy Chris Higbee on findings. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Product team to revisit "tracks" language — evaluate "paths" or alternative nomenclature that does not imply sequential completion. Consider how required vs. optional content is surfaced in UX and student-facing communications. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Product team to evaluate merging the Insights profile build with the existing NSLS registration flow, or making Insights completion a requirement at onboarding, as Natalie proposed. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Confirm that the new admin dashboard will include academic-year and year-over-year filtering as a core feature — not a secondary option. Flag for Natalie when available for review. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Once Society language concerns are addressed and the navigation flow is more refined, Chris and Maryanna to schedule a follow-up with Natalie to re-present and formally discuss pilot participation. <span class="owner-tag">Chris Higbee / Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Maryanna to share NSLS-branded Zoom backgrounds with Chris Higbee via Slack (noted at meeting open — minor but logged). <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>Does NSLS currently send end-of-program student evaluations? If so, when are they sent, and why has no advisor-level report ever been shared with Natalie Maio in 13+ years?</li>
+    <li>What is the final pricing model for Society? Will students who paid today's membership fee have full access to all Society tracks through graduation at no additional cost?</li>
+    <li>What is the incentive structure for students to engage with optional tracks (Clarity, Connections) if they are not required for induction? Should certificates, digital credentials, or advancement pathways be tied to completion?</li>
+    <li>Should the Insights profile build be required at registration — guaranteeing a baseline data set and removing perceived ambiguity about sequential track completion?</li>
+    <li>How will Society communicate to students — and advisors — which content is required vs. supplemental, and at what point in the onboarding experience?</li>
+    <li>What is the plan for migrating or integrating existing NSLS data (multi-year member records) into the new Society admin dashboard so advisors like Natalie don't lose historical visibility?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>St. John's University</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Queens, NY</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>University · Private 4-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established (13–14 years)</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Live Online (Hybrid)</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>8/10</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Conditional Yes — open to piloting after platform language and navigation concerns are addressed; requested a follow-up meeting once refinements are made</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>Not formally asked; high potential based on engagement depth, chapter scale, tenure, and product-oriented thinking demonstrated in session</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>1. Dashboard shows semester-only data; no academic-year or year-over-year view · 2. Attendance counts exclude students from prior semesters, causing data discrepancies · 3. Email threading deletes original messages when replies are deleted · 4. No program evaluation data has ever been shared with the chapter advisor · 5. Leadership Training Day video end-sequence doesn't work for live online breakout room format</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>St. John's is in active institutional restructuring with outcomes reporting now an existential priority for Natalie's department. Society's admin dashboard and career readiness score directly address her most urgent need. "Tracks" language is a confirmed cross-school UX risk. Advisor has never received student evaluation data in 13+ years — a significant trust and feedback gap.</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Maryanna Laferriere</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; St. John's University &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; March 23, 2026
+</footer>
+
+</body>
+</html>
