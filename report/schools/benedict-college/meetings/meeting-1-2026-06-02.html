@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benedict College — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">June 2, 2026</span>
+    </div>
+    <h1>Benedict College &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Benedict College Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/694452252" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Benedict College</p>
+    <p><strong>Location:</strong> Columbia, SC</p>
+    <p><strong>School Type:</strong> Private 4-Year HBCU</p>
+    <p><strong>Chapter Status:</strong> Established — low engagement over the past year; advisor had been largely unresponsive until a recent unexpected phone connection led to this meeting.</p>
+    <p><strong>Chapter Type:</strong> Standard</p>
+    <p><strong>Advisors Present:</strong> Nyeem McDaniels (Career Services)</p>
+    <p><strong>Notable Context:</strong> The chapter has been disengaged with NSLS for roughly the past year. Nyeem is actively reinventing career services offerings ahead of a new department head transition. He is also currently pursuing a doctoral degree. He expressed strong personal investment in data-driven career readiness and "off-campus ready" student outcomes. Student cost concerns were flagged by the CSR as a known barrier prior to the call. Faculty buy-in was raised by Nyeem as a key lever for student engagement. The meeting moved quickly from discovery to a confirmed pilot partner commitment.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+  <div class="advisor-card">
+    <h3>Nyeem McDaniels</h3>
+    <p><strong>Role:</strong> Career Services Advisor, Benedict College</p>
+    <p><strong>Background:</strong> Undergraduate degree in social science. Currently pursuing a doctoral degree. Has hands-on experience in career services, service learning, and experiential learning. Works closely with faculty to drive student engagement. Familiar with tools including Handshake, FDS, and Canvas (confirmed LMS). Has been at Benedict long enough to recognize systemic gaps in career readiness infrastructure.</p>
+    <p><strong>Motivations:</strong> Nyeem is in an active reinvention phase ahead of a new department head. He is focused on building measurable, data-driven career readiness outcomes — what he called helping students become "off-campus ready." He wants to show students, faculty, and administration tangible proof that career development activities lead to real outcomes. He emphasized that students need to see that someone has "done it and it worked" before they will commit. He also wants to free himself from administrative task overload so he can focus on higher-impact human interactions.</p>
+    <p><strong>Communication Style:</strong> Direct, reflective, and candid. Uses vivid framing ("the middle meat," "off-campus ready," "the career you want, not the career you fell into"). Comfortable with silence and considered in his responses. Gave raw, unfiltered feedback when asked. Dropped from the call briefly due to connection issues but re-engaged immediately.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Confirmed pilot partner — verbally committed on the call with a 10/10 enthusiasm score. Strong Product Council candidate given his reinvention mindset, doctoral rigor around data, faculty relationships, and clear articulation of student and institutional needs. CSR and VP of Product both flagged his alignment as a strong fit.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>The inclusive scope of NSLS — leadership development that applies to all student cohorts, not just those already in leadership roles. Nyeem specifically said leadership development should be "cohesive with all cohorts, all populations."</li>
+    <li>The individual accountability embedded in NSLS — the idea that each student must do their own work to cultivate leadership.</li>
+    <li>The credibility and national recognition of the NSLS brand, which he sees as an asset in building student and faculty trust.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Students perceive NSLS invitation emails as spam or scam communications — Nyeem named this as his top current challenge: "Getting people to understand what NSLS is and that it's not the average scam email."</li>
+    <li>Low student buy-in and difficulty getting students to understand what NSLS offers and how it benefits them.</li>
+    <li>Students lack focus on "the middle meat" — they know a goal but cannot sustain the effort to work through the steps required to reach it.</li>
+    <li>Students default to judging opportunities at face value (e.g., rejecting a job at an agency because of the agency's name) rather than exploring the full scope of opportunity inside an organization.</li>
+    <li>Career readiness data is fragmented across Handshake, FDS, and manual surveys — no unified view.</li>
+    <li>Post-graduation outcome tracking is largely absent or inconsistent.</li>
+    <li>Students arrive without a real plan — "there's an idea of what to do, but there's no real plan."</li>
+    <li>Chapter had been disengaged from NSLS for roughly a year — low advisor responsiveness noted by the CSR prior to the meeting.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Moving toward a data-driven approach to student development — Nyeem specifically cited graduation rates, internship tracking, and post-graduation workforce outcomes as key data needs.</li>
+    <li>Building and demonstrating student "off-campus readiness" — internships, networking, interviewing, professional brand-building.</li>
+    <li>Reinventing career services ahead of a new department head transition.</li>
+    <li>Securing faculty buy-in as a multiplier for student engagement — Nyeem described faculty as essential validators: "students will do a lot of what they should do when they know that the person telling them has skin in the game too."</li>
+    <li>Providing students with proof that career development works — alumni and mentor validation seen as critical motivators given current student skepticism about career outcomes.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Data as the Missing Credibility Layer</h3>
+    <p>Nyeem repeatedly returned to data — not as a reporting convenience, but as the foundation of his ability to persuade students, faculty, and administration. He uses Handshake, FDS, and surveys but aggregates them manually with no unified view. He explicitly wants longitudinal data: post-graduation outcomes, internship-to-employment conversion, and career readiness scores that can be shared with faculty. The Career Readiness Score resonated immediately because it gave him a single, defensible number he could bring to those conversations.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Faculty as the Lever for Student Buy-In</h3>
+    <p>Nyeem described a clear dynamic at Benedict: students engage more when faculty are visibly engaged. He indicated that if he can show faculty what Society does and how it supports their work, they become amplifiers for student adoption. This is a Benedict-specific pattern worth noting for rollout strategy — a faculty-first seeding approach before direct student launch may accelerate adoption.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Students Need the "Middle Meat" — Structured Momentum</h3>
+    <p>Nyeem coined a phrase that the team responded to in real time: students know what they want but lack the structured support to work through the middle of the journey. They get lost between intention and outcome. He described Society's accountability and goal-setting features as "intentional" — a word he used specifically to name what has been missing. The AI coach, SMART goal cards, and SNT accountability loop all address this gap directly.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. NSLS Invitation Perceived as Spam — Trust Gap at the Front Door</h3>
+    <p>Nyeem identified the invitation email as his primary activation barrier — students dismiss it as a scam before they ever engage. This is a known signal across multiple schools, and Chris noted product improvements underway (sender credibility, third-party social proof, improved email targeting). However, Nyeem's framing highlights that this is not just a design problem — it is a trust and brand-awareness problem at HBCUs where students may be especially skeptical of unsolicited credentialing offers.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Alumni Proof Points as Student Motivators</h3>
+    <p>Nyeem explicitly said students need to see that someone else "did it and it worked" before they will commit to a career path. He connected this to NSLS's 2 million alumni network as an underutilized asset. The Connections track's planned mentoring capabilities with NSLS alumni were received as a direct response to this need. This also points to the importance of surfacing peer and alumni success stories within the Society platform experience itself.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+  <div class="enthusiasm-score">10/10</div>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The Clarity Track — Nyeem immediately understood its value for students who arrive without a career plan. The Renee story (68-year-old student spending over an hour engaged) resonated as proof that even disengaged members can be re-activated through career-focused content.</li>
+    <li>The Career Readiness Score — described as a "big box check." Nyeem connected it directly to his goal of showing measurable student progress to faculty and administration.</li>
+    <li>AI coach as a force multiplier — the framing of the coach as "Nyeem in everyone's pocket" that frees him to do higher-value human work landed clearly. He confirmed the 2,060:1 student-to-counselor ratio resonated.</li>
+    <li>SNT matching automation — Nyeem currently tags SNTs onto existing campus events. The idea of automated matching within the platform was seen as solving a real drop-off point he already experiences.</li>
+    <li>SMART goal cards and accountability engine — aligned with his description of students needing structure through "the middle meat" of their journey.</li>
+    <li>Personality assessments (Myers-Briggs, DISC, Holland Code, Enneagram, Big Five) generated from Clarity Track responses — seen as immediately useful for career advising conversations.</li>
+    <li>Post-graduation outcome tracking via planned Handshake and LinkedIn integrations — directly addressed his stated need for longitudinal data.</li>
+    <li>Alumni mentoring through Connections track — addressed his point that students need proof others have succeeded before they will commit.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>No explicit objections were raised. Nyeem asked no clarifying questions about pricing, implementation timeline, or technical requirements during the session — notable given the school's history of low engagement and cost sensitivity flagged by the CSR pre-call.</li>
+    <li>School-specific AI training (agent that knows Benedict's course catalog, staff, etc.) was described as "about to change" but not yet available — Nyeem was not visibly concerned, but this is a gap between what was shown and what is live.</li>
+    <li>The design system (Paper) was noted as pre-build — Nyeem was shown wireframes/designs, not fully functional features, for the accountability engine and SNT matching. This was disclosed but not pressed on.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Nyeem gave a 10/10 and verbally committed to the pilot on the first call — unusually fast given the chapter's prior disengagement and the CSR's difficulty reaching him for months.</li>
+    <li>Nyeem immediately began mentally planning faculty outreach during the demo: "I'm already peering in my head, okay, what faculty are about to be annoyed by Nyeem this summer." This level of activation was spontaneous and unprompted.</li>
+    <li>His framing of student skepticism — "it doesn't seem like to them, based off what they're seeing around them, that this means anything" — surfaced a deeper motivational barrier rooted in current events and social context, not just career services process. This is a meaningful signal about the emotional job Society needs to do for HBCU students specifically.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Clarity Track (Career Direction)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Nyeem connected this immediately to the core gap he experiences — students arrive without a plan. The Renee story made the use case concrete. He sees it as a carrot to drive NSLS induction completion.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Called a "big box check." Nyeem explicitly wants a single measurable to show faculty and admin. His social science background makes him attuned to the value of quantifiable outcomes. High institutional stickiness potential.</td>
+      </tr>
+      <tr>
+        <td>AI Coach (Guardrailed)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>The framing of the coach as an always-available advisor — "Nyeem in everyone's pocket" — resonated strongly. The distinction between Society's guardrailed coach and general-purpose LLMs was noted positively. He confirmed the 2,060:1 ratio stat landed.</td>
+      </tr>
+      <tr>
+        <td>SMART Goal Cards / Accountability Engine</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Directly addressed what Nyeem called the "middle meat" problem — students who know their goal but lose focus before achieving it. He used the word "intentional" to describe this feature set, which the product team flagged as core to their design intent.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching Automation</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Currently Nyeem piggybacks SNTs onto existing campus events. Automated matching by availability (and future: major/strengths) was seen as a real improvement. He confirmed drop-off around SNT formation is a known problem.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessments (Myers-Briggs, DISC, Enneagram, Holland Code, Big Five)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Nyeem confirmed familiarity with StrengthsFinders and Myers-Briggs. Generating these from Clarity Track responses rather than requiring separate assessments was received positively, though no explicit comment on implementation was made.</td>
+      </tr>
+      <tr>
+        <td>Alumni Mentoring via Connections Track</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Nyeem stated students need proof that career paths work before they commit. NSLS's 2M alumni network was framed as directly addressing this. The nurse-to-nurse mentor example was used by Chris and not pushed back on. Feature is still in development.</td>
+      </tr>
+      <tr>
+        <td>Post-Graduation Outcome Tracking (Handshake / LinkedIn Integrations)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Nyeem explicitly asked about longitudinal data — outcomes after graduation — as a key data need. The planned integrations were described but not yet live. He accepted this as a roadmap item without friction.</td>
+      </tr>
+      <tr>
+        <td>School-Specific AI Agent (Course Catalog, Staff Directory)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Described as "about to change" but not yet built. Nyeem did not probe the timeline. Given Benedict's context — a smaller HBCU with a reinvention agenda — the relevance of a school-trained agent is high, but the gap between current state and this capability was not fully addressed.</td>
+      </tr>
+      <tr>
+        <td>Invitation Email / Onboarding Trust Signals</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Nyeem named this as his number-one problem — students perceive NSLS invitations as scam emails. Chris noted improvements are underway (sender address, third-party credibility markers like U.S. News & World Report). This remains an unresolved activation barrier that precedes any platform feature. Particularly acute at HBCUs where student skepticism about unsolicited credentialing offers may be elevated.</td>
+      </tr>
+      <tr>
+        <td>Foundations of Leadership 2.0 (Modular Video)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Chris proactively acknowledged the current video content is dated and long. Nyeem did not push back or add criticism — suggesting this is a known issue he has already accepted. The modular, shorter-format direction was received without objection.</td>
+      </tr>
+      <tr>
+        <td>Advisor Dashboard (Longitudinal Cohort Data)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Nyeem's data-driven reinvention agenda makes this highly relevant. The ability to see cohort progress over time — not just current semester — directly addresses his need to tell a cumulative story to faculty and administration. Shown as a design/in-development screen; not yet live.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Schedule pilot kickoff meeting for the following week (Tuesday or Wednesday preferred; Thursday and Friday unavailable for Chris). Dejeahn to place on calendar before end of current call. <span class="owner-tag">Dejeahn Brown</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Send Nyeem post-meeting survey to capture structured discovery data (apples-to-apples with other roadshow schools). <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Send Nyeem a written summary report of the meeting and a link to the meeting recording for his review and optional sharing with colleagues. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Provide Nyeem with access to society.org for personal exploration and bug/feedback reporting ahead of pilot kickoff. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>At pilot kickoff: align on phased rollout plan — Nyeem personal use → trusted faculty cohort → trusted student cohort → full fall launch. Confirm Benedict's inclusion as one of approximately 30 pilot schools. <span class="owner-tag">Chris Higbee / Dejeahn Brown</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Prepare any materials Nyeem may need to share Society with faculty or administration at Benedict. Nyeem indicated he plans to begin faculty outreach this summer. <span class="owner-tag">Dejeahn Brown</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Flag Nyeem McDaniels as a Product Council candidate for follow-up after initial pilot engagement is established. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">8</div>
+      <div>Capture Nyeem's quote — "I don't know where I need to start if I don't know where you're at or not at for that matter" — as a potential proof point or marketing asset with his permission. <span class="owner-tag">Chris Higbee / Dejeahn Brown</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>Student cost sensitivity was flagged by the CSR as a known barrier at Benedict — this was not addressed in the meeting. How does the pilot partner free-access model interact with existing membership fee concerns for Benedict students?</li>
+    <li>What is the realistic timeline for the school-specific AI agent (Benedict course catalog, staff directory) to be available? Nyeem's rollout planning may depend on this capability.</li>
+    <li>Nyeem mentioned a new department head is coming. What is that transition timeline and how might it affect pilot continuity or institutional buy-in?</li>
+    <li>The invitation email / spam perception problem was acknowledged but not resolved in this meeting. What specific product changes are planned, and when will Nyeem see them reflected in his student invitations?</li>
+    <li>Nyeem described students' skepticism about career readiness being tied to broader social context ("based on what they're seeing around them"). Is there HBCU-specific messaging or framing being developed for Society's student-facing content?</li>
+    <li>Will Benedict's pilot access include the Advisor Dashboard in its current design/development state, or only the student-facing features that are live?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Benedict College</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Columbia, SC</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Private 4-Year (HBCU)</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established — low engagement for approximately one year prior to this meeting</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Standard</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>10/10 (self-reported by Nyeem McDaniels on the call)</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — verbally confirmed on the call</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>Strong candidate — flagged by Chris Higbee; to be revisited after pilot engagement is established</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>NSLS invitation perceived as spam by students; lack of unified career readiness data; students lacking structured plans and mid-journey focus; faculty buy-in required before student adoption; student skepticism about career outcomes rooted in broader social context</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Nyeem is in active reinvention mode ahead of a department head transition and is building toward data-driven, measurable career readiness outcomes. Society's Career Readiness Score, AI coach, Clarity Track, and longitudinal data capabilities map directly to his stated institutional and personal goals. He spontaneously began planning faculty outreach during the demo — an unusually high activation signal for a previously disengaged chapter.</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Dejeahn Brown</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Benedict College &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; June 2, 2026
+</footer>
+
+</body>
+</html>

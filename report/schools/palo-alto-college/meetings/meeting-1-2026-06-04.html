@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palo Alto College — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">June 4, 2026</span>
+    </div>
+    <h1>Palo Alto College &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Palo Alto College Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/697070737" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Palo Alto College</p>
+    <p><strong>Location:</strong> San Antonio, TX</p>
+    <p><strong>School Type:</strong> Public 2-Year Community College — part of the Alamo Colleges District, a multi-campus system where each college operates its own independent NSLS chapter.</p>
+    <p><strong>Chapter Status:</strong> Established. The chapter is active, with an advisor who has been working within the program and communicating regularly with the CSR.</p>
+    <p><strong>Chapter Type:</strong> Standard (no hybrid or fully online designation indicated).</p>
+    <p><strong>Advisors Present:</strong> Morgan Sanchez (primary advisor, Palo Alto College). Morgan was present but experienced audio difficulties early in the meeting and did not formally introduce herself during the introductions round. Her background was summarized by Maryanna Laferriere, who noted Morgan works in the aquatics department and serves as the main advisor for the Palo Alto chapter.<a href="https://fathom.video/calls/697070737?t=686" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 11:26</a></p>
+    <p><strong>Notable Context:</strong> This meeting was a group roadshow session convening advisors from multiple Alamo Colleges District campuses — Palo Alto College, Northwest Vista College (NVC), Northeast Lakeview College (NLC), St. Philip's College (SPC), and San Antonio College (SAC). Each campus maintains a separate NSLS chapter and would make an independent pilot partnership decision.<a href="https://fathom.video/calls/697070737?t=686" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 11:26</a> Morgan joined the call as Palo Alto's sole representative.<a href="https://fathom.video/calls/697070737?t=639" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 10:39</a> The Alamo Colleges District uses a shared co-curricular activity platform called "Alamo Experience" (formerly Campus Labs, now Engagedly/Engkura Engage) to track student involvement and populate experience transcripts — a key integration consideration Morgan raised directly.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Morgan Sanchez</h3>
+    <p><strong>Role:</strong> Primary NSLS Chapter Advisor, Palo Alto College. Also works in the Aquatics Department at the college (noted by Maryanna Laferriere).</p>
+    <p><strong>Background:</strong> Morgan's professional background was not detailed in the transcript. She was identified by Maryanna as someone who "bops around" with varied campus responsibilities, suggesting a cross-functional role. She was in active communication with Maryanna the day prior to the meeting, discussing NSLS event offerings and student data tracking.<a href="https://fathom.video/calls/697070737?t=125" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 2:05</a></p>
+    <p><strong>Motivations:</strong> Morgan is focused on ensuring that student participation in NSLS and Society-related activities is captured and credited appropriately — not just within NSLS systems, but also in the Alamo Experience platform used district-wide for experience transcripts. She expressed a desire to connect NSLS engagement data to career-readiness infrastructure already on campus, and proactively suggested involving the career team as a stakeholder in the Society pilot.</p>
+    <p><strong>Communication Style:</strong> Direct and practically oriented. Morgan asked pointed, operational questions — specifically about SNT scope (Palo Alto chapter only vs. Alamo-wide)<a href="https://fathom.video/calls/697070737?t=2594" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 43:14</a>, data portability to Alamo Experience, and whether the career team should be looped in. She was one of the more concise contributors in the meeting, focused on real-world implementation rather than general enthusiasm. She gave Society a 10/10 enthusiasm score.<a href="https://fathom.video/calls/697070737?t=778" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 12:58</a></p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Morgan gave a 10/10 enthusiasm rating, was among the first to volunteer feedback on data integration needs, and demonstrated awareness of cross-departmental stakeholders (career services) that could broaden Society's institutional footprint. Her question about Alamo Experience integration signals an intent to embed Society data into existing institutional workflows — a strong indicator of long-term engagement. Strong candidate for Product Council consideration.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>Success Networking Teams (SNTs): Peer-to-peer connection was cited across advisors as a core differentiator. The vulnerability and mutual support dynamic of SNTs was specifically valued — students engage more openly with peers than with advisors alone.<a href="https://fathom.video/calls/697070737?t=804" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 13:24</a></li>
+    <li>The sense of accomplishment and belonging NSLS creates — advisors want students to see membership as a lifelong opportunity and a meaningful stepping stone, not just a one-time credential.</li>
+    <li>The scholarship and financial incentive attached to NSLS membership, cited as an effective recruitment tool.</li>
+    <li>The invitation/GPA threshold model (at least by some advisors): The minimum GPA requirement was defended as a motivator for academic performance and a signal of earned access, though there is tension around this across the group.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>SNT drop-off: Approximately 50% of NSLS fall-off was acknowledged as occurring around the SNT formation and attendance stage<a href="https://fathom.video/calls/697070737?t=2476" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 41:16</a> — getting students matched and then keeping them meeting consistently is a persistent failure point.</li>
+    <li>Student data is siloed: Morgan highlighted that NSLS engagement activity (e.g., LinkedIn creation events, program participation) does not automatically populate the Alamo Experience platform<a href="https://fathom.video/calls/697070737?t=2785" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 46:25</a>, meaning student leaders lose credit for involvement on their institutional experience transcripts.</li>
+    <li>Advisor bandwidth: Multiple advisors noted that NSLS requires significant time they don't fully have. Having an AI coach as an "assistant" was welcomed specifically because advisors feel stretched.</li>
+    <li>Program accessibility and student-centeredness: At NVC specifically (not Palo Alto), new leadership is questioning whether NSLS is sufficiently student-led and open to all students, raising structural tension around induction format and GPA requirements.</li>
+    <li>Long-form video content: Implicit in the reaction to Society's modularity — the existing hour-and-a-half videos are not well-suited to the way advisors run in-person events or how students engage today.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Student engagement and persistence: Across Alamo campuses, institutional leadership is focused on getting students to connect outside the classroom as a driver of retention and academic success.</li>
+    <li>Experience transcript documentation: Palo Alto (via Morgan) is actively working to ensure co-curricular participation is captured in Alamo Experience, tying into district-wide workforce readiness goals.</li>
+    <li>Career readiness infrastructure: Morgan identified the career team as a natural partner for Society and suggested they should be brought into the pilot — signaling that career outcomes are a priority framing at Palo Alto.</li>
+    <li>Cross-campus connectivity: Students in the Alamo system take classes at multiple campuses, making cross-campus SNT matching a relevant and valued capability for the future.</li>
+    <li>Workforce readiness demonstration: Consistent with NSLS's broader framing, there is institutional pressure to show that student programs produce demonstrable career and workforce outcomes, not just leadership development in the abstract.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Data Portability Is a Real Barrier to Institutional Value</h3>
+    <p>Morgan's most substantive contribution was identifying that NSLS engagement data does not flow into Alamo Experience (the district's co-curricular tracking platform, formerly Campus Labs). This means students don't get institutional credit for their NSLS activity on their experience transcripts, and advisors can't use NSLS participation data to tell a story to their own administration. Morgan explicitly connected this gap to Society's new career readiness features, asking whether the career team should be tracking this data too. Integration with Alamo Experience / Engkura Engage is a concrete, named ask from this campus.<a href="https://fathom.video/calls/697070737?t=2785" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 46:25</a></p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Career Services Is an Untapped Institutional Stakeholder</h3>
+    <p>Morgan proactively raised the idea of pulling in Palo Alto's career team<a href="https://fathom.video/calls/697070737?t=2820" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 47:00</a>, noting that Society's career-readiness features (LinkedIn creation events, career clarity track, career readiness scores) overlap directly with what career navigators are responsible for. This is not just a data-sharing suggestion — it reflects an institutional readiness to position Society as a shared tool across student affairs and career services, not just an NSLS chapter add-on. This is a strong signal for a broader departmental footprint at Palo Alto.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. SNT Drop-Off Is the Acknowledged Failure Point — and the Most Resonant Fix</h3>
+    <p>The automated SNT matching feature generated the most immediate and enthusiastic reaction in the meeting.<a href="https://fathom.video/calls/697070737?t=2476" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 41:16</a> The 50% drop-off rate around SNT formation was validated by multiple advisors, and the idea of students matching availability, chatting, meeting, and having transcripts saved in one platform was described as "exactly right" by Miranda (NVC). Morgan seconded the enthusiasm, rating Society a 10/10 immediately after this feature was shown.<a href="https://fathom.video/calls/697070737?t=3385" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 56:25</a> Reducing SNT friction is the clearest near-term product-market fit signal from this group.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. AI Coach as Advisor Relief, Not Replacement</h3>
+    <p>Advisors across the group — including Morgan implicitly through her interest in involving career staff — are time-constrained. The framing of the AI coach as an "advisor in the student's pocket" resonated because it addresses a real workload problem. The school-specific AI agent concept (trained on course catalogs, staff directories, campus resources) was received as particularly practical. Advisors want to spend their limited time on uniquely human interactions, and they welcome a system that handles routine student questions and accountability nudges.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Cross-Campus SNT Expansion Is a Named Future Priority for Alamo</h3>
+    <p>Morgan asked directly whether SNTs would be scoped to Palo Alto's chapter only or expanded to the broader Alamo Colleges system.<a href="https://fathom.video/calls/697070737?t=2386" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 39:46</a> This question was affirmed by another advisor who noted that Alamo students already take classes across multiple campuses and naturally form cross-campus peer relationships. The roadmap commitment to expand SNT matching across campuses — and eventually nationally — was welcomed. This feature has specific structural relevance for multi-campus district systems like Alamo Colleges.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">10/10</div>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>Automated SNT matching: Described as "exactly right" in solving the known drop-off problem. Morgan rated Society a 10/10 immediately following the SNT matching demo, with an endorsement that the group collectively agreed.</li>
+    <li>Career Clarity Track: The AI-powered career direction experience — especially the dream job recommendations, career statement, and SMART goal-setting — was positioned as filling a genuine gap. Morgan connected this directly to the career team's work and asked whether career navigators should be involved.</li>
+    <li>Career Readiness Score on the advisor dashboard: The concept of a student-level career readiness roll-up score visible to advisors resonated with the career services framing Morgan raised.</li>
+    <li>Modular video content: The shift away from long-form videos toward shorter, selectable clips was well-received in the context of in-person event facilitation.</li>
+    <li>AI coach as an "advisor in the student's pocket": The concept of asynchronous, personalized support reducing advisor workload was embraced across the group, including the school-specific agent concept.</li>
+    <li>Pilot partner model: The offer of free access, dedicated onboarding, and direct roadmap input was received positively. Morgan expressed clear readiness to participate.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>SNT scope — Palo Alto chapter only vs. Alamo-wide: Morgan asked this question directly and it was partially answered, with confirmation that cross-campus expansion is on the roadmap but not yet available.</li>
+    <li>Induction gate for Society access: The requirement that students complete induction before unlocking the Clarity Track prompted a clarifying question about the exact sequencing and whether the in-person induction events would use Society components simultaneously.</li>
+    <li>Whether pilot decisions are made individually per campus or collectively as a district: Multiple advisors raised this — the answer (individual chapter decisions) was confirmed, but it introduces coordination complexity for follow-up.</li>
+    <li>Data integration with Alamo Experience: Morgan named this as an open need. No firm commitment or timeline was given beyond "we're looking at systems to integrate with."</li>
+    <li>Whether career services staff can participate in the pilot now or only after career features are further built out: Chris indicated they'd be welcome once more career readiness features are ready, but couldn't confirm a timeline.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Morgan's immediate identification of Alamo Experience (Engkura Engage) as a named integration target — and her framing of the career team as a co-stakeholder — was notably proactive. Most advisors in this session engaged with Society as an NSLS-internal tool; Morgan was the only one who immediately placed it in the broader institutional data and career services ecosystem.</li>
+    <li>Morgan had already been in conversation with Maryanna the prior day about NSLS event data and experience transcripts, meaning she arrived at the meeting with a pre-formed integration question — signaling high prior engagement and a strong institutional use case already in development.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Automated SNT Matching &amp; Scheduling</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Morgan gave a 10/10 immediately after this feature was shown. Directly addresses the acknowledged ~50% drop-off at the SNT stage. The ability for students to enter availability and be matched within the platform — and for meetings to be recorded and transcribed — was called "exactly right" for the problem at hand.</td>
+      </tr>
+      <tr>
+        <td>Cross-Campus SNT Matching (Alamo-Wide)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Morgan asked directly whether SNTs would be scoped to Palo Alto only or could include other Alamo campuses. The concept of broader matching was welcomed, especially given that Alamo students already cross campuses for classes. Currently on roadmap; not yet available.</td>
+      </tr>
+      <tr>
+        <td>Career Clarity Track (AI-Powered Dream Job &amp; Career Statement)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Morgan connected this directly to career services and asked whether career navigators should be involved in tracking this data. The Renee story (non-traditional student finding career direction via the Clarity Track) framed the feature well for the Alamo community college context.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score (Advisor Dashboard)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Morgan's interest in having career data visible and shareable aligns directly with this feature. Her suggestion to involve the career team implies they would want access to this dashboard as well.</td>
+      </tr>
+      <tr>
+        <td>Alamo Experience (Engkura Engage) Integration</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Morgan named Alamo Experience explicitly as the platform where student co-curricular participation must be recorded for experience transcripts. She raised this in the context of a LinkedIn creation event as an example. No integration currently exists. This is a named, specific integration need for Palo Alto and likely the broader Alamo district.</td>
+      </tr>
+      <tr>
+        <td>Career Services Team Involvement in Pilot</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Morgan asked whether the career team should be looped in now given Society's career features. Chris confirmed interest but indicated the timing depends on feature readiness. No specific next step or timeline was established for bringing career navigators into the pilot at Palo Alto.</td>
+      </tr>
+      <tr>
+        <td>AI Coach (In-Session Goal Setting, SMART Goals, Reminders)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Morgan did not comment on this feature specifically, but her 10/10 score was given after the full demo including the coach. The school-specific AI agent concept (trained on course catalogs and campus resources) was noted as broadly valuable for reducing advisor workload — relevant to Morgan's stretched bandwidth as a cross-departmental advisor.</td>
+      </tr>
+      <tr>
+        <td>Induction Gate for Society / Clarity Track Access</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>The sequencing logic — induction required before unlocking Clarity Track — was questioned across the group. For Palo Alto, Morgan did not raise a specific objection, but the group's concern about balancing the gate with motivating students to complete induction is relevant. The "carrot" framing may need to be communicated clearly in onboarding.</td>
+      </tr>
+      <tr>
+        <td>Handshake Integration (Career Data)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Chris mentioned Handshake as a potential integration. Morgan did not respond to this specifically — her named platform was Alamo Experience. Worth confirming whether Palo Alto uses Handshake and whether it would be a relevant data bridge alongside or instead of Alamo Experience.</td>
+      </tr>
+      <tr>
+        <td>Modular Video Content for In-Person Events</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Not commented on directly by Morgan, but the group broadly welcomed the shift from long-form to modular clips. Relevant for how Morgan runs in-person chapter programming at Palo Alto.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Morgan to explore Society platform independently via society.org and document feedback (notes, voice memo, or camera recording while navigating). Target: within one week of meeting. <span class="owner-tag">Morgan Sanchez</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Morgan to complete the post-meeting feedback survey sent by Chris Higbee (approx. 10 minutes). <span class="owner-tag">Morgan Sanchez</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Maryanna to schedule an individual follow-up meeting with Morgan (separate from the group session) to discuss Palo Alto's pilot partnership decision and next steps. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Maryanna to send Morgan a link to the meeting recording and post-meeting report for internal sharing with Palo Alto colleagues as needed. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Chris / Maryanna to follow up on Alamo Experience (Engkura Engage) as a named integration target — confirm whether this is a district-wide system and assess feasibility of data passthrough for student experience transcripts. <span class="owner-tag">Chris Higbee / Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Morgan to consider whether to bring Palo Alto's career services / career navigators team into the pilot conversation, given Society's career readiness features. Chris indicated this is a desired direction once career features are more fully built out. <span class="owner-tag">Morgan Sanchez</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>If Palo Alto moves forward as a pilot partner, identify 2–3 inducted students (or alumni) this summer to provide early hands-on feedback on Society before fall rollout. <span class="owner-tag">Morgan Sanchez / Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">8</div>
+      <div>Chris to send post-meeting report and survey to all attendees, including Morgan. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>Does Palo Alto College use Handshake for career services? Would it be a relevant integration alongside Alamo Experience, or does Alamo Experience serve as the primary co-curricular and career data system for the district?</li>
+    <li>What is the specific timeline for Society's Alamo Experience / Engkura Engage integration, if prioritized? Is there an API or data export available from either side to enable this?</li>
+    <li>At what point in Society's feature development would it be appropriate to formally invite Palo Alto's career navigators into the pilot — and who specifically should Morgan connect with on the career team?</li>
+    <li>Will Palo Alto's pilot decision be made independently by Morgan, or does it require sign-off from another stakeholder at the college (e.g., student life director, dean)?</li>
+    <li>How will cross-campus SNT matching across Alamo Colleges be structured technically — will it require coordination between chapter accounts, or will it be managed centrally at the district level?</li>
+    <li>Is there a mechanism for students who participated in NSLS events (e.g., LinkedIn creation workshop) prior to Society's launch to have that activity retroactively logged in Alamo Experience, or only going forward?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Palo Alto College</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>San Antonio, TX</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Public 2-Year Community College (Alamo Colleges District)</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Standard</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>10/10 (Morgan Sanchez, self-reported; described as a group consensus of "we all said ten")</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>High — Morgan expressed clear readiness; individual campus decision pending internal follow-up with Maryanna</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>High — Morgan's proactive framing of integration needs, career team involvement, and data portability positions her as a strong Product Council candidate</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>1. NSLS engagement data not captured in Alamo Experience (experience transcript gap); 2. SNT formation and attendance drop-off (~50%); 3. Advisor bandwidth constraints; 4. Cross-campus SNT matching not yet available</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Morgan identified Alamo Experience (Engkura Engage) as a named integration target and proactively suggested looping in career services — indicating readiness to embed Society into existing institutional infrastructure beyond the NSLS chapter</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Maryanna Laferriere</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Palo Alto College &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; June 4, 2026
+</footer>
+
+</body>
+</html>

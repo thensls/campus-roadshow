@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Northwest Vista College — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">June 4, 2026</span>
+    </div>
+    <h1>Northwest Vista College &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Northwest Vista College Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/697070737" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Northwest Vista College (NVC)</p>
+    <p><strong>Location:</strong> San Antonio, TX</p>
+    <p><strong>School Type:</strong> Public 2-Year — part of the Alamo Colleges District, alongside NLC, SPC, Palo Alto College, and San Antonio College. Each college operates as its own NSLS chapter within the district system.</p>
+    <p><strong>Chapter Status:</strong> Established</p>
+    <p><strong>Chapter Type:</strong> Standard (in-person with potential hybrid flexibility)</p>
+    <p><strong>Advisors Present:</strong> Elizabeth "Bets" Murray (Senior Coordinator, Office of Student Life) and Miranda Aguilar (Co-Advisor, part-time). A third co-advisor, Jade, was not present but was referenced. Note: this was a multi-school session also attended by advisors from NLC, SPC, and Palo Alto College.</p>
+    <p><strong>Notable Context:</strong> NVC's NSLS chapter currently sits within Student Life and is overseen by two part-time advisors (Bets and Miranda). The chapter is in active transition — institutional leadership has turned over significantly (new president ~3 years ago, new dean ~1 year, new director ~several months), and there is an ongoing, slow-moving effort to shift the NSLS program to the academic side. Bets and Miranda are proactively documenting processes and organizing materials to prepare for a potential handoff to new leadership or a restructured advising model. The campus culture is strongly oriented toward student-centered, student-led programming, which has prompted internal scrutiny of NSLS's induction structure and GPA eligibility requirements. The platform used for co-curricular tracking is called Alamo Experience, formerly Campus Labs (now Engagedly/Engkura Engage per Bets's clarification).</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Elizabeth "Bets" Murray</h3>
+    <p><strong>Role:</strong> Senior Coordinator, Office of Student Life, Northwest Vista College. One of two part-time co-advisors overseeing the NSLS chapter.</p>
+    <p><strong>Background:</strong> Has been at Northwest Vista College for a total of nine years, four of which have been in her current role. The NSLS program at NVC is housed within the Student Life office. She noted that moving the program to the academic side is a goal but described the process as slow<a href="https://fathom.video/calls/697070737?t=465" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:45</a>.</p>
+    <p><strong>Motivations:</strong> Bets is focused on ensuring continuity and preparedness during a period of significant leadership transition on campus. She is motivated by the practical utility of Society — specifically, she immediately identified a potential collaboration with NVC's career experience team and career navigators, seeing Society's career readiness features as a natural bridge between NSLS and those departments. She also asked pointed, implementation-focused questions about how piloting would actually work — whether to start with returning inducted members, new fall inductees, or alumni — demonstrating a strong operational mindset and desire to do this right. She also clarified that Campus Labs has been rebranded to Engkura Engage at the district level<a href="https://fathom.video/calls/697070737?t=2923" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 48:43</a>.</p>
+    <p><strong>Communication Style:</strong> Direct and practical. Asked closing clarifying questions rather than enthusiastic commentary. Self-described as a visual learner who needs to be "in it" to fully evaluate<a href="https://fathom.video/calls/697070737?t=2860" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 47:40</a>. Measured in her excitement score (8–9), framing it as needing hands-on experience before she can fully assess.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Moderate-to-high. Bets expressed genuine interest but noted internal uncertainty around the ongoing program transition. Her operational focus and institutional knowledge make her a strong implementation partner if organizational stability is confirmed. Her ability to connect Society to career services and flag the Alamo Experience integration need makes her a valuable voice for the product council.</p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Miranda Aguilar</h3>
+    <p><strong>Role:</strong> Co-Advisor (part-time), NSLS chapter at Northwest Vista College. Works alongside Bets and Jade (the third co-advisor, not present).</p>
+    <p><strong>Background:</strong> Has been at NVC for approximately three years, starting as an intern before transitioning into the advisor role. She came up through the student side of the organization — paralleling Jade's path<a href="https://fathom.video/calls/697070737?t=663" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 11:03</a> (who started as a work-study, then became president, then advisor). Both Miranda and Jade are currently focused on documenting processes and systematizing operations<a href="https://fathom.video/calls/697070737?t=663" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 11:03</a> in preparation for a potential leadership or structural handoff.</p>
+    <p><strong>Motivations:</strong> Miranda is driven by student engagement and completion. She resonated strongly with the SNT drop-off problem (confirming the ~50% figure from personal experience) and was visibly excited by the automated SNT matching feature. She is motivated by anything that increases student accountability and makes the program feel modern and interactive. She also noted that changes NSLS has already made — such as eliminating the pillars and adjusting the induction fee structure — have already improved advisor incentive alignment, and she sees Society as continuing that trajectory.</p>
+    <p><strong>Communication Style:</strong> Warm, enthusiastic, and candid. Miranda was the first to respond to most questions and was consistently affirming. She volunteered context freely and asked a practical clarifying question about the induction unlock requirement. She gave Society a 9–10 out of 10 and described the platform as making her feel "more inclined"<a href="https://fathom.video/calls/697070737?t=778" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 12:58</a> that students will complete the program.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Miranda is an enthusiastic early adopter and a credible voice for the frontline advisor experience at a commuter, part-time student campus. Her ability to articulate student engagement barriers clearly and her instinct toward the SNT matching feature make her a strong candidate for ongoing feedback loops and product council participation.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li><strong>SNT peer-to-peer engagement:</strong> Miranda specifically called out Success Networking Teams as irreplaceable<a href="https://fathom.video/calls/697070737?t=804" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 13:24</a> — noting that peer-to-peer accountability is more effective than advisor-led engagement, and that the vulnerable, supportive environment of SNTs is a core differentiator of the NSLS experience.</li>
+    <li><strong>Student sense of belonging and accomplishment:</strong> Reflected more broadly in the session (from SPC's Dr. Roberts), but resonant across the Alamo group — the feeling that students have achieved something meaningful and that this is a "lifelong opportunity," not just a checkbox.</li>
+    <li><strong>Advisor-recognized recent improvements:</strong> Miranda explicitly praised NSLS's recent structural changes — eliminating the pillars and reversing the induction fee model<a href="https://fathom.video/calls/697070737?t=1311" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 21:51</a> — crediting them with better incentivizing advisor engagement and student completion. She wants these gains protected and built upon.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li><strong>SNT drop-off:</strong> Miranda directly confirmed the ~50% fall-off figure Chris cited, describing it as the primary engagement barrier<a href="https://fathom.video/calls/697070737?t=2476" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 41:16</a> — getting students to meet again after the initial gathering is a persistent, concrete problem at NVC.</li>
+    <li><strong>Induction structure perceived as non-student-led:</strong> Bets flagged that NVC's new institutional leadership is questioning the NSLS induction process because students don't have a voice<a href="https://fathom.video/calls/697070737?t=1065" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 17:45</a> in how orientation or induction is designed or run. The current campus culture strongly prioritizes student-led programming, and NSLS's top-down structure is drawing scrutiny.</li>
+    <li><strong>GPA and credit eligibility restrictions:</strong> Bets noted that campus leadership questions why NSLS shouldn't be open to all students, citing the GPA requirement<a href="https://fathom.video/calls/697070737?t=1065" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 17:45</a> as a barrier inconsistent with NVC's accessibility-first direction. Miranda echoed this, mentioning credit limits alongside GPA as access friction points<a href="https://fathom.video/calls/697070737?t=1311" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 21:51</a>.</li>
+    <li><strong>Part-time advisor bandwidth:</strong> Both advisors are part-time, managing documentation, transitions, and program delivery simultaneously. Time scarcity is a real constraint on their ability to support students deeply or take on new initiatives without significant platform support.</li>
+    <li><strong>Co-curricular data not captured in Alamo Experience:</strong> Raised in the broader session but directly applicable to NVC — student participation in NSLS events is not automatically reflected in the Alamo Experience platform (the district's co-curricular transcript tool), creating a gap in how student engagement is documented institutionally.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li><strong>Student-centered, student-led programming:</strong> Bets described this as the dominant cultural mandate from NVC's new president, dean, and director<a href="https://fathom.video/calls/697070737?t=1058" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 17:38</a>. Programs need to demonstrate that students have agency and voice, not just participate in advisor-designed structures.</li>
+    <li><strong>Accessibility and inclusivity:</strong> The push to remove or soften GPA and credit-hour requirements aligns with a broader institutional equity agenda — making high-impact practices available to a wider student population.</li>
+    <li><strong>Institutional continuity during transition:</strong> With multiple leadership changes at the dean, president, and director levels, Bets and Miranda are actively working to document processes and prepare the program for a structural handoff<a href="https://fathom.video/calls/697070737?t=663" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 11:03</a>. Stability and clear documentation are near-term operational priorities.</li>
+    <li><strong>Career readiness and workforce outcomes:</strong> Bets's immediate connection of Society's career features to the career experience team and career navigators signals that demonstrating career outcomes is an institutional priority — aligning with the broader Alamo Colleges district emphasis on student success metrics.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. SNT Drop-Off Is a Confirmed, Felt Problem</h3>
+    <p>Miranda explicitly validated the ~50% SNT fall-off rate Chris cited, describing it as a real and recurring obstacle at NVC. Her reaction to the automated SNT matching feature was the most visceral positive response in the session<a href="https://fathom.video/calls/697070737?t=2369" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 39:29</a> — "that's exactly what happens." This is not a hypothetical pain point; it is a known failure mode that Society's matching and scheduling tools directly address. This should be a headline feature in NVC's onboarding narrative.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Student-Led Culture Creates a Structural Tension with NSLS</h3>
+    <p>Bets raised a meaningful institutional friction point: NVC's new leadership culture explicitly values student agency in program design, and the current NSLS induction model does not easily accommodate that. This is not a product problem per se, but it is a positioning and flexibility problem. Society's modularity and student-driven features (AI coach, self-paced tracks, SNT matching) could be framed as a direct response to this critique — but that framing needs to be made explicit in follow-up conversations with Bets and potentially with NVC administrators.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Career Readiness Is an Immediate Cross-Departmental Opportunity</h3>
+    <p>Bets's unprompted identification of the career experience team and career navigators as natural collaborators for Society is a strong signal. She didn't wait to be asked — she saw it immediately. This suggests that at NVC, NSLS has the relationship infrastructure to bridge into career services if Society can provide the right data and tools. The career readiness score, resume review, and dream job features are directly relevant to this opportunity.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Institutional Transition Creates Both Risk and Opportunity for Piloting</h3>
+    <p>NVC is in active leadership transition at multiple levels (president, dean, director), and Bets and Miranda are simultaneously managing program documentation and potential structural handoffs. This creates real uncertainty around the pilot commitment — Miranda acknowledged this directly. However, it also means that Society, if positioned correctly, could be a stabilizing and modernizing force that helps NVC's NSLS program survive and strengthen through the transition rather than lose momentum.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Data Portability to Alamo Experience Is a District-Level Gap</h3>
+    <p>Bets clarified that Campus Labs has been rebranded to Engkura Engage and is the platform used district-wide as "Alamo Experience" for co-curricular transcripts. The inability to push NSLS participation data into that system means student engagement goes undocumented in the institutional record. This is both a product signal (integration priority) and an advocacy gap — without this integration, NSLS's value is invisible in the official student success infrastructure at Alamo Colleges.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">8.5/10</div>
+  <p><em>Miranda scored 9–10; Bets scored 8–9. Average for NVC advisors: approximately 8.5/10.</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li><strong>Automated SNT matching:</strong> Miranda's response was immediate and enthusiastic — "I'm amazed. Really awesome." She confirmed the drop-off problem and directly validated the feature as solving it. This was the highest-energy moment of the session for NVC advisors.</li>
+    <li><strong>Modern, interactive format:</strong> Miranda said Society made her feel like students are "more inclined to finish it since it's more interactive and modernized" — a direct contrast to how she experiences current NSLS delivery.</li>
+    <li><strong>Career readiness features and advisor dashboard:</strong> Bets immediately connected the career readiness score and dream job tools to collaboration with NVC's career experience team and career navigators, without prompting. This was a strong organic signal.</li>
+    <li><strong>AI coach as advisor support:</strong> Miranda described the coach as giving her "a little bit more hope" — framing it as reducing the burden on part-time advisors who can't be present for students at all times.</li>
+    <li><strong>Modularity and flexibility:</strong> Chris's explanation that Society doesn't replace in-person events but enhances them — including the idea of students matching into SNTs live at Leadership Training Day — was received positively and addressed a concern before it was fully voiced.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li><strong>Induction gate on Clarity Track access:</strong> Miranda asked directly whether students must be inducted before unlocking Society. While she accepted the explanation, the question signals that the gate could be a barrier at a campus where induction completion is already a struggle — and where the carrot logic may not resonate for all students.</li>
+    <li><strong>Internal uncertainty around pilot commitment:</strong> Miranda was candid that NVC's organizational instability creates hesitation. She used the word "uncertainty" and stopped short of a full commitment, saying "I'm not sure how certain we can" commit.</li>
+    <li><strong>Bets's visual/hands-on learning preference:</strong> Bets explicitly said she needs to be "in it" to fully evaluate — a demo alone isn't enough for her to assess or advocate internally. This is a flag for the follow-up plan: she needs a hands-on walkthrough, not just a survey.</li>
+    <li><strong>Alamo Experience integration gap:</strong> Bets's clarification that the platform has rebranded (to Engkura Engage) suggests she is familiar with and invested in that system. The absence of an NSLS-to-Alamo Experience data bridge is a real friction point for institutional buy-in at the district level.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Bets immediately named the career experience team as a natural collaborator — an unprompted, cross-departmental connection that suggests NVC may have stronger internal infrastructure for a Society expansion than their part-time advisor setup implies.</li>
+    <li>Miranda's explicit praise for NSLS's recent structural changes (pillar elimination, fee restructuring) as already improving advisor incentive alignment was an unanticipated positive — it signals that NVC advisors are paying close attention to NSLS's evolution and are responsive to it.</li>
+    <li>Bets's clarification that Campus Labs is now Engkura Engage at Alamo Colleges was a useful and specific piece of intelligence that the broader group didn't have, underscoring her institutional knowledge and attention to district-level infrastructure.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Automated SNT Matching & Scheduling</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Miranda confirmed the ~50% SNT drop-off and responded with "I'm amazed. Really awesome." Described it as solving the exact problem — getting students to meet again. Cross-campus SNT expansion (within Alamo and then nationally) also flagged as exciting future capability.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score & Dream Job Tools</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Bets immediately identified collaboration potential with NVC's career experience team and career navigators without prompting. Saw this as a natural bridge between NSLS and career services. Strong institutional fit signal.</td>
+      </tr>
+      <tr>
+        <td>AI Coach ("Advisor in the Student's Pocket")</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Miranda said it gave her "more hope" that students would complete the program. Both advisors are part-time and bandwidth-constrained, making an asynchronous AI support layer directly relevant. No friction raised around AI appropriateness.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessments (Myers-Briggs, DISC, Big Five, etc.)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Not directly commented on by NVC advisors, but the broader group received positively. Relevant to NVC given the student-centered culture emphasis — self-knowledge tools align with the campus's student agency priorities.</td>
+      </tr>
+      <tr>
+        <td>Advisor Dashboard & Student Data Access</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Bets's interest in career team collaboration implies she would use a dashboard that surfaces career readiness data. No specific concerns raised, but Bets noted she needs to be in the system to fully evaluate — dashboard usability not yet assessed firsthand.</td>
+      </tr>
+      <tr>
+        <td>SNT Chat & Meeting Recording / Transcript</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Miranda noted that having everything in one platform — chat, scheduling, meeting — addresses the fragmentation that causes drop-off. No concerns raised. Advisor access to student chat was noted as a feature without pushback.</td>
+      </tr>
+      <tr>
+        <td>Clarity Track as Post-Induction Carrot</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Miranda asked whether induction is required to unlock Society. Accepted the explanation but the question itself signals this gate may create friction at NVC where induction completion is a persistent challenge. Worth monitoring in pilot design.</td>
+      </tr>
+      <tr>
+        <td>Modular Video Content for In-Person Events</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>NVC advisors did not raise this specifically, but Bets's question about in-person vs. digital delivery (echoing Dr. Quintero's concern) suggests modularity is important. Chris's framing — use clips at LTD, use SNT matching live in the room — resonated with the group.</td>
+      </tr>
+      <tr>
+        <td>Alamo Experience (Engkura Engage) Integration</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Bets clarified that the district's co-curricular platform has rebranded to Engkura Engage and is called Alamo Experience locally. Without integration, NSLS participation does not appear on the institutional co-curricular transcript. This is a district-level data gap that limits NSLS's visibility to administrators and students alike.</td>
+      </tr>
+      <tr>
+        <td>Campus-Aware AI Agent (Course Catalog / Staff Directory)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Chris described this as a roadmap item. NVC's part-time advisor structure makes an agent that can answer campus-specific questions (courses, contacts, resources) particularly valuable — reduces the burden on advisors who are not always available.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Bets and Miranda to individually explore Society at society.org, document their experience (via camera, voice memo, or notes), and return feedback within approximately one week. <span class="owner-tag">Bets Murray / Miranda Aguilar</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Complete the 10-minute feedback survey to be distributed by the NSLS product team following the meeting. <span class="owner-tag">Bets Murray / Miranda Aguilar</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Schedule an individual follow-up meeting with Maryanna Laferriere (CSR) within the next one to two weeks to make a final decision on pilot partnership for NVC's chapter specifically. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>If NVC moves toward pilot, identify a small group of currently inducted returning members or alumni to provide early hands-on feedback on Society before the fall rollout. <span class="owner-tag">Bets Murray / Miranda Aguilar</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Explore looping in NVC's career experience team and career navigators as stakeholders for the Society pilot, given Bets's identification of career readiness as a cross-departmental collaboration opportunity. <span class="owner-tag">Bets Murray</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Log Engkura Engage (formerly Campus Labs / Anthology Campus Labs, known locally as Alamo Experience) as a priority integration candidate for co-curricular transcript data sharing across the Alamo Colleges district. <span class="owner-tag">Chris Higbee / Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Send meeting recording link and session summary report to all NVC advisors for internal sharing, including with Jade (co-advisor not present) and any relevant new leadership at NVC. <span class="owner-tag">Maryanna Laferriere / Chris Higbee</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>How does NVC's ongoing leadership transition (new president, dean, director) affect the chapter's capacity to commit to a pilot partnership? Miranda flagged "uncertainty" — what level of institutional sign-off is needed before NVC can formally participate?</li>
+    <li>Should Society be positioned to NVC's new institutional leadership as a student-led, student-centered platform to address the cultural scrutiny of NSLS's induction structure? If so, who is the right person to make that case internally?</li>
+    <li>Is the induction gate on Clarity Track access the right approach for NVC, where induction completion is already a known drop-off point? Should the pilot explore unlocking some features pre-induction as a motivational tool?</li>
+    <li>What is the timeline and scope of the potential handoff of NSLS advising from Student Life to the academic side at NVC? Does this affect pilot planning, and how should Bets and Miranda's documentation work be supported?</li>
+    <li>Can Engkura Engage (Alamo Experience) accept inbound data from a third-party platform like Society via API or file export? Who at the district level manages that integration — is it IT, Student Success, or a specific department?</li>
+    <li>Should NVC's career navigators be brought into a follow-up demo or onboarding session separately, given Bets's identification of them as natural collaborators? What is the right timing and format for that conversation?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Northwest Vista College (NVC)</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>San Antonio, TX</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Public 2-Year — Alamo Colleges District</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Standard</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>8.5/10 (Bets: 8–9; Miranda: 9–10)</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Conditional — Miranda expressed strong enthusiasm; Bets noted internal uncertainty due to ongoing leadership transition. Both open to exploring further via individual follow-up with CSR.</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>Moderate-to-High — Both advisors demonstrated strong feature-level engagement and the ability to articulate specific product signals. Miranda in particular is a strong council candidate based on enthusiasm and frontline insight.</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>SNT drop-off (~50% confirmed); part-time advisor bandwidth constraints; institutional scrutiny of NSLS induction structure; GPA/credit eligibility barriers; co-curricular data not surfaced in Alamo Experience; chapter in transition with unclear advising continuity</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Miranda's immediate, visceral validation of automated SNT matching as solving the chapter's primary engagement failure. Bets's unprompted identification of career services collaboration as a natural use case for Society's career readiness tools.</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Maryanna Laferriere</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Northwest Vista College &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; June 4, 2026
+</footer>
+
+</body>
+</html>

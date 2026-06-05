@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College of Southern Nevada — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">June 3, 2026</span>
+    </div>
+    <h1>College of Southern Nevada &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; College of Southern Nevada Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/695468086" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> College of Southern Nevada (CSN)</p>
+    <p><strong>Location:</strong> Las Vegas, NV</p>
+    <p><strong>School Type:</strong> Public 2-Year Community College</p>
+    <p><strong>Chapter Status:</strong> Established — chapter originally founded approximately one year before COVID, rebuilt post-pandemic<a href="https://fathom.video/calls/695468086?t=92" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:32</a>. Currently operating on a merged structure combining two formerly separate chapters (North Las Vegas campus, in-person; Charleston campus, virtual) into one unified chapter<a href="https://fathom.video/calls/695468086?t=92" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:32</a> serving three main campuses.</p>
+    <p><strong>Chapter Type:</strong> Hybrid — advisors run weekly in-person meetings, weekly virtual meetings, and a self-paced track simultaneously to accommodate a wide student demographic ranging in age from 16 to 60+.</p>
+    <p><strong>Advisors Present:</strong> Jane Neitz (Coordinator for Student Leadership) and Charlene Gibson (Professor and Department Chair, Communication). Two student leaders also attended: Christian Johnson (former chapter president and current student advisor)<a href="https://fathom.video/calls/695468086?t=333" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:33</a> and Jose Nolasco (newly elected chapter president)<a href="https://fathom.video/calls/695468086?t=338" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:38</a>.</p>
+    <p><strong>Notable Context:</strong> CSN is the only community college in Southern Nevada and feeds students to UNLV and Nevada State University<a href="https://fathom.video/calls/695468086?t=513" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:33</a>. The institution is approximately one year into a new presidential administration, actively developing a new strategic plan. Advisors noted a recent contract renewal complication that compressed the spring induction timeline significantly. Jane's supervisor and Charlene's dean are both highly supportive of NSLS<a href="https://fathom.video/calls/695468086?t=413" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:53</a>. CSN is a top Handshake user and wins national awards for Handshake engagement<a href="https://fathom.video/calls/695468086?t=3196" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 53:16</a>. There is active cross-pollination between NSLS, student government, and CSN's in-house student leadership academy<a href="https://fathom.video/calls/695468086?t=428" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:08</a>.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Jane Neitz</h3>
+    <p><strong>Role:</strong> Coordinator for Student Leadership, College of Southern Nevada. Primary NSLS chapter advisor. Also advises student government and runs CSN's in-house student leadership academy.</p>
+    <p><strong>Background:</strong> Has been at CSN for approximately five years and advising the NSLS chapter for approximately four years<a href="https://fathom.video/calls/695468086?t=49" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 0:49</a>. Joined during Charlene Gibson's sabbatical and became primary driver of the chapter rebuild post-COVID<a href="https://fathom.video/calls/695468086?t=49" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 0:49</a>. Led the merger of two separate chapters into one unified chapter across three campuses. Previously helped facilitate a joint student government training event with UNLV and Nevada State University<a href="https://fathom.video/calls/695468086?t=513" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:33</a>.</p>
+    <p><strong>Motivations:</strong> Deeply committed to accessibility and flexible participation modes for non-traditional students. Focused on helping students find belonging regardless of whether they are on campus daily or have never set foot on a CSN campus. Wants NSLS membership to extend beyond CSN into students' full academic careers. Eager to expand NSLS to Nevada State University<a href="https://fathom.video/calls/695468086?t=513" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:33</a>. Enthusiastic about SNT tool improvements and Foundations of Leadership integration in Society.</p>
+    <p><strong>Communication Style:</strong> Direct, detailed, and highly informed. Proactive in surfacing operational pain points. Serves as the primary speaker for the chapter in this meeting; brings specific examples and concrete scenarios to illustrate challenges.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Expressed clear interest in piloting Society, specifically cited Foundations of Leadership and the SNT matching tool as priorities. Rated enthusiasm at 8/10. Operationally, she is the chapter's day-to-day driver and the most likely implementation lead.</p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Charlene Gibson</h3>
+    <p><strong>Role:</strong> Professor, Department of Communication; newly appointed Department Chair. Co-advisor to the NSLS chapter.</p>
+    <p><strong>Background:</strong> Has been involved with the NSLS chapter since before her sabbatical. Currently teaching online due to department chair responsibilities. Strong advocate for in-person learning experiences across classrooms and student organizations. Recently secured dean-level support for NSLS after navigating a contract renewal complication tied to her new administrative role<a href="https://fathom.video/calls/695468086?t=177" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 2:57</a>.</p>
+    <p><strong>Motivations:</strong> Wants students to understand the real-world value of NSLS participation to sustain engagement past the first meeting. Strongly interested in the campus-aware AI agent feature — specifically called out that if Society surfaces CSN courses, advisors, and career services directly in the AI coach response, her buy-in would increase significantly. Raised appropriate concerns about AI use in resume writing relative to employer guidance. Also interested in potential monetary incentives (credits, rebates) for chapter growth tied to Society completion pathways.</p>
+    <p><strong>Communication Style:</strong> Enthusiastic and candid. Willing to flag concerns directly ("not a red flag, but..."). Balances institutional advocacy with practical budget awareness. Defers to Jane on operational detail but contributes meaningfully on pedagogical and strategic dimensions.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Rated enthusiasm at 8/10 with a stated path to 9–9.5 if the campus-aware agent feature is delivered. Engaged throughout the demo and asked probing questions about pricing, structure, and long-term incentives. Would be a strong advocate once the CSN integration feature is live.</p>
+  </div>
+
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>Multiple participation modes: weekly in-person meetings, weekly virtual meetings, and self-paced — essential for serving CSN's wide demographic (ages 16 to 60+).</li>
+    <li>Community building and cohesion, especially the sense of connection students develop through SNTs and shared goal-setting.</li>
+    <li>Access to the full speaker broadcast library, including older archived sessions (e.g., John Maxwell, Barack Obama). Charlene noted it was harder to surface older recordings and wants them easily accessible to students for credit or review.</li>
+    <li>The recognition and credibility of the NSLS brand and induction ceremony as a meaningful milestone for students.</li>
+    <li>The chapter's strong cross-pollination with student government and the in-house student leadership academy.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Technology reliability: BigBlueButton failures, video loading issues, and app-based SNT reports not transmitting to advisors — causing students to fall off pace without realizing it.</li>
+    <li>The seven-day minimum between SNT reports creates a structural bottleneck when the induction timeline is compressed. Approximately 10–12 students nearly missed induction this spring due to this constraint combined with a delayed chapter start.</li>
+    <li>Online and self-paced SNT groups lack the depth of connection seen in in-person SNTs. Attempts to group online students by goal similarity became unmanageable; random grouping reduced connection quality.</li>
+    <li>Self-paced students frequently complete SNTs with close friends or family rather than NSLS peers, diluting the experience.</li>
+    <li>Students who group manually online and get removed from their SNT groups face friction re-entering, which advisors found too cumbersome to resolve consistently.</li>
+    <li>Engagement drop-off between the first and second NSLS meetings — students come in excited but lose momentum, and advisors are unsure at what point perception shifts.</li>
+    <li>Contract renewal delays caused by Charlene's new department chair responsibilities created a compressed spring timeline that nearly derailed the induction cohort.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>A new president is actively reshaping institutional priorities and a new strategic plan is being developed; CSN's co-chair of that process is a close colleague of Charlene's.</li>
+    <li>Addressing the looming enrollment cliff and maintaining competitive edge against UNLV and Nevada State University.</li>
+    <li>Expanding access to career-readiness and vocational pathways, including leveraging new Pell Grant eligibility for vocational programs.</li>
+    <li>Pushing for in-person student engagement across classrooms and organizations — both Charlene and Jane are explicit advocates for this despite transportation and cost barriers in Las Vegas.</li>
+    <li>Expanding CSN's physical footprint: a potential fourth campus (Northwest Las Vegas) is in early planning stages, and Nevada State University is building a second campus near CSN's North Las Vegas location.</li>
+    <li>Positioning NSLS as a web of involvement that follows students from CSN through their transfer and beyond — particularly to UNLV and Nevada State.</li>
+    <li>Nevada's biennial legislature (next session February–June 2027) creates a budget planning cycle that the institution must prepare for now.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Technology Reliability Is a Trust Issue</h3>
+    <p>Jane was direct: "The technology is holding us back." Specific failures — BigBlueButton outages, SNT reports vanishing from the app, video loading problems — have eroded advisor and student confidence in the platform. Any new technology introduced via Society must be demonstrably stable before it can serve as a carrot or engagement driver. Reliability is table stakes.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. SNT Quality Degrades Online and at Scale</h3>
+    <p>The SNT experience is the chapter's highest-value touchpoint in person but its weakest in virtual and self-paced formats. Advisors have tried manual goal-based grouping (too unwieldy), random sorting (less connection), and watched self-paced students default to friends and family. Automated, intelligent SNT matching — with the ability to hold meetings inside the platform, record sessions, and generate transcripts — was the single most enthusiastically received feature shown in the demo.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Campus-Aware AI Is a Buy-In Accelerator</h3>
+    <p>Charlene explicitly stated: "If you get it to the place where CSN comes up as a top thing and is talking about courses at the college, you're definitely going to have a lot of buy-in from me." Both advisors see the AI agent's ability to surface CSN-specific resources — courses, advisors, career services — as the feature most likely to convert Society from a general tool into an indispensable campus resource. This is also the feature most likely to open doors with career services and faculty beyond NSLS.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Pricing Sensitivity Is a Real Barrier — Especially for Community College Students</h3>
+    <p>Christian raised a pointed concern: students are already paying $95 to join NSLS<a href="https://fathom.video/calls/695468086?t=322" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:22</a>, and adding any subscription cost on top risks losing participation. Jane asked probing questions about whether pricing would be bundled into membership or offered as a school-level subscription. Charlene flagged that while free access is welcome now, she needs to understand the long-term cost structure to plan. CSN's student population faces real financial pressure (inflation, high gas prices, commuter demographics), making any incremental cost politically sensitive.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. NSLS as a Transfer-Ready Network — Not Just a Campus Program</h3>
+    <p>Jane articulated a vision for NSLS as a "web of involvement" that follows students from CSN to UNLV to Nevada State and beyond. She is actively pitching NSLS to Nevada State University and coordinates with UNLV's student government. The chapter's strong cross-pollination with student government and leadership academy already demonstrates this network effect. Society's career clarity and professional networking features were seen as tools that could extend NSLS's value proposition across the full student arc, not just the induction window.</p>
+  </div>
+
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">8/10</div>
+  <p><em>All four attendees independently rated Society an 8/10. Charlene stated she would move to a 9–9.5 once the campus-aware agent feature (surfacing CSN courses and advisors) is live. Jose noted the SNT video meeting feature was the most compelling element and that a solid 8 was contingent on that feature being completed.</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The SNT automated matching and in-platform video meeting tool — described by Jose as "very helpful" and cited by Jane as the feature she is most excited about.</li>
+    <li>The Renee story (68-year-old non-traditional student who spent 70 minutes in the Career Clarity Track) resonated immediately given CSN's similarly diverse age range, including a recently graduated chapter president in her 60s.</li>
+    <li>The AI coach's role as a guide rather than a generator — Charlene was visibly reassured when Chris clarified the coach reviews and coaches on resumes rather than writing them, which addressed her concern about employer guidance against AI-written applications.</li>
+    <li>The Career Readiness Score concept — framed as a tool that frees advisors to focus on high-value human interactions by handling baseline coaching through AI.</li>
+    <li>The promise of the campus-aware agent (surfacing CSN-specific courses, staff, and career services) — Charlene called this a clear buy-in trigger.</li>
+    <li>Christian's live public speaking goal-setting exercise using the AI coach made the feature tangible and personally relevant for the student attendees.</li>
+    <li>Society being free for the pilot period was well-received as a low-risk entry point.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Pricing structure post-pilot: Jane asked whether cost would be bundled into membership fees or billed as school subscriptions. Christian raised concern that any add-on cost on top of the $95 membership would reduce student uptake.</li>
+    <li>AI resume writing: Charlene flagged that Google and other major employers have explicitly told students not to use AI to write application materials. She needed reassurance — which Chris provided — that the coach coaches rather than generates.</li>
+    <li>Charlene asked directly whether completing the Clarity Track could ever lead to induction credit, and whether there would be monetary rebates for chapters that drive engagement through Society. Chris confirmed these are under consideration but not yet defined.</li>
+    <li>Handshake integration: Jane noted CSN is a top Handshake user and career services is fully built around it. Lack of current integration is a gap, though Chris confirmed preliminary discussions with Handshake are underway.</li>
+    <li>Christian asked about what additional skills tracks beyond Foundations of Leadership and Clarity would look like — Chris acknowledged these are not yet fully defined.</li>
+    <li>Charlene asked whether Society runs parallel to or sequential with Foundations of Leadership. Chris recommended encouraging students to complete induction first, then access Clarity as a post-induction benefit.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Christian, a student attendee, opened the meeting by saying he had "been waiting so long for this kind of thing to happen with NSLS" — signaling that students themselves have been sensing a gap between NSLS's potential and its current platform experience.</li>
+    <li>Charlene's most direct enthusiasm trigger was not leadership or career clarity broadly, but the specific campus-aware AI agent feature — more so than any other capability shown.</li>
+    <li>Jane volunteered that CSN is actively trying to pitch NSLS to Nevada State University, indicating advisors are already acting as informal NSLS evangelists to neighboring institutions without being asked.</li>
+  </ul>
+
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>SNT Automated Matching &amp; In-Platform Video Meetings</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Most enthusiastically received feature. Jane cited it as her top priority. Jose said it would be "very helpful" and tied his 8/10 rating to its completion. Directly addresses the chapter's biggest operational pain point: online SNT quality degradation and manual grouping failures.</td>
+      </tr>
+      <tr>
+        <td>Campus-Aware AI Agent (surfacing CSN courses, advisors, career services)</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Charlene explicitly called this a buy-in trigger: "I promise you I will get you to a nine or nine point five." Not yet built but demonstrated as in-progress. Highest potential to expand Society's footprint beyond NSLS into broader career services and faculty adoption.</td>
+      </tr>
+      <tr>
+        <td>AI Coach (Career Clarity Track)</td>
+        <td><span class="badge-positive">Positive</span></td>
+        <td>The Renee story landed well. Live demo with Christian's public speaking goal made it tangible. Charlene's concern about AI writing resumes was resolved when Chris clarified the coach reviews and advises rather than generates. Positioning as a guide, not a replacement, is the right framing for this audience.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score (Advisor Dashboard)</td>
+        <td><span class="badge-positive">Positive</span></td>
+        <td>Framed as a tool to help advisors focus their limited time on high-value human interactions. Resonated with Jane given her broad advising portfolio. Still in prototype/Figma stage — advisors understood it as a roadmap item, not current capability.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessments (Myers-Briggs, DISC, Holland Code, etc.) generated from Clarity Track</td>
+        <td><span class="badge-positive">Positive</span></td>
+        <td>No objections raised. Consistent with what both advisors already value in leadership and career development work. Seen as a useful input to personalize coaching further.</td>
+      </tr>
+      <tr>
+        <td>Speaker Broadcast Library Access via Society</td>
+        <td><span class="badge-question">Open Question</span></td>
+        <td>Charlene raised that older archived broadcasts have become harder to find and can no longer be used for credit. She wants the full historical library easily surfaced. Chris said he would look into it. Jane confirmed the recent six-to-seven visible for credit, with older ones requiring deeper navigation. Needs product follow-up to confirm current state and intended behavior.</td>
+      </tr>
+      <tr>
+        <td>Foundations of Leadership in Society Platform (with AI Coach)</td>
+        <td><span class="badge-positive">Positive</span></td>
+        <td>Jane stated this is more important to the chapter than the Clarity Track: "Getting people in and getting them through Foundations of Leadership is really where we put our time and energy." Advisors want Society to improve the Foundations of Leadership experience specifically. Noted as in-progress for the pilot.</td>
+      </tr>
+      <tr>
+        <td>Pricing / Subscription Model</td>
+        <td><span class="badge-care">Needs Care</span></td>
+        <td>Christian raised concern that students paying $95 to join will resist any additional subscription cost. Jane asked whether pricing would be bundled into membership or billed to schools. Charlene flagged budget realism. Chris confirmed pricing is not yet defined and that free access during the pilot is intentional. Must be handled carefully — any add-on cost risks community college adoption.</td>
+      </tr>
+      <tr>
+        <td>Handshake Integration</td>
+        <td><span class="badge-question">Open Question</span></td>
+        <td>Jane flagged CSN as a top national Handshake user — career services requires a Handshake account before any advising appointment. No current integration exists. Chris acknowledged preliminary discussions with Handshake are underway. This is a prerequisite for Society to gain traction with CSN's career services team.</td>
+      </tr>
+      <tr>
+        <td>Clarity Track as Induction Pathway / Credit-Bearing</td>
+        <td><span class="badge-question">Open Question</span></td>
+        <td>Charlene directly asked whether completing Clarity could lead to induction and whether chapters would receive monetary rebates. Chris confirmed both are under consideration but not yet decided. This is a significant incentive question for the chapter's business case.</td>
+      </tr>
+      <tr>
+        <td>SNT Meeting Transcript &amp; Goal Extraction via Coach</td>
+        <td><span class="badge-positive">Positive</span></td>
+        <td>Mentioned by Chris as a feature of the SNT tool — recorded meetings with transcripts students can use to pull action items via the AI coach. No pushback; fits naturally with the chapter's existing emphasis on accountability through SNTs.</td>
+      </tr>
+      <tr>
+        <td>Additional Skills Tracks Beyond Foundations of Leadership and Clarity</td>
+        <td><span class="badge-question">Open Question</span></td>
+        <td>Christian asked what other skill-building tracks would be available and how students would earn them. Chris acknowledged these are not yet fully defined. Christian also asked whether the coach could quiz students on reading goals — Chris confirmed it can infer and quiz on themes even without direct content access.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Schedule a follow-up meeting with CSN advisors to define what a Society pilot implementation and kickoff would look like for the fall semester. <span class="owner-tag">Jakita Cofer</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Send post-meeting survey to all CSN attendees to capture structured feedback across standardized questions for longitudinal analysis. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Send follow-up report to CSN advisors and student leaders including a link to the recorded meeting for review and internal sharing. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Invite Jane Neitz, Charlene Gibson, Christian Johnson, and Jose Nolasco to log in to society.org using their NSLS credentials and begin testing the platform, recording feedback via voice memo, video, or written notes. <span class="owner-tag">Chris Higbee / Jakita Cofer</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Investigate and clarify the current state of the speaker broadcast archive — specifically whether older recordings have been restricted from credit eligibility and whether they are easily discoverable by students. Report findings back to CSN advisors. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Explore potential NSLS chapter expansion to Nevada State University, building on Jane Neitz's existing relationship and outreach. <span class="owner-tag">Jakita Cofer / Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Continue preliminary discussions with Handshake regarding integration with Society, given CSN's status as a top national Handshake user and career services' dependency on the platform. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">8</div>
+      <div>Prioritize development and early rollout of the campus-aware AI agent feature (surfacing CSN-specific courses, advisors, and career services) to CSN as a pilot school — identified as the single highest buy-in lever for Charlene Gibson. <span class="owner-tag">Chris Higbee / Product Team</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>What will the long-term pricing model for Society look like — bundled into NSLS membership, school-level subscription, or a separate student-facing subscription? How will this be structured to avoid creating a cost barrier for community college students already paying $95 to join?</li>
+    <li>Will completing the Career Clarity Track (or other Society tracks) eventually count toward induction eligibility? Will chapters receive the same rebate/credit for students who complete induction via a Society pathway?</li>
+    <li>Can the seven-day minimum between SNT reports be made more flexible — or advisor-adjustable — for chapters operating on compressed induction timelines?</li>
+    <li>What is the timeline for Foundations of Leadership to be available within the Society platform with AI coaching support, and will it be ready for the fall pilot rollout?</li>
+    <li>Is there a path to integrating Society with Handshake, and what would that integration surface for students and advisors?</li>
+    <li>What is the current intended behavior for the speaker broadcast archive — are older broadcasts intentionally excluded from credit eligibility, and if so, can they be made more easily discoverable for non-credit viewing?</li>
+    <li>What additional skills tracks beyond Foundations of Leadership and Career Clarity are planned, and what will the completion and credentialing structure look like for students?</li>
+    <li>Is there a formal NSLS outreach or sales process that Jakita can initiate for Nevada State University, leveraging Jane's existing relationship with that institution?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <td><strong>School</strong></td>
+        <td>College of Southern Nevada (CSN)</td>
+      </tr>
+      <tr>
+        <td><strong>Location</strong></td>
+        <td>Las Vegas, NV</td>
+      </tr>
+      <tr>
+        <td><strong>School Type</strong></td>
+        <td>Public 2-Year Community College</td>
+      </tr>
+      <tr>
+        <td><strong>Chapter Status</strong></td>
+        <td>Established — rebuilt post-COVID; merged from two separate chapters approximately 2.5 years ago</td>
+      </tr>
+      <tr>
+        <td><strong>Chapter Type</strong></td>
+        <td>Hybrid — simultaneous in-person, virtual, and self-paced tracks across three campuses</td>
+      </tr>
+      <tr>
+        <td><strong>Segment</strong></td>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <td><strong>Enthusiasm Score</strong></td>
+        <td>8/10 (all four attendees independently; Charlene Gibson stated 9–9.5 contingent on campus-aware AI agent delivery)</td>
+      </tr>
+      <tr>
+        <td><strong>Pilot Partner Interest</strong></td>
+        <td>Yes — both advisors expressed interest; fall semester rollout discussed as target</td>
+      </tr>
+      <tr>
+        <td><strong>Product Council Interest</strong></td>
+        <td>High — Jane Neitz is the operational driver and most likely implementation lead; Charlene Gibson is a strong advocate once campus-aware features are live; Christian Johnson brings student perspective as former president and current advisor</td>
+      </tr>
+      <tr>
+        <td><strong>Top Pain Points</strong></td>
+        <td>Platform reliability (BigBlueButton, app SNT reporting failures); SNT quality degradation in virtual/self-paced formats; seven-day SNT minimum creating induction timeline bottlenecks; student engagement drop-off between first and second meetings; no Handshake integration</td>
+      </tr>
+      <tr>
+        <td><strong>Key Signal</strong></td>
+        <td>SNT automated matching and in-platform video meetings are the highest-priority feature for this chapter; campus-aware AI agent is the clearest buy-in accelerator for advisor adoption; pricing sensitivity is a real risk given community college student demographics</td>
+      </tr>
+      <tr>
+        <td><strong>CSR</strong></td>
+        <td>Jakita Cofer</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; College of Southern Nevada &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; June 3, 2026
+</footer>
+
+</body>
+</html>

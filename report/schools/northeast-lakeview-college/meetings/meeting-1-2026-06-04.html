@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Northeast Lakeview College — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">June 4, 2026</span>
+    </div>
+    <h1>Northeast Lakeview College &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Northeast Lakeview College Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/697070737" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Northeast Lakeview College (NLC)</p>
+    <p><strong>Location:</strong> Universal City, TX</p>
+    <p><strong>School Type:</strong> Public 2-Year — part of the Alamo Colleges District, a multi-campus system in which each college operates its own independent NSLS chapter. Students may take classes across campuses but designate one home campus.</p>
+    <p><strong>Chapter Status:</strong> Established</p>
+    <p><strong>Chapter Type:</strong> Not explicitly stated; context suggests a hybrid/in-person model given references to in-person orientation, Leadership Training Day, and national online events.</p>
+    <p><strong>Advisors Present:</strong> Dr. Jennifer Quintero (faculty advisor, biology instructor). Her student life counterpart was invited but did not attend; Dr. Quintero noted he would receive the recording.</p>
+    <p><strong>Notable Context:</strong> NLC's chapter is advised from the faculty/academic side rather than a standalone student life office. Dr. Quintero describes her personal motivation for involvement as tied directly to student persistence and classroom success data she has observed. NLC's administration is actively invested in student engagement outside the classroom as a retention and success strategy. The college serves a significant population of part-time and dual-credit students, making scheduling flexibility a standing challenge. Dr. Quintero raised several substantive product questions during the demo, indicating close attention to implementation logistics. She confirmed a score of 8/10 enthusiasm<a href="https://fathom.video/calls/697070737?t=1516" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 25:16</a> and expressed individual interest in piloting Society, clarifying that each Alamo chapter would make its own independent decision.<a href="https://fathom.video/calls/697070737?t=3646" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:00:46</a></p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+  <div class="advisor-card">
+    <h3>Dr. Jennifer Quintero</h3>
+    <p><strong>Role:</strong> Faculty Advisor, NSLS at Northeast Lakeview College; Biology Instructor; works in coordination with student life (counterpart not present).</p>
+    <p><strong>Background:</strong> Biology faculty member at NLC who became involved with NSLS because she observed that students who engage outside the classroom show higher persistence and academic success. She is also involved in at least one other honor society with a higher GPA threshold (referenced as a point of comparison). She has remained a sustained NSLS advisor, suggesting multi-year involvement.</p>
+    <p><strong>Motivations:</strong> Driven by student persistence and retention outcomes rather than programmatic tradition. She values the NSLS GPA/invitation threshold (NLC uses 2.75) because she sees it as an incentive for academic improvement. She views NSLS primarily as an engagement mechanism that keeps students connected to campus and to each other — particularly when they are struggling. She is explicitly interested in how AI tools can model appropriate, professional use of AI for students, framing it as a learning opportunity beyond just career tools.</p>
+    <p><strong>Communication Style:</strong> Direct and question-forward. Asked multiple clarifying questions during the demo — about whether Society replaces in-person events, how in-person induction steps integrate with the platform, when and how pilot access would begin, and whether chapters decide independently to join. Comfortable pushing back or probing rather than offering surface-level agreement. Described her enthusiasm as an 8/10, noting there is still more to learn — a measured, evidence-based orientation.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Dr. Quintero asked explicitly how and when NLC could start using Society, signaled institutional alignment (admin investment in engagement/retention), and confirmed that each Alamo chapter decides independently — implying she is prepared to make that call at NLC without waiting for other colleges. Her critical but constructive engagement style makes her a strong Product Council candidate capable of providing specific, actionable feedback.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li><strong>Scholarship/financial benefit as a recruiting tool:</strong> Dr. Quintero explicitly named the scholarship/money component as a key recruitment technique that should be retained. ("That's something that we use as a recruiting technique, for sure.<a href="https://fathom.video/calls/697070737?t=1027" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 17:07</a>")</li>
+    <li><strong>Invitation-based model with GPA expectations:</strong> Dr. Quintero defended the selective threshold (NLC uses 2.75 GPA), arguing it incentivizes academic improvement<a href="https://fathom.video/calls/697070737?t=1193" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 19:53</a> and that "having certain expectations" produces better outcomes. She contrasted this with her other, higher-threshold society involvement to ground her perspective.</li>
+    <li><strong>Student momentum and sense of accomplishment:</strong> While stated by Dr. Roberts (SPC), Dr. Quintero's remarks align — she values the program's ability to keep students invested and returning to campus even when struggling, underscoring the importance of not disrupting the motivational arc of the experience.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li><strong>Advisor bandwidth and time constraints:</strong> Dr. Quintero directly stated that NLC struggles with "not having enough time to do all the things that NSLS needs."<a href="https://fathom.video/calls/697070737?t=2954" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 49:14</a> This is a recurring operational pain point that limits program depth and consistency.</li>
+    <li><strong>SNT drop-off:</strong> Dr. Quintero did not name this explicitly, but she engaged strongly with Chris's disclosure that ~50% of NSLS fall-off happens at the SNT stage<a href="https://fathom.video/calls/697070737?t=2369" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 39:29</a>, suggesting it resonates with NLC's experience. She highlighted that flexibility in scheduling (including national events) is critical to keeping part-time students engaged.</li>
+    <li><strong>Scheduling access for part-time and dual-credit students:</strong> NLC has a large population of part-time and credit students whose scheduling constraints make it hard to participate in fixed in-person programming. Dr. Quintero cited student emails asking about missed events and alternative engagement options as evidence of unmet demand.</li>
+    <li><strong>Unclear integration path between platform and in-person events:</strong> Dr. Quintero's questions about how Society intersects with orientation and Leadership Training Day suggest that the current model's in-person/digital boundary is not well-defined for advisors. This is both a pain point and a product clarity gap.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li><strong>Student engagement outside the classroom as a retention strategy:</strong> NLC administration is actively focused on getting students to engage beyond class time, with the evidence-based belief that such engagement increases persistence and academic success. This is the primary institutional reason Dr. Quintero remains involved with NSLS.</li>
+    <li><strong>Accessibility and scheduling flexibility:</strong> The addition of national events has been well-received at NLC because it addresses the reality of a largely part-time student body. More asynchronous and flexible options are aligned with campus priorities.</li>
+    <li><strong>Appropriate AI literacy and professional use:</strong> Dr. Quintero raised unprompted the value of modeling good AI engagement for students — framing Society's AI coach as a teaching tool for professional AI use, not just a product feature. This reflects an emerging campus-level priority around AI readiness.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Retention Through Engagement Is the Core Value Proposition at NLC</h3>
+    <p>Dr. Quintero's involvement in NSLS is entirely grounded in observed student outcomes — specifically that students who connect outside the classroom show higher persistence. This is not a soft preference; it reflects an institutional priority that comes from NLC's administration. Society's engagement and career clarity features land most powerfully when framed through this retention lens rather than as standalone leadership programming.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Advisor Bandwidth Is a Real Constraint That Society Must Actively Relieve</h3>
+    <p>Dr. Quintero stated directly that NLC doesn't have enough time to do all the things NSLS requires. Her enthusiasm for the AI coach was explicitly tied to the idea of having an "assistant" — not just for students, but to reduce the load on advisors. Any pilot onboarding plan must account for this constraint and demonstrate time savings, not just feature richness.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Part-Time and Dual-Credit Students Require Flexible, Asynchronous Access</h3>
+    <p>Dr. Quintero highlighted the large part-time and credit student population at NLC multiple times. National events have already proven valuable because they accommodate unpredictable schedules. Society's asynchronous tracks and SNT matching with flexible scheduling windows directly address this structural challenge and should be emphasized in NLC-specific rollout messaging.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. The Invitation/GPA Model Is an Asset at NLC — Openness Messaging Needs Care</h3>
+    <p>While other Alamo advisors (notably NVC) raised concerns about the selective model limiting access, Dr. Quintero explicitly defended the 2.75 GPA threshold as motivationally valuable. She sees the standard as an incentive for students to improve. NSLS and Society messaging around expanded access or "openness" should be handled carefully at NLC to avoid undermining the program's perceived prestige and incentive structure.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. AI as a Professional Learning Tool, Not Just a Feature</h3>
+    <p>Dr. Quintero raised — without prompting — the idea that Society's AI coach could teach students how to engage with AI appropriately in a professional context.<a href="https://fathom.video/calls/697070737?t=2961" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 49:21</a> This signals that NLC (and potentially the broader Alamo system) is developing an AI literacy agenda, and that Society could be positioned as a practical on-ramp for that. This is a differentiated, campus-level use case worth exploring in product council conversations.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+  <div class="enthusiasm-score">8/10</div>
+  <p><em>Score provided directly by Dr. Quintero during the group polling exercise at the close of the demo.</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li><strong>AI coach as advisor support:</strong> Dr. Quintero responded positively and immediately to the idea of the AI coach as a bandwidth multiplier. She explicitly said it would be "very helpful" given NLC's time constraints<a href="https://fathom.video/calls/697070737?t=2954" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 49:14</a> with NSLS administration.</li>
+    <li><strong>SNT matching automation:</strong> The disclosure that ~50% of NSLS drop-off occurs around SNTs resonated. Dr. Quintero engaged with the matching feature and added that cross-campus SNT matching would be especially valuable at Alamo Colleges<a href="https://fathom.video/calls/697070737?t=2369" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 39:29</a>, where students already take classes across multiple campuses.</li>
+    <li><strong>Scheduling flexibility and asynchronous access:</strong> Society's ability to serve students who can't attend in-person events directly addressed NLC's part-time student challenge. Dr. Quintero connected this to existing evidence that national events have increased engagement.</li>
+    <li><strong>Campus-aware AI agent (on roadmap):</strong> The concept of an AI agent trained on the school's course catalog and staff directory — able to recommend specific courses and contacts — was received as directly useful. Dr. Quintero's comments about advisor overload make this feature especially relevant to NLC.</li>
+    <li><strong>AI literacy framing:</strong> Dr. Quintero's unprompted observation that the AI coach could model appropriate professional AI use suggests Society's AI layer resonated as educationally meaningful, not just functionally convenient.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li><strong>Relationship between Society and in-person induction events:</strong> Dr. Quintero asked twice — and with increasing specificity — how Society integrates with in-person orientation and Leadership Training Day. She wanted to understand whether the platform runs in parallel to those events, replaces any steps, or is layered in afterward. This suggests the current messaging around hybrid use is not yet clear enough for advisors planning their fall programming.</li>
+    <li><strong>Induction gate on Clarity Track access:</strong> Dr. Quintero questioned whether requiring induction completion to unlock Society would conflict with using the platform during the induction process itself. Chris clarified that some content (Insights Track) could be used during orientation, but the Clarity Track unlocks post-induction. Dr. Quintero acknowledged this ("Okay, okay") but the back-and-forth indicates advisors need a clearer visual or written flow of the student journey.</li>
+    <li><strong>Independent chapter decision-making:</strong> Dr. Quintero raised whether all Alamo chapters must decide together or individually to join the pilot. This was not a negative signal — she was clearly thinking through how NLC could move independently — but it reflects that the pilot structure and decision process had not been pre-communicated clearly to individual advisors.</li>
+    <li><strong>Remaining uncertainty ("still a lot to learn"):</strong> Dr. Quintero's 8/10 score was accompanied by a note that there is still more to learn. This is not resistance but a signal that she needs hands-on access to the platform before committing fully.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Dr. Quintero independently reframed Society's AI coach as a vehicle for teaching students professional AI use — a use case not introduced by the presenter. This suggests a latent campus priority around AI literacy that Society is not yet explicitly marketing to.</li>
+    <li>Dr. Quintero's defense of the GPA threshold stood out in a meeting where another Alamo advisor (NVC) questioned it. Her perspective — grounded in observed student behavior rather than policy preference — offers a strong counterpoint that could inform how NSLS communicates the value of the invitation model to different campus audiences.</li>
+    <li>Dr. Quintero asked about the cross-campus SNT matching unprompted in the context of how Alamo students already move between campuses. This is a concrete, systems-level insight about the Alamo student population that could directly shape how the SNT matching roadmap is scoped for multi-college districts.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>AI Coach (advisor bandwidth relief)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Dr. Quintero stated directly that NLC lacks time to do everything NSLS requires and that having an AI "assistant" would be very helpful. She connected this to the broader value of modeling appropriate professional AI use for students.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching Automation</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Dr. Quintero engaged with the feature and extended it — noting that cross-campus SNT matching would be especially useful at Alamo Colleges given that students already take classes across multiple campuses. She sees the current campus-only limitation as a roadmap priority worth tracking.</td>
+      </tr>
+      <tr>
+        <td>Clarity Track (Career Direction)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>No explicit objection. Received positively in context of helping students find direction. Dr. Quintero's engagement with the Renee story and the broader career readiness framing suggests alignment, though she did not comment on the track directly in detail.</td>
+      </tr>
+      <tr>
+        <td>Asynchronous / Flexible Access (national events, self-paced tracks)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Dr. Quintero cited scheduling flexibility and national events as already proven valuable for NLC's part-time and dual-credit student population. Society's asynchronous architecture directly addresses this. She noted student emails asking about missed events as evidence of unmet demand.</td>
+      </tr>
+      <tr>
+        <td>Campus-Aware AI Agent (course catalog / staff directory — roadmap)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Dr. Quintero's bandwidth concerns make this roadmap feature particularly relevant to NLC. The concept of the agent answering questions advisors currently field daily was received as a meaningful load-reducer. No friction raised.</td>
+      </tr>
+      <tr>
+        <td>Society + In-Person Event Integration (hybrid model)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Dr. Quintero asked twice — with increasing specificity — how Society works alongside in-person orientation and Leadership Training Day. She wanted clarity on whether the platform is used during induction steps or only after. The current explanation partially satisfied her but a clearer student journey map is needed.</td>
+      </tr>
+      <tr>
+        <td>Induction Gate on Clarity Track Access</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Dr. Quintero probed the logic of requiring induction completion to unlock the Clarity Track, particularly as some Society content (Insights Track) would be used during induction itself. She accepted the clarification but the back-and-forth indicates this flow needs to be more explicitly documented for advisors.</td>
+      </tr>
+      <tr>
+        <td>GPA / Invitation Model Preservation</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Dr. Quintero explicitly defended NLC's 2.75 GPA threshold as motivationally valuable, contrasting with NVC's concerns about open access. Society messaging around expanded accessibility must be handled carefully at NLC to preserve the program's perceived incentive structure and prestige.</td>
+      </tr>
+      <tr>
+        <td>Pilot Partner / Independent Chapter Decision</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Dr. Quintero proactively clarified that each Alamo chapter would decide independently — and confirmed this makes sense given the separate chapter structure. This was not friction; it was Dr. Quintero clearing the path for NLC to move forward on its own timeline.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Send Society platform URL (society.org) to Dr. Quintero and invite her to explore independently, taking notes or recording observations for feedback within approximately one week. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Send 10-minute pilot partner survey to Dr. Quintero to help her assess NLC's readiness and interest in formal pilot participation. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Schedule individual follow-up meeting with Dr. Quintero (separate from other Alamo chapters) within 1–2 weeks to discuss pilot partnership decision and next steps specific to NLC. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Share meeting recording and report with Dr. Quintero's student life co-advisor at NLC, who was invited but unable to attend. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Prepare a clear visual or written student journey map showing how Society tracks integrate with in-person orientation and Leadership Training Day — specifically addressing when the Insights Track is used during induction vs. when the Clarity Track unlocks post-induction. This was Dr. Quintero's most repeated question and requires a concrete artifact for advisors. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>If NLC moves to pilot, work with Dr. Quintero to identify a small group of inducted or returning members — or alumni — for summer access and feedback collection ahead of fall rollout. <span class="owner-tag">Maryanna Laferriere / Dr. Jennifer Quintero</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Flag NLC and the broader Alamo Colleges district as a priority case for cross-campus SNT matching on the product roadmap, given that Alamo students already move freely between campuses and chapters. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>How exactly does the Society platform integrate with in-person induction steps (orientation, Leadership Training Day)? What does the day-of experience look like for a student and advisor using Society alongside those events?</li>
+    <li>Is there a documented student journey or flow diagram that shows which Society tracks are accessible at each stage of the NSLS program (pre-induction, during induction, post-induction)?</li>
+    <li>When will cross-campus SNT matching be available within the Alamo Colleges district — and what is the roadmap timeline for expanding beyond individual chapter matching?</li>
+    <li>How should the AI coach's career recommendations and professional AI use modeling be framed for a biology faculty advisor who sees AI literacy as an educational priority for her students?</li>
+    <li>Does the pilot partner commitment require involvement from NLC's student life co-advisor as well, or can Dr. Quintero lead it independently from the faculty side?</li>
+    <li>How will NSLS ensure that Society's messaging around expanded access and flexibility does not undermine the GPA/invitation model's perceived value at campuses like NLC where that incentive structure is a deliberate program design choice?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Northeast Lakeview College (NLC)</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Universal City, TX</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Public 2-Year (Alamo Colleges District)</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Not explicitly stated; hybrid/in-person model inferred from context</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>8/10 (Dr. Quintero, self-reported)</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — Dr. Quintero asked directly how and when NLC could begin; confirmed chapters decide independently; no final commitment made pending internal review and follow-up meeting</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>High potential — engaged, critical, and constructive feedback style; institution-aligned motivations; prepared to act independently of other Alamo chapters</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>Advisor bandwidth and time constraints; SNT drop-off; scheduling barriers for part-time and dual-credit students; unclear integration path between Society and in-person induction events</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Dr. Quintero reframed the AI coach as a professional AI literacy tool for students — an unscripted, institution-level use case that Society is not yet explicitly marketing; strong alignment between Society's engagement and flexibility features and NLC's retention-through-engagement institutional priority</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Maryanna Laferriere</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Northeast Lakeview College &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; June 4, 2026
+</footer>
+
+</body>
+</html>

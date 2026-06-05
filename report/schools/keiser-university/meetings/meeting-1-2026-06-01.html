@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keiser University — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">June 1, 2026</span>
+    </div>
+    <h1>Keiser University &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Keiser University Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/691882730" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School Type:</strong> Private 4-Year (Career College / University)</p>
+    <p><strong>Location:</strong> Fort Lauderdale, FL (Graduate School & eCampus)</p>
+    <p><strong>Culture:</strong> Keiser is a career-focused institution that deliberately omits general education electives in favor of career-aligned coursework. The school serves a predominantly non-traditional student population — average student age is mid-30s to 40s<a href="https://fathom.video/calls/691882730?t=294" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:54</a> — consisting of working adults, parents, and career changers. Programs are offered across ground, hybrid, and online modalities. Keiser has a significant and growing international presence with campuses in Nicaragua, Shanghai, Indonesia, Spain, Taiwan, Ecuador, and Bolivia.</p>
+    <p><strong>Chapter Status:</strong> Established</p>
+    <p><strong>Chapter Type:</strong> Online / Hybrid</p>
+    <p><strong>Advisors Present:</strong> Heather Cordner (Director, Student Services &amp; Career Services)</p>
+    <p><strong>Notable Context:</strong> Keiser operates both an undergraduate NSLS chapter and a graduate (master's/doctoral) NSLS chapter<a href="https://fathom.video/calls/691882730?t=2619" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 43:39</a>. The advisor oversees NSLS across all campuses. There is active discussion about launching an alumni NSLS chapter targeting Keiser graduates from approximately the last two to five years who were not previously offered membership. The institution is actively pursuing AI integration as a strategic institutional priority. Career services and student services are combined under one department. SNT coordination is currently student-led due to time zone and scheduling complexity across a distributed online student body.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+  <div class="advisor-card">
+    <h3>Heather Cordner</h3>
+    <p><strong>Role:</strong> Director, Student Services &amp; Career Services, Keiser University (Graduate School &amp; eCampus), Fort Lauderdale, FL</p>
+    <p><strong>Background:</strong> 12 years at Keiser University. Began as a bursar (financial background — "numbers have always been clear to me")<a href="https://fathom.video/calls/691882730?t=80" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:20</a>, transitioned into student services through project work, became Associate Director, and has served as Director for approximately five years<a href="https://fathom.video/calls/691882730?t=93" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:33</a>. Oversees NSLS across all Keiser campuses. Also directly manages career services functions including resume review, mock interviews, employer partnerships, and alumni follow-up for job placement.</p>
+    <p><strong>Motivations:</strong> Driven by outcomes and ROI — both for students and for the institution. Wants tools that ease department burden, improve student career readiness, and generate data she can report upward. Specifically frustrated that Keiser's existing career center platform is not AI-powered and feels outdated. Wants better analytics and a modernized career readiness infrastructure. Values giving non-traditional students tools that fit their schedules and build tangible resume credentials.</p>
+    <p><strong>Communication Style:</strong> Direct, candid, and data-oriented. Engaged throughout the demo with specific technical questions (FERPA compliance, hosting infrastructure, LLM selection, pilot period duration, pricing model). Comfortable with technology and clearly evaluates tools from both a student impact and operational efficiency lens. Already began exploring the platform profile during the meeting itself.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Confirmed pilot partner during the call — verbally agreed to proceed without waiting for a follow-up. Expressed explicit interest in the Product Council for the future. High engagement, strong data orientation, institutional authority to move forward, and interest in expanding Society to alumni cohorts make her a strong Product Council candidate.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>Asynchronous flexibility — students in their 30s and 40s who are working and parenting need to move through programming on their own time without required live meeting attendance.</li>
+    <li>The ability for students to build their resumes and credentials through NSLS membership — the "leveling up" value proposition.</li>
+    <li>The SNT structure, even though matching is currently student-managed; Heather sees value in the peer group model and noted students do use NSLS social pages to self-organize.</li>
+    <li>National events — Heather confirmed students do participate in national NSLS events, noting it surprised her given difficulty getting them to attend local live events.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Campus-level knowledge gaps: Heather oversees all campuses but reports that not all campuses are making themselves knowledgeable about NSLS<a href="https://fathom.video/calls/691882730?t=408" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:48</a>, creating a burden when managing large student lists (5,000+ students sent to Maryanna) and fielding resulting questions.</li>
+    <li>SNT matching is entirely student-managed due to time zone and scheduling complexity<a href="https://fathom.video/calls/691882730?t=2166" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 36:06</a> — no systematic process in place; occasional manual matching done ad hoc.</li>
+    <li>The existing career center platform is not AI-powered and described as feeling like "19th/early 20th century"<a href="https://fathom.video/calls/691882730?t=2546" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 42:26</a> — lacking analytics and unable to keep up with industry-specific resume trends.</li>
+    <li>Heather prefers the mobile app dashboard over the web dashboard, citing clarity of progress tracking<a href="https://fathom.video/calls/691882730?t=412" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:52</a> — noted the app feels cleaner.</li>
+    <li>No data infrastructure to prove NSLS ROI to students who are skeptical about whether membership is worth it, particularly at the graduate and doctoral level.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Career readiness is the institutional core — Keiser defines itself as a career college and prioritizes getting students job-ready<a href="https://fathom.video/calls/691882730?t=550" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:10</a> over broad general education requirements.</li>
+    <li>AI integration is an active institutional strategic priority<a href="https://fathom.video/calls/691882730?t=502" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:22</a> — Keiser has been in meetings with Anthropic and Perplexity<a href="https://fathom.video/calls/691882730?t=2092" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 34:52</a> and is looking to leverage AI across the institution.</li>
+    <li>International and multilingual expansion — Keiser now has campuses in multiple countries and has added languages to support a growing international student body.</li>
+    <li>Demonstrating ROI to students — particularly for graduate and doctoral students who question what NSLS membership adds to their experience.</li>
+    <li>Alumni engagement — active interest in launching an alumni NSLS chapter for recent graduates (within the last two to five years) who did not have access to membership as students.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes &amp; Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Non-Traditional Student Population Requires Asynchronous-First Design</h3>
+    <p>With an average student age in the mid-30s to 40s and a student body of working adults, parents, and career changers, Keiser's population cannot participate in synchronous programming reliably. Heather emphasized that asynchronous flexibility is the single most important feature for student engagement<a href="https://fathom.video/calls/691882730?t=251" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:11</a>. Society's mobile-first, self-paced design directly addresses this need. The Renee story — a 68-year-old non-traditional student who had never engaged with NSLS until Society's Clarity Track — resonated immediately as a recognizable student profile at Keiser.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Career Readiness Data Is the Missing ROI Proof Point</h3>
+    <p>Heather's biggest operational pain point is the absence of meaningful career readiness analytics. Her current career center tool lacks AI capabilities and modern analytics. She explicitly called out the Career Readiness Score as something she found valuable — "I like anything where I can get analytics."<a href="https://fathom.video/calls/691882730?t=2660" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 44:20</a> She sees this score as a tool to demonstrate NSLS ROI to skeptical graduate and doctoral students, support budget conversations, and reduce departmental burden by enabling more targeted advising interactions.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. AI Integration Is a Strategic Institutional Priority — Not Just a Feature Request</h3>
+    <p>Heather confirmed that AI integration is one of the two biggest institutional changes at Keiser in recent years. She noted that Keiser has already been in meetings with Anthropic and Perplexity. She asked pointed technical questions about Society's AI infrastructure — hosting (AWS), LLM (Claude/Anthropic), and whether the product is proprietary. The fact that Society is built on Claude and hosted on AWS, and that Keiser already has an Anthropic relationship, is a meaningful alignment signal.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. SNT Matching Is a Known Friction Point With High Drop-Off Risk</h3>
+    <p>Heather confirmed that SNT matching is entirely student-managed at Keiser due to time zone and scheduling complexity. She occasionally facilitates manual matches but has no systematic process. This aligns with the platform-wide signal that approximately 50% of student drop-off happens at the SNT matching stage. Society's automated matching tool — with built-in scheduling, online meeting capability, attendance tracking, and AI-analyzed transcripts — was received positively. Heather also asked whether cross-institutional matching would be possible, signaling interest in broader networking for students.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Alumni Expansion Is an Active Opportunity — Not a Future Hypothetical</h3>
+    <p>Heather and Maryanna were already in conversation about launching an alumni NSLS chapter before this meeting. Heather confirmed interest in rolling Society out to both current NSLS members and to alumni who were never offered membership. She asked directly about the pilot's scope for alumni, the pricing model post-pilot, and how the subscription structure would work long-term. This represents a meaningful expansion opportunity — Clarity Track as a standalone alumni career coaching tool, potentially with a subscription model.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">9/10</div>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>AI coaching integration — Heather called it out directly: "I like the AI integration and the coaching."</li>
+    <li>Personality assessments (Myers-Briggs, Enneagram, Holland Code, DISC, Big Five) — described as one of the standout features: "especially the access to the five big personalities."</li>
+    <li>Career Readiness Score and advisor dashboard — "I like anything where I can get analytics." She noted this would be immediately useful for advising conversations and reporting up the chain.</li>
+    <li>Clarity Track framing for undergraduate students — "I think what it puts in the students' hands is very, very clear, especially for our undergraduate students."<a href="https://fathom.video/calls/691882730?t=2504" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 41:44</a></li>
+    <li>Renee's story resonated — Keiser has many students who match that profile; the asynchronous, self-paced, career-focused engagement arc is directly relevant.</li>
+    <li>Mobile-first design philosophy — confirmed preference for the existing NSLS app over the web dashboard; Society's mobile-first approach directly aligns.</li>
+    <li>Department burden reduction — "It would definitely ease the burden on our department so we can better serve our students."<a href="https://fathom.video/calls/691882730?t=2583" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 43:03</a></li>
+    <li>Pilot being free — confirmed as an important factor given current career center limitations and cost constraints.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>FERPA compliance — first substantive question asked after the demo; wanted to understand how student data is protected and who controls access permissions.</li>
+    <li>Whether Society is a proprietary product or third-party — asked directly: "Is this your own product or are you using a company to provide you the product?" Reassured by the answer that it is fully in-house.</li>
+    <li>Hosting and LLM infrastructure — asked specifically about AWS hosting and the AI agent powering the platform; positively received the Claude/Anthropic answer given Keiser's existing Anthropic relationship.</li>
+    <li>Pilot period duration — asked what the pilot period is; noted that the timeline has not yet been finalized (estimated six months to a year).</li>
+    <li>Post-pilot pricing — asked whether Clarity will carry a fee after the pilot; confirmed it will move to a subscription model, which Heather acknowledged and accepted.</li>
+    <li>National events handling in Society — Maryanna raised this and Chris acknowledged it is still being worked out; no final answer provided, noted as a follow-up item.</li>
+    <li>How Society access is communicated to students — asked whether a notification goes out like other NSLS communications; clarified that it is already enabled but outreach needs to be coordinated.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Heather had already started her own Society profile during or immediately after the meeting — unprompted, she mentioned it at the close: "I already started the profile, so I'm going to play with that today."</li>
+    <li>Keiser already has an active relationship with Anthropic and Perplexity — this was not anticipated and represents a strong institutional AI alignment with Society's underlying LLM choice.</li>
+    <li>Heather confirmed pilot partnership verbally during the call without requiring a follow-up decision meeting — she said "No, I'm fine telling you to go ahead and launch it" and "Let's do it then."</li>
+    <li>Heather expressed interest in the Product Council proactively before being formally invited — she asked about it directly while it was still on-screen and confirmed interest in participating in the future.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Clarity Track (Career Direction)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Heather described it as "very, very clear, especially for our undergraduate students." Renee's story resonated directly with Keiser's non-traditional population. Heather wants to roll it out to current members and alumni.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score &amp; Advisor Dashboard</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>"I like anything where I can get analytics." Identified as a key ROI proof point for budget conversations, upward reporting, and justifying NSLS membership to skeptical graduate/doctoral students. Current career center has no equivalent capability.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessments (Myers-Briggs, DISC, Big Five, Enneagram, Holland Code)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Called out specifically as a standout: "especially the access to the five big personalities." Heather has a data/analytics orientation and immediately saw practical advising utility.</td>
+      </tr>
+      <tr>
+        <td>AI Career Coach</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Directly valued — "I like the AI integration and the coaching." Keiser is actively pursuing AI integration institutionally and has existing relationships with Anthropic and Perplexity. Claude-based coaching aligns with known infrastructure preferences.</td>
+      </tr>
+      <tr>
+        <td>Mobile-First / App Experience</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Heather explicitly prefers the existing NSLS mobile app over the web dashboard for progress clarity. Society's mobile-first design philosophy directly addresses this stated preference.</td>
+      </tr>
+      <tr>
+        <td>Automated SNT Matching</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Confirmed as helpful — "I think it would be very helpful to the students going through the SNTs." Currently all student-managed with no systematic process. Heather also asked whether cross-institutional matching is possible, signaling interest in broader use.</td>
+      </tr>
+      <tr>
+        <td>SNT Meeting Recording, Transcripts &amp; Attendance Tracking</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>No friction noted. Relevant for a distributed online student body across multiple time zones. AI-analyzed meeting transcripts for goal-setting were presented and received without objection.</td>
+      </tr>
+      <tr>
+        <td>Resume Review via AI Coach</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Directly relevant — Heather's team currently does manual resume reviews. She noted it's "impossible for student services to keep up with all" industry-specific resume trends. AI-assisted resume review would free her team for higher-value interactions.</td>
+      </tr>
+      <tr>
+        <td>School-Specific AI Agent (Course Catalog, Staff Directory, Programs)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Presented as a future capability. Heather did not push back; given Keiser's AI strategic priority and large multi-campus footprint, this has clear relevance. No explicit reaction captured but context is favorable.</td>
+      </tr>
+      <tr>
+        <td>LMS/SIS Integration for Career Readiness Score</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Keiser uses Blackboard Anthology. Chris mentioned intent to integrate with LMSs and SISs. No explicit discussion of Blackboard compatibility occurred. This is an open technical dependency that should be confirmed.</td>
+      </tr>
+      <tr>
+        <td>National Events in Society</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Maryanna raised the question of how national events will work within Society. Chris acknowledged it is still being worked out and committed to a follow-up. Heather noted students do attend national events, making this relevant to preserve.</td>
+      </tr>
+      <tr>
+        <td>Alumni Access &amp; Subscription Model (Post-Pilot)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Heather asked about post-pilot pricing. Confirmed it will be a subscription model. No pricing figures were shared. Heather accepted this but will need pricing clarity before making alumni rollout commitments beyond the pilot period.</td>
+      </tr>
+      <tr>
+        <td>FERPA / Data Security &amp; Permissions</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>First substantive question after the demo. Heather asked how data is protected under FERPA. Given Keiser's institutional scale (5,000+ student lists) and the sensitivity around student data in a career coaching context, data governance documentation should be provided proactively.</td>
+      </tr>
+      <tr>
+        <td>Cross-Institutional SNT Matching</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Heather asked whether students could match with students at other institutions. Currently limited to within-school matching. Given Keiser's interest in networking and international presence, this is a feature worth tracking for future development. Needs clear communication of current limitations.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps &amp; Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Send Society pilot partner survey link to Heather directly following the meeting. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Send Heather a link to the meeting recording and a full follow-up report summarizing everything discussed. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Heather to explore Society independently at oursociety.org — complete Personal Insights and Clarity Track and provide feedback (video walkthrough, voice memo, or written notes). <span class="owner-tag">Heather Cordner</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Schedule follow-up implementation meeting with Heather and Maryanna to define onboarding steps, student communication strategy, and rollout plan for current NSLS members. <span class="owner-tag">Maryanna Laferriere / Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Draft email templates and student-facing language for communicating Society access to existing NSLS members at Keiser. Include clear reference to oursociety.org. <span class="owner-tag">Chris Higbee / Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Coordinate with Maryanna and Heather on alumni chapter list criteria (last two to five years of graduates) and define the invitation and rollout process for alumni cohort access to Society. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Circle back to Heather and Maryanna once national events handling within Society has been finalized internally. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">8</div>
+      <div>Share advisor dashboard / Career Readiness Score prototype with Heather as a priority once it is ready for review — she was identified as one of the first people to see it. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">9</div>
+      <div>Provide Heather with FERPA compliance documentation and data security overview (AWS hosting, Claude LLM, SOC 2 Type 2, GDPR posture) proactively ahead of broader student rollout. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">10</div>
+      <div>Confirm Blackboard Anthology LMS/SIS integration compatibility and timeline as part of the Career Readiness Score data pipeline roadmap. <span class="owner-tag">Chris Higbee / Product Team</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>What is the exact pilot period duration? Estimated at six months to a year but not yet formalized.</li>
+    <li>What will the post-pilot subscription pricing be for Clarity Track — for both current students and alumni?</li>
+    <li>How will national events be handled within Society? Still being worked out internally; committed as a follow-up item.</li>
+    <li>Is Blackboard Anthology compatible with the planned LMS/SIS integration for the Career Readiness Score?</li>
+    <li>Can cross-institutional SNT matching be enabled for Keiser, and what would that configuration look like given their international campus footprint?</li>
+    <li>What LLM customization options exist if Keiser's institutional AI direction favors Perplexity or another model over Claude?</li>
+    <li>How will the alumni chapter rollout be structured — will alumni receive Clarity Track only, Foundations of Leadership only, or both? What does induction look like for alumni who complete only Clarity?</li>
+    <li>Are there multilingual considerations for Society given Keiser's international campuses (Nicaragua, Spain, Taiwan, Indonesia, Ecuador, Bolivia, Shanghai)?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Keiser University</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Fort Lauderdale, FL</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Private 4-Year (Career College)</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Online / Hybrid</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>9/10</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — confirmed verbally during the call; Heather said "Let's do it then" and "No, I'm fine telling you to go ahead and launch it."</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>Yes — Heather proactively asked about the Product Council and confirmed she is interested in participating in the future.</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>No AI-powered career center; lack of career readiness analytics; manual and unsystematic SNT matching; difficulty demonstrating NSLS ROI to graduate/doctoral students; campus-level knowledge gaps creating advisor burden at scale (5,000+ student lists).</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Heather confirmed pilot partnership on the call, began exploring her Society profile immediately, and expressed Product Council interest — all unprompted. Institutional AI strategy (active Anthropic/Perplexity relationships) directly aligns with Society's Claude-based infrastructure. Active alumni chapter expansion interest creates a near-term Clarity Track expansion use case.</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Maryanna Laferriere</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Keiser University &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; June 1, 2026
+</footer>
+
+</body>
+</html>
