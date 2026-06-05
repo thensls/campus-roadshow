@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
   <style>
     :root {
       --black:  #1E1414;
@@ -793,6 +795,133 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
       opacity: 0.6;
+    }
+
+    /* ── Roadshow Map ── */
+    .roadshow-map-section {
+      background: #E8DDD5;
+      border: 1px solid rgba(30,20,20,0.1);
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+      margin-bottom: 36px;
+    }
+    .roadshow-map-header { margin-bottom: 18px; }
+    .roadshow-map-title {
+      font-family: 'Cigars', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #1A3550;
+      margin-bottom: 6px;
+    }
+    .roadshow-map-sub {
+      font-size: 13px;
+      color: #6B6357;
+      line-height: 1.55;
+      max-width: 880px;
+    }
+    .roadshow-map-wrap {
+      position: relative;
+      width: 100%;
+    }
+    #roadshow-map {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    #roadshow-map .map-state {
+      fill: #DCD2C7;
+      stroke: #F2E9E2;
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+    #roadshow-map .map-pin {
+      cursor: pointer;
+      stroke: #FFFDF8;
+      stroke-width: 1.5;
+      filter: drop-shadow(0 1px 2px rgba(30,20,20,0.35));
+      transition: r 0.15s ease;
+      vector-effect: non-scaling-stroke;
+    }
+    .map-tooltip {
+      position: absolute;
+      background: #FFFDF8;
+      border: 1px solid rgba(30,20,20,0.1);
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(30,20,20,0.18);
+      padding: 12px 14px;
+      font-size: 12px;
+      color: var(--black);
+      line-height: 1.5;
+      max-width: 280px;
+      width: max-content;
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-50%, -100%);
+      transition: opacity 0.12s ease;
+      z-index: 30;
+    }
+    .map-tooltip.visible { opacity: 1; }
+    .map-tooltip .tt-name {
+      font-family: 'Cigars', Georgia, serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1A3550;
+      margin-bottom: 2px;
+      line-height: 1.3;
+    }
+    .map-tooltip .tt-city {
+      font-size: 11px;
+      color: #6B6357;
+      margin-bottom: 8px;
+    }
+    .map-tooltip .tt-meta {
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+    .map-tooltip .tt-meta strong { color: #1A3550; font-weight: 700; }
+    .map-tooltip .tt-signal {
+      font-size: 12px;
+      color: var(--black);
+      margin-top: 6px;
+      margin-bottom: 8px;
+    }
+    .map-tooltip .tt-cta {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1A3550;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .map-legend {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(30,20,20,0.08);
+      font-size: 12px;
+      color: #6B6357;
+    }
+    .map-legend-item { display: inline-flex; align-items: center; gap: 8px; }
+    .map-legend-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+      border: 1.5px solid #FFFDF8;
+      box-shadow: 0 1px 2px rgba(30,20,20,0.25);
+      flex-shrink: 0;
+    }
+    .map-legend-dot.pilot      { background: #16a34a; }
+    .map-legend-dot.interested { background: #d97706; }
+    .map-legend-dot.risk       { background: #dc2626; }
+    .map-legend-count { color: #1A3550; font-weight: 700; }
+    @media (max-width: 720px) {
+      .roadshow-map-section { padding: 22px 18px 18px; }
+      .roadshow-map-title { font-size: 19px; }
+      .map-tooltip { max-width: 240px; font-size: 11.5px; }
     }
   </style>
 </head>
@@ -1699,6 +1828,23 @@
 
   <!-- ── School cards ── -->
   <div id="tab-schools" class="tab-panel active">
+
+  <section class="roadshow-map-section" aria-labelledby="roadshow-map-title">
+    <div class="roadshow-map-header">
+      <h2 class="roadshow-map-title" id="roadshow-map-title">20 Schools, Coast to Coast</h2>
+      <div class="roadshow-map-sub">Spring 2026 roadshow visits &mdash; pilot status by school. Geographic and institutional spread is broad: community colleges, technical colleges, private liberal arts, regional publics, and R1s.</div>
+    </div>
+    <div class="roadshow-map-wrap">
+      <svg id="roadshow-map" viewBox="0 0 960 600" preserveAspectRatio="xMidYMid meet" role="img" aria-label="US map showing the 20 schools visited during the Spring 2026 roadshow, color-coded by pilot status"></svg>
+      <div class="map-tooltip" id="roadshow-tooltip" role="tooltip" aria-hidden="true"></div>
+    </div>
+    <div class="map-legend">
+      <div class="map-legend-item"><span class="map-legend-dot pilot"></span><span><span class="map-legend-count">14</span> &nbsp;Confirmed pilot partner</span></div>
+      <div class="map-legend-item"><span class="map-legend-dot interested"></span><span><span class="map-legend-count">5</span> &nbsp;Interested &mdash; follow-up in progress</span></div>
+      <div class="map-legend-item"><span class="map-legend-dot risk"></span><span><span class="map-legend-count">1</span> &nbsp;Competitive risk to monitor</span></div>
+    </div>
+  </section>
+
   <div class="school-grid">
 
     <!-- ═══ Keystone College — June 4, 2026 ═══ -->
@@ -2654,6 +2800,178 @@
     set('council-denom',    '/ ' + met);
     set('survey-respondents', respondents);
     set('advisors-engaged',   advisors);
+  })();
+
+  // ── Roadshow Map ───────────────────────────────────────────────
+  (function renderRoadshowMap() {
+    if (typeof d3 === 'undefined' || typeof topojson === 'undefined') return;
+    var svgEl = document.getElementById('roadshow-map');
+    var tooltip = document.getElementById('roadshow-tooltip');
+    var wrapEl = svgEl && svgEl.parentNode;
+    if (!svgEl || !tooltip || !wrapEl) return;
+
+    var schools = [
+      // Confirmed pilot partners
+      { name: "Mott Community College", slug: "mott-community-college", city: "Flint, MI", lat: 43.0184, lng: -83.6707, status: "pilot", rating: "10/10", signal: "Dawn Vanniman has tracked alumni on LinkedIn since 2015" },
+      { name: "Coastal Carolina University", slug: "coastal-carolina-university", city: "Conway, SC", lat: 33.7961, lng: -79.0137, status: "pilot", rating: "10/10", signal: "Pre-sold before the demo" },
+      { name: "University of Tennessee, Knoxville", slug: "university-of-tennessee-knoxville", city: "Knoxville, TN", lat: 35.9544, lng: -83.9295, status: "pilot", rating: "10/10", signal: "Hunter Hammock flagged alumni product opportunity unprompted" },
+      { name: "Muskingum University", slug: "muskingum-university", city: "New Concord, OH", lat: 39.9996, lng: -81.7379, status: "pilot", rating: "10/10", signal: "Henry Stanford — Board of Trustees pitch the day after meeting" },
+      { name: "Arapahoe Community College", slug: "arapahoe-community-college", city: "Littleton, CO", lat: 39.6081, lng: -105.0188, status: "pilot", rating: "9/10", signal: "Dan Balski — platform accountability is the key ask" },
+      { name: "University of North Texas", slug: "university-of-north-texas", city: "Denton, TX", lat: 33.2090, lng: -97.1534, status: "pilot", rating: "9/10", signal: "Sydney Pickett — first advisor to ask for NACE competency reporting" },
+      { name: "University of Nevada, Las Vegas", slug: "university-of-nevada-las-vegas", city: "Las Vegas, NV", lat: 36.1079, lng: -115.1428, status: "pilot", rating: "9/10", signal: "LaDonnia Petersen gave Society a personal 10/10" },
+      { name: "Drew University", slug: "drew-university", city: "Madison, NJ", lat: 40.7602, lng: -74.4266, status: "pilot", rating: "9/10", signal: "Offering AI-skeptical students as pilot testers" },
+      { name: "Central Wyoming College", slug: "central-wyoming-community-college", city: "Riverton, WY", lat: 43.0305, lng: -108.4269, status: "pilot", rating: "9/10", signal: "Lisa Appelhans raised non-member on-ramp concept" },
+      { name: "Texas Lutheran University", slug: "texas-lutheran-university", city: "Seguin, TX", lat: 29.5733, lng: -97.9841, status: "pilot", rating: "8/10", signal: "Cody Mazzurana first articulated School Agent concept" },
+      { name: "Austin Peay State University", slug: "austin-peay-state-university", city: "Clarksville, TN", lat: 36.5358, lng: -87.3534, status: "pilot", rating: "8/10", signal: "Janesa Wine wants school-specific onboarding" },
+      { name: "Madison Area Technical College", slug: "madison-area-technical-college", city: "Madison, WI", lat: 43.1214, lng: -89.3285, status: "pilot", rating: "8/10", signal: "Technical college angle on Clarity Track" },
+      { name: "Texas A&M University-Corpus Christi", slug: "texas-am-corpus-christi", city: "Corpus Christi, TX", lat: 27.7123, lng: -97.3246, status: "pilot", rating: "7/10", signal: "Open to piloting SNT scheduling alone" },
+      { name: "South Piedmont Community College", slug: "south-piedmont-community-college", city: "Polkton, NC", lat: 35.0005, lng: -80.2114, status: "pilot", rating: "7/10", signal: "Connie Gardner — student retention focus" },
+      // Interested, follow-up in progress
+      { name: "Dartmouth College", slug: "dartmouth-college", city: "Hanover, NH", lat: 43.7044, lng: -72.2887, status: "interested", rating: "8/10", signal: "Bob Coates — ED & DCCD alignment required" },
+      { name: "Florida A&M University", slug: "florida-agricultural-and-mechanical-university", city: "Tallahassee, FL", lat: 30.4227, lng: -84.2877, status: "interested", rating: "10/10", signal: "Highest-enthusiasm HBCU in cohort — follow-up needed" },
+      { name: "Gonzaga University", slug: "gonzaga-university", city: "Spokane, WA", lat: 47.6659, lng: -117.4021, status: "interested", rating: "8/10", signal: "Strategic entry through grad/professional programs" },
+      { name: "St. John's University", slug: "st-john-s-university", city: "Queens, NY", lat: 40.7218, lng: -73.7951, status: "interested", rating: "8/10", signal: "Natalie Maio — 322 induction completions, dashboard shows 30–40" },
+      { name: "University of Texas Rio Grande Valley", slug: "utrgv", city: "Edinburg, TX", lat: 26.3082, lng: -98.1740, status: "interested", rating: "9/10", signal: "Brandon Sanchez — 'Society helps legitimize the program'" },
+      // Competitive risk
+      { name: "Western Governors University", slug: "western-governors-university", city: "Salt Lake City, UT", lat: 40.6847, lng: -111.8699, status: "risk", rating: "7-8/10", signal: "Building SNT-style matching internally via WGU Labs" }
+    ];
+
+    var statusColor = { pilot: '#16a34a', interested: '#d97706', risk: '#dc2626' };
+    var statusLabel = {
+      pilot: 'Confirmed pilot partner',
+      interested: 'Interested — follow-up in progress',
+      risk: 'Competitive risk to monitor'
+    };
+
+    var VB_W = 960, VB_H = 600, PIN_R = 7, PIN_R_HOVER = 9;
+    var touchActive = false;
+    window.addEventListener('touchstart', function() { touchActive = true; }, { once: true, passive: true });
+
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, function(c) {
+        return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c];
+      });
+    }
+
+    var svg = d3.select(svgEl);
+    var projection = d3.geoAlbersUsa().scale(1200).translate([VB_W / 2, VB_H / 2]);
+    var path = d3.geoPath(projection);
+    var activePin = null;
+
+    function hideTooltip() {
+      tooltip.classList.remove('visible');
+      tooltip.setAttribute('aria-hidden', 'true');
+      if (activePin) {
+        d3.select(activePin).attr('r', PIN_R);
+        activePin = null;
+      }
+    }
+
+    function positionTooltip(cx, cy) {
+      // Convert viewBox coordinates → pixel coordinates inside the wrap
+      var svgRect = svgEl.getBoundingClientRect();
+      var wrapRect = wrapEl.getBoundingClientRect();
+      var sx = (cx / VB_W) * svgRect.width + (svgRect.left - wrapRect.left);
+      var sy = (cy / VB_H) * svgRect.height + (svgRect.top - wrapRect.top);
+
+      tooltip.style.left = sx + 'px';
+      tooltip.classList.add('visible');
+      tooltip.setAttribute('aria-hidden', 'false');
+
+      var ttHeight = tooltip.offsetHeight;
+      var flipBelow = sy < ttHeight + 24;
+      if (flipBelow) {
+        tooltip.style.top = (sy + 14) + 'px';
+        tooltip.style.transform = 'translate(-50%, 0)';
+      } else {
+        tooltip.style.top = (sy - 14) + 'px';
+        tooltip.style.transform = 'translate(-50%, -100%)';
+      }
+    }
+
+    function showTooltip(school, pinNode, cx, cy) {
+      if (activePin && activePin !== pinNode) {
+        d3.select(activePin).attr('r', PIN_R);
+      }
+      activePin = pinNode;
+      d3.select(pinNode).attr('r', PIN_R_HOVER);
+
+      tooltip.innerHTML =
+        '<div class="tt-name">' + escapeHtml(school.name) + '</div>' +
+        '<div class="tt-city">' + escapeHtml(school.city) + '</div>' +
+        '<div class="tt-meta"><strong>Excitement:</strong> ' + escapeHtml(school.rating) + '</div>' +
+        '<div class="tt-meta"><strong>Status:</strong> ' + escapeHtml(statusLabel[school.status]) + '</div>' +
+        '<div class="tt-signal">' + escapeHtml(school.signal) + '</div>' +
+        '<div class="tt-cta">View school detail &rarr;</div>';
+
+      positionTooltip(cx, cy);
+    }
+
+    d3.json('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json').then(function(us) {
+      var states = topojson.feature(us, us.objects.states);
+      svg.append('g').attr('class', 'states')
+        .selectAll('path')
+        .data(states.features)
+        .enter().append('path')
+        .attr('class', 'map-state')
+        .attr('d', path);
+
+      var pinsLayer = svg.append('g').attr('class', 'pins');
+
+      schools.forEach(function(school) {
+        var coords = projection([school.lng, school.lat]);
+        if (!coords) return;
+        var cx = coords[0], cy = coords[1];
+
+        var pin = pinsLayer.append('circle')
+          .attr('class', 'map-pin')
+          .attr('data-slug', school.slug)
+          .attr('cx', cx)
+          .attr('cy', cy)
+          .attr('r', PIN_R)
+          .attr('fill', statusColor[school.status])
+          .attr('tabindex', 0)
+          .attr('role', 'button')
+          .attr('aria-label', school.name + ' — ' + statusLabel[school.status] + '. Click to view detail.');
+
+        var pinNode = pin.node();
+
+        pin.on('mouseenter', function() {
+          if (touchActive) return;
+          showTooltip(school, pinNode, cx, cy);
+        });
+        pin.on('mouseleave', function() {
+          if (touchActive) return;
+          if (activePin === pinNode) hideTooltip();
+        });
+        pin.on('focus', function() { showTooltip(school, pinNode, cx, cy); });
+        pin.on('blur', function() { if (activePin === pinNode) hideTooltip(); });
+        pin.on('click', function(event) {
+          event.stopPropagation();
+          // Touch: first tap shows tooltip, second tap navigates.
+          if (touchActive && activePin !== pinNode) {
+            showTooltip(school, pinNode, cx, cy);
+            return;
+          }
+          window.location.href = 'schools/' + school.slug + '/index.html';
+        });
+        pin.on('keydown', function(event) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            window.location.href = 'schools/' + school.slug + '/index.html';
+          }
+        });
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!svgEl.contains(e.target) && !tooltip.contains(e.target)) hideTooltip();
+      });
+      window.addEventListener('resize', hideTooltip);
+      window.addEventListener('scroll', hideTooltip, { passive: true });
+    }).catch(function(err) {
+      console.error('Roadshow map: TopoJSON load failed', err);
+      svgEl.style.display = 'none';
+    });
   })();
 </script>
 </body>
