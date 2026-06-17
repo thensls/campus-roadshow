@@ -1,137 +1,623 @@
 NSLS Society Introduction - Alvin College - June 08
-VIEW RECORDING - 66 mins (No highlights): https://fathom.video/share/w4fg9oXF2QKyAa2p7_x1KszhJBpNWiWe
 
----
+VIEW RECORDING - 66 mins (No highlights)
 
-0:01 - Dejeahn Brown
-Um, Sheila and Tanya should be on time. They are in charge of the business program at Alvin College. Alvin College just recently became a four-year institution. They were previously a two-year. And so big things as they increase their, you know, student size, um, with the addition of the four-year program. Um, so they've moved from Alvin Community College and they've rebranded now to Alvin College. And so exciting. Um, let see, let's see. And then, yeah, so they are, they're really looking for, they came to us looking for how it can make an impact for the business program. We already had a chapter running with them. And so the, um, person, John Muttala, who was in charge of the overall chapter said, like, they were doing such great things with the business program that they should just lead the whole thing. And so we're going to be creating a structure where they feel comfortable being the advisors for the entire NSLS at their campus, which I think will be easy, but just a bit of background there. And they are, Tonya is a NSLS member as well from a different chapter.
 
-1:22 - Chris Higbee (nsls.org)
-All right. Well, let's do, should we let him in? It looks like we've got. Hi. Hello. Good morning. Good afternoon.
+@0:01 - Dejeahn Brown
+Um, Sheila and Tanya should be on time. They are in charge of the business program at Alvin College. Alvin College just recently became a four-year institution.
+They were previously a two-year. And so big things as they increase their, you know, student size, um, with the addition of the four-year program.
+Um, so they've moved from Alvin Community College and they've rebranded now to Alvin College. And so exciting. Um, let see, let's see.
+And then, yeah, so they are, they're really looking for, they came to us looking for how it can make an impact for the business program.
+We already had a chapter running with them. And so the, um, person, John Muttala, who was in charge of the overall chapter said, like,
+They were doing such great things with the business program that they should just lead the whole thing. And so we're going to be creating a structure where they feel comfortable being the advisors for the entire NSLS at their campus, which I think will be easy, but just a bit of background there.
+And they are, Tonya is a NSLS member as well from a different chapter. Awesome.
 
-1:38 - Dejeahn Brown
+@1:22 - Chris Higbee (nsls.org)
+All right. Well, let's do, should we let him in? It looks like we've got. I didn't even notice they were in there.
+Hi. Hello. Good morning. Good morning. Good Good afternoon.
+
+@1:38 - Dejeahn Brown
 How are you?
 
-1:42 - S. Woods
+@1:42 - S. Woods
 Good, good. Great. Great. Awesome.
 
-1:46 - Tonya Jefferson (Alvin Community College)
+@1:46 - Tonya Jefferson (Alvin Community College)
 Well, nice to meet you, Chris. Nice to meet you, Tonya.
 
-1:51 - Chris Higbee (nsls.org)
+@1:51 - Chris Higbee (nsls.org)
 Hey. And do we have anyone else who will be joining us today? No, it'll just be us.
 
-2:00 - S. Woods
+@2:00 - S. Woods
 Okay. And is it Sherry?
 
-2:04 - Chris Higbee (nsls.org)
+@2:04 - Chris Higbee (nsls.org)
 Is that Sheila?
 
-2:05 - S. Woods
+@2:05 - S. Woods
 Sheila.
 
-2:07 - Chris Higbee (nsls.org)
-Okay. Dejeahn just told me your name and I completely dropped it. So thank you, Sheila. And y'all are in Alvin, Texas, right? Yeah. Yes. Great. Great. And congrats on moving to a four-year school. I know a little bit about that. My dad actually was the vice president of student affairs for UT Permian Basin, where I was born.
+@2:07 - Chris Higbee (nsls.org)
+Okay. Dejeahn just told me your name and I completely dropped it. So thank you, Sheila. And y'all are in Alvin, Texas, right?
+Yeah. Yes. Great. Great. And congrats on moving to a four-year school. I know a little bit about that. My dad actually was the vice president of student affairs for UT Permian Basin, where I was born.
 
-2:35 - Tonya Jefferson (Alvin Community College)
+@2:35 - Tonya Jefferson (Alvin Community College)
 So I have a lot of college and higher ed in my blood.
 
-2:40 - Chris Higbee (nsls.org)
-Two of my sisters are also teachers and professors. And so it's in, I went the tech route. I actually have spent about, oh man, now nearly 30 years building software. A lot of that in HR technology, as well as in educational technology. So you might be familiar with, I know a lot of schools use a program called HireVue that's a video interviewing technology that's used to help students with mock interviews and stuff like that. That's something I actually helped to, I was one of the co-founders of HireVue. And so I've just kind of been in this space a little while and love to, I'm excited to bring that to, yeah, yeah, to bear here at NSLS. I've been here about six months as the Vice President of Product. And I've spent a good majority of that meeting with schools around the country, talking about one of our new products that we're releasing called Society that I'm excited to share with you today. But also just kind of getting to know our schools and how NSLS is showing up on campuses and being supported and used there. So I want to, I'm going to jump into a deck that I've prepared to continue the conversation unless there's anything else. Anyone would like to add in terms of introductions?
+@2:40 - Chris Higbee (nsls.org)
+Two of my sisters are also teachers and professors. And so it's in, I went the tech route. I actually have spent about, oh man, now nearly 30 years building software.
+A lot of that in HR technology, as well as in educational technology. Technology. So you might be familiar with, I know a lot of schools use a program called HireVue that's a video interviewing technology that's used to help students with mock interviews and stuff like that.
+That's something I actually helped to, I was one of the co-founders of HireVue. And so I've just kind of been in this space a little while and love to, I'm excited to bring that to, yeah, yeah, to bear here at NSLS.
+I've been here about six months as the Vice President of Product. And I've spent a good majority of that meeting with schools around the country, talking about one of our new products that we're releasing called Society that I'm excited to share with you today.
+But also just kind of getting to know our schools and how NSLS is showing up on campuses and being supported and used there.
+So I want to, I'm going to jump into a deck that I've prepared to continue the conversation unless there's anything else.
+Anyone would like to add in terms of introductions?
 
-5:29 - Tonya Jefferson (Alvin Community College)
-I would say two things. One, the contact between, and not so much as a technical issue, but the contact between our advisors and the staff, because Dejeahn has been absolutely phenomenal. I have worked with other organizations and his responsiveness, him walking us through the entire program, the platform, telling us how we can work together and put everything out in the future, because we're kind of still working on that part to ensure that. We completely roll out everything, but him just walking us through the process and making it seamless and how we can align, that has been truly instrumental in helping us go through this, like, phenomenal. So that contact is something you should not lose.
+@4:03 - Tonya Jefferson (Alvin Community College)
+Well, you can proceed.
 
-6:48 - Tonya Jefferson (Alvin Community College)
-[On what to keep] I was definitely the option of having the videos uploaded so that students who may not be able to come in to campus, they're able to work at it on their own time, which is extremely important because we have a lot of non-traditional students, and that means that nine times out of ten, they're probably working, and they may get on at two, three o'clock in the morning to be able to complete one of their NSTs or something like that. So we want to make sure that that is still available for them. So I think that works really well. So no matter what their schedule looks like, they're still able to walk through the program. So I love that.
+@4:09 - S. Woods
+Oh, did we lose him? Oh, I think we did.
 
-8:01 - Tonya Jefferson (Alvin Community College)
-The way it's been set up is they've just been doing it online, but Sheila and I are trying to change that to make us more visible on campus, which is why we have been working closely with Dejeahn and trying to implement it here, because I think it's probably, and Dejeahn, I'm not quite sure, to be honest with you, but I think it's been on our campus in an online platform for a couple of years now. And to be honest, I was searching or seeking another organization for our business bachelor's program and had no idea that, you know, it was actually on campus because it was in a online platform. So we want to make it more visible because I do see the benefit in the program. I see that it's just a lot that our students could utilize and just with the networking by itself. So we want make it more visible. So that's what we're trying to move towards.
+@4:16 - Tonya Jefferson (Alvin Community College)
+Oh, there he was. There you go.
 
-9:06 - Dejeahn Brown
-I think that the previous main advisor, John, was very busy, and the initial thought was to have that on-campus presence, host in-person events, and, you know, that happens with life. And so with Sheila and Tanya coming in, John even mentioned this, really just them possibly having more time to do that in-person touch, because they're already planning on doing it with the business school, right? So how can we have them feel comfortable doing it with everyone without stretching them too thin? And so we're going to create that game plan this summer.
+@4:20 - S. Woods
+We can't hear you. There you go.
 
-9:57 - Tonya Jefferson (Alvin Community College)
-[On frustrations] These are more so internal, the transition.
+@4:25 - Chris Higbee (nsls.org)
+I just was saying, take or stay at least. Okay. I just was trying to switch over to the deck that I'm sharing.
+do that here. Okay. Can you all see that? Yes. Okay. Great. Well, listen, thanks a ton for your time today.
+I'm going to, this will take about an hour. And it's two things. I'm obviously going to show you society, but like I said, I'm just trying to get to know the schools better and would love to get to know you and how you're.
+And so I want to start with some just initial questions that can help me to understand a little bit more about how you're partnering with NSLS.
+And so the first question here is, what do you love about the NSLS today that we should never lose?
+And so I'm the new VP of product. I'm building a lot of new things. I just want to make sure I'm not paving over something that someone loves.
 
-10:00 - S. Woods
-From John to us, because we originally went into this thinking we were only focused on our bachelor's degree students, and now it looks like we're going to be over the entire school. It's more internal than anything, nothing to do with the organization.
+@5:29 - Tonya Jefferson (Alvin Community College)
+I would say two things. One, the contact between, and not so much as a technical issue, but the contact between our advisors and the staff, because Dejeahn has been absolutely phenomenal.
+I have worked with other organizations and his responsiveness, him walking us through the entire program, the platform, telling us how we can work together and put everything out in the future, because we're kind of still working on that part to ensure that.
+We completely roll out everything, but him just walking us through the process and making it seamless and how we can align, that has been truly instrumental in helping us go through this, like, phenomenal.
+So that contact is something you should not lose.
 
-10:17 - Chris Higbee (nsls.org)
-What has changed in your school's priorities over the last few years? So I'm actually asking about kind of the bigger issues, like enrollment or career readiness or, like, what are some of the kind of big initiatives that have sort of shifted for you as a school? Dejeahn mentioned to me that you just switched from a two-year community college to a four-year school.
+@6:16 - Chris Higbee (nsls.org)
+Okay, all right. Well, thank you for sharing that, and I could not agree with you more. I absolutely love working with Dejeahn.
+He's been one of my best partners through this whole process. And so, yeah, I hear what you're saying. I, for sure, will not pave over Dejeahn for that relationship, for sure.
+But is there anything in the program itself or in the technology, especially, that you just love and you want to just make sure that I'm aware of that?
+Making, oh, go ahead, Sheila, if you're.
 
-11:01 - S. Woods
-Definitely the four-year degrees are a big priority. We have another one rolling out in the fall. Sheila, you can talk about AI because that's something that they want us do. They want us to incorporate that a lot more in our classes and actually across the campus because we do have a lot of people, when I say people, meaning employees, of the college, both faculty and staff, that are a little hesitant to adopt AI or even touch it, for that matter. Though we've been equipped with a lot of tools to help us be a lot of people. And then also there's a big push. Tanya, man. Entrepreneurship. Well, this is outside of just faculty in general. There's a big push for us to start working hand-in-hand with student services. Although we've had some role in advising, they're wanting us to really sit side by side and handhold our student services area. The objective is to enhance the student experience across the board. That's the main thing. I think a lot of it is grant-related, too. The has been afforded quite a bit of money, and they want to make sure we can prove that we're using those funds the way that they expect us to. And a lot of it is tied to faculty and student services working a lot more closely together.
+@6:48 - Tonya Jefferson (Alvin Community College)
+No, no, go ahead. Okay, I was definitely the option of having the videos uploaded so that students who may not be able to come in to campus, they're able.
+To work at it on their own time, which is extremely important because we have a lot of non-traditional students, and that means that nine times out of ten, they're probably working, and they may get on at two, three o'clock in the morning to be able to complete one of their NSTs or something like that.
+So we want to make sure that that is still available for them. So I think that works really well.
+So no matter what their schedule looks like, they're still able to walk through the program. So I love that.
 
-13:43 - Tonya Jefferson (Alvin Community College)
-[On career readiness] So when we're saying the priorities over the last, for me, it's actually been, from what I've understood, has been a priority since I got there. And that's been four years. I'm thinking when you said that, I was thinking of something more recent, recent changes. But, no, that's always been a focus, of course. Our advisory boards we give with them to ensure that our students are meeting the targets that they're looking for or they're ready for the workforce. We are implementing different things inside of the classroom. I know Sheila does a really great job where she does like a shark tank in her class where they have to pull this report together at the end. I'm working with other industry partners to put different programs within my course that they have to actually work out different challenges so that we're trying to ensure that they are ready for the workforce and not just teaching them something, giving them verbiage, giving them, okay, read this in the book and take a test. No, you actually have to have action items that you're walking through to ensure you are prepared to go out into the workforce.
+@7:33 - Chris Higbee (nsls.org)
+Okay. And just to clarify that a little bit more for me, are you pointing them to the national events that we broadcast so they can kind of join other schools and stuff?
+Okay, great. Orientations, things of that nature.
 
-15:26 - S. Woods
+@7:48 - Tonya Jefferson (Alvin Community College)
+Okay, awesome.
+
+@7:49 - Chris Higbee (nsls.org)
+And do you also hold Orientation and Leadership Training Day and some of those elements on campus? you hold live events as well yourself, or is it mostly you're encouraging?
+
+@8:01 - Tonya Jefferson (Alvin Community College)
+The way it's been set up is they've just been doing it online, but Sheila and I are trying to change that to make us more visible on campus, which is why we have been working closely with Dejeahn and trying to implement it here, because I think it's probably, and Dejeahn, I'm not quite sure, to be honest with you, but I think it's been on our campus in an online platform for a couple of years now.
+And to be honest, I was searching or seeking another organization for our business bachelor's program and had no idea that, you know, it was actually on campus because it was in a online platform.
+So we want to make it more visible because I do see the benefit in the program. I see that it's just a lot that our students could utilize and just with the networking by itself.
+So we want make it more visible. So that's what we're trying to move towards. Wonderful.
+
+@8:54 - Chris Higbee (nsls.org)
+Okay, I think we've got some of the things I'm going to show you here today, I think will be beneficial in that.
+ACTION ITEM: Create Alvin College NSLS chapter plan for on-campus visibility + in-person events - WATCH
+And, yeah, Dejeahn, you're just saying, do you want to just talk through that, Dejeahn? No, I was saying I agree.
+
+@9:06 - Dejeahn Brown
+I think that the previous main advisor, John, was very busy, and the initial thought was to have that on-campus presence, host in-person events, and, you know, that happens with life.
+And so with Sheila and Tanya coming in, John even mentioned this, really just them possibly having more time to do that in-person touch, because they're already planning on doing it with the business school, right?
+So how can we have them feel comfortable doing it with everyone without stretching them too thin? And so we're going to create that game plan this summer.
+Awesome. Well, great.
+
+@9:42 - Chris Higbee (nsls.org)
+And I'm excited to be a part of that and maybe share with you a tool that could also be a part of it and be beneficial.
+Is there anything that's caused some frustration or that's just made things a little harder for you guys?
+
+@9:57 - Tonya Jefferson (Alvin Community College)
+These are more so internal, the transition.
+
+@10:00 - S. Woods
+From John to us, because we originally went into this thinking we were only focused on our bachelor's degree students, and now it looks like we're going to be over the entire school.
+It's more internal than anything, nothing to do with the organization.
+
+@10:17 - Chris Higbee (nsls.org)
+Got it. Well, good. And you're working with one of the best to help you iron out some of those internal things for sure.
+What has changed in your school's priorities over the last few years? So I'm actually asking about kind of the bigger issues, like enrollment or career readiness or, like, what are some of the kind of big initiatives that have sort of shifted for you as a school?
+Dejeahn mentioned to me that you just switched from a two-year community college to a four-year school, which my dad actually oversaw that same thing at what is now Utah Valley University.
+So very familiar with the pains of that. Yeah. I think that's a question. Yeah.
+
+@11:01 - S. Woods
+In terms of priorities? No. Definitely the four-year degrees are a big priority. We have another one rolling out in the fall.
+Sheila, you can talk about AI because that's something that they want us do. They want us to incorporate that a lot more in our classes and actually across the campus because we do have a lot of people, when I say people, meaning employees, of the college, both faculty and staff, that are a little hesitant to adopt AI or even touch it, for that matter.
+
+@11:39 - Chris Higbee (nsls.org)
+Yeah.
+
+@11:39 - S. Woods
+Though we've been equipped with a lot of tools to help us be a lot of people. And then also there's a big push.
+Tanya, man. Entrepreneurship. Well, this is outside of just faculty in general. There's a big push for us to start working hand-in-hand with student services.
+Okay. Although we've had some role in advising, they're wanting us to really sit side by side and handhold our student services area.
+Got it. And where do you all sit?
+
+@12:17 - Chris Higbee (nsls.org)
+Faculty. Sorry? Faculty. We're faculty. Oh, both of you are faculty. Okay. Got it. And so when you say work more closely with student services, tell me, what is the objective there?
+The objective is to enhance the student experience across the board.
+
+@12:34 - S. Woods
+That's the main thing. I think a lot of it is grant-related, too. Yes. The has been afforded quite a bit of money, and they want to make sure we can prove that we're using those funds the way that they expect us to.
+And a lot of it is tied to faculty and student services working a lot more closely together.
+
+@12:53 - Chris Higbee (nsls.org)
+Okay. Great. That's helpful for me to understand. And I want to circle back on one that we've heard a lot of.
+I sort of. I mentioned it earlier, and that is career readiness. So, Tonya, mentioned entrepreneurship. My master's degree is actually in entrepreneurship, which I love that.
+I can speak to you all day about what that's done for me, but an incredible experience. But I want to talk a little bit about, yeah, career readiness.
+So, a lot of colleges that we're talking about have grants, for instance, that are tied to being able to prove that they're producing students that are ready for the workforce.
+Is that a focus, Alvin? And how is that being implemented at the school? So, I'll definitely speak to that.
+
+@13:43 - Tonya Jefferson (Alvin Community College)
+So, when we're saying the priorities over the last, for me, it's actually been, from what I've understood, has been a priority since I got there.
+And that's been four years. I'm thinking when you said that, I was thinking of something more recent, recent changes.
+But, no, that's always been a focus, of course. Our advisory boards we give with them to ensure that our students are meeting the targets that they're looking for or they're ready for the workforce.
+We are implementing different things inside of the classroom. I know Sheila does a really great job where she does like a shark tank in her class where they have to pull this report together at the end.
+I'm working with other industry partners to put different programs within my course that they have to actually work out different challenges so that we're trying to ensure that they are ready for the workforce and not just teaching them something, giving them verbiage, giving them, okay, read this in the book and take a test.
+No, you actually have to have action items that you're walking through to ensure you are prepared to go out into the workforce.
+So I think that, and I know it's not just us, but that's been a priority since, like I said, I've been on campus and like Sheila's been there a lot longer than I have.
+So that's, I guess that maybe that's. Why that wasn't one of the things that came first? I think I probably didn't word that very well.
+
+@15:10 - Chris Higbee (nsls.org)
+I'm glad to hear that that is a priority. That's right at the center of some of the things that I'm going to show you here today.
+So let's make sure that we connect the dots there. Sheila, anything to add to that? No, she's absolutely right.
+
+@15:26 - S. Woods
 There are some grants there. And then with Texas being an outcome-based funding model now, it's really important for us to start tracking our students, where they're going, what jobs they have, or even if they just transfer to another institution at some point, because all of that is tied to our funding overall.
+Okay, great. Good to know.
 
-15:48 - Chris Higbee (nsls.org)
-[On engagement] You mentioned there's a lot of work being done in partnering with Student Life. What do you think students need that will help to create the kind of engagement that you're looking for?
+@15:48 - Chris Higbee (nsls.org)
+Okay, last question here. You mentioned there's a lot of work being done in partnering with Student Life and some of the other student-related organizations.
+What do you think students need that will help to create the kind of engagement that you're looking for? I know, obviously, we're talking about bringing stuff more on campus.
+That's going to create more engagement. What else? What, like, what from a, just a student experience with NSLS is going to help to create more engagement, you believe?
+And maybe this is the, you know, million-dollar question, right, that you're trying to solve with Dejeahn. Yeah, I think more personal contact.
 
-16:29 - S. Woods
-I think more personal contact. But students in, I'm just speaking more from experience with the students that I have, just even in my classes. It's great for them to get things directly from the organization at a national level, which, for the most part, is what they have been getting. And Dejeahn has been letting us know about the updates that have been made where we can start sending things personally to the students so they know someone local is tied to this and can help them. But I think part on to of It's probably, from my experience, it's probably one of the bigger things to get them more engaged, more personal touch from someone that's near.
+@16:29 - S. Woods
+But students in, I'm just speaking more from experience with the students that I have, just even in my classes.
 
-17:21 - Tonya Jefferson (Alvin Community College)
-Only thing that I would say is flexibility. And again, I just hear that a lot from my students where, oh, I can't, is there an option to perhaps do it in late afternoon? Or can I log in on my lunch break? Because again, just seeing that over and over again, that is one of the reasons why I'm so really pleased. Yes, it's a, right now it's an online platform, but we want to give everyone an opportunity to also come in campus to do it. But just giving them something that they can really connect to and say, oh, well, you know, now I know that there are other individuals on campus who are perhaps, or meet other people online. Online that they may not know, because when they get their invitation, and for me, the way that that's been working, I'm not certain that they know who else is in the program with them, other than themselves. And so I think by us making it more visible, they say, oh, you know, I can go to Professor Jefferson or Professor Woods, and maybe they can tell me we're going to have some type of collaborative event online, but we can, excuse me, on campus. But we can also make it where those who can't physically come in can join us online. So just a sense of belonging, the flexibility, sense of belonging, because those are two things that I just hear a lot from students at the end of the class.
+@16:37 - Chris Higbee (nsls.org)
+More personal contact.
 
-18:39 - Chris Higbee (nsls.org)
-[Demo of Society begins. Story of Renee, 68-year-old grad student who completed the Clarity track with the AI coach — set goals around becoming a counselor for victims of human trafficking, found credentialed CBT courses, drafted outreach to instructor. Rated experience 10/10. Same NSLS membership; Leadership didn't connect for her but Career Clarity did.]
+@16:39 - S. Woods
+It's great for them to get things directly from the organization at a national level, which, for the most part, is what they have been getting.
+And Dejeahn has been letting us know about the updates that have been made where we can start sending things personally to the students so they know someone local is tied to this and can help them.
+But I think think that... part... on to of It's probably, from my experience, it's probably one of the bigger things to get them more engaged, more personal touch from someone that's near.
+Awesome.
 
-22:56 - Tonya Jefferson (Alvin Community College)
-I really like that a lot. Just the fact that they really have an option because you're meeting their needs, not just a, not just a one track, and then they can probably later go back to that. So I like that.
+@17:10 - Chris Higbee (nsls.org)
+I've got something to share with you that I think can help with that quite a bit, Sheila. So hopefully we've touched on that by the time we're done today.
+And if not, remind me, okay? Okay.
 
-23:08 - Chris Higbee (nsls.org)
-[Demo continues. Society overview: four tracks - Insights, Clarity, Leadership (FoL 2.0), Connections. AI Coach at center. Three outcomes: career direction, useful skills, professional network.]
+@17:21 - Tonya Jefferson (Alvin Community College)
+Tonya, any you guys? Only thing that I would say is flexibility. And again, I just hear that a lot from my students where, oh, I can't, is there an option to perhaps do it in late afternoon?
+Or can I log in on my lunch break? Because again, just seeing that over and over again, that is one of the reasons why I'm so really pleased.
+Yes, it's a, right now it's an online platform, but we want to give everyone an opportunity to also come in campus to do it.
+But just giving them something that they can really connect to and say, oh, well, you know, now I know that there are other individuals on campus who are perhaps, or meet other people online.
+Online that they may not know, because when they get their invitation, and for me, the way that that's been working, I'm not certain that they know who else is in the program with them, other than themselves.
+And so I think by us making it more visible, they say, oh, you know, I can go to Professor Jefferson or Professor Woods, and maybe they can tell me we're going to have some type of collaborative event online, but we can, excuse me, on campus.
+But we can also make it where those who can't physically come in can join us online. So just a sense of belonging, the flexibility, sense of belonging, because those are two things that I just hear a lot from students at the end of the class.
 
-[Demo of platform: dashboard, personal insights track, profile build, personality assessments (Myers-Briggs, Enneagram, Holland Code, DISC, Big Five), dream job recommendations]
+@18:39 - Chris Higbee (nsls.org)
+Thank you. Thank you for that. Thank you for that. And it has worked great the way that it was designed, but it's a new era.
+AI, you know, all of the pressures you've talked about that colleges are having to deal with in terms of career readiness and funding and, you know, a lot of different aspects have played into this.
+So we're trying to come up with what does NSLS 2.0 look like? And society is the beginning of what we believe that that can look like.
+So society is a new platform that we're building. It is not taking the place of NSLS. It's actually the underlying platform that makes the NSLS content of curriculum and connections and experiences more impactful.
+So I want to share with you a story. You mentioned that you guys have got some sort of, I guess, nontraditional students on campus, and I want to introduce you to one.
+This is Rene. This She is 68 years old. She has just finished her undergrad in psychology. I honestly don't know what school it was that she went to, but she just finished it.
+And she's now in her first year of graduate school studying psychology. She joined NSLS in 2024, and then she did nothing.
+She didn't complete orientation, didn't do Foundations of Leadership, nothing, right? Does that sound a little familiar? Yes. And then here's kind of what's interesting.
+In January, we invited Renee to try an early version of society and to use a new track that we're building, kind of a parallel one to Foundations of Leadership called Clarity.
+Career Clarity is what it's sort of referring to. And just to try it out and give us her feedback.
+She ended up spending over an hour in that Clarity track, which, by the way, is the founder, like the...
+The core of it is an AI coach. So talking about finding ways to implement AI at your school, this is a really powerful one.
+I'm going to talk to you a little more about some of the guardrails that we built around it. So it's not doing work for students, but it's acting more as a support, an advisor almost, kind of an extension of you guys, right?
+So back to Renee. She spent, like I say, over an hour in this clarity track, identifying her dream job as a counselor for victims of human trafficking, and then she began building a plan.
+She found a free course. She actually knew that she wanted to take a course on CBT, sorry, trauma-informed CBT, which is a method of working with people who have been through really traumatic experiences.
+And she got two credentialed university options outside of hers, which didn't offer it. And then she had the coach help her draft a letter to the instructor.
+She sent that off to them, set some deadlines and some. Reminders to help her get into this class, right?
+So you can see pretty, like, helpful stuff. And then near the end of her session, we asked her to rate her experience on a scale of 0 to 10, and she gave it a 10.
+Same person, same NSLS membership. Leadership didn't quite connect with her, but this career clarity did. It was immediate, it was deep.
+She was there for over 70 minutes. And then it was on her terms, to your point, Tonya. She could do this in her timing in a space that worked for her, right?
+But she was still engaging. So that's what we're building society to do for every student on campus, whether that's the Foundations of Leadership track or this Clarity track, having that AI guide, and then the tools that help them to stay accountable to themselves and potentially to others as well through that.
+So any thoughts or questions on that before I move on?
 
-[Demo of AI Coach: Chris's example conversation about developing public speaking skills, recommended Talk Like Ted book, SMART goals]
+@22:56 - Tonya Jefferson (Alvin Community College)
+I really like that a lot. Just the fact that they really Have an option because you're meeting their needs, not just a, not just a one track, and then they can probably later go back to that.
+So I like that.
 
-[Demo of school-specific agent capability - to be trained on Alvin College course catalog, faculty/staff directory, departments]
+@23:08 - Chris Higbee (nsls.org)
+Well, I'm excited to show it, show it to you. think that's going to become even clearer for you. So we've heard from many of our educational partners at campuses that we work with that higher ed is under enormous pressure right now.
+We've talked about some of this career outcomes, enrollment struggles, funding, political scrutiny, not to mention AI, AI, as you say, just sort of turning everything on its head.
+So the other thing is that leadership development as a standalone proposition is becoming increasingly difficult to defend as sort of its own thing in budget conversations and headcount conversations and stuff.
+So what institutions need now is they need options, and they need to be able to show that they're producing students who are ready for the workforce, and they need the data to be able to prove that, not only did it.
+To show the folks up the chain that things are working, but also to submit for grants, to submit for campus ranking, for college rankings with U.S.
+News and World Report or Wall Street Journal. So that data is really a big piece of this as well.
+It's not just the functionality, but it's the data that can help you all be able to tell your story effectively.
+And to back that up, it's stories like Renee's that signal that we are on to something pretty unique here.
+We're getting really exciting responses and feedback on what I've been showing. So what is society? It's, like I said, it's a new technology platform that is built on the NSLS Foundation that you already know.
+Same brand, same recognition, same accredited curriculum, but now that modern platform that's personalized by AI and then is really oriented around producing student connection and outcomes.
+So we're not uprooting what you've built. Think of society as the upgrade that's going to make everything you're already doing work better and reach further and allow you to be much more flexible in the way that you're delivering it.
+So the platform has four tracks right now that will be available in the fall that students move through. So the first one is this personal insights is what we call it.
+That provides the foundational context. what gives the AI coach what it needs to personalize everything else. Clarity is the track that offers that career direction.
+Leadership is essentially Foundations of Leadership 2.0, which one will make it easier to implement or to facilitate in an in-person experience, and also at the same time seamlessly support those students who can't be at in-person events as well.
+So the connections track is a really fun one that we're working on right now that that's where students will go to to join us.
+It's also where they will go to see the speaker broadcast, but it is another, there's a whole other aspect of this, which is where you can create events of your own for the campus.
+So if you've got an alumni coming in to speak to the business school, you could schedule that through society and keep track of who attends that there.
+You could even present that in a web format to students who are not available through the society platform. And that's all done through this new connections track and section.
+So three things that we want every student to leave with, career direction, useful skills, including those that they learn in Foundations of Leadership, and of course, a professional network as well that they can take with them beyond their time on campus.
+So that's the platform in short. And now let me just show it to you because I think that'll help put all those pieces together.
+So I want to share with you, this is the actual interface of society. the actual interface of I'll actually show you just a little bit to get going.
+There's a dashboard that the students come to where they see the tracks, the welcome track, the personal insights track, and you can see I've actually completed these.
+And then that career clarity track that I'm going show you as well. And being able to set up and start success networking teams from here as well.
+And I'll show you that functionality too. And as you can see, that AI coach is very involved. It's available from a lot of different perspectives.
+I'll come back to this in just a moment. But I do want to point out, for instance, that it knows enough about me, for instance, to know adventure is one of my values that I have sort of uncovered through that personal insights track.
+And, you know, so the coach is now using what it knows about me to prompt me, to give me some food for thought, to get a little more thoughtful about how I'm approaching my, you know, my work experience and preparing for the workforce and so forth.
+So a lot of different types of questions. And there will be more about leadership and others in there that are built around the student's profile.
+But let me show you what that profile looks like. So by completing the welcome and the personal insights piece, I'm entering my name, my information.
+You can see, you know, I went to Pepperdine is where I got my master's degree and BYU is where I got my undergrad.
+And then some of my work experience, including that time I mentioned it at HireVue. And do you guys use Canvas as your learning management system at Blackboard?
+Okay, well, I was with one of their competitors for a good long time with Instructure. I ran their professional services team.
+So I did a lot of implementations of LMSs all over the country at large and small universities. So and I am a big like I'm a kind of a fanboy of college of the college environment.
+Anytime I go to a campus, I'll buy a hat or a T-shirt or something like that. And it it's I just I love it.
+I love it. I love higher ed, and I love the environment and the experience that people get with that.
+So one of the things I also want to show you is that as I'm filling out this profile, and I'll show you what some of these questions look like so you get an idea of it, but as I'm filling them out, it's starting to keep track of things like, hey, how confident does it think I am in my ability to get a job, or how clear am I on what that job should be, or do I even, do I know the industry?
+Do I know how to really prepare myself for it? And it also is going to be helping me to track things like my personal network that I might use as sort of what we're calling a personal job counsel to help me do some networking to find a job, or have I begun to develop a professional network?
+Am I on LinkedIn, and have I done some of those types of things, right? So in addition to that, we ask enough questions that we can generate personality assessment results as well.
+So Myers-Briggs, Enneagram, Holland Code, DISC, and Big Five are the ones that are available right now. And you can imagine how powerful that is for a student who may not really have done any of that thinking to know, oh, I'm an ENTJ.
+I had to think about the types of jobs that, you know, what's the word I'm thinking of, that an ENTJ would be a good fit for, right?
+So do I need a job that where because I'm really outgoing, should I be going into sales or maybe I'm not as outgoing?
+I mean, need to be looking at an engineering job or something like that, right? So, but students who haven't been through that, they get an opportunity to do some of that here.
+And it also informs the coach so that it knows how to help you find the right job. And that is the whole purpose, by the way, of the Clarity Track is to help you find the job that is the best fit for you.
+So we continue to with things like helping them understand their strengths, what inspires them. Like I mentioned, there's adventure right there.
+Those values. Those That just help the student know more about themselves, but also informs the coach to help them think through things a little bit more.
+In the Clarity Track, we ask them some questions around, well, what kind of work environment would be ideal for you?
+Or what kind of living environment do you want? And, you I often use the example of, well, if you want to, you know, be in an educational environment and you want to live in New York City and be like an elementary school teacher, you probably need to be thinking about the financial aspect of this as well.
+You're probably going to be living with six other roommates, you know, an hour away from the school that you teach at, but that's all good, right?
+But we want to help them think through that and start doing some of that basic, you know, financial planning as well, okay?
+So all of this, by the way, is stored in the system so the AI coach has access to that information and, like I say, they can use it to help the students to think through what the, you know, getting the right job looks like.
+So this is where it is. It sort of culminates, and that is helping me to determine what is my dream job.
+So from all the questions I've answered, it came back to me with five recommendations, and that's the standard number.
+gives you five recommendations. Chief Innovation Officer was one of my options. I've actually been a Chief Innovation Officer, and so that's the one that I selected.
+But more than that, it's fun to see that it actually validates that it's collecting the type of information that's right for me, right?
+And making the right recommendation for me. We keep other information like, you know, a career statement and things like, you know, what are the requirements for that job, right?
+So, but let me jump off of that, and I want to show you, if I go into the clarity track, and let's just jump to the dream job section here.
+I've completed this, so it's going to look like it's grayed out, and that's why, but I want you, I just want to show you.
+So, for instance, asking questions like, you know, what kind of job are Options would you like to see? It was asking me, do you want to see surprising jobs or familiar jobs, or do you want to see a mix of both?
+I said, of course, a mix of both. Am I open to jobs that require further education? What industries am I interested in?
+Tech has been where I've lived most of my life. I did spend a little bit of time in children's television, believe it or not.
+That was kind of a fun stint for me. And then a couple other questions, and then what it generates is those dream jobs, okay?
+So these are the five that it recommended for me. Chief Innovation Officer, Director of Product Strategy, Tech Innovation Consultant.
+I actually ran a consulting firm for 10 years. That's how NSLS found me. So yeah, like I say, fun to see that it's connected.
+Educational Technology Director, which is what I was at Instructure. So in addition to that, I can write my own job description and tell it, hey, you you didn't quite get me.
+Here's one. That I'm really, that I know I want to shoot for. And then beyond that, we, I want to show you what the coach looks like.
+And I want to show you a conversation. This is a very long conversation I've been having with this coach because it's one I use for demonstrations.
+But I want to show you something that's kind of fun. And I was asking it to help me develop more skills around public speaking.
+And so it returned some ideas for me. returned this book, Talk Like Ted, which, by the way, phenomenal book, especially for your business students.
+And I told it, actually want, tell me more about Talk Like Ted. So it shares some more information with me.
+And then it can also help me to set some goals. So I told it, help me set a goal to read this book.
+And I, and I bet this looks somewhat familiar, right? Smart. So it's using the smart goal methodology that we teach them in Foundations of Leadership.
+To set those goals and to keep track of them. So here's the goal that I set. That actually gets saved to my achievements section where I can then, we're working on some new functionality that will send me a notification when it's time for me to remember to do this thing that I suggested.
+Or like another message that we're sending is, do you need to chat with the coach about this a little more or delve into it a little more because you haven't spent any time on it, right?
+Or like actually trying to help them be accountable to this. And you can set all sorts of goals with the coach.
+You can also set new goals yourself directly from here. It takes you right into the coach. I also want to mention one other thing that we're working on.
+We're working on a feature that will get to know Alvin College. So it's called an AI agent that will go out and it'll learn everything it knows about it or it can about Alvin College.
+And you might play a role in helping to train it so that it knows your course catalog, your faculty.
+Staff and Faculty Directory, the departments at this school, basically everything a student would need to know so that as it's asking the coach, hey, know, do you talk to me more about public speaking?
+It might be able to say, well, we offer three courses at Alvin College on public speaking. Here's what they are.
+Here's who the professor is. Here's the date and time for them. Would you like me to help you reach out to that professor and see if we can get you into the class, right?
+So that's the type of functionality that we're leading to. What you see today is purely beta, which means it's very early new functionality, but there's lots more that's coming.
+And I want to show you one other feature that's really kind of fun as part of this. So we know that success networking teams can sometimes be hard for the students themselves to just stay on top of, because a lot of times it means they need to coordinate with other students or they need to remember to go and jump on the national events.
+As your students do. But if you are doing success networking team. It's matching in your live experience and environment.
+So let's say, and Dejeahn will work with you on this, but let's say you decide that at your in-person leadership training day that you want to recommend to your students right then and there to sign up for an SNT and to actually have their first SNT meeting.
+Well, imagine them being able to come into a system like this where it can tell it tells them a little more about SNTs and allows them to come in and they commit to, you know, to joining the SNTs and then we can tell them, all right, please share your current availability.
+So here I can tell them, you know, I'm available on Tuesday mornings from, you know, 10 to 12 and Fridays from 1 to 3.
+And that then is sent into the system behind the scenes and it's starting to look at other students that have that same availability.
+No. And here it's saying, hey, if we can't find a group, is there another time that would work best?
+You know, maybe Saturdays at one could work. All right. And so if I want to, I can add a photo.
+I'm not going to right now. And now you can sort of see what that says right there is analyzing compatibility scores.
+So it's now looking at other students for me. And when I continue here, it'll send me into the coach to be able to have a little more conversation around SNTs if I want to.
+But I want to show you the, by the way, it's not going to match me because there aren't other people matching at the same time in this account that I'm in.
+But I wanted to show you that capability. Because what it comes to is, so here we are providing our availability.
+We're in the queue. It then will generate a success networking team for me. But I can now go in and I can.
+I chat with that team. So I've got a way to stay engaged with them when I'm not on campus, or even if I'm on campus, to do it asynchronously.
+It's also a way for you as advisors. You can also be involved in these SNT cohort discussions. So if they need to talk to you or ask you a question about something, that would allow you to do that.
+Additionally, they will be able to join an in-system huddle or meeting, essentially similar to what we're doing right now, where they can jump on the meeting, that meeting gets recorded, a transcript gets saved.
+And then now the AI coach has all of that context of, now it knows, I set some goals in my SNT meeting, and it could even come back out and help them.
+Hey, I heard in your SNT meeting that you set the goal to do X, Y, or Z. Would you like to create a smart goal in the system, and let's track that and hold you accountable, right?
+So that's some of the functionality. It also will keep track of, you know, a person. So you're not having to keep some spreadsheet.
+It will give them access to links where they can go back and review the meeting or review the transcript notes.
+And then any other meetings that are scheduled in our system are right there so that when they get a notification that that meeting is starting, they can jump into the platform and join the meeting and they're off to the races.
+So let me stop there and just ask any thoughts or questions on S&Ts or basically, you know, on anything that I've shown you today.
+I think this is absolutely phenomenal.
 
-[Demo of SNT matching - automated based on availability, in-platform team chat, video meetings with recordings/transcripts]
+@40:37 - Tonya Jefferson (Alvin Community College)
+Them being able to find someone, being able to pop in on a meeting, the transcript to align with their personal profile is phenomenal.
+I did have one question. Oh, I also liked it and I wrote it here, the financial literacy piece on that to add that.
+I think that was absolutely amazing as well. The only question that I had is on the platform, you said that.
+Where it talked about your confidence and how confident you were in a particular area. I was just wondering, so if there's a deficit, will they, will the system tell them how to increase it, increase that number, or will they have to actually go in and type something into the coach to ask for that assistance?
+Great, great question.
 
-40:37 - Tonya Jefferson (Alvin Community College)
-Them being able to find someone, being able to pop in on a meeting, the transcript to align with their personal profile is phenomenal. I did have one question. Oh, I also liked it and I wrote it here, the financial literacy piece on that to add that. I think that was absolutely amazing as well. The only question that I had is on the platform, you said that. Where it talked about your confidence and how confident you were in a particular area. I was just wondering, so if there's a deficit, will they, will the system tell them how to increase it, increase that number, or will they have to actually go in and type something into the coach to ask for that assistance?
+@41:20 - Chris Higbee (nsls.org)
+So first of all, that, the coach knows that well enough that when the student comes to the dashboard, some of these ask your coach questions could be completely tied to that.
+And my, you know, the coach might, for instance, say, hey, you've got a five on your career clarity score.
+Would you like some help increasing that, right? Let's talk about it. Let's talk through it and help you to figure out why you're not feeling quite as confident as you want to, right?
+So yes, it will support them in that. It does not right now. Like I said, this is, this is a beta version of this, but that is on.
+So it's planned for us to develop those kind of capabilities into it. But great question, Tonya. Thank you. Sheila, anything else to add on your part or any questions?
+I don't have any questions.
 
-41:20 - Chris Higbee (nsls.org)
-Great, great question. So first of all, that, the coach knows that well enough that when the student comes to the dashboard, some of these ask your coach questions could be completely tied to that. And my, you know, the coach might, for instance, say, hey, you've got a five on your career clarity score. Would you like some help increasing that, right? Let's talk about it. Let's talk through it and help you to figure out why you're not feeling quite as confident as you want to, right? So yes, it will support them in that. It does not right now. Like I said, this is, this is a beta version of this, but that is on. So it's planned for us to develop those kind of capabilities into it.
+@42:13 - S. Woods
+I was just wondering what's the underlining program? So the large language model that we work with on this is Claude from Anthropic.
 
-42:13 - S. Woods
-[On the LLM used] I was just wondering what's the underlining program?
+@42:25 - Chris Higbee (nsls.org)
+We do have the ability to, you know, also swap in other LLMs, but we, that's not been built out at this point, but it has been what we call in the software world stubbed in, which means the capability is there.
+We just haven't actually built the connection to make it happen. Okay. Yeah. But Claude is a, I'm a huge fan of Anthropic just as a company.
+I think they're one of the few that's actually being really mindful about how they're going about this. And, you know, the fact that they basically just said, nope, we're not even entertaining conversations.
+We were able to use this, you know, like that was like, okay, I'm switching to Claude. I saw your remark too, Dejeahn.
 
-42:25 - Chris Higbee (nsls.org)
-The large language model that we work with on this is Claude from Anthropic. We do have the ability to swap in other LLMs, but that's not been built out at this point.
-
-43:09 - S. Woods
+@43:09 - S. Woods
 I'll say that I got Claude from Sheila.
 
-43:11 - Tonya Jefferson (Alvin Community College)
+@43:11 - Tonya Jefferson (Alvin Community College)
 She likes Claude as well. And I've been using it and it has been absolutely amazing. Dejeahn's like, it's life changing.
 
-43:21 - Dejeahn Brown
-So we've also been using it to try to help us with some internal processes across departments. Like as we, well, why not take advantage of it if we're going to be using other places? So the capabilities, I'm like, ChatGPT, what?
+@43:19 - Chris Higbee (nsls.org)
+It's been night and day.
 
-43:42 - Chris Higbee (nsls.org)
-[Demo of Career Readiness Score concept - roll-up of personal insights completion, career clarity, academic plan, network building, professional profile. 72/100 example with Maya Rivera. Tied to advisor dashboard for productive student meetings. Could be opened to career services team. Possible alternative path to induction via Clarity track.]
+@43:21 - Dejeahn Brown
+So we've also been using it to try to help us with some internal processes across departments. Like as we, well, why not take advantage of it if we're going to be using other places?
+So the capabilities, I'm like, ChatGPT, what?
 
-48:37 - Tonya Jefferson (Alvin Community College)
-I can definitely see it being useful across the board. Absolutely.
+@43:37 - Chris Higbee (nsls.org)
+Yep. Yep. I'm right there with you. It's great.
 
-49:46 - Chris Higbee (nsls.org)
-[Wrap-up questions] Is there any data that you guys have been thinking, man, if I had that data, I could tell my story better?
+@43:42 - S. Woods
+Good. Well, great. I'm glad to hear that.
 
-49:54 - S. Woods
-I just, the data in regards to where students end up once they are done. At Alvin. We are severely lacking that. At the college.
+@43:45 - Chris Higbee (nsls.org)
+And that Sheila, you're not like some perplexity or llama fan, which those are great too. But, but, but no, Claude is the one that we use.
+Great question though. I'm trying to think, oh, I want to show you one other thing. Thing that's, that is very, very much still in the works.
+That's why I'm showing you just a screenshot. There's a mock-up of something we're building. This is a new dashboard that we're working on so that you have just more granular data about your students and about other cohorts.
+So, for example, the ability to not only sort these reports by other cohorts, so you're not just seeing the current one, that you can look at longitudinal data.
+We also want to be able to make other really valuable data available to you. And I want to point to one here.
+might be a little small to read, but that says Career Readiness Score. And we're working on this readiness score that would be tied to the students in the roster.
+And one of the things that that's going to do is it's going to provide a data, a very simple data point.
+72 out of 100 immediately tells you, this student is actually there. They have a fairly strong foundation, but they've got room to improve.
+And what it's so. What does that look like? What does that really mean? Well, it's a roll-up of a few different data points.
+One is, have they gone through the personal insights track, for instance, and have they done the work to know themselves, to know that question, Tonya, that we were talking about, that if they're low on career clarity or feeling confident about it, like, that's what this is all about.
+Career direction would be, have they completed the career clarity track? Do they know what their dream job is? And then, do they have an academic plan for how to get there, right?
+And have they begun to build out their personal and professional networks? And have they built a professional profile? So, meaning, do they have a good resume?
+And has that resume been reviewed by the AI coach and given a thumbs up? The coach isn't going to write the resume for them, but it will review it and tell them, hey, you've got a lot of grammar and spelling errors, or you could structure it differently or whatever, right?
+It has its... I looked at their LinkedIn profile and made recommendations. Wow. Did they even have a LinkedIn profile, right?
+So it's some of those aspects that this is going to be looking at to help not only the student to know, hey, am I ready?
+Can I be confident to move into the workforce? But now you as advisors have that as a data point so that when you are meeting with your students or you're supporting students in different ways, that you have that data point to turn to.
+To be, you know, let's say you have a meeting with that, you know, Maya Rivera here, and you can see that Maya's got a career readiness score of 72.
+You can run, jump in, see where she lacks and where she's excelling. And now your conversation with her that might be only 30 minutes is way more productive, right?
+You can actually support her in the ways that you can see that she needs the support as opposed to her walking in the door and going, all right, Maya, what do you need?
+All right. You're much more prepared for that kind of a conversation. Now, the reason I wanted to show you this as well.
+is because this is also an indication of where we want to go with the NSLS, and that is that it's not just a chapter on campus for leadership development training, but that it now becomes a tool that can be available to other departments on campus.
+So imagine, for instance, your career readiness counselors in your career advisory team, or student life, setting up events and scheduling them through this system so that students know about it and can join online and maybe even get credit by, you know, completing, writing a little essay on it or something that helps them, you know, maybe that is another step to induction.
+In fact, we are looking at possibly the clarity track being another way for a person to be inducted into the NSLS by completing that track and completing some other capabilities, like Renee, who leadership just wasn't didn't resonate for her there.
+We know there are students out there where they don't want to be. They're not planning to go be a CEO of anything, but they do want a job, and they do like, would love some help to be, to get clarity there.
+So we're just, we're being a lot more creative in the way that we're going about this, but the main point I want to make of this is, this is now a tool that would, might help to encourage you to bring other departments in, to, so that we, it becomes really a coalition of support for those students inside of Alvin College.
+And, and, that's, that's what we're shooting for with these tools. So, questions or thoughts on this before we wrap up the demonstration part?
 
-50:01 - Chris Higbee (nsls.org)
-Great point, Sheila. And that is something that we feel like we're very well positioned to do to support you in that. That's not available in society today, but very soon we will be able to provide that type of data to you, whether that's through a relationship with Handshake or a relationship with the National Department of Education, you know, and ways that we can get some of that data, as well as, you partnerships with LinkedIn and others so that we can see, oh, you know, Chris Higbee, who went to BYU has worked in tech for 30 years. That would not be hard to be able to pull from that data and make those connections, right? So those are the types of relationships we're looking at, Sheila, to be able to provide you that type of data in that dashboard that I showed you.
+@48:37 - Tonya Jefferson (Alvin Community College)
+I can definitely see it being useful across the board. Absolutely. Awesome.
 
-50:52 - Tonya Jefferson (Alvin Community College)
-I can see that actually aligned with the rest of them, how we impact you personally, seeing your students advance and be successful. It was absolutely amazing. It's rewarding because you wanted to see all your students excel. And then how does it impact the school? Now your school is recognized because you are producing great individuals to work in the workforce who are going out prepared. So that was a great one, Sheila, because you answered all the questions.
+@48:43 - Chris Higbee (nsls.org)
+Well, I'm, I'm glad to hear that validation because I couldn't agree more. I think it has so much potential to do some really cool stuff.
+And I, by the way, I, my, my last EdTech company was a product for Career Services. So it's, it's really cool for me to come in and see.
+See this and see that NSLS was working on this and now to be able to provide my background and expertise in that as well.
+So I think we've got some really exciting stuff that's coming out in the next little while. All right. I want to wrap up with just a couple of last minute questions here.
+First of all, is there any data that you guys have been thinking, man, if I had that data, I could tell my story better.
+I could give it to marketing to help them promote us as a school better. I could give it to my boss to show them they need to give me a raise, whatever it is, right?
+What data, is there any of that kind of data that you've been thinking of, man, I really could use that?
+I can't think of anything right now.
 
-[Meeting wrap-up: Pilot partnership offer accepted by Alvin College. Tonya and Sheila to be the advisors for the entire NSLS chapter, expanding from just the business school. Free access for 6-12 months. Direct input into product roadmap. Dejeahn to schedule pilot kickoff. Chris to send survey + meeting report.]
+@49:46 - S. Woods
+I just, the data in regards to where students end up once they are done. Okay.
+
+@49:54 - Chris Higbee (nsls.org)
+At Alvin. Great. Are severely lacking that. At the college.
+
+@50:00 - S. Woods
+Great point, Sheila.
+
+@50:01 - Chris Higbee (nsls.org)
+And that is something that we feel like we're very well positioned to do to support you in that. That's not available in society today, but very soon we will be able to provide that type of data to you, whether that's through a relationship with Handshake or a relationship with the National Department of Education, you know, and ways that we can get some of that data, as well as, you partnerships with LinkedIn and others so that we can see, oh, you know, Chris Higbee, who went to BYU has worked in tech for 30 years.
+That would not be hard to be able to pull from that data and make those connections, right? So those are the types of relationships we're looking at, Sheila, to be able to provide you that type of data in that dashboard that I showed you.
+But great point. Thank you for that. Anything else?
+
+@50:52 - Tonya Jefferson (Alvin Community College)
+I can see that actually aligned with the rest of them, how we impact you personally, seeing your students advance and be successful.
+It was absolutely amazing. It's rewarding because you wanted to see all your students excel. And then how does it impact the school?
+Now your school is recognized because you are producing great individuals to work in the workforce who are going out prepared.
+So that was a great one, Sheila, because you answered all the questions. Ma'am, we don't even need to go through anymore, but I will for a second.
+
+@51:24 - Chris Higbee (nsls.org)
+And great. Thank you for connecting those dots, Tonya. Is there anything else here just in terms of how this would impact you personally or the school beyond what Tonya just mentioned?
+And that might just cover it all, and that's fine. It does cover it all. Okay. All right. Great. Awesome.
+Well, so we're essentially done with the meeting, but I do want to just end here for a second. We are not rolling society out broadly to everyone.
+We're actually picking a very small group of schools, and Dijon chose you guys as ones who might. Be interested in becoming a pilot partner.
+We're going to go deeper with these schools. You're going to get a lot more hands-on support. And so for those who are interested in kind of co-creating with us, helping us to frankly figure out how to roll this out most effectively, we've got this pilot partnership program where you get dedicated onboarding and launch support during this beta period.
+You get direct input into our roadmap. You also get, you know, we'll work with you to help you write up some case studies and other proof points that can help to show the value of this, not only, you know, to your bosses, but also to other departments that may, that you might want to help bring society into.
+And then also you get access to. And features as they roll out. For instance, that SNT matching capability just came out literally this morning.
+So you, you would have access to that from day one. So that's what the Pilot Partner Program is. And that essentially starts now, if you're interested, and we'll talk about what that would look like if you are.
+And then it culminates in making the clarity track available to your students in the fall, as well as we are working, and I want to say this with a little bit of a grain of salt, my fingers are crossed here, that we will have the Foundations of Leadership curriculum in the society interface as well, with that coach, which is another very cool thing.
+You know, as you're thinking, as you're going through the leadership content, imagine having that AI coach now to help me not only to set smart goals and hold myself accountable, but to, you know, as I'm learning more, some of this content is going to be more asynchronous, so that the student is doing it like kind of like Renee did, right?
+On their own. So my hope is that we'll have that ready for you, and that the clarity track becomes an...
+Add-on. And the way that I'm recommending that schools think about the Clarity Track right now is that it is a carrot to put out there at the end of induction.
+Like, hey, get through induction and you get the Clarity Track for free as part of your membership with the NSLS.
+So another way for you to promote this and get students excited about completing induction and getting through that. So before we kind of wrap this up and I ask you the final question, I want to ask another, just one last one.
+And that is, just honestly, from your perspective, on a scale of zero to 10, how excited are you about what you've seen today, Tonya?
+Oh, it's a 10. I was actually going to ask if I can test it myself. How about you, Sheila?
+
+@54:49 - S. Woods
+No, this is great. Yes, absolutely. I love it. All right.
+
+@54:55 - Chris Higbee (nsls.org)
+So, well, I'm going to put you down as a, what, nine or a 10, Sheila? That'll
+
+@55:00 - S. Woods
+Okay. All right.
+
+@55:01 - Chris Higbee (nsls.org)
+And by the way, the reason I do that is I'm actually wanting to look at this across all of the schools that we talk to and see, are we getting the messaging right?
+Are we showing the right things? Are we on the right track? So that's why I asked that question. So would you like to join us as a pilot partner school and start to roll this out for you guys, starting essentially right now, culminating with it, going to all your students in the fall?
+I definitely would love to, as long as it's something that we can improve.
+
+@55:33 - Tonya Jefferson (Alvin Community College)
+Right. Yep.
+
+@55:34 - Chris Higbee (nsls.org)
+Absolutely. That's the only thing. I read this only so far. You get to control how this gets rolled out completely.
+We don't, we're not going to force you to do anything that you're not comfortable with. We mean the financial, any financials that have to go with it?
+
+@55:52 - Tonya Jefferson (Alvin Community College)
+no. There are no, I'm sorry, I misunderstood that.
+
+@55:55 - Chris Higbee (nsls.org)
+No, there, this, there's no additional cost. There will. There will. will be down the road, but no, for right now, you get it for free, and you get to be able to give it to your students for free.
+ACTION ITEM: Complete Society onboarding at oursociety.org; send feedback to Chris - WATCH
+Okay, you can knock me to a 20 out of a 10. Okay, all right, all right. I'm going to put that down.
+ACTION ITEM: Complete Society onboarding at oursociety.org; send feedback to Chris - WATCH
+That's going to skew all the numbers, Sonia. So, okay, awesome. Dejeahn just put a URL in the chat. Did you guys see that?
+Oursociety.org. That is where I want you to go. And I want you to go there today, if you can.
+Spend, it'll take you about 20 minutes or so to get through just the first initial pieces, and you're going to see real quickly how fun and how easy it is to use.
+And what I'd like to ask for is that you go through it all the way. Start chatting with the coach.
+Find your dream job, right? And then I would love for you to provide me some feedback. So, whether that's you type up your feedback on what did you love, what didn't quite work for you.
+If you found any bugs or technical issues, I want Know about that. You can write that up. You can record it on your phone.
+You can do a video of you, however you want to do it. Whatever is easiest for you, do that, get it back to me, and then I'll consume it, you know, and make sure that we get it into our product roadmap if there are ideas that can be helpful there.
+ACTION ITEM: Schedule pilot planning mtg w/ Tonya + Sheila; then plan faculty/staff testing + student cohort - WATCH
+So that's the first step of implementation. Steve, you've already begun. We want you to see it, and we want you to get your feedback.
+We will, then Dejeahn is going to reach out to you to schedule a meeting to talk about the next three steps, which just to bring you, bring it to your awareness.
+Beyond you testing it now, the next step is to bring a handful of your colleagues, just trusted colleagues, just at the college that you would, you know that they will give you feedback and that you can trust that they're going to actually do it.
+The next step beyond that is to do essentially the same thing with a small group of students that can, and we understand it's summer.
+So it would be some students that are either on campus now or students that are at home that you have a good enough relationship with that you can ask for their help.
+And then the last stage, stage four of this, is to actually roll this out to your entire NSLS membership.
+And then we can talk about how we could potentially roll this out to students in other departments as well.
+ACTION ITEM: Email Tonya + Sheila: survey + meeting report (incl recording link) to personal emails - WATCH
+But that's down the road.
+
+@58:24 - S. Woods
+So that is, those are the next steps.
+
+@58:27 - Chris Higbee (nsls.org)
+I'm going to send you both a survey as well that I would really appreciate if you could fill that out as soon as you get it.
+Take you about 10 minutes at most. You're going to answer some questions you've already answered today. But I want to be able to get that because I've asked all the schools to do this.
+And again, it's sort of an apples to apples comparison, easier way for me to be able to do the data analysis.
+So I'm using that stats and analytics class that I took in business school to crank the data. Yeah. And, and, and,
+Understand it. So I'll send you that survey as well.
+
+@59:02 - Tonya Jefferson (Alvin Community College)
+What do think of the specific number of individuals that you would like to participate as far as students, as far as?
+
+@59:09 - Chris Higbee (nsls.org)
+Honestly, with that stage three where we're asking just a handful of trusted students who maybe have already been through induction to test it, that doesn't need to be more than 20, frankly, at most.
+When we roll it out to your students this fall, we'll frankly make it available to all of them. But with the caveat, and again, this will be up to you, if you wanted to make it available to all of your students, regardless of whether they've been inducted or not, you certainly could.
+We recommend that you use it as a nice juicy carrot to put out there to say, get inducted, and then you can get this.
+But, you know, that'll be up to you guys. All right. Well, I did want to just note on that other point here, the product council.
+We will... We from the group of schools that have been pilot partners, a small team of probably 10 to 20 at most, schools that will stay with us year-round and provide us, basically just act as advisors to guide us on making sure that we're building the right products and features to support the current needs of higher ed.
+So that's what that one is about, and we'll circle back on that once we've been through the pilot implementation.
+So that's it, ladies, and I think we're right on time. So any last-minute questions before we wrap up? What was the full-time frame on the pilot program as far as training the students and then additional co-workers?
+Yeah, Dejeahn will try to set up a meeting here within literally the next week or two to start that process.
+That will take us through to your beginning of fall semester, and then that's when we will roll out the society platform to your students.
+Ideally, with Foundations of Leadership and SNT Matching, as well as the Clarity Track, and then we'll go from there.
+
+@1:01:12 - Dejeahn Brown
+Yeah, so as far as timeline goes, prior to setting up that follow-up meeting, we're hoping that you can create your account in society and spend maybe the next week or two going through collecting feedback there.
+After that, when we have that next planning meeting, we will plan to have the faculty and staff and anyone else, really, be involved, like, after the 4th of July, right?
+Because where we are in timing. So let's say, like, end of July, early August, I know that's also – I don't want to move too close into, like, the start of school.
+I would like to have that done prior and then start to choose the students maybe early August. So we're looking at two months exactly with the timeline, but we can always –
+There's always wiggle room with that. Thanks, Dejeahn.
+
+@1:02:04 - S. Woods
+I want to give like a transparent take here as well with our institution. We do have a program already that they pay for called Career Coach that does some of these same things.
+I don't think it says intuitive as this tool, but I know the institution we work for. Once they have put money out there, they are very slow to transition to something else.
+So I'll just ask for your patience. That's helpful to know, Sheila.
+
+@1:02:37 - Chris Higbee (nsls.org)
+Thank you.
+
+@1:02:38 - Dejeahn Brown
+And we're not even necessarily calling it a transition to something else. And I don't think that we need to do that as well to like scare anybody, just because I know how that goes as well.
+It's like a game of telephone, right?
+
+@1:02:51 - Chris Higbee (nsls.org)
+Right.
+
+@1:02:51 - Dejeahn Brown
+And so really just looking at saying, you know, NSLS is growing. They're going to be putting out new. And they really like us to help them test those new features.
+And here's how we're going to do that specifically for the NSLS students. If it's something that works out for everyone, that's okay.
+But what you have now is for everyone, right? We're talking specifically for the NSLS students and what is that additional benefit to them as joining as members.
+And this is what that next piece is. There's nothing to say that they couldn't utilize both. Just this is that layer of support that we might see is, like, you might be able to look at the NSLS cohort and say, what is giving them that leg up?
+And maybe it is this. And maybe we can talk about that on a broader picture. But right now, it's, you know, really just looking at them and how we can support them best.
+And I've said this before, give them that leg up as far as saying, all right, you're a member of NSLS.
+What else sets you apart? And so this will help do that.
+
+@1:03:49 - S. Woods
+Perfectly said, Dejeahn.
+
+@1:03:52 - Chris Higbee (nsls.org)
+And Sheila, you know, as, for example, one of the reasons to be just to be a little more transparent for you as well.
+One of the reasons that we want you to bring other faculty in as kind of the next step here is we want to just help expose this, that if, like, for instance, if you were to bring someone from your career services office in to test this out, it's really just to expose it to them.
+They don't need to make any decisions, and frankly, you could tell them this is available for free right now.
+If you want to, you know, give it to your students, you know, I'll introduce you to Dejeahn, and we can, you know, he'll help with that.
+But this is not meant to replace any of the tools that they've already got, at least not right now.
+Down the road, if they look at it and go, wow, that's way better, and, you know, right now it's free, and when we do price it, it's going to be cheaper, which it will be.
+I know Career Coach well. Then, you know, that's a decision they can make at that point, but it's not something we're pushing.
+Unsolicited opinion here.
+
+@1:04:51 - S. Woods
+I think this is better. No, you know, this is.
+
+@1:04:57 - Chris Higbee (nsls.org)
+We'll frame it that way from the beginning.
+
+@1:05:00 - Dejeahn Brown
+You know what I mean?
+
+@1:05:01 - S. Woods
+Like, let's stay on, like, that's the goal.
+
+@1:05:02 - Dejeahn Brown
+And as we have these conversations, wheels might turn and, you know, people might get ahead of that, but it's just level setting and bringing it back into where we are now.
+Yeah.
+
+@1:05:14 - Chris Higbee (nsls.org)
+Well, ladies, this has been a really fun conversation. Thank you for your time. And you've got my contact information here.
+That's my personal cell. If you need to, you know, text me or whatever, you've got it. And two things real quickly, just sort of for some housekeeping.
+I'm going to send you a survey, that survey that I mentioned, and then you will also get a report that reiterates everything we just talked about today.
+And it also will include a link to this meeting so that you could share that with other people internally if you needed to.
+ACTION ITEM: Email Chris Tonya + Sheila personal emails for survey/report - WATCH
+Okay.
+
+@1:05:47 - Tonya Jefferson (Alvin Community College)
+Can you also please email our personal email accounts just in case Alvin blocks you?
+
+@1:05:55 - S. Woods
+Yes. If Dijon, you could share with me.
+
+@1:05:58 - Chris Higbee (nsls.org)
+He has them. Okay. Yes, he does. Okay. Great. We'll make sure you get it. Thank you, Bo.
+
+@1:06:05 - Tonya Jefferson (Alvin Community College)
+Okay. Thank you, ladies. Great talking to you.
+
+@1:06:08 - Chris Higbee (nsls.org)
+Have a great day. You all as well. Bye-bye.
