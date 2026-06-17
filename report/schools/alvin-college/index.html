@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSLS Society Roadshow — Alvin College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#1A3550; --gold:#F2DA4E; --light:#F2E9E2; --border:rgba(30,20,20,0.1);
+      --text:#1E1414; --muted:#6B6357; --card:#E8DDD5; --yellow:#F2DA4E;
+      --white:#FFFDF8; --black:#1E1414; --blue:#4a4faa; --purple:#4a4faa;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    a{color:#1A3550;text-decoration:none;} a:hover{color:#C96058;}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+    h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+    .header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:48px 40px 9px;}
+    .header-meta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
+    .badge{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+    a.badge:hover{color:#C96058;}
+    .header h1{font-size:32px;font-weight:700;margin-bottom:6px;color:#1A3550;}
+    .header h2{font-size:18px;font-weight:400;color:#6B6357;margin-bottom:20px;}
+    .recording-link{display:inline-flex;align-items:center;gap:8px;background:#C96058;color:#FFFDF8;text-decoration:none;padding:10px 22px;border-radius:8px;font-weight:600;font-size:14px;transition:opacity .2s;}
+    .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+    .container{max-width:1200px;margin:0 auto;padding:40px 32px;}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+    @media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
+    .card{background:var(--card);border-radius:12px;border:1px solid var(--border);padding:28px;}
+    .card-title{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+    .card-title::after{content:'';flex:1;height:1px;background:var(--border);}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:32px;}
+    @media(max-width:900px){.stat-grid{grid-template-columns:1fr 1fr;}}
+    .stat-tile{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;}
+    .stat-tile .label{font-size:11px;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);font-weight:600;margin-bottom:6px;}
+    .stat-tile .value{font-weight:700;color:var(--navy);line-height:1;font-family:'Cigars',Georgia,serif;}
+    .stat-tile .sub{font-size:12px;color:var(--muted);margin-top:4px;}
+    .stat-tile.highlight{border-left:4px solid #C96058;}
+    .stat-tile.green{border-left:4px solid #3a8a40;}
+    .stat-tile.red{border-left:4px solid #C96058;}
+    .stat-tile.blue{border-left:4px solid var(--navy);}
+    .section-header{font-size:20px;font-weight:700;color:var(--navy);margin:40px 0 20px;padding-bottom:10px;border-bottom:2px solid var(--navy);font-family:'Cigars',Georgia,serif;display:flex;align-items:baseline;justify-content:space-between;gap:16px;}
+    .section-header a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;white-space:nowrap;}
+    .section-header a:hover{color:var(--navy);text-decoration:underline;}
+    .attendee{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+    .attendee:last-child{border-bottom:none;padding-bottom:0;}
+    .avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0;color:#fff;}
+    .avatar.navy{background:#1A3550;} .avatar.gold{background:#C8A000;} .avatar.muted{background:var(--muted);}
+    .attendee-info .name{font-weight:600;font-size:15px;}
+    .attendee-info .role{font-size:13px;color:var(--muted);margin-top:2px;}
+    .attendee-info .note{font-size:12px;color:var(--text);margin-top:4px;font-style:italic;}
+    .finding-list{list-style:none;}
+    .finding-list li{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.5;align-items:flex-start;}
+    .finding-list li:last-child{border-bottom:none;}
+    .finding-list .icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+    .quote{border-left:4px solid #1A3550;background:rgba(26,53,80,0.06);border-radius:0 8px 8px 0;padding:14px 18px;margin:12px 0;font-style:italic;color:var(--text);font-size:14px;}
+    .quote cite{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:6px;font-weight:600;}
+    .signal-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:8px;font-size:12px;font-weight:600;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;}
+    .signal-chip.top{background:rgba(201,96,88,0.12);color:#C96058;border-color:rgba(201,96,88,0.3);}
+    .callout{background:rgba(26,53,80,0.06);border:1px solid rgba(26,53,80,0.2);border-left:4px solid #1A3550;border-radius:8px;padding:16px 20px;font-size:14px;line-height:1.65;margin-top:20px;}
+    .callout strong{color:#1A3550;}
+    .action-list{list-style:none;}
+    .action-list li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;}
+    .action-list li:last-child{border-bottom:none;}
+    .action-list input[type=checkbox]{margin-top:5px;flex-shrink:0;cursor:pointer;width:15px;height:15px;}
+    .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+    .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;}
+    .footer{text-align:center;color:#6B6357;font-size:12px;padding:40px 32px;border-top:1px solid rgba(30,20,20,0.1);margin-top:20px;background:#F2E9E2;}
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div style="max-width:1200px;margin:0 auto;padding:0 8px;">
+    <div class="header-meta">
+      <a href="../../index.html" class="badge" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="badge" id="last-updated-badge">Latest Update: June 8, 2026</span>
+    </div>
+    <h1>Alvin College</h1>
+    <h2>Alvin, TX &nbsp;&middot;&nbsp; Public 4-Year</h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+      <a class="recording-link" href="../../index.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Roadshow Home
+      </a>
+      <a class="recording-link" href="https://fathom.video/share/w4fg9oXF2QKyAa2p7_x1KszhJBpNWiWe" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Watch Fathom Recording &mdash; ? min
+      </a>
+      <a class="recording-link" href="meetings/meeting-1-2026-06-08.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Discovery &amp; Demo Meeting &mdash; Report
+      </a>
+      <a class="recording-link" href="survey.html" style="background:#243B52;border:1px solid #243B52;color:#FFFDF8;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Survey Results
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="stat-grid"><div class="stat-tile highlight">
+      <div class="label">Excitement Score</div>
+      <div class="value" style="font-size:30px;padding-top:0;line-height:1.2;">9/10</div>
+      <div class="sub">Tonya Jefferson</div>
+    </div><div class="stat-tile green">
+      <div class="label">Pilot Partner Interest</div>
+      <div class="value" style="font-size:30px;padding-top:0;line-height:1.2;">✅ Yes</div>
+      <div class="sub">Tonya Jefferson and Sheila Woods confirmed; pilot kickoff to be scheduled by Dejeahn Brown</div>
+    </div><div class="stat-tile blue">
+      <div class="label">Product Council</div>
+      <div class="value" style="font-size:18px;padding-top:6px;line-height:1.2;">🤔 Unsure</div>
+      <div class="sub">Neither advisor explicitly confirmed Product Council participation; pilot partnership accepted but council involvement not discussed</div>
+    </div><div class="stat-tile red">
+      <div class="label">What Matters Most?</div>
+      <div class="value" style="font-size:18px;padding-top:6px;line-height:1.2;">Flexibility and sense of belonging for non-traditional students</div>
+      <div class="sub">Source: Tonya Jefferson</div>
+    </div><div class="stat-tile purple">
+      <div class="label">Champion Potential</div>
+      <div class="value" style="font-size:18px;padding-top:6px;line-height:1.2;">Strong</div>
+      <div class="sub">Likelihood to drive Society adoption</div>
+    </div></div>
+
+  <h2 class="section-header">School &amp; Chapter Snapshot</h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">About Alvin College</div>
+      <ul class="finding-list"><li><span class="icon">🎓</span><span>Alvin College recently transitioned from a two-year community college to a four-year institution, a rebrand that carries significant internal change management implications and is driving new enrollment and program growth.</span></li><li><span class="icon">🤖</span><span>The campus is undergoing a broad AI adoption push, with faculty and staff being equipped with tools and encouraged to integrate AI across departments and classrooms.</span></li><li><span class="icon">💰</span><span>Alvin College operates under Texas's outcome-based funding model and has received substantial grant funding, creating urgency around tracking student outcomes and demonstrating measurable results.</span></li></ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Chapter Status</div>
+      <ul class="finding-list"><li><span class="icon">🔄</span><span>Established chapter that has operated primarily online for approximately two years under advisor John Muttala; Tonya Jefferson and Sheila Woods are now taking over full campus-wide advising responsibilities, expanding from a business-program-only focus.</span></li><li><span class="icon">🏫</span><span>Chapter visibility has been extremely low — Tonya Jefferson was unaware NSLS existed on campus when she arrived — and advisors are actively working to develop a hybrid model with increased in-person presence.</span></li></ul>
+    </div>
+  </div>
+
+  <h2 class="section-header">Advisors
+    <a href="meetings/meeting-1-2026-06-08.html#advisor-profiles">Full Advisor Profiles in Meeting Report &rsaquo;</a>
+  </h2>
+  <div class="grid-2"><div class="card">
+      <div class="attendee" style="padding-top:0;">
+        <div class="avatar navy">TJ</div>
+        <div class="attendee-info">
+          <div class="name">Tonya Jefferson</div>
+          <div class="role">Business Faculty / Incoming Co-Advisor, Full NSLS Campus Chapter</div>
+          <div class="note">An NSLS member herself from a different chapter, Tonya brings firsthand member experience and strong enthusiasm for the platform. She is a vocal advocate for flexibility and belonging as student engagement priorities and praised the platform's multi-track design and AI coach capabilities effusively throughout the meeting.</div>
+        </div>
+      </div>
+    </div>
+<div class="card">
+      <div class="attendee" style="padding-top:0;">
+        <div class="avatar gold">SW</div>
+        <div class="attendee-info">
+          <div class="name">Sheila Woods</div>
+          <div class="role">Business Faculty / Incoming Co-Advisor, Full NSLS Campus Chapter</div>
+          <div class="note">Sheila is analytically oriented, raising questions about the underlying LLM and flagging the school's critical gap in post-graduation student outcome data. She is already a Claude user and brings a data-driven lens to student success and career readiness.</div>
+        </div>
+      </div>
+    </div></div>
+
+  <h2 class="section-header">Meeting Highlights
+    <a href="meetings/meeting-1-2026-06-08.html">Full Meeting Report &rsaquo;</a>
+  </h2>
+  <div class="grid-2" style="margin-bottom:20px;">
+    <div class="card">
+      <div class="card-title">&#x2705; What&#x27;s Working / What Landed</div>
+      <ul class="finding-list"><li><span class="icon">🎥</span><span><strong>On-Demand Video Access</strong> &mdash; Tonya specifically called out asynchronous video access as essential for non-traditional students who may log in at 2–3am to complete work. Described it as something that must be preserved in any new model.</span></li><li><span class="icon">🤝</span><span><strong>CSR Responsiveness (Dejeahn Brown)</strong> &mdash; Tonya gave an extended, unsolicited endorsement of Dejeahn Brown, calling his responsiveness and hand-holding through the platform 'phenomenal' and 'truly instrumental.' She framed it as a best practice NSLS should not lose.</span></li><li><span class="icon">🧭</span><span><strong>Multi-Track Flexibility</strong> &mdash; Tonya responded positively to the Society platform's multiple tracks, noting it meets students where they are rather than forcing a single path. She appreciated that students could explore Career Clarity even if Leadership didn't resonate.</span></li><li><span class="icon">💬</span><span><strong>AI Coach Personalization</strong> &mdash; Both advisors reacted positively to the AI coach demo, particularly the career clarity scoring and the idea that the coach could proactively surface gaps and guide students to improve them.</span></li><li><span class="icon">💡</span><span><strong>Financial Literacy Feature</strong> &mdash; Tonya flagged the financial literacy component specifically and called it 'absolutely amazing,' indicating it aligns with student needs she has observed directly.</span></li></ul>
+    </div>
+    <div class="card">
+      <div class="card-title">&#x274C; What Isn&#x27;t Working</div>
+      <ul class="finding-list"><li><span class="icon">👻</span><span><strong>Low Chapter Visibility</strong> &mdash; The chapter has been effectively invisible on campus due to its fully online format. Tonya only discovered NSLS existed at Alvin College while searching for a different organization for the business program.</span></li><li><span class="icon">🔁</span><span><strong>Advisor Transition Complexity</strong> &mdash; Tonya and Sheila entered the chapter expecting to advise only the business bachelor's program and are now being asked to oversee the entire campus chapter. The scope expansion is creating internal transition friction.</span></li><li><span class="icon">📊</span><span><strong>No Post-Graduation Outcome Data</strong> &mdash; Sheila identified a significant gap: the school is severely lacking data on where students go after leaving Alvin College. This is a direct pain point given Texas's outcome-based funding model and grant accountability requirements.</span></li><li><span class="icon">🧑‍🤝‍🧑</span><span><strong>Students Unaware of Peers in Program</strong> &mdash; Tonya noted that when students receive their NSLS invitation, they have no visibility into who else is in the program with them, limiting community formation and the sense of belonging she identified as a top student need.</span></li></ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>&#x26A0;&#xFE0F; Key Signal &mdash; Outcome Data Gap Aligns Directly with Society Roadmap:</strong> Sheila Woods named post-graduation student tracking as the school's most critical missing data — and Alvin College's Texas outcome-based funding model means this gap has direct budget implications. Chris Higbee confirmed Society is actively building toward this capability via Handshake, LinkedIn, and Department of Education integrations. This is a high-leverage alignment point: Society can solve a compliance and funding pain point, not just a product nice-to-have. Tonya immediately connected this to institutional reputation and workforce impact, suggesting both advisors would actively use and promote this feature once available.
+  </div>
+
+
+  <!-- ─── Survey Highlights ─────────────────────────────────── -->
+  <h2 class="section-header">
+    Survey Highlights &mdash; Tonya Jefferson
+    <a href="../../executive-summary.html?id=recPDeO3M9l9Xyg5n" target="_blank">Full Survey Results &rsaquo;</a>
+  </h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">What Matters Most?</div>
+      <p style="color:var(--muted);font-style:italic;">Survey rankings not yet available.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Key Survey Signals</div>
+      <p style="color:var(--muted);font-style:italic;">No open responses recorded.</p>
+    </div>
+  </div>
+
+
+  <h2 class="section-header">Action Items</h2>
+  <div class="card">
+    <ul class="action-list"><li>
+        <input type="checkbox">
+        <div class="action-number">1</div>
+        <div>Dejeahn Brown to schedule pilot kickoff meeting with Tonya Jefferson and Sheila Woods. <span class="owner-tag">Dejeahn Brown</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">2</div>
+        <div>Chris Higbee to send post-meeting survey and meeting report to Tonya Jefferson and Sheila Woods. <span class="owner-tag">Chris Higbee</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">3</div>
+        <div>Work with Tonya and Sheila to define a hybrid chapter model that preserves asynchronous access while building in-person visibility on campus. <span class="owner-tag">Dejeahn Brown</span><span class="owner-tag">Tonya Jefferson</span><span class="owner-tag">Sheila Woods</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">4</div>
+        <div>Flag Alvin College as a priority use case for the post-graduation outcome data feature given Texas outcome-based funding model and grant accountability requirements. <span class="owner-tag">Chris Higbee</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">5</div>
+        <div>Configure school-specific AI agent with Alvin College course catalog, faculty directory, and department information as part of pilot onboarding. <span class="owner-tag">Dejeahn Brown</span><span class="owner-tag">Chris Higbee</span></div>
+      </li>
+<li>
+        <input type="checkbox">
+        <div class="action-number">6</div>
+        <div>Explore Product Council invitation for Tonya Jefferson and Sheila Woods once pilot is underway and engagement is established. <span class="owner-tag">Dejeahn Brown</span></div>
+      </li></ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  NSLS Society Platform Roadshow &nbsp;&middot;&nbsp; Alvin College &nbsp;&middot;&nbsp; June 8, 2026<br>
+  Source: <a href="https://fathom.video/share/w4fg9oXF2QKyAa2p7_x1KszhJBpNWiWe" target="_blank">Fathom Recording</a> &nbsp;&middot;&nbsp; Generated for NSLS Product &amp; Development Teams
+</div>
+
+<script>
+document.getElementById('last-updated-badge').textContent =
+  'Latest Update: ' + new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+</script>
+</body>
+</html>

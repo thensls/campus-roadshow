@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alvin College — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">June 8, 2026</span>
+    </div>
+    <h1>Alvin College &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Alvin College Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/share/w4fg9oXF2QKyAa2p7_x1KszhJBpNWiWe" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Alvin College (formerly Alvin Community College)</p>
+    <p><strong>Location:</strong> Alvin, TX</p>
+    <p><strong>School Type:</strong> Public 4-Year — recently transitioned from a two-year community college. The rebrand to "Alvin College" reflects this institutional shift, which is ongoing and carries significant internal change management implications.</p>
+    <p><strong>Chapter Status:</strong> Established — the chapter has been running for at least a couple of years, primarily in an online format under advisor John Muttala. However, the chapter had low campus visibility and limited in-person engagement during that period.<a href="https://fathom.video/calls/700749665?t=467" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:47</a> Tonya Jefferson noted she was unaware NSLS even existed on campus when she first arrived because it was so fully online.</p>
+    <p><strong>Chapter Type:</strong> Online (transitioning toward Hybrid) — Tonya and Sheila are actively working with CSR Dejeahn Brown to increase on-campus presence and visibility<a href="https://fathom.video/calls/700749665?t=467" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:47</a>, with a plan to develop a hybrid model that preserves flexibility for non-traditional students.</p>
+    <p><strong>Advisors Present:</strong> Tonya Jefferson and Sheila Woods — both faculty in the business program. They are taking over full chapter advising responsibilities from the previous advisor, John Muttala, expanding their scope from the business bachelor's program to the entire campus NSLS chapter.</p>
+    <p><strong>Segment:</strong> Tier 3</p>
+    <p><strong>Notable Context:</strong> The chapter is in a transitional moment on multiple fronts: institutional identity shift (2-year to 4-year), advisor handoff, scope expansion (business-only to campus-wide), and a deliberate push to move from invisible/online-only to a visible hybrid chapter. Alvin College is also operating under Texas's outcome-based funding model, creating urgency around student tracking and career outcome data. A significant AI adoption push is underway campus-wide. The school has received substantial grant funding tied to measurable student outcomes, deepening the need for data and reporting tools. CSR Dejeahn Brown was cited by name and praised effusively by Tonya as a critical driver of the chapter's forward momentum.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Tonya Jefferson</h3>
+    <p><strong>Role:</strong> Business faculty, Alvin College; incoming co-advisor for the full NSLS campus chapter (expanding from business program focus)</p>
+    <p><strong>Background:</strong> Has been at Alvin College for approximately four years. Is herself an NSLS member from a different chapter, which gives her firsthand knowledge of the member experience. She has prior experience working with other student-facing organizations and brings that comparative lens to her NSLS involvement. She integrates industry partnerships directly into her courses and uses project-based, challenge-driven pedagogy rather than lecture-and-test formats.</p>
+    <p><strong>Motivations:</strong> Deeply motivated by student success and workforce readiness. Repeatedly emphasized wanting students to feel a sense of belonging, have scheduling flexibility, and understand who else is in the program with them. She wants the chapter to be visible and felt on campus — not just a digital checkbox. She is also drawn to NSLS because she sees the networking component as high-value for her students.</p>
+    <p><strong>Communication Style:</strong> Warm, expressive, and highly articulate. Frequently affirmed what resonated with her ("I really like that a lot," "phenomenal," "absolutely amazing"). Asked specific, product-level questions (e.g., how the confidence deficit UI works). Connects platform features back to student needs she observes directly in her classroom. Enthusiastic and collaborative in tone.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. She accepted the pilot offer, is an NSLS member herself, is actively invested in expanding the chapter, and demonstrated close attention to product detail throughout the demo. Her classroom-level insight into non-traditional student behavior makes her a valuable voice for product decisions around flexibility, onboarding UX, and community features.</p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Sheila Woods</h3>
+    <p><strong>Role:</strong> Business faculty, Alvin College; incoming co-advisor for the full NSLS campus chapter</p>
+    <p><strong>Background:</strong> Faculty in the business program. Known for running experiential, high-engagement classroom projects (e.g., a Shark Tank-style capstone where students produce a comprehensive business report). Has been involved in advising students at some level. Is familiar with and enthusiastic about Claude (Anthropic's LLM) prior to the meeting — she had already introduced it to Tonya.</p>
+    <p><strong>Motivations:</strong> Focused on institutional outcomes — particularly student tracking, post-graduation data, and outcome-based funding compliance. She raised the single most strategically significant data need in the meeting: knowing where students end up after leaving Alvin College. She is also oriented toward increasing the personal, local connection between students and the chapter, believing that proximity and personalization drive engagement more than national-level communications.</p>
+    <p><strong>Communication Style:</strong> More measured and concise than Tonya. Asks targeted, technically-oriented questions (e.g., which LLM powers Society). Raises institutional and systemic concerns (grant accountability, outcome-based funding, faculty-student services collaboration). Confident and direct. Less demonstratively enthusiastic than Tonya but clearly engaged and tracking the product closely.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Her fluency with AI tools, focus on institutional data needs, and clear articulation of outcome tracking gaps make her a strong Product Council candidate. Her perspective represents the administrator/data lens rather than purely the student experience lens — a valuable balance to Tonya's student-first orientation.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li><strong>Asynchronous, on-demand content access:</strong> Tonya explicitly cited the ability for students to complete program content on their own schedule — including at 2–3am — as essential<a href="https://fathom.video/calls/700749665?t=395" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:35</a> given the high proportion of non-traditional, working students at Alvin College.</li>
+    <li><strong>The quality of the CSR relationship:</strong> Tonya praised Dejeahn Brown at length, describing his responsiveness, walk-throughs, and collaborative approach as "truly instrumental" and "phenomenal."<a href="https://fathom.video/calls/700749665?t=324" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:24</a> She framed this human connection as a competitive differentiator NSLS should actively protect.<a href="https://fathom.video/calls/700749665?t=329" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:29</a></li>
+    <li><strong>Flexibility as a structural principle:</strong> Both advisors emphasized that any new programming — in-person or digital — must accommodate students who cannot be present on campus at fixed times. Flexibility was described not as a nice-to-have but as a baseline requirement for their student population.<a href="https://fathom.video/calls/700749665?t=409" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:49</a></li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li><strong>Campus invisibility of the chapter:</strong> The chapter has operated almost entirely online, resulting in low awareness. Tonya herself had no idea NSLS was on campus when she arrived four years ago.<a href="https://fathom.video/calls/700749665?t=468" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:48</a> Students receiving national-level communications don't feel a local presence or know who else is in the program.<a href="https://fathom.video/calls/700749665?t=476" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:56</a></li>
+    <li><strong>Lack of community and belonging signals:</strong> Students don't know who else is in NSLS with them. Tonya described this as a gap in the sense of belonging — students can't find a peer, attend an event, or identify a local contact who can help them navigate the program.</li>
+    <li><strong>Advisor transition and scope expansion:</strong> Tonya and Sheila entered thinking they were managing only the business bachelor's program.<a href="https://fathom.video/calls/700749665?t=581" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:41</a> The expansion to campus-wide advising was not fully anticipated and is creating internal complexity.<a href="https://fathom.video/calls/700749665?t=581" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:41</a> This is described as an internal challenge, not a criticism of NSLS.</li>
+    <li><strong>No student outcome tracking:</strong> Sheila identified a significant institutional gap — Alvin College does not have reliable data on where students go after they leave. This is tied directly to Texas's outcome-based funding model, making the gap both operationally and financially consequential.</li>
+    <li><strong>National-only communications:</strong> Students were receiving outreach only from NSLS nationally, with no local advisor voice attached. Sheila noted that Dejeahn has since enabled local messaging capabilities, but the prior model limited local engagement and chapter ownership.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li><strong>Expanding four-year degree offerings:</strong> A new four-year program is rolling out in fall. Growing the four-year footprint is a top institutional priority following the rebrand.</li>
+    <li><strong>AI adoption and literacy across campus:</strong> The college is pushing AI integration into both coursework and operations. Faculty and staff resistance is a known challenge. Tools like Claude are already being used by some faculty. AI literacy is framed as both a student outcome goal and a faculty development challenge.</li>
+    <li><strong>Entrepreneurship programming:</strong> Sheila flagged entrepreneurship as a growing institutional emphasis.</li>
+    <li><strong>Faculty-student services collaboration:</strong> The college is mandating closer coordination between academic faculty and student services — described as a grant-driven initiative to improve the overall student experience.</li>
+    <li><strong>Workforce and career readiness:</strong> Tonya described career readiness as a sustained, multi-year priority — not a new one. Both advisors are integrating experiential, industry-partnered learning into their courses as a direct expression of this commitment.</li>
+    <li><strong>Outcome-based funding compliance:</strong> Texas's shift to outcome-based funding has made student tracking — transfers, employment, graduation — a financial imperative, not just a reporting preference. Sheila directly tied this to the need for post-enrollment data.</li>
+    <li><strong>Grant accountability:</strong> The college has received significant grant funding and must demonstrate that funds are being used as intended, particularly in areas tied to faculty-student services integration and student outcomes.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Non-Traditional Students Require Flexibility-First Design</h3>
+    <p>Tonya returned to this theme multiple times without prompting. Alvin College's student population skews non-traditional — working adults, commuters, students managing complex schedules. Any engagement model that requires synchronous, on-campus participation will exclude a significant portion of their students. The platform's asynchronous content delivery was explicitly cited as one of its greatest assets. For this school, flexibility is not a feature request — it is a prerequisite for adoption.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Belonging and Local Presence Are the Missing Engagement Layer</h3>
+    <p>Students currently experience NSLS as a national program with no visible local dimension. They don't know who else is in the chapter. They don't know which faculty are involved. They have no local event touchpoints. Tonya described the ideal future state as students knowing they can walk up to Professor Jefferson or Professor Woods and get connected to something real on campus. This is both a chapter strategy issue (building hybrid programming) and a product opportunity (surfacing community, local advisors, and peer cohort visibility within the platform).</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Outcome Tracking Is an Institutional Urgency, Not Just a Nice-To-Have</h3>
+    <p>Sheila's identification of post-enrollment outcome data as a major gap is directly tied to Texas's outcome-based funding model and grant accountability requirements. The college loses funding if it cannot demonstrate student outcomes. This makes Society's potential to track career direction, network-building, and ultimately post-graduation employment not just a product differentiator but a potential institutional lifeline. Chris acknowledged this is not yet in Society but flagged Handshake, the National Department of Education, and LinkedIn as potential data pipelines — a response both advisors found compelling.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. AI Fluency Is Already Present — Claude Specifically Is Trusted</h3>
+    <p>Sheila had already introduced Tonya to Claude before this meeting. Both advisors are active Claude users and responded with visible enthusiasm when they learned Society is built on Anthropic's Claude. Dejeahn added that the NSLS team has also been using Claude internally. This is a meaningful trust signal — the underlying AI model is not unfamiliar or threatening to these advisors. It reduces the typical AI adoption friction and positions Society's AI Coach as credible and recognizable rather than unknown.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. The CSR Relationship Is a Retention and Expansion Driver</h3>
+    <p>Tonya's extended, unsolicited praise of Dejeahn Brown — by name, with specific examples of responsiveness and process guidance — signals that the human relationship layer is what converted a dormant, invisible chapter into an engaged one. The transition from John Muttala to Tonya and Sheila happened specifically because Dejeahn's attentive partnership surfaced the business program's momentum and created a path to expand it campus-wide. For Tier 3 schools especially, CSR quality may be the most reliable predictor of whether a chapter activates — a signal worth tracking at the product and operational levels.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">9/10</div>
+  <p><em>Note: No explicit numerical score was provided during the meeting. This score is inferred from the tone and substance of advisor responses throughout the demo — consistent affirmations, specific feature callouts, zero major objections, and acceptance of the pilot offer. Treat as estimated.</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li><strong>Multiple tracks / personalized pathways:</strong> Tonya responded immediately and positively to the idea that students aren't locked into a single track — "you're meeting their needs, not just a one track." The Clarity track resonated especially given her non-traditional student population.</li>
+    <li><strong>The Renee story:</strong> The narrative of a 68-year-old graduate student finding purpose and direction through the Career Clarity track landed strongly. It mirrored Tonya and Sheila's own student population — older, non-traditional, often overlooked by traditional career programming.</li>
+    <li><strong>SNT matching and transcript feature:</strong> Tonya explicitly called out the ability to pop into a meeting and have transcripts align with personal profiles as "phenomenal."</li>
+    <li><strong>Financial literacy component:</strong> Tonya flagged this as a standout addition she "absolutely loved" — it was not something she had asked about but she noted it with genuine enthusiasm.</li>
+    <li><strong>AI Coach built on Claude:</strong> Both advisors reacted visibly and positively when Claude was identified as the underlying LLM. Tonya said Sheila introduced her to it and that it has been "absolutely amazing."</li>
+    <li><strong>Career Readiness Score / advisor dashboard:</strong> Tonya's response to the student outcome tracking component — "you answered all the questions" — suggests the advisor-facing data view connected strongly to both their pedagogical goals and institutional accountability pressures.</li>
+    <li><strong>School-specific agent:</strong> The concept of an AI agent trained on Alvin College's course catalog and faculty directory was received as practically useful and directly relevant to their student advising needs.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li><strong>Confidence deficit UX:</strong> Tonya asked a pointed product question about whether the platform would proactively surface coaching prompts when a student's confidence score is low, or whether the student would have to manually initiate that conversation. Chris confirmed proactive prompting is planned but not yet built — a gap that should be tracked against this school's expectations.</li>
+    <li><strong>Beta status of some features:</strong> Several capabilities described during the demo (proactive confidence coaching, outcome tracking integrations) were noted as planned or in development. Both advisors absorbed this without pushback, but they accepted the pilot with an understanding that the product is still evolving.</li>
+    <li><strong>Internal advisor transition complexity:</strong> Not a product issue, but the scope expansion from business-only to campus-wide is a real operational load for two faculty members. The summer game plan with Dejeahn will need to address bandwidth carefully to prevent burnout before the chapter gains momentum.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li><strong>Tonya was unaware NSLS was on her campus for four years:</strong> Despite being an NSLS member herself from another chapter, she had no idea the program existed at Alvin College. This underscores just how invisible the chapter was — and makes her enthusiasm for what NSLS could be all the more striking.</li>
+    <li><strong>Claude was already in use by both advisors:</strong> Sheila had already introduced Tonya to Claude independently. The fact that Society runs on Claude converted what could have been an AI skepticism conversation into an immediate trust moment.</li>
+    <li><strong>Financial literacy was a spontaneous highlight:</strong> Neither the CSR notes nor the demo framing called out financial literacy as a key feature for this school, yet Tonya flagged it as a standout unprompted. This may indicate an unmet student need worth exploring further.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Multiple Tracks (Clarity, Leadership, Insights, Connections)</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Tonya responded immediately — "you're meeting their needs, not just a one track." Flexibility of pathways directly addresses her non-traditional student population who may not connect with traditional Leadership framing.</td>
+      </tr>
+      <tr>
+        <td>Asynchronous / On-Demand Content Access</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Tonya explicitly named this as a feature to preserve. Students logging in at 2–3am is a real behavioral pattern at Alvin College. Any regression here would be a significant adoption barrier.</td>
+      </tr>
+      <tr>
+        <td>AI Coach (Claude-powered)</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Both advisors already use Claude personally. Tonya described it as "absolutely amazing." The trust transfer from their personal Claude usage to Society's AI Coach was immediate and unforced.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching + In-Platform Video + Transcripts</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Tonya called out the transcript-to-profile alignment as "phenomenal." This feature directly addresses her concern about students not knowing who else is in the program with them.</td>
+      </tr>
+      <tr>
+        <td>Financial Literacy Component</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Tonya flagged this spontaneously and with clear enthusiasm — "absolutely amazing." Was not a pre-identified need but resonated strongly, suggesting an unmet student need at this school.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score / Advisor Dashboard</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Both advisors responded positively. Sheila's comment that Tonya "answered all the questions" (referencing the outcome tracking framing) signals this view directly addresses their institutional accountability concerns.</td>
+      </tr>
+      <tr>
+        <td>School-Specific AI Agent (course catalog, faculty directory)</td>
+        <td><span class="badge-positive">Positive</span></td>
+        <td>Received as practically useful. Alvin College is in a period of institutional growth and course catalog expansion (new four-year programs rolling out), making a locally-trained agent increasingly relevant over time.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessments (Myers-Briggs, DISC, Holland Code, etc.)</td>
+        <td><span class="badge-positive">Positive</span></td>
+        <td>No direct pushback or strong callout, but consistent with Tonya's emphasis on meeting individual student needs. The multi-assessment model aligns with her pedagogical approach to personalized, action-oriented learning.</td>
+      </tr>
+      <tr>
+        <td>Proactive Confidence/Gap Coaching (planned feature)</td>
+        <td><span class="badge-question">Open Question</span></td>
+        <td>Tonya asked directly whether the system would surface coaching prompts when confidence scores are low, or whether students must self-initiate. Chris confirmed it is planned but not yet live. Expectation is set — this school will likely notice if it isn't present at pilot launch.</td>
+      </tr>
+      <tr>
+        <td>Post-Enrollment Outcome Tracking (Handshake / LinkedIn integrations)</td>
+        <td><span class="badge-question">Open Question</span></td>
+        <td>Sheila named post-graduation student tracking as Alvin College's most significant data gap, tied directly to Texas's outcome-based funding model. Chris described planned integrations (Handshake, DOE, LinkedIn) but confirmed this is not yet in Society. High institutional stakes — should be flagged for roadmap prioritization.</td>
+      </tr>
+      <tr>
+        <td>Local Advisor Communications / Personalized Student Outreach</td>
+        <td><span class="badge-care">Needs Care</span></td>
+        <td>Sheila identified the absence of local advisor voice in student communications as a past engagement barrier. Dejeahn has since enabled local messaging. The product should ensure advisor-attributed, localized communications are easy to execute — this is a key engagement lever for chapters transitioning from fully online to hybrid.</td>
+      </tr>
+      <tr>
+        <td>Community / Peer Visibility Within Platform</td>
+        <td><span class="badge-care">Needs Care</span></td>
+        <td>Tonya noted students don't know who else is in the program. The platform should surface cohort membership and local community signals — not just match students for SNTs but make the local chapter feel real and populated inside the product experience.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Schedule pilot kickoff meeting with Tonya Jefferson and Sheila Woods to formally onboard them as campus-wide NSLS chapter advisors and launch Society pilot access. <span class="owner-tag">Dejeahn Brown</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Send post-meeting survey and this meeting report to Tonya and Sheila as part of the pilot onboarding follow-up. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Develop summer game plan with Tonya and Sheila to structure the campus-wide chapter advisor transition from John Muttala, including scope definition, bandwidth expectations, and hybrid programming model. <span class="owner-tag">Dejeahn Brown</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Confirm pilot terms with Tonya and Sheila: free access for 6–12 months, direct input into product roadmap, and expectations for feedback cadence. <span class="owner-tag">Chris Higbee / Dejeahn Brown</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Flag Alvin College's need for post-enrollment student outcome tracking (tied to Texas outcome-based funding model) as a high-priority input for Society's roadmap — specifically Handshake, LinkedIn, and DOE data integrations. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Ensure the proactive confidence/gap coaching feature (surfacing AI Coach prompts when student scores reflect deficits) is tracked on the product roadmap and communicated to Alvin College advisors before or at pilot launch, given Tonya's specific question about this capability. <span class="owner-tag">Chris Higbee / Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Evaluate Tonya Jefferson and Sheila Woods for formal Product Council invitation given their engagement level, AI fluency, pilot acceptance, and complementary perspectives (student experience vs. institutional data). <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>When will the proactive AI Coach prompting (based on confidence/career clarity score deficits) be available in Society? Tonya asked about this specifically and Chris confirmed it is planned but not yet live.</li>
+    <li>What is the timeline for post-enrollment outcome tracking integrations (Handshake, LinkedIn, DOE)? Sheila's data gap is tied to active funding compliance requirements — a vague "coming soon" may not be sufficient for institutional planning.</li>
+    <li>How will Tonya and Sheila manage the bandwidth of campus-wide chapter advising on top of their existing faculty responsibilities? The scope expansion was not fully anticipated and the summer game plan needs to address this directly to prevent advisor fatigue before the pilot fully launches.</li>
+    <li>Will the school-specific AI agent (trained on Alvin College's course catalog and faculty directory) be available at pilot launch, or is that a later-phase capability? Given the school's rapid institutional expansion (new four-year programs launching in fall), this feature's timing is relevant.</li>
+    <li>Is there an opportunity to connect Alvin College's entrepreneurship programming priority with Society features — either through the Connections track or through the AI Coach's goal-setting capabilities?</li>
+    <li>How does financial literacy content live within Society — is it a standalone component, part of a specific track, or AI Coach-surfaced? Tonya's enthusiasm for it warrants a clearer feature map so advisors can direct students to it intentionally.</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <td><strong>School</strong></td>
+        <td>Alvin College</td>
+      </tr>
+      <tr>
+        <td><strong>Location</strong></td>
+        <td>Alvin, TX</td>
+      </tr>
+      <tr>
+        <td><strong>School Type</strong></td>
+        <td>Public 4-Year (recently transitioned from 2-year community college)</td>
+      </tr>
+      <tr>
+        <td><strong>Chapter Status</strong></td>
+        <td>Established — active but low-visibility; undergoing advisor transition and scope expansion</td>
+      </tr>
+      <tr>
+        <td><strong>Chapter Type</strong></td>
+        <td>Online (transitioning to Hybrid)</td>
+      </tr>
+      <tr>
+        <td><strong>Segment</strong></td>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <td><strong>Enthusiasm Score</strong></td>
+        <td>9/10 (estimated — no explicit score given; inferred from advisor responses and pilot acceptance)</td>
+      </tr>
+      <tr>
+        <td><strong>Pilot Partner Interest</strong></td>
+        <td>Yes — accepted during meeting; free access for 6–12 months; Tonya Jefferson and Sheila Woods confirmed as pilot advisors</td>
+      </tr>
+      <tr>
+        <td><strong>Product Council Interest</strong></td>
+        <td>High — both advisors demonstrate the engagement, AI fluency, and institutional stakes that make them strong Product Council candidates</td>
+      </tr>
+      <tr>
+        <td><strong>Top Pain Points</strong></td>
+        <td>1. Chapter invisibility / no campus presence; 2. Students lack sense of belonging and peer visibility; 3. No post-enrollment outcome tracking data (tied to Texas outcome-based funding); 4. Advisor transition and scope expansion creating internal complexity</td>
+      </tr>
+      <tr>
+        <td><strong>Key Signal</strong></td>
+        <td>Sheila's identification of post-graduation student tracking as a critical institutional gap — directly tied to Texas's outcome-based funding model — positions Society's future outcome data capabilities as a potential high-value institutional differentiator for this school and likely others in the Texas public college system</td>
+      </tr>
+      <tr>
+        <td><strong>CSR</strong></td>
+        <td>Dejeahn Brown</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Alvin College &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; June 8, 2026
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Roche University — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">June 8, 2026</span>
+    </div>
+    <h1>La Roche University &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; La Roche University Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/share/dhaJxwahZ46q5-wFhSVzsP2VChSTq6FQ" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> La Roche University</p>
+    <p><strong>Location:</strong> Pittsburgh, PA (suburban, ~10–20 minutes from downtown)</p>
+    <p><strong>School Type:</strong> Private 4-Year, Catholic</p>
+    <p><strong>Chapter Status:</strong> Established — small presence, actively working to grow post-COVID</p>
+    <p><strong>Chapter Type:</strong> Standard (in-person orientation, leadership training, SNTs, induction ceremony)</p>
+    <p><strong>Advisors Present:</strong> Paige G (Financial Aid; NSLS alum and current chapter advisor)</p>
+    <p><strong>Notable Context:</strong> La Roche is a small private Catholic school in the Pittsburgh suburbs. The NSLS chapter has a modest footprint on campus and is not formally integrated under the student government umbrella, though it now receives a small budget through student development. The chapter was handed to Paige — an NSLS alum herself — when the previous advisor left for another institution. This is a volunteer role on top of her full-time financial aid position. Post-COVID re-engagement is the overarching institutional priority. A new VP of Financial Aid (who was himself an NSLS member) and a new head of student development (who is actively championing NSLS inclusion in campus events) represent meaningful new internal allies. Enrollment, retention, and benchmarking against peer Catholic private schools are key institutional lenses.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+  <div class="advisor-card">
+    <h3>Paige G</h3>
+    <p><strong>Role:</strong> Financial Aid Staff Member; Volunteer NSLS Chapter Advisor</p>
+    <p><strong>Background:</strong> La Roche alumna who was an NSLS member as an undergraduate transfer student during COVID (joined as a junior mid-pandemic). Took over the chapter after the previous advisor departed<a href="https://fathom.video/calls/700749664?t=153" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 2:33</a>. Has been at La Roche for four years, starting three days after graduating<a href="https://fathom.video/calls/700749664?t=132" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 2:12</a>. Manages NSLS entirely as an add-on to her financial aid responsibilities with no formal release time.</p>
+    <p><strong>Motivations:</strong> Deeply personal connection to NSLS — credits it with helping her overcome shyness and find her professional direction<a href="https://fathom.video/calls/700749664?t=304" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:04</a>. Derives satisfaction from watching students go through the same transformation, citing a specific student president who grew from shy to confident<a href="https://fathom.video/calls/700749664?t=328" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:28</a>. Wants to grow the chapter's campus presence and make NSLS more visible at the institutional level. Interested in using data to target outreach more effectively and make the case to leadership (VP, marketing, admissions) for NSLS's value.</p>
+    <p><strong>Communication Style:</strong> Warm, candid, and conversational. Comfortable sharing personal anecdotes to illustrate points. Data-oriented ("I'm a numbers brain person") despite coming from a people-focused role. Pragmatic and self-aware about the constraints of running a chapter voluntarily at a small school.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Paige verbally accepted the pilot partner invitation, expressed enthusiasm scored at 7.5–8/10<a href="https://fathom.video/calls/700749664?t=2751" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 45:51</a>, and showed genuine engagement with specific product features. Her data fluency, personal NSLS investment, and internal allies (new VP, new student development head) make her a credible early partner. Her specific request — peer benchmarking by school type/size/setting — is a novel product signal not previously surfaced.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>The personal transformation arc for students — Paige values seeing shy students grow into confident leaders, mirroring her own experience.</li>
+    <li>In-person touchpoints: orientation, leadership training day, the first three SNTs, community service projects, and induction ceremony are all held in person<a href="https://fathom.video/calls/700749664?t=499" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:19</a> and are central to the chapter's identity.</li>
+    <li>Peer-group pairing: students are grouped based on attendance at the same orientation session, with consideration for existing friendships and roommate relationships<a href="https://fathom.video/calls/700749664?t=497" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:17</a>.</li>
+    <li>Advisor-led check-ins and email reminders as a light-touch support layer on top of student-driven SNT activity.</li>
+    <li>The SNT framework itself — Paige personally still uses it in her own professional life and actively teaches students to apply it to career goal-setting.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li><strong>SNT submission timing rigidity:</strong> The one-per-week submission window is causing real drop-off<a href="https://fathom.video/calls/700749664?t=418" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:58</a>. Students who attend meetings but delay logging (due to sports practice, homework, forgetting a laptop) find themselves locked out. A student who attended two meetings in one week could not log both because of the weekly cap<a href="https://fathom.video/calls/700749664?t=420" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:00</a> — even when the advisor knew the participation was genuine.</li>
+    <li><strong>Mobile/app friction:</strong> Students who don't have the app on their phone and don't have their laptop with them<a href="https://fathom.video/calls/700749664?t=373" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:13</a> at the time of a meeting frequently fail to log SNTs and then forget entirely.</li>
+    <li><strong>Chapter visibility and institutional integration:</strong> NSLS has historically been siloed — not under the student government umbrella, underfunded (previously self-funded from advisor pockets and fundraising), and not included in campus-wide events. This is actively improving but has been a persistent structural issue.</li>
+    <li><strong>Speaker broadcast scheduling:</strong> The chapter tried to hold in-person speaker broadcast watch sessions but could not execute them this year due to scheduling conflicts<a href="https://fathom.video/calls/700749664?t=560" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:20</a>.</li>
+    <li><strong>Advising blind spots:</strong> Paige noted that without data on member major, grade level, and initial engagement, it is hard to tailor her outreach<a href="https://fathom.video/calls/700749664?t=2163" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 36:03</a> — especially for members she doesn't already know personally from financial aid interactions.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Post-COVID re-engagement: the institution is actively pushing to restore and expand campus events and community involvement across all clubs and organizations.</li>
+    <li>Enrollment and retention: financial aid and admissions are collaborating on targeted outreach strategies segmented by student grade level and profile. Paige is applying these same tactics to NSLS recruitment.</li>
+    <li>Peer benchmarking: La Roche uses comparable small private Catholic schools to set goals and justify resource allocation. Paige explicitly wants to apply this framework to NSLS data.</li>
+    <li>Increased NSLS campus visibility: supported by the new head of student development and the new VP of Financial Aid (himself an NSLS alum), there is fresh institutional momentum behind elevating the chapter's profile.</li>
+    <li>Career readiness integration: the career office is rebranding, and job/club fairs are being coordinated. Paige sees NSLS as complementary infrastructure for helping students align major, interests, and career outcomes.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. SNT Logging Friction Is Causing Real Attrition</h3>
+    <p>Paige described multiple concrete scenarios where students who genuinely participated in SNT meetings were unable to log them due to the weekly submission window, device unavailability, or simple forgetting after a busy schedule. This is not a perception problem — it is a structural compliance barrier. The one-per-week lock is penalizing students for real engagement and frustrating the advisor who has to adjudicate these situations.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Peer Benchmarking Is a Novel and High-Value Data Request</h3>
+    <p>Paige surfaced an insight not previously heard in the roadshow: she wants to filter Society's reporting dashboard by schools that match La Roche's profile (small, private, Catholic, suburban). This mirrors how La Roche uses peer institution data for enrollment and retention decisions. This is a differentiated product signal with potential applicability across many Tier 3 and small-school segments.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. The Advisor Is the Institution — Volunteer Capacity Is a Real Constraint</h3>
+    <p>Paige runs the chapter entirely on a voluntary basis, on top of a full-time financial aid role. She is personally motivated and clearly capable, but the chapter's operational bandwidth is essentially one person's discretionary time. Any tool that reduces administrative overhead — automated reminders, dashboard visibility, pre-built reporting — directly addresses her real constraints.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Internal Champions Are Newly Aligned and Ready to Be Leveraged</h3>
+    <p>Two new stakeholders — a VP of Financial Aid who was himself an NSLS member, and a new head of student development who proactively committed to including NSLS in campus events — represent fresh institutional support that did not exist before. Society's reporting and data tools could help Paige make the case upward to these champions more effectively.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Career Clarity Resonates as a Student-Facing Value Proposition</h3>
+    <p>Paige's personal story — entering college thinking she wanted to be an environmental scientist or physical therapist and arriving in business/financial aid — is the exact narrative the Clarity Track is designed to address. She already uses the SNT framework in her own professional life and tells students to do the same. The Clarity Track's career direction features map directly onto both her personal experience and the chapter's pitch to prospective members who ask "what do I get out of this?"</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">8/10</div>
+  <p><em>Paige self-reported "seven and a half, eight-ish" — reflected here as 8/10.</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li><strong>Clarity Track and career direction features:</strong> Paige immediately connected these to the "what do I get out of this?" question she regularly faces from prospective members. She saw it as a compelling post-induction carrot.</li>
+    <li><strong>Advisor dashboard with member-level data:</strong> The idea of seeing a student's major, grade level, and engagement status at a glance resonated strongly, especially given that Paige currently relies on her financial aid brain or personal familiarity to fill those gaps.</li>
+    <li><strong>SNT matching automation:</strong> Directly addresses one of her most concrete pain points around group formation.</li>
+    <li><strong>Career Readiness Score:</strong> The concept of a roll-up metric tracking multiple dimensions of student readiness was well-received by someone who is explicitly numbers-driven.</li>
+    <li><strong>Peer benchmarking concept:</strong> When Chris reflected this idea back to her, Paige confirmed and expanded on it — it is clearly a priority lens for her and the institution.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Enthusiasm was qualified: Paige's 7.5–8 rating was explicitly tied to wanting to see more before fully committing. She is interested but calibrating.</li>
+    <li>No specific technical or workflow objections were raised, but the small school context means any platform complexity or onboarding burden could be a barrier given her solo-advisor capacity.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>The peer benchmarking request was flagged by Chris as something he had not heard from any of the ~29 prior schools — it emerged organically from Paige's institutional context and represented a genuinely novel product signal.</li>
+    <li>Paige's new VP of Financial Aid is an NSLS alum — an unexpected internal champion who is already thinking about how to integrate NSLS into admissions marketing, including placing an NSLS t-shirt in the sample dorm room.</li>
+    <li>Paige's own career trajectory (environmental science → physical therapy → marketing → business/financial aid) is a natural testimonial for the Clarity Track and emerged without prompting during the discovery conversation.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Clarity Track (career direction, dream jobs, personality assessments)</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Directly addresses the "what do I get from this?" objection Paige hears from prospective members. Her own career pivot story is a natural proof point. She endorsed the idea of holding it as a post-induction carrot.</td>
+      </tr>
+      <tr>
+        <td>Advisor Dashboard (member-level data: major, grade level, engagement)</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Paige explicitly listed major and grade level as the first data points she would want if going in blind. She is data-fluent and currently compensates with her financial aid knowledge of students — a Society dashboard would formalize this.</td>
+      </tr>
+      <tr>
+        <td>Peer Benchmarking by School Type/Size/Setting</td>
+        <td><span class="badge-strong">Strong</span></td>
+        <td>Novel signal not previously surfaced in roadshow. Paige wants to filter reporting by schools matching La Roche's profile (small, private, Catholic, suburban) to benchmark success rates and engagement — mirroring how the institution makes enrollment and retention decisions.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching Automation</td>
+        <td><span class="badge-positive">Positive</span></td>
+        <td>Welcomed as a practical tool. Current pairing is manual and attendance-based. Automation would reduce advisor burden at a school where the advisor is a solo volunteer operator.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score (roll-up metric)</td>
+        <td><span class="badge-positive">Positive</span></td>
+        <td>Resonated with Paige's numbers-oriented mindset. She liked the idea of a composite metric. Potential upward reporting use case — sharing with VP and marketing to demonstrate NSLS impact.</td>
+      </tr>
+      <tr>
+        <td>AI Coach</td>
+        <td><span class="badge-question">Open Question</span></td>
+        <td>Not explicitly reacted to. No friction raised, but no specific enthusiasm either. Worth revisiting in a follow-up demo with more context on how it integrates with SNT workflow.</td>
+      </tr>
+      <tr>
+        <td>SNT Submission Window / Timing Flexibility</td>
+        <td><span class="badge-care">Needs Care</span></td>
+        <td>The current one-per-week lock is causing measurable drop-off and advisor frustration. Paige described multiple real student scenarios where genuine participation went unlogged. Any Society solution must address this structural constraint or it will inherit the same problem.</td>
+      </tr>
+      <tr>
+        <td>School-Specific Agent / Custom Branding</td>
+        <td><span class="badge-question">Open Question</span></td>
+        <td>Concept was presented but not specifically reacted to by Paige. Given her interest in growing campus visibility and making the case to admissions/marketing, tailored institutional branding could be meaningful — but was not validated in this session.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Send Paige the oursociety.org link (already provided during call) and confirm she has access to share with students for feedback collection. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Schedule follow-up meeting with Paige as part of the pilot partner / Product Council onboarding sequence. <span class="owner-tag">Dejeahn Brown</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Send Paige the post-meeting survey referenced in the wrap-up. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Flag peer benchmarking (filter reporting by comparable school type/size/setting) as a new product roadmap input — first time this signal was raised across ~30 roadshow schools. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Evaluate SNT submission window flexibility as a design priority — Paige's examples illustrate a concrete compliance barrier affecting student retention in the program. <span class="owner-tag">Chris Higbee / Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Explore post-roadshow asynchronous recording for advisors who want to learn about Society without a full live consult — flagged by Dejeahn and acknowledged as a planned next step. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>Can Society's reporting dashboard support filtering by peer institution type (e.g., small private Catholic schools in suburban settings) to enable the benchmarking Paige described?</li>
+    <li>How will the pilot onboarding be structured for a solo volunteer advisor at a small school with limited bandwidth? What is the minimum viable lift for Paige to participate meaningfully?</li>
+    <li>Will the Clarity Track be gated post-induction as a carrot, as Chris suggested, or available earlier? What is the recommended sequencing for a chapter Paige's size?</li>
+    <li>Is there a path to surface La Roche-specific NSLS impact data (e.g., career readiness scores, member transformation stories) in a format Paige can share with her VP and the marketing/admissions team?</li>
+    <li>How does Society address the SNT submission timing issue — will there be any flexibility built into the logging window, or will the current one-per-week structure carry over?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <td><strong>School</strong></td>
+        <td>La Roche University</td>
+      </tr>
+      <tr>
+        <td><strong>Location</strong></td>
+        <td>Pittsburgh, PA</td>
+      </tr>
+      <tr>
+        <td><strong>School Type</strong></td>
+        <td>Private 4-Year (Catholic)</td>
+      </tr>
+      <tr>
+        <td><strong>Chapter Status</strong></td>
+        <td>Established; small presence; actively rebuilding post-COVID</td>
+      </tr>
+      <tr>
+        <td><strong>Chapter Type</strong></td>
+        <td>Standard (in-person)</td>
+      </tr>
+      <tr>
+        <td><strong>Segment</strong></td>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <td><strong>Enthusiasm Score</strong></td>
+        <td>8/10 (self-reported as "seven and a half, eight-ish")</td>
+      </tr>
+      <tr>
+        <td><strong>Pilot Partner Interest</strong></td>
+        <td>Yes — verbally accepted during call</td>
+      </tr>
+      <tr>
+        <td><strong>Product Council Interest</strong></td>
+        <td>Yes — receptive to ongoing input role</td>
+      </tr>
+      <tr>
+        <td><strong>Top Pain Points</strong></td>
+        <td>SNT submission window rigidity; mobile/logging friction; chapter visibility and institutional integration; advisor bandwidth (solo volunteer)</td>
+      </tr>
+      <tr>
+        <td><strong>Key Signal</strong></td>
+        <td>Peer benchmarking by school type/size/setting — novel product request not previously surfaced in roadshow; high relevance for small private Catholic school segment</td>
+      </tr>
+      <tr>
+        <td><strong>CSR</strong></td>
+        <td>Dejeahn Brown</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; La Roche University &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; June 8, 2026
+</footer>
+
+</body>
+</html>
