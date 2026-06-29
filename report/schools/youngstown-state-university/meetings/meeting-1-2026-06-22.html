@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youngstown State University — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">June 22, 2026</span>
+    </div>
+    <h1>Youngstown State University &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Youngstown State University Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/718261084" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Youngstown State University</p>
+    <p><strong>Location:</strong> Youngstown, OH</p>
+    <p><strong>School Type:</strong> Public 4-Year</p>
+    <p><strong>Chapter Status:</strong> Established but in active rebuild — no current chapter president (previous president recently graduated), advisor transition underway</p>
+    <p><strong>Chapter Type:</strong> Online (fully online at present; advisor has aspirations to reintroduce in-person elements)</p>
+    <p><strong>Advisors Present:</strong> Rebecca McCallister (Career Services Advisor, Liberal Arts &amp; Creative Arts); Alexis Scott (CSR, NSLS)</p>
+    <p><strong>Notable Context:</strong> Rebecca is approximately 6 months into her role at YSU, having been assigned as NSLS advisor shortly after joining the institution<a href="https://fathom.video/calls/718261084?t=25" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 0:25</a>. The chapter is in a foundational rebuilding phase — she recently audited and cleaned up the student roster by cross-referencing it against the Banner/Hero ICO SIS to identify only actively enrolled students. YSU is a heavily commuter campus, which creates significant challenges for in-person engagement and event attendance. The chapter is enrolled in NSLS National Events. The school is experiencing broader institutional transitions, including a departmental shift away from advising at orientations and a strong state-level push toward workforce readiness and work-based learning.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+  <div class="advisor-card">
+    <h3>Rebecca McCallister</h3>
+    <p><strong>Role:</strong> Career Services Advisor, Liberal Arts &amp; Creative Arts — Youngstown State University</p>
+    <p><strong>Background:</strong> Approximately 6 months into her role at YSU (started January). Transitioned into higher education career services from a 15-year career in early childhood education, which included roles as a preschool teacher (ages 3–5) and Education Director for a Head Start agency spanning two counties in Pennsylvania. Prior roles also involved significant hiring and interviewing experience, which she carries directly into her current career advising work.</p>
+    <p><strong>Motivations:</strong> Rebuilding a dormant or neglected NSLS chapter and restoring student engagement and organizational identity. Interested in reintroducing in-person camaraderie where feasible. Eager to reduce manual administrative burden (e.g., roster management). Deeply aligned with the state's workforce readiness and work-based learning mandates. Wants tools that help students self-navigate career exploration before arriving at advising appointments — particularly for "career exploration" visits where students have little direction. Values word-of-mouth student advocacy as a growth lever.</p>
+    <p><strong>Communication Style:</strong> Practical and hands-on. Self-described "show me" person who wants to get into the platform and test it before forming a strong opinion. Candid and straightforward in her feedback. Asks specific, functional questions (e.g., whether in-person appointment participation can be logged; whether personality assessments yield accurate results). Collaborative tone; comfortable working directly with Alexis and open to engaging with the broader NSLS team.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Strong. Rebecca accepted the pilot invitation during the meeting and agreed to access oursociety.org using her NSLS login to explore the platform and provide feedback. Her career services background, chapter rebuild context, commuter campus challenges, and state workforce readiness pressures make her a highly relevant early signal source. Product Council interest is plausible pending positive hands-on experience with the platform.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>The online accessibility of NSLS — Rebecca specifically cited the online aspect as something she values and wants to retain<a href="https://fathom.video/calls/718261084?t=179" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 2:59</a>, noting the chapter had previously gone fully online.</li>
+    <li>The opportunity to layer in-person elements on top of the online foundation — she is working with Alexis to introduce low-lift in-person touchpoints that build camaraderie<a href="https://fathom.video/calls/718261084?t=190" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 3:10</a> without overhauling the current model.</li>
+    <li>The chapter's connection to NSLS National Events, in which YSU is already enrolled — Rebecca envisions on-campus speaker series attendance eventually counting as a group NSLS activity.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>SNT completion is a known and acknowledged gap — Rebecca confirmed that not many students have completed their SNTs.</li>
+    <li>Roster hygiene had been neglected prior to Rebecca's arrival; she manually cross-referenced the NSLS member list against Banner/Hero ICO<a href="https://fathom.video/calls/718261084?t=229" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 3:49</a> to archive inactive, graduated, or unenrolled students — a time-consuming process done without automated support.</li>
+    <li>Low student engagement with campus events, particularly evening programming — YSU's commuter population drives home after class and does not return for late-night events<a href="https://fathom.video/calls/718261084?t=392" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:32</a>.</li>
+    <li>Getting students to proactively schedule career advising appointments is a persistent challenge.</li>
+    <li>"Career exploration" appointments — students arriving with no direction — consume significant advisor time without structured pre-work from the student.</li>
+    <li>The chapter currently has no president following a recent graduation, compounding the rebuilding challenge.</li>
+    <li>Career Services recently lost its role in orientation advising, requiring the department to rethink how it gains student touchpoints<a href="https://fathom.video/calls/718261084?t=334" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:34</a>.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>State-mandated push toward workforce readiness and work-based learning — including professional development for on-campus employees and expanded internship access for students whose programs don't require it.</li>
+    <li>Increasing intentional, repeated student outreach — classroom visits, tabling at orientations<a href="https://fathom.video/calls/718261084?t=310" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:10</a>, and departmental visibility efforts have replaced the lost orientation advising role.</li>
+    <li>Rebuilding the NSLS chapter from the ground up — establishing active student leadership, re-engaging existing members, and creating a functional organizational structure for fall.</li>
+    <li>Generating completion and engagement data that can be reported to the state to demonstrate that career services programming is actively working.</li>
+    <li>Expanding reach of career tools beyond the current NSLS membership (~300 students) to the broader campus population (~12,000 students).</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes &amp; Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Commuter Campus = Asynchronous-First Engagement Model</h3>
+    <p>Rebecca explicitly identified YSU's commuter population as the central structural challenge to student engagement. Students come to class and leave; late-night events draw poor attendance; in-person programming is aspirational but not yet realistic at scale. Society's fully online, self-paced model is a direct fit for this context. Rebecca confirmed the chapter is entirely online and noted this as a feature, not a limitation, for now.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Career Exploration Is the Primary Student Need</h3>
+    <p>Rebecca described a high volume of "career exploration" appointments — students who arrive with no career direction and require significant advisor time to work through foundational self-discovery. She responded positively to Society's Personal Insights and Career Clarity tracks as a pre-appointment tool<a href="https://fathom.video/calls/718261084?t=520" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:40</a> that could allow students to arrive at advising sessions having already done meaningful self-reflection, making her time more productive and impactful.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. State Workforce Mandates Are Creating Institutional Urgency</h3>
+    <p>Rebecca unprompted referenced a state-level push for work-based learning and expanded internships, framing completion and participation data as something the state is actively looking for. She connected Society's potential to generate completion and career readiness data directly to this reporting need — signaling that the platform could serve an institutional compliance and advocacy function, not just a student engagement function<a href="https://fathom.video/calls/718261084?t=1927" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 32:07</a>.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Scale Limitation Requires Platform Openness Beyond NSLS Membership</h3>
+    <p>When asked whether a career readiness score could be valuable for state reporting, Rebecca immediately noted that fewer than 300 of YSU's 12,000 students are NSLS members<a href="https://fathom.video/calls/718261084?t=2000" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 33:20</a>. She responded affirmatively when asked whether opening the Clarity Track to all students could be beneficial. This is a clear signal that the value proposition of Society at YSU is contingent on its ability to serve the broader student population, not just NSLS members.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Manual Administrative Work Is a Friction Point Ripe for Automation</h3>
+    <p>Rebecca described spending significant time manually auditing the NSLS roster against Banner/Hero ICO to archive inactive students and identify who is currently enrolled. She recognized this as a "huge" administrative task and responded positively when the presenter noted that Society's SIS integration could eventually help with this type of data management. This represents a clear adoption accelerator — reducing admin burden for an advisor who is new, under-resourced, and rebuilding from scratch.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+  <div class="enthusiasm-score">7/10</div>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The Career Clarity and Personal Insights tracks resonated immediately given Rebecca's career services role — she recognized direct overlap with tools and workflows already used in her office.</li>
+    <li>The concept of students doing self-directed career exploration before arriving at advising appointments was compelling — she described it as beneficial for pre-appointment preparation.</li>
+    <li>The SNT matching and scheduling tool addressed a known, acknowledged gap at YSU; she confirmed SNT completion is low and welcomed a system-level solution.</li>
+    <li>The career readiness score concept was well-received in the context of pre-meeting advisor prep, drilling into specific student gaps before appointments.</li>
+    <li>The AI coach's ability to surface career services appointments and reduce the "why do I need to go talk to them?" barrier was described as exciting.</li>
+    <li>The word-of-mouth potential of Society resonated strongly — she independently described a scenario where students tell friends about the platform, organically growing participation.</li>
+    <li>The parallel availability of legacy NSLS and Society platforms reduced anxiety about disruption during the chapter rebuild.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Rebecca wants to verify the accuracy of AI-generated personality assessments (specifically MBTI) against her own known results before trusting the tool with students.</li>
+    <li>She raised the importance of being able to log in-person service participation (e.g., mock interviews conducted through her office) within the platform — this capability was described as in development but not yet available.</li>
+    <li>The career readiness score's relevance for institutional reporting was qualified by the small NSLS membership relative to total campus enrollment — she needs broader student access to make the data meaningful at scale.</li>
+    <li>As a self-described hands-on learner, Rebecca expressed that her 7/10 score reflected needing direct platform experience before forming a stronger opinion — enthusiasm is contingent on the quality of her personal walkthrough.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Rebecca's background in early childhood education and Head Start administration — rather than career services — makes her perspective on student development and structured programming unusually grounded and practitioner-oriented despite being new to the career advising context.</li>
+    <li>She independently identified word-of-mouth student advocacy as a growth mechanism without prompting, suggesting a grassroots channel instinct that could be useful for pilot design.</li>
+    <li>The framing of the chapter rebuild as an advantage for piloting — rather than a liability — was notable; Rebecca seemed open to the idea that being in a rebuilding phase makes YSU a useful test case rather than a poor fit.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Career Clarity Track</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Directly mirrors career exploration work done in Rebecca's office. Cited as beneficial for pre-appointment preparation, enabling students to arrive with self-knowledge rather than starting from zero.</td>
+      </tr>
+      <tr>
+        <td>Personal Insights Track (AI Personality Assessments)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Rebecca wants to personally test the MBTI output against her known type before trusting results. Accuracy validation is a prerequisite for her confidence in recommending it to students.</td>
+      </tr>
+      <tr>
+        <td>AI Coach</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Recognized as useful for guiding students through career exploration independently. Appreciated that responses are concise rather than lengthy LLM-style outputs. Hands-on testing pending.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching &amp; Scheduling Tool</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Rebecca confirmed SNT completion is a documented gap at YSU. The availability-based matching and asynchronous chat/video meeting capability directly addresses this barrier for an online-only chapter.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score (Advisor Dashboard)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Valued for pre-appointment advisor prep. Raised a scale concern — meaningful for individual advising but limited for institutional reporting given small NSLS membership vs. total enrollment (~300 vs. ~12,000).</td>
+      </tr>
+      <tr>
+        <td>Advisor Progress Dashboard &amp; Data Reporting</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Completion data is exactly what the state is requesting around workforce readiness and work-based learning. Rebecca wants data that proves career services programming is working and that students are completing required steps.</td>
+      </tr>
+      <tr>
+        <td>In-Person Service Participation Logging</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Rebecca specifically requested the ability to log participation in career services office activities (e.g., mock interviews) within the platform. Currently in development; this is a gap that matters for her use case.</td>
+      </tr>
+      <tr>
+        <td>School Agent (AI Campus Integration)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>The concept of an AI agent that learns campus resources and proactively recommends career services appointments was received positively. Addresses the core challenge of students not knowing why they should visit career services.</td>
+      </tr>
+      <tr>
+        <td>Clarity Track Access for Non-NSLS Students</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Rebecca responded affirmatively without hesitation when this was raised. Expanding access beyond ~300 NSLS members to the broader 12,000-student campus population is a prerequisite for the platform to have institutional-level impact at YSU.</td>
+      </tr>
+      <tr>
+        <td>Goal Setting, Reminders &amp; Gamification / Badges</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>No direct objections raised. Recognized as beneficial for student accountability. Rebecca noted the value of students being able to surface completed goals and badges on resumes or in professional contexts.</td>
+      </tr>
+      <tr>
+        <td>SIS Integration (Banner / Hero ICO)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Rebecca manually performed roster-to-SIS reconciliation as a recent administrative project. Any automation of this process would be a significant time-saver. She uses Banner/Hero ICO — confirmed by name during the meeting.</td>
+      </tr>
+      <tr>
+        <td>Campus Events via Society (Career Fairs, Speaker Series)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Rebecca has a stated goal of having students attend campus speaker series events as a group NSLS activity. Ability to post and track non-NSLS campus events through Society aligns with this aspiration.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps &amp; Open Items</h2>
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Rebecca to access oursociety.org using her existing NSLS login and complete the Personal Insights and Career Clarity tracks. She will test AI-generated personality assessment outputs (specifically MBTI) against her known results and explore the AI coach, goal-setting, and achievements features. <span class="owner-tag">Rebecca McCallister</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Rebecca to provide feedback on her Society platform experience to Alexis Scott and Chris Higbee. Feedback can be submitted in any format (written notes, recorded video/audio, etc.). <span class="owner-tag">Rebecca McCallister</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Alexis to schedule a 30-minute follow-up meeting with Rebecca within the next one to two weeks to review her platform feedback and discuss implementation details for Youngstown State as a pilot school. <span class="owner-tag">Alexis Scott</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Product team to flag Youngstown State as a priority candidate for the in-person service participation logging feature (e.g., mock interview attendance), given Rebecca's explicit request and career services use case. <span class="owner-tag">NSLS Product Team</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Chris Higbee or Alexis to follow up with Rebecca once the Career Readiness Score advisor dashboard is available for external testing, given her direct career services role and stated interest in using it for pre-appointment prep. <span class="owner-tag">Chris Higbee / Alexis Scott</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Explore and communicate to Rebecca the pathway and timeline for making the Clarity Track available to non-NSLS students at YSU, given the school's 12,000-student population vs. ~300 NSLS members and state reporting requirements. <span class="owner-tag">NSLS Product / CSR Team</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>How accurately do the AI-generated personality assessments (MBTI, DISC, Enneagram, Holland Code, Big Five) compare to validated full assessments? Rebecca intends to self-test this — what is the product team's confidence level and messaging guidance around assessment accuracy?</li>
+    <li>What is the timeline for in-person service participation logging (e.g., career services appointments, mock interviews) to be available within the platform?</li>
+    <li>What is the roadmap and commercial model for extending the Clarity Track to non-NSLS students at partner institutions? Is this currently available or planned?</li>
+    <li>Can Banner/Hero ICO be included in the SIS integration roadmap to address YSU's specific data system and reduce manual roster management for advisors like Rebecca?</li>
+    <li>What is the timeline for the School Agent (AI campus resource integration) feature to be available for pilot schools?</li>
+    <li>How will the chapter rebuild context (no current president, recent advisor transition) affect the pilot implementation approach and onboarding support from NSLS?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Youngstown State University</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Youngstown, OH</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Public 4-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established — active rebuild; no current chapter president; recent advisor transition</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Online (fully online; in-person elements aspirational)</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>7/10</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — Rebecca accepted the pilot invitation during the meeting and agreed to access oursociety.org for hands-on testing</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>Possible — pending positive platform experience; hands-on testing is the primary decision gate</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>SNT completion rate; commuter campus engagement barriers; manual roster/SIS reconciliation; low career advising appointment volume; students arriving at appointments without career direction; limited data for state workforce readiness reporting</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Career Clarity Track is a strong fit for YSU's career exploration advising model; platform scale must extend beyond NSLS members (~300) to reach the broader campus (~12,000) to achieve institutional reporting value; state workforce mandates create urgency for completion and readiness data</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Alexis Scott</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Youngstown State University &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; June 22, 2026
+</footer>
+
+</body>
+</html>

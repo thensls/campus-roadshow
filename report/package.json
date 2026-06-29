@@ -1,0 +1,10 @@
+{
+  "name": "campus-roadshow-report",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Static stakeholder report site for the NSLS Society Campus Roadshow. Vercel-hosted with a small serverless API for the Fall Pilot Setup Survey submission.",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  }
+}

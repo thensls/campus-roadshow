@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texas A&M University — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">June 23, 2026</span>
+    </div>
+    <h1>Texas A&M University &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Texas A&M University Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/719849227" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>Institution:</strong> Texas A&M University — College Station, TX</p>
+    <p><strong>School Type:</strong> Public 4-Year Research University (R1)</p>
+    <p><strong>Chapter Status:</strong> Established — using National Events model for SNTs and speaker broadcasts</p>
+    <p><strong>Chapter Type:</strong> National Events (not facilitating in-person SNTs locally)</p>
+    <p><strong>Advisors Present:</strong> Patricia Alexander (Campus Advisor, NSLS / Career Services); Linda Condon (CSR, NSLS)</p>
+    <p><strong>Notable Context:</strong> Texas A&M is a large, high-enrollment institution with upwards of 900 student organizations. The chapter is established and functioning, but Pat noted the university is undergoing a structural shift — moving Career Services from Academic Affairs into Student Affairs and developing what she described as a "career success ecosystem." A key stakeholder, Gio (former NSLS chapter president and current career services colleague), was absent from this meeting and flagged as a critical decision-maker to include in a follow-up demo. Texas A&M also operates freshman engagement programs — Fish Camp (optional, social orientation) and the Hullabaloo Class (a Student Success Initiative course for all incoming freshmen) — both of which were identified as potential integration touchpoints for Society.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Patricia Alexander ("Pat")</h3>
+    <p><strong>Role:</strong> Campus Advisor, NSLS; Staff Member, Career Services — Texas A&M University</p>
+    <p><strong>Background:</strong> Pat has served as the NSLS campus advisor for several years and works within Career Services, which has recently transitioned from Academic Affairs into Student Affairs. She has experience using Canvas (LMS) and noted her department is moving toward expanded online programming and workshops. She referenced a campus-wide Student Success Initiative that includes the Hullabaloo Class for all incoming freshmen.</p>
+    <p><strong>Motivations:</strong> Pat is clearly motivated by expanding career readiness support to a student body that vastly outnumbers available counselors. She has personally advocated for tools like Society within her institution, stating: "I've always pushed for something like this, even though universities have been really slow about it."<a href="https://fathom.video/calls/719849227?t=1837" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 30:37</a> She is drawn to the platform's ability to provide scalable, AI-assisted career coaching and sees it as directly aligned with her department's evolving mission toward a "career success ecosystem." She is also motivated by student success in a holistic sense — helping students find their place, develop personally and professionally, and graduate with a clear sense of ROI on their education.</p>
+    <p><strong>Communication Style:</strong> Warm, candid, and reflective. Pat speaks in broad conceptual terms and is comfortable making personal observations ("I've always pushed for something like this"). She asked clarifying questions (e.g., whether the AI coach is verbal) and was measured in her commitments, reserving judgment on institution-wide rollout until she can explore further and loop in colleagues. She did not raise objections or friction — her hesitations were process-oriented rather than skeptical.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Moderate-to-High. Pat expressed personal enthusiasm and verbally confirmed she would participate in the pilot individually. She deferred on institutional commitment, citing the need for further internal conversations and Gio's involvement. Her dual role spanning NSLS advising and Career Services makes her a valuable bridge contact. Product Council potential is promising if Gio's buy-in is secured — Pat described him as a "big picture person" with deep NSLS history who could be a stronger institutional champion.<a href="https://fathom.video/calls/719849227?t=1948" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 32:28</a></p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>The NSLS organization's core mission of helping students succeed and develop leadership qualities — Pat described it as "remarkable for students who want to be successful."<a href="https://fathom.video/calls/719849227?t=226" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 3:46</a></li>
+    <li>The existing platform's ability to manage student information effectively — Pat called it "a very good, robust platform."<a href="https://fathom.video/calls/719849227?t=233" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 3:53</a></li>
+    <li>The established National Events model for SNTs and speaker broadcasts, which Pat confirmed Texas A&M relies on.</li>
+    <li>The holistic, 360-degree approach to student success — Pat affirmed Chris's framing of graduation, employment, networking, and personal growth as the full picture<a href="https://fathom.video/calls/719849227?t=413" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:53</a> of what A&M students need.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Scale is the primary pain point: Career Services is severely under-resourced relative to student enrollment. Pat affirmed the 2,060:1 student-to-counselor ratio as consistent with her experience, adding "How do you do that?"<a href="https://fathom.video/calls/719849227?t=2498" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 41:38</a> and noting her department is "literally saying we need help."</li>
+    <li>Student awareness and overwhelm: With 900+ student organizations and countless resources, students struggle to find their footing. Pat said the challenge is "just awareness" and helping students find "a sweet spot."<a href="https://fathom.video/calls/719849227?t=483" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 8:03</a></li>
+    <li>Institutional silos: Career Services has historically been separate from student success efforts. Pat described the current push toward a unified "career success ecosystem" as still in progress, noting the shift from Academic Affairs to Student Affairs is recent.</li>
+    <li>Timing of this conversation: Pat expressed mild regret that Society wasn't available sooner, specifically noting that the Hullabaloo Class curriculum for fall was already set<a href="https://fathom.video/calls/719849227?t=3246" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 54:06</a> — a potential touchpoint that was missed for this cycle.</li>
+    <li>Password management was mentioned as the only personal friction with the current NSLS platform — minor and self-acknowledged.<a href="https://fathom.video/calls/719849227?t=269" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:29</a></li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Career readiness is the dominant institutional priority — Pat stated explicitly that career readiness is her department's focus and that "success" language has grown louder across campus<a href="https://fathom.video/calls/719849227?t=314" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:14</a> in recent years.</li>
+    <li>Student success in a holistic sense: involvement, personal development, professional development — what Pat called "the umbrella of success."</li>
+    <li>Scaling career support across a massive student body without proportionally increasing headcount — driving interest in AI-assisted tools.</li>
+    <li>Building a "career success ecosystem" that connects career services, student affairs, and academic resources in an integrated way.</li>
+    <li>Freshman engagement and early connection: both Fish Camp and the Hullabaloo Class reflect a campus priority around getting students oriented and connected early.</li>
+    <li>Moving toward more online and virtual programming — Pat noted her department is actively planning online workshops and is already using Canvas for that purpose.<a href="https://fathom.video/calls/719849227?t=146" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 2:26</a></li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Career Readiness as the Dominant Institutional Currency</h3>
+    <p>Pat made clear that career readiness — not just leadership development — is the language and priority that resonates at Texas A&M right now. She noted a shift from "leadership" talk toward "success" and career outcomes, and confirmed that her work in Career Services makes this platform directly relevant to her day-to-day mission. The 2,060:1 student-to-counselor ratio landed as a visceral validation point for Society's value proposition.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Scale Is the Core Problem — AI as the Bridge</h3>
+    <p>Pat's most animated moments came when discussing the sheer impossibility of serving thousands of students with a small team. She affirmed that students who want a human touch will seek it out, but acknowledged that many students — especially those comfortable with virtual engagement — would benefit enormously from AI-assisted coaching. Society's positioning as a force multiplier for career services staff resonated strongly.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Ecosystem Thinking — Connecting Silos</h3>
+    <p>Pat described Texas A&M's current trajectory as building a "career success ecosystem" — an integrated approach connecting career services, student affairs, and academic programming. She explicitly connected this to Society's positioning, saying "you're connecting the dots with different entities around campus, and that's what I see higher ed trying to do."<a href="https://fathom.video/calls/719849227?t=1980" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 33:00</a> This framing suggests Society could serve as institutional connective tissue, not just an NSLS tool.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Freshman Touchpoints as Strategic Entry Points</h3>
+    <p>Two programs — Fish Camp and the Hullabaloo Class — emerged as high-value access points for introducing Society to incoming students. Pat noted that the Hullabaloo Class (a Student Success Initiative for all freshmen) would have been an ideal curriculum integration this fall, but timing was missed. She expressed genuine interest in exploring this for spring. Fish Camp was flagged as a possible awareness channel (e.g., a URL in a video), though its format has been streamlined and may limit direct programming access.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Gio as a Critical Internal Champion</h3>
+    <p>Pat repeatedly referenced a colleague named Gio — a former NSLS chapter president and current Career Services staff member — as a "big picture person" with deep NSLS history who was absent from this meeting. Both Pat and Linda agreed he would be highly receptive to Society and that his buy-in would likely be important for any broader institutional rollout. He represents the single most important next relationship to cultivate at Texas A&M.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">7/10</div>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The career readiness framing resonated immediately — Pat connected it directly to her department's priorities and the platform's potential to scale support she cannot currently provide at the volume needed.</li>
+    <li>The AI coach concept was received positively. Pat appreciated both the structured interaction model and the platform's ability to provide 100% student coverage where human counselors cannot.</li>
+    <li>The career readiness score was a standout feature — Pat called it "excellent, simply because that's what we struggle with,"<a href="https://fathom.video/calls/719849227?t=2525" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 42:05</a> and specifically tied it to her ability to quickly identify where to focus when students do come in for human advising.</li>
+    <li>The campus-wide accessibility of Society (beyond NSLS members) genuinely excited Pat — she immediately asked "what else?" and "what are the possibilities?" when she understood the broader reach.</li>
+    <li>The SMART goal integration within the AI coach ("it's using the SMART goal methodology from Foundations of Leadership") was noted positively as curriculum continuity.</li>
+    <li>The SNT matching tool was received well in the context of Texas A&M's use of National Events — Pat agreed students need networks and that the "tentacles to grow" are important.</li>
+    <li>Society's positioning as a student success platform (not just career) aligned with the holistic, ecosystem framing Pat already uses internally.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Pat asked directly whether the AI coach is verbal or text-based. She seemed to expect or hope for a voice interaction model. The text-only answer was accepted without pushback, but the question signals an expectation worth noting for future users who may prefer audio engagement.</li>
+    <li>Institutional commitment requires more stakeholders. Pat was explicit: "Me personally, I can say yes. But when we look at from an institution, that's another thing." Campus-wide rollout will require conversations beyond Pat's authority alone.</li>
+    <li>Timing friction: the Hullabaloo Class curriculum was already finalized for fall, creating a missed integration window. Pat expressed mild regret but pivoted toward spring as a realistic entry point.</li>
+    <li>Fish Camp access has changed — NSLS previously had a live speaking slot, now reduced to a video. The format shift limits Society's ability to organically reach freshmen through that channel this cycle.</li>
+    <li>Pat reserved judgment on broader rollout, stating she needs to "give it some more thought" and wants to explore the platform personally before committing institutionally.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Pat's dual role in both NSLS advising and Career Services was not anticipated at the outset of the meeting — it makes her a uniquely positioned contact and an ideal bridge for Society's dual-audience value proposition (NSLS members and general student body).</li>
+    <li>The Hullabaloo Class — a Student Success Initiative course for all incoming freshmen — surfaced organically and represents a significant campus-wide integration opportunity that NSLS/Society had not previously identified as a target touchpoint.</li>
+    <li>Pat's comment that she has "always pushed for something like this" inside her institution suggests she has been a frustrated internal advocate for tools Society is now providing — she is a pre-sold champion waiting for the right solution.</li>
+    <li>Pat closed the meeting by saying "I'm excited for NSLS — it's going to be big volumes for NSLS," suggesting she sees Society as a membership growth engine, not just a student tool — an unprompted and valuable framing to capture.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Career Readiness Score</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Pat called it "excellent, simply because that's what we struggle with." Directly connected to her ability to triage student advising appointments at scale. Most enthusiastically received feature of the demo.</td>
+      </tr>
+      <tr>
+        <td>AI Career Coach (text-based)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Well-received overall. Pat asked if it was verbal — the text-only format was accepted but the question signals a latent preference for audio interaction among some user segments. Pat appreciated the scope of what it can support (career, journaling, personal reflection).</td>
+      </tr>
+      <tr>
+        <td>Career Clarity Track / Dream Job Recommendations</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Resonated strongly given Pat's career services background. The Renee story (non-traditional student, 70 minutes, 10/10 rating) was effective context-setting. Pat connected this immediately to the student population she serves who are overwhelmed and need direction.</td>
+      </tr>
+      <tr>
+        <td>Campus-Wide Access (non-NSLS students)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Pat's reaction was visibly enthusiastic — she asked "what else? What are the possibilities?" and immediately began thinking about Career Services as a distribution channel. The free access model for NSLS schools was received positively without friction.</td>
+      </tr>
+      <tr>
+        <td>Personal Insights Track / Personality Approximations</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>No friction raised. Pat did not comment specifically on the personality assessment component, but the broader concept of self-knowledge as a foundation for career direction aligned with her stated goals for students.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching Tool</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Pat agreed students need networks ("the tentacles to grow"). The National Events model used at A&M makes this a natural fit. No friction or concern raised. Pat confirmed national events are the current SNT format at A&M.</td>
+      </tr>
+      <tr>
+        <td>Achievements Engine / Goal Tracking</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>SMART goal integration was noted favorably as a curriculum continuity bridge from Foundations of Leadership. No specific pushback. Pat did not probe deeply into this feature.</td>
+      </tr>
+      <tr>
+        <td>Advisor Dashboard / Progress Tracking</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>The career readiness score as a pre-meeting brief for advisors resonated. Pat did not raise questions about the dashboard itself, but her enthusiasm for the score implies the advisor-facing analytics layer is valued.</td>
+      </tr>
+      <tr>
+        <td>Resume Review via AI Coach</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Chris introduced this as a way to offload lower-value tasks from human counselors. Pat did not respond specifically to this feature — it was not directly affirmed or questioned. Worth revisiting with Gio, who may have stronger opinions from a career services workflow perspective.</td>
+      </tr>
+      <tr>
+        <td>Voice / Audio Interaction (not available)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Pat specifically asked if the AI coach is verbal. The answer (text-only, with screen reader accessibility noted) was accepted without pushback, but the question suggests some students — and possibly Pat herself — may expect or prefer voice interaction. Worth monitoring as a product roadmap consideration.</td>
+      </tr>
+      <tr>
+        <td>Society as NSLS Membership Funnel</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Pat unprompted called out that Society could drive NSLS membership growth ("it's going to be big volumes for NSLS"). She understood the logic of non-members getting Career Clarity access and NSLS members getting the full suite — and saw this as a natural recruitment mechanism.</td>
+      </tr>
+      <tr>
+        <td>Hullabaloo Class Integration (future)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Pat identified this freshman Student Success Initiative course as an ideal integration point for Society. Fall curriculum was already set, but spring was proposed as a realistic entry. This is a campus-initiated, institution-wide program — a high-leverage channel if pursued.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Send Pat the meeting report (recording + summary of decisions and ideas discussed) by end of week or early following week. Report should be shareable internally at Texas A&M for decision-maker review. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Provide Pat with access to oursociety.org so she can explore the platform independently and provide personal feedback on her experience, including any bugs or usability issues. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Coordinate with Pat and Linda to schedule a follow-up demo meeting (~45 minutes) that includes Gio — Pat's career services colleague and former NSLS chapter president. Gio is out the week following the meeting; schedule after his return. <span class="owner-tag">Linda Condon</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Prepare follow-up demo agenda for Gio meeting: include full Society walkthrough, rollout plan options (NSLS members only vs. campus-wide), and discussion of Hullabaloo Class spring integration potential. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Confirm plan to migrate Texas A&M NSLS members onto the Society platform for fall, using the National Events model. Ensure orientation, Leadership Training Day, and speaker broadcasts are confirmed to operate within Society. <span class="owner-tag">Chris Higbee / Linda Condon</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Explore spring integration of Society into the Hullabaloo Class (Student Success Initiative for all incoming freshmen) — identify curriculum contact and confirm feasibility with Pat and Gio at follow-up meeting. <span class="owner-tag">Linda Condon / Pat Alexander</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Investigate Fish Camp as a possible awareness channel for Society (e.g., URL inclusion in their orientation video), given that NSLS's live speaking slot has been replaced with a video format. <span class="owner-tag">Linda Condon / Pat Alexander</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>Will Gio's involvement accelerate or complicate the institutional decision-making process for a campus-wide rollout? What is his actual decision-making authority vs. Pat's?</li>
+    <li>What internal conversations does Pat need to have — and with whom — before Texas A&M can commit to a campus-wide Society rollout through Career Services?</li>
+    <li>Is there an opportunity to formally integrate Society into the Hullabaloo Class curriculum for spring? Who controls that curriculum, and what is the timeline for decisions?</li>
+    <li>What format does Fish Camp currently use, and is there a realistic pathway to include Society awareness (even passively via URL or video mention) in the fall orientation cycle?</li>
+    <li>Pat asked whether the AI coach is verbal — is a voice/audio interaction mode on the product roadmap, and if so, on what timeline?</li>
+    <li>How will the campus-wide rollout (Career Clarity Track for all students) be technically deployed — through Career Services' existing student-facing systems, email, or another channel? Who at A&M would own that distribution?</li>
+    <li>Pat expressed curiosity about whether NSLS has competitors offering similar tools. How should the sales team position Society's differentiation in any materials shared internally at A&M?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Texas A&M University</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>College Station, TX</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Public 4-Year Research University (R1)</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>National Events</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>7/10 — Pat's self-reported score, with the qualifier that she wants to explore the platform personally before committing further. Conceptually enthusiastic; functionally reserved pending hands-on experience.</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — Pat confirmed personal willingness to pilot. Institutional commitment deferred pending internal conversations and Gio's involvement. NSLS member rollout for fall was verbally agreed upon as a starting point.</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>Possible — Pat did not explicitly respond to Product Council framing, but her enthusiasm, dual role in NSLS advising and Career Services, and stated interest in Society's evolution make her a viable candidate. Gio may be the stronger Council prospect depending on his reception at the follow-up meeting.</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>(1) Severe counselor-to-student ratio making individual career support impossible at scale; (2) Student overwhelm and awareness gaps in a large, resource-rich campus environment; (3) Institutional silos between career services, student affairs, and academic programs; (4) Missed timing for fall Hullabaloo Class curriculum integration.</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Pat is a pre-sold internal advocate who has lobbied for tools like Society within her institution for years. Her dual role spanning NSLS advising and Career Services positions her as a natural bridge for both the NSLS member rollout and a broader campus deployment. Gio's engagement is the critical unlock for institutional commitment. The Hullabaloo Class represents a high-leverage spring integration opportunity that should be pursued proactively.</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Linda Condon</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Texas A&M University &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; June 23, 2026
+</footer>
+
+</body>
+</html>

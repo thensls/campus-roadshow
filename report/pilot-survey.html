@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Society Fall Pilot — Setup Survey | NSLS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F2E9E2;
+      --cream-card: #E8DDD5;
+      --navy: #1A3550;
+      --navy-deep: #243B52;
+      --coral: #C96058;
+      --yellow: #F2DA4E;
+      --text: #1E1414;
+      --muted: #6B6357;
+      --border: rgba(30,20,20,0.10);
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html,body{background:var(--cream);}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--text);line-height:1.6;}
+    a{color:var(--navy);text-decoration:none;transition:color .2s;}
+    a:hover{color:var(--coral);}
+    h1,h2,h3{font-family:'Cigars',Georgia,'Times New Roman',serif;color:var(--navy);}
+    .page-header{background:var(--cream);border-bottom:2px solid var(--navy);padding:2rem 0 1.25rem;}
+    .inner{max-width:880px;margin:0 auto;padding:0 1.5rem;}
+    .pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+    .pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:var(--navy-deep);}
+    a.pill{text-decoration:none;}
+    a.pill:hover{color:var(--coral);}
+    .page-header h1{font-size:2rem;font-weight:700;margin-bottom:0.4rem;}
+    .page-header .sub{font-size:1rem;color:var(--muted);max-width:60ch;}
+    main{max-width:880px;margin:0 auto;padding:2.5rem 1.5rem 4rem;}
+    .intro{background:var(--cream-card);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:2.25rem;font-size:14.5px;line-height:1.7;}
+    .intro strong{color:var(--navy);}
+    .school-banner{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--navy);color:#FFFDF8;border-radius:10px;margin-bottom:2rem;font-size:14px;}
+    .school-banner .badge{background:var(--yellow);color:var(--navy);border-radius:6px;font-weight:700;font-size:11px;letter-spacing:0.8px;text-transform:uppercase;padding:4px 10px;flex-shrink:0;}
+    .school-banner .school-name{font-family:'Cigars',Georgia,serif;font-size:18px;font-weight:700;line-height:1.2;}
+    .school-banner .school-advisor{display:block;font-size:13px;color:rgba(255,253,248,0.75);margin-top:2px;}
+    .section{margin-bottom:2.5rem;}
+    .section-title{font-size:0.85rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--navy);padding-bottom:8px;border-bottom:2px solid var(--navy);margin-bottom:1.25rem;}
+    .field{margin-bottom:1.6rem;}
+    .field label.q,
+    .field .q{display:block;font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px;line-height:1.45;}
+    .field .q .qnum{color:var(--coral);font-weight:700;margin-right:6px;}
+    .field .helper{display:block;font-size:13px;color:var(--muted);margin-bottom:10px;line-height:1.55;}
+    .required{color:var(--coral);font-weight:700;margin-left:3px;}
+    .text-input,
+    .textarea,
+    .select{
+      width:100%;
+      background:#FFFDF8;
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:11px 14px;
+      font-family:inherit;
+      font-size:14.5px;
+      color:var(--text);
+      transition:border-color .15s, box-shadow .15s;
+    }
+    .textarea{min-height:96px;resize:vertical;line-height:1.55;}
+    .text-input:focus,
+    .textarea:focus,
+    .select:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(26,53,80,0.12);}
+    .row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    @media (max-width:600px){.row-2{grid-template-columns:1fr;}}
+    .radio-group,
+    .check-group{display:flex;flex-direction:column;gap:10px;}
+    .radio-group label,
+    .check-group label{
+      display:flex;align-items:flex-start;gap:11px;
+      background:#FFFDF8;border:1px solid var(--border);
+      border-radius:8px;padding:11px 14px;
+      cursor:pointer;
+      font-size:14.5px;
+      transition:border-color .15s, background .15s;
+    }
+    .radio-group label:hover,
+    .check-group label:hover{border-color:var(--navy);background:#FFF;}
+    .radio-group input[type=radio],
+    .check-group input[type=checkbox]{
+      margin-top:3px;
+      accent-color:var(--navy);
+      flex-shrink:0;
+    }
+    .radio-group label.is-selected,
+    .check-group label.is-selected{
+      border-color:var(--navy);
+      background:#FBF6F1;
+      box-shadow:inset 0 0 0 1px var(--navy);
+    }
+    .submit-row{margin-top:2rem;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+    .submit-btn{
+      background:var(--navy);
+      color:#FFFDF8;
+      border:1px solid var(--navy);
+      border-radius:8px;
+      padding:13px 28px;
+      font-weight:700;
+      font-size:15px;
+      letter-spacing:0.3px;
+      cursor:pointer;
+      transition:opacity .15s, transform .05s;
+    }
+    .submit-btn:hover{opacity:0.92;}
+    .submit-btn:active{transform:translateY(1px);}
+    .submit-btn:disabled{opacity:0.55;cursor:not-allowed;}
+    .submit-note{font-size:13px;color:var(--muted);max-width:42ch;}
+    .status{margin-top:1.25rem;padding:14px 18px;border-radius:8px;font-size:14px;display:none;}
+    .status.is-error{display:block;background:#FBE6E4;border:1px solid #E5B7B2;color:#7A2A23;}
+    .status.is-success{display:block;background:#E3F0E3;border:1px solid #B8D9B8;color:#1F5A2A;}
+    .success-card{display:none;background:var(--cream-card);border:1px solid var(--border);border-radius:12px;padding:32px;text-align:center;}
+    .success-card h2{font-size:1.6rem;margin-bottom:0.6rem;}
+    .success-card p{color:var(--muted);font-size:14.5px;}
+    .footer{text-align:center;color:var(--muted);font-size:12px;padding:32px 1rem;border-top:1px solid var(--border);background:var(--cream);}
+    /* Hide form section after success */
+    .is-submitted .form-wrap{display:none;}
+    .is-submitted .success-card{display:block;}
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="inner">
+    <div class="pills">
+      <a href="index.html" class="pill">NSLS Society Roadshow</a>
+      <span class="pill">Fall Pilot Setup</span>
+      <span class="pill">~5–7 min</span>
+    </div>
+    <h1>Society Fall Pilot — Setup Survey</h1>
+    <p class="sub">A short operational check-in before fall. Tells us how your chapter runs today and surfaces anything we should plan around before the pilot kicks off.</p>
+  </div>
+</div>
+
+<main id="main">
+
+  <div class="form-wrap">
+
+    <div class="intro">
+      All 14 pilot schools are confirmed — this isn't a re-confirmation, and it isn't a &ldquo;pick your own pilot&rdquo; menu. It's about how your chapter runs today (especially SNTs), so we can plan together and have a real baseline to measure the pilot against. Most fields are optional; just answer what you know.
+    </div>
+
+    <div id="schoolBanner" class="school-banner" hidden>
+      <span class="badge">Pilot school</span>
+      <div>
+        <span class="school-name" id="schoolBannerName"></span>
+        <span class="school-advisor" id="schoolBannerAdvisor"></span>
+      </div>
+    </div>
+
+    <form id="surveyForm" novalidate>
+
+      <!-- About you / school -->
+      <div class="section">
+        <div class="section-title">About you</div>
+
+        <div class="field" id="schoolField">
+          <label class="q" for="schoolNameText">School<span class="required">*</span></label>
+          <select id="schoolSelect" class="select" hidden>
+            <option value="">Select your school…</option>
+          </select>
+          <input id="schoolNameText" name="schoolNameText" class="text-input" type="text" autocomplete="organization" required>
+        </div>
+
+        <div class="row-2">
+          <div class="field">
+            <label class="q" for="respondentName">Your name<span class="required">*</span></label>
+            <input id="respondentName" name="respondentName" class="text-input" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label class="q" for="respondentEmail">Email<span class="required">*</span></label>
+            <input id="respondentEmail" name="respondentEmail" class="text-input" type="email" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="q" for="respondentRole">Your role at the school</label>
+          <input id="respondentRole" name="respondentRole" class="text-input" type="text" placeholder="e.g., NSLS Advisor, Director of Student Engagement" autocomplete="organization-title">
+        </div>
+      </div>
+
+      <!-- Q1 Planning -->
+      <div class="section">
+        <div class="section-title">Planning</div>
+        <div class="field">
+          <label class="q" for="q1Planning"><span class="qnum">1.</span> Is there anything on your end we should plan around for fall?</label>
+          <span class="helper">Leadership changes, staffing, timing — including things like the timing of your invitation database pull.</span>
+          <textarea id="q1Planning" name="q1Planning" class="textarea" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Q2-Q4 How you run NSLS today -->
+      <div class="section">
+        <div class="section-title">How you run NSLS today</div>
+
+        <div class="field">
+          <span class="q"><span class="qnum">2.</span> How do your students currently complete induction?</span>
+          <div class="radio-group" data-group="q2Induction">
+            <label><input type="radio" name="q2Induction" value="Fully in person"> Fully in person</label>
+            <label><input type="radio" name="q2Induction" value="Fully online"> Fully online</label>
+            <label><input type="radio" name="q2Induction" value="A mix of both"> A mix of both</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="q"><span class="qnum">3.</span> How do you run Leadership Training Day today?</span>
+          <div class="radio-group" data-group="q3Ltd">
+            <label><input type="radio" name="q3Ltd" value="In-person event"> In-person event</label>
+            <label><input type="radio" name="q3Ltd" value="Live online"> Live online</label>
+            <label><input type="radio" name="q3Ltd" value="Students complete it on their own"> Students complete it on their own</label>
+            <label><input type="radio" name="q3Ltd" value="We don't really run it"> We don&rsquo;t really run it</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="q" for="q3bCombinedEvents"><span class="qnum">3b.</span> Do you combine any events?</label>
+          <span class="helper">Some chapters run Orientation + LTD together, or LTD + SNT 1. Tell us what you do — even informally.</span>
+          <textarea id="q3bCombinedEvents" name="q3bCombinedEvents" class="textarea" rows="2"></textarea>
+        </div>
+
+        <div class="field">
+          <span class="q"><span class="qnum">4.</span> How do your students currently form their SNTs?</span>
+          <div class="radio-group" data-group="q4SntFormation">
+            <label><input type="radio" name="q4SntFormation" value="Grouped in person at an event"> Grouped in person at an event (e.g., at Leadership Training Day)</label>
+            <label><input type="radio" name="q4SntFormation" value="Students self-organize"> Students self-organize</label>
+            <label><input type="radio" name="q4SntFormation" value="Advisor assigns groups"> Advisor assigns groups</label>
+            <label><input type="radio" name="q4SntFormation" value="They struggle to form at all"> They struggle to form at all</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5-Q6 Baseline -->
+      <div class="section">
+        <div class="section-title">Your numbers (baseline)</div>
+
+        <div class="field">
+          <label class="q" for="q5MemberCounts"><span class="qnum">5.</span> Roughly how many total members and inducted members do you have this year?</label>
+          <span class="helper">Best estimate is fine — we&rsquo;re looking for a baseline, not a precise count.</span>
+          <textarea id="q5MemberCounts" name="q5MemberCounts" class="textarea" rows="2"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="q" for="q5bInvitationListSize"><span class="qnum">5b.</span> Anticipated invitation list size for fall</label>
+          <span class="helper">Rough estimate of your fall database pull — number of invites you expect to send. Helps us forecast Society event attendance.</span>
+          <input id="q5bInvitationListSize" name="q5bInvitationListSize" class="text-input" type="text" placeholder="e.g., ~800 invites">
+        </div>
+
+        <div class="field">
+          <span class="q"><span class="qnum">6.</span> Where do your students most often stall?</span>
+          <div class="radio-group" data-group="q6StallStep">
+            <label><input type="radio" name="q6StallStep" value="Orientation"> Orientation</label>
+            <label><input type="radio" name="q6StallStep" value="Leadership Training Day"> Leadership Training Day</label>
+            <label><input type="radio" name="q6StallStep" value="Speaker Broadcasts"> Speaker Broadcasts</label>
+            <label><input type="radio" name="q6StallStep" value="SNTs"> SNTs</label>
+            <label><input type="radio" name="q6StallStep" value="Final induction step"> Final induction step</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q7 SNTs in Pilot -->
+      <div class="section">
+        <div class="section-title">How you&rsquo;d run SNTs in the pilot</div>
+        <div class="field">
+          <span class="q"><span class="qnum">7.</span> In the pilot, SNTs run through Society&rsquo;s matching and group tools. Which fits your chapter best?</span>
+          <span class="helper">Society does the matching (placing students into small teams), provides the group&rsquo;s shared space, and tracks attendance and progress. You can still meet your students however you normally do — the question is how much of the SNT experience lives inside Society vs. in person.</span>
+          <div class="radio-group" data-group="q7SntPilotApproach">
+            <label><input type="radio" name="q7SntPilotApproach" value="Fully online in Society"> Run SNTs fully online in Society</label>
+            <label><input type="radio" name="q7SntPilotApproach" value="Hybrid (in person + Society for matching/tracking)"> Keep meeting in person, but use Society to match teams and track attendance (hybrid)</label>
+            <label><input type="radio" name="q7SntPilotApproach" value="Not sure yet — want to talk it through"> Not sure yet — I&rsquo;d like to talk it through</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q8-Q9 Readiness -->
+      <div class="section">
+        <div class="section-title">Readiness &amp; concerns</div>
+
+        <div class="field">
+          <span class="q"><span class="qnum">8.</span> Are there any IT or technical constraints we should plan around?</span>
+          <span class="helper">Select all that apply.</span>
+          <div class="check-group" data-group="q8ItConstraints">
+            <label><input type="checkbox" name="q8ItConstraints" value="Campus firewall / network restrictions"> Campus firewall / network restrictions</label>
+            <label><input type="checkbox" name="q8ItConstraints" value="SSO or login requirements"> SSO or login requirements</label>
+            <label><input type="checkbox" name="q8ItConstraints" value="Accessibility or screen-reader requirements"> Accessibility or screen-reader requirements</label>
+            <label><input type="checkbox" name="q8ItConstraints" value="Data, privacy, or FERPA review needed"> Data, privacy, or FERPA review needed</label>
+            <label><input type="checkbox" name="q8ItConstraints" value="None that I know of"> None that I know of</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="q" for="q8bItConstraintDetails"><span class="qnum">8b.</span> Details on any of the items you checked above</label>
+          <span class="helper" id="q8bHelper">If you checked any constraint above, share what you know — firewall specifics, SSO platform, FERPA review steps, accessibility needs, etc.</span>
+          <textarea id="q8bItConstraintDetails" name="q8bItConstraintDetails" class="textarea" rows="3"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="q" for="q9Worries"><span class="qnum">9.</span> What, if anything, worries you about rolling this out this fall?</label>
+          <textarea id="q9Worries" name="q9Worries" class="textarea" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="submit-btn" id="submitBtn">Submit responses</button>
+        <span class="submit-note">Submissions go straight to the NSLS Customer Success team. Required fields: school, your name, your email.</span>
+      </div>
+      <div class="status" id="statusBox"></div>
+    </form>
+
+  </div>
+
+  <div class="success-card" id="successCard" aria-live="polite">
+    <h2>Thanks — we got it.</h2>
+    <p>Your responses are in. Your CS rep will be in touch as we lock in the fall pilot rollout.</p>
+  </div>
+
+</main>
+
+<div class="footer">NSLS Society Campus Roadshow · Fall 2026 Pilot Setup</div>
+
+<script>
+  // 14 confirmed Fall 2026 pilot schools, keyed by slug. Used to pre-populate
+  // the form when the survey is opened via /pilot-survey.html?school=<slug>.
+  // advisor is pre-filled only when the school has exactly one primary contact
+  // on file in the Campus Discovery CRM. Drew (2 contacts) and Austin Peay (0)
+  // intentionally leave it blank.
+  const SCHOOLS = {
+    "arapahoe-community-college":        { name: "Arapahoe Community College",         advisor: { name: "Dan Balski",          email: "dan.balski@arapahoe.edu" } },
+    "austin-peay-state-university":      { name: "Austin Peay State University",       advisor: null },
+    "central-wyoming-community-college": { name: "Central Wyoming College",            advisor: { name: "Lisa Appelhans",      email: "lappelha@cwc.edu" } },
+    "coastal-carolina-university":       { name: "Coastal Carolina University",        advisor: { name: "Megan Grandey",       email: "mgrandey@coastal.edu" } },
+    "drew-university":                   { name: "Drew University",                    advisor: null },
+    "madison-area-technical-college":    { name: "Madison Area Technical College",     advisor: { name: "Cole Kallio-Crotteau", email: "ckalliocrotteau@madisoncollege.edu" } },
+    "mott-community-college":            { name: "Mott Community College",             advisor: { name: "Dawn Vanniman",       email: "dawn.vanniman@mcc.edu" } },
+    "muskingum-university":              { name: "Muskingum University",               advisor: { name: "Henry Stanford",      email: "stanford@muskingum.edu" } },
+    "south-piedmont-community-college":  { name: "South Piedmont Community College",   advisor: { name: "Connie Gardner",      email: "igardner@spcc.edu" } },
+    "texas-am-corpus-christi":           { name: "Texas A&M Corpus Christi",           advisor: { name: "Lauren Breckenridge", email: "Lauren.Breckenridge@tamucc.edu" } },
+    "texas-lutheran-university":         { name: "Texas Lutheran University",          advisor: { name: "Cody Mazzurana",      email: "clmazzurana@tlu.edu" } },
+    "university-of-nevada-las-vegas":    { name: "University of Nevada Las Vegas",     advisor: { name: "Elana Paladino",      email: "elana.paladino@unlv.edu" } },
+    "university-of-north-texas":         { name: "University of North Texas",          advisor: { name: "Sydney Pickett",      email: "sydney.pickett@unt.edu" } },
+    "university-of-tennessee-knoxville": { name: "University of Tennessee, Knoxville", advisor: { name: "Hunter Hammock",      email: "hunterahammock@gmail.com" } },
+  };
+
+  function getSlug() {
+    const params = new URLSearchParams(window.location.search);
+    const raw = (params.get("school") || "").trim().toLowerCase();
+    return raw && SCHOOLS[raw] ? raw : "";
+  }
+
+  let activeSlug = getSlug();
+
+  function applySchool(slug) {
+    activeSlug = slug && SCHOOLS[slug] ? slug : "";
+    const banner = document.getElementById("schoolBanner");
+    const nameInput = document.getElementById("schoolNameText");
+    const select = document.getElementById("schoolSelect");
+
+    if (activeSlug) {
+      const info = SCHOOLS[activeSlug];
+      nameInput.value = info.name;
+      nameInput.readOnly = true;
+      nameInput.hidden = false;
+      select.hidden = true;
+      document.getElementById("schoolBannerName").textContent = info.name;
+      const advisorEl = document.getElementById("schoolBannerAdvisor");
+      advisorEl.textContent = info.advisor ? `Primary contact on file: ${info.advisor.name}` : "";
+      banner.hidden = false;
+      if (info.advisor) {
+        const nameField = document.getElementById("respondentName");
+        const emailField = document.getElementById("respondentEmail");
+        if (!nameField.value) nameField.value = info.advisor.name;
+        if (!emailField.value && info.advisor.email) emailField.value = info.advisor.email;
+      }
+    } else {
+      // No slug — show dropdown of pilot schools + free-text fallback.
+      nameInput.value = "";
+      nameInput.readOnly = false;
+      nameInput.hidden = true;
+      const sortedSlugs = Object.keys(SCHOOLS).sort((a, b) => SCHOOLS[a].name.localeCompare(SCHOOLS[b].name));
+      select.innerHTML = '<option value="">Select your school…</option>' +
+        sortedSlugs.map(s => `<option value="${s}">${SCHOOLS[s].name}</option>`).join("") +
+        '<option value="__other__">Other / not listed</option>';
+      select.hidden = false;
+      banner.hidden = true;
+      select.addEventListener("change", () => {
+        const v = select.value;
+        if (v === "__other__") {
+          nameInput.value = "";
+          nameInput.readOnly = false;
+          nameInput.hidden = false;
+          nameInput.focus();
+          activeSlug = "";
+        } else if (v && SCHOOLS[v]) {
+          applySchool(v);
+        }
+      });
+    }
+  }
+
+  function syncRadioSelectedStyles(root) {
+    root.querySelectorAll(".radio-group, .check-group").forEach(group => {
+      group.querySelectorAll("label").forEach(label => {
+        const input = label.querySelector("input");
+        if (!input) return;
+        const update = () => label.classList.toggle("is-selected", input.checked);
+        input.addEventListener("change", update);
+        update();
+      });
+    });
+  }
+
+  function readMultiCheckbox(name) {
+    return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(i => i.value);
+  }
+
+  function readRadio(name) {
+    const el = document.querySelector(`input[name="${name}"]:checked`);
+    return el ? el.value : "";
+  }
+
+  function setStatus(message, kind) {
+    const box = document.getElementById("statusBox");
+    box.textContent = message;
+    box.className = "status " + (kind === "error" ? "is-error" : "is-success");
+  }
+
+  async function submitForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById("submitBtn");
+    btn.disabled = true;
+    setStatus("", "");
+
+    const schoolNameText = document.getElementById("schoolNameText").value.trim();
+    const respondentName = document.getElementById("respondentName").value.trim();
+    const respondentEmail = document.getElementById("respondentEmail").value.trim();
+
+    if (!schoolNameText || !respondentName || !respondentEmail) {
+      setStatus("Please fill in your school, your name, and your email.", "error");
+      btn.disabled = false;
+      return;
+    }
+
+    const payload = {
+      schoolSlug: activeSlug,
+      schoolNameText,
+      respondentName,
+      respondentEmail,
+      respondentRole: document.getElementById("respondentRole").value.trim(),
+      q1Planning: document.getElementById("q1Planning").value.trim(),
+      q2Induction: readRadio("q2Induction"),
+      q3Ltd: readRadio("q3Ltd"),
+      q3bCombinedEvents: document.getElementById("q3bCombinedEvents").value.trim(),
+      q4SntFormation: readRadio("q4SntFormation"),
+      q5MemberCounts: document.getElementById("q5MemberCounts").value.trim(),
+      q5bInvitationListSize: document.getElementById("q5bInvitationListSize").value.trim(),
+      q6StallStep: readRadio("q6StallStep"),
+      q7SntPilotApproach: readRadio("q7SntPilotApproach"),
+      q8ItConstraints: readMultiCheckbox("q8ItConstraints"),
+      q8bItConstraintDetails: document.getElementById("q8bItConstraintDetails").value.trim(),
+      q9Worries: document.getElementById("q9Worries").value.trim(),
+      sourceUrl: window.location.href,
+    };
+
+    try {
+      const res = await fetch("/api/pilot-survey-submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.error || `submit_failed_${res.status}`);
+      }
+      document.getElementById("main").classList.add("is-submitted");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      console.error(err);
+      setStatus("Something went wrong submitting. Please try again, or email your CS rep if it keeps happening.", "error");
+      btn.disabled = false;
+    }
+  }
+
+  function wireQ8DetailsHint() {
+    const boxes = document.querySelectorAll('input[name="q8ItConstraints"]');
+    const helper = document.getElementById("q8bHelper");
+    if (!helper) return;
+    const baseText = helper.textContent;
+    const nudgeText = "You checked one or more constraints — a sentence or two of detail here helps us plan.";
+    const update = () => {
+      const anyChecked = Array.from(boxes).some(b => b.checked && b.value !== "None that I know of");
+      helper.textContent = anyChecked ? nudgeText : baseText;
+      helper.style.color = anyChecked ? "var(--coral)" : "";
+    };
+    boxes.forEach(b => b.addEventListener("change", update));
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    applySchool(getSlug());
+    syncRadioSelectedStyles(document);
+    wireQ8DetailsHint();
+    document.getElementById("surveyForm").addEventListener("submit", submitForm);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Southern Utah University — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">June 22, 2026</span>
+    </div>
+    <h1>Southern Utah University &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Southern Utah University Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/718261073" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Southern Utah University (SUU)</p>
+    <p><strong>Location:</strong> Cedar City, UT</p>
+    <p><strong>School Type:</strong> Public 4-Year</p>
+    <p><strong>Chapter Status:</strong> Established — approximately one semester of active relationship with current advisor</p>
+    <p><strong>Chapter Type:</strong> Standard (primarily in-person delivery with occasional online accommodations for individual students)</p>
+    <p><strong>Advisor Present:</strong> Brandon Street, Director of Career Development</p>
+    <p><strong>CSR:</strong> Gregg Gudelinis</p>
+    <p><strong>Notable Context:</strong> SUU has undergone a significant institutional shift toward career services as a strategic priority, investing heavily in career coaching infrastructure over the last one to two years. Brandon arrived approximately six months ago and has quickly become an engaged chapter partner, actively supporting Gregg in other regional efforts (e.g., helping locate a Utah State advisor). The chapter experienced a student president departure but Brandon moved proactively to address it. SUU uses Canvas and Handshake. The university has a homegrown career readiness program called T-Bird Ready built around eight competencies, skills articulation, and a merit badge/medallion system. The school's stated institutional goal is to become a career flagship in Utah.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+  <div class="advisor-card">
+    <h3>Brandon Street</h3>
+    <p><strong>Role:</strong> Director of Career Development, Southern Utah University</p>
+    <p><strong>Background:</strong> Career services professional who has been advocating for a stronger career-readiness focus at SUU for approximately five years. Joined as NSLS chapter advisor roughly six months prior to this meeting. His wife is currently enrolled in SUU's master's in education program. He is deeply embedded in career ecosystem frameworks and has been instrumental in designing and implementing the T-Bird Ready program — a structured, evidence-based competency badging system tied to the SAR articulation method. SUU has recently hired dedicated career coaches for each college on campus as part of its expanded career services investment.</p>
+    <p><strong>Motivations:</strong> Brandon is motivated by student outcomes — specifically gainful employment and graduate school admission. He is driven by the belief that students must not only develop skills but learn to articulate them clearly to employers. He sees NSLS as a meaningful partner when it demonstrates intentional, structured progression and real-world value. He is focused on closing the skill articulation gap and building SUU's reputation as a career-focused institution in Utah.</p>
+    <p><strong>Communication Style:</strong> Direct, thoughtful, and collaborative. Comfortable raising concerns (e.g., the upsell friction) without being confrontational. Asks clarifying, practical questions during demos (e.g., whether SNT SMART goals flow into the achievement engine). Engages analytically, mapping what he sees against frameworks he already uses (career design, planning, and campaign phases). Tends to qualify enthusiasm with a desire to explore more deeply before making broad institutional claims.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Brandon gave the platform a 10/10 enthusiasm score and explicitly expressed willingness to participate as a pilot partner. His background in structured career development, his T-Bird Ready program alignment with Society's career readiness score concept, and his institutional authority in career services make him a strong candidate for both early piloting and the Product Council. He noted he would need more hands-on time with the system before assessing broader institutional impact.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>The intentionality of NSLS in moving students forward through structured leadership development — Brandon noted students recognize this as distinct from other honor societies.</li>
+    <li>The emerging career readiness dimension of NSLS, which Brandon said he appreciates as a Director of Career Development and aligns with the school's institutional direction.</li>
+    <li>In-person delivery of Foundations of Leadership — the chapter runs orientations, kickoffs, and Leadership Training Day in person, with rare online accommodations for individual students. Brandon values this format for connection and engagement.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Upselling within the NSLS experience has damaged student trust and perceived legitimacy. Brandon specifically cited the for-credit course offering — SUU does not honor those credits, so students who pay feel misled, and those relationships are difficult to repair.</li>
+    <li>Lack of clarity for students about what they signed up for — some students feel slighted when expectations don't match the reality of their membership experience.</li>
+    <li>Student drop-off at the SNT stage — Brandon confirmed this is a known problem, consistent with NSLS-wide data (40–50% drop-off). He acknowledged students struggle to find value in that component.</li>
+    <li>Data collection is still relatively dated — SUU does not yet have a reliable way to track career learning outcomes or demonstrate skills progression over time.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Career services has been elevated to a core institutional priority at SUU within the last one to two years, driven by national enrollment concerns and student ROI expectations around college degrees.</li>
+    <li>SUU has hired a dedicated career coach for each college on campus and is building a structured, three-phase career development model: career design, career planning, and career campaign.</li>
+    <li>The T-Bird Ready program operationalizes eight competency areas through evidence submission, SAR-based articulation, badging, and a graduation medallion — currently live and showing early results (students wore medallions at graduation).</li>
+    <li>Institutional goal is to become a career flagship in Utah by demonstrating measurable career learning outcomes and placement data.</li>
+    <li>The school is moving toward capturing outcome data — specifically whether students achieve gainful employment or graduate school admission — and needs tools to show in-progress career learning development, not just end results.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Career Articulation Is the Real Skills Gap</h3>
+    <p>Brandon reframed the employer-student skills gap as substantially a skill articulation problem — students don't always know they've learned something, and when they do, they can't explain it clearly. His T-Bird Ready program and SAR method are direct responses to this. Society's AI coach and career readiness score concept map closely to this concern and were received as genuinely useful tools for addressing it.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Structured Progression Matters — Students Get Lost in Content-Rich Systems</h3>
+    <p>Brandon raised an unprompted concern that systems with rich content can overwhelm students who don't have a clear, guided path. He framed this as a known failure mode of career platforms. His question — whether Society drives students through a formal, sequential process — was the most substantive product question he asked. Chris's explanation of prerequisite-gated tracks and AI guardrails addressed this directly and visibly satisfied Brandon.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Upsell Friction Is a Legitimacy Threat</h3>
+    <p>The upselling perception — particularly around for-credit courses that SUU does not honor — has caused concrete trust damage with students and reflects a broader legitimacy concern Brandon has about NSLS. This is a known issue (Chris noted at least half of the ~30 schools visited have raised it), and it directly undermines advisor credibility on campus. Messaging clarity and student expectation-setting were flagged as needed improvements.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Institutional Alignment Is Strong — Society Fits SUU's Strategic Direction</h3>
+    <p>SUU's pivot to career services as a flagship priority, its three-phase career development model, and the T-Bird Ready program all align closely with Society's structure and value proposition. Brandon noted the platform aligns with what students are looking for — visible progress across both leadership and career success — from day one of membership. The career readiness score concept was specifically called out as addressing a data gap the school is actively trying to close.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Broader Platform Potential Beyond NSLS Members</h3>
+    <p>Brandon responded positively to Chris's suggestion that Society could eventually serve all SUU students through the career center — not just NSLS members. He connected this to the groups/networking feature as a mechanism for alumni re-engagement and long-term value. While he noted he'd need more time to assess full institutional fit, he acknowledged the potential for a campus-wide deployment through career services.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+  <div class="enthusiasm-score">10/10</div>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The Clarity track and the overall career direction framework — Brandon mapped it directly onto his own three-phase career development model (design, planning, campaign) and saw all three phases represented.</li>
+    <li>The AI coach concept — particularly the ability to personalize guidance based on personality assessments (MBTI, DISC, etc.) and push students toward skill and career articulation.</li>
+    <li>The SNT matching and huddle tool — Brandon called it a beautiful expansion of students' networks beyond campus and said it addresses one of the biggest drop-off points in NSLS engagement.</li>
+    <li>The career readiness score and advisor dashboard — he directly confirmed this addresses a data gap SUU is actively trying to close. The ability to see where a student like Maya Rivera is struggling before a coaching appointment was described as genuinely useful.</li>
+    <li>The achievements engine and SMART goal integration — Brandon asked specifically whether SNT goals flow into achievements, suggesting he sees this as a valuable accountability mechanism.</li>
+    <li>The framing of Society as helping students see they are doing both leadership and success from day one — Brandon said this was "probably the piece that's been missing."</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Content overwhelm risk — Brandon raised a concern about students getting lost in rich content without a clear guided path before Chris explained the prerequisite-gated track structure.</li>
+    <li>SNT SMART goals auto-populating into the achievements engine — currently requires a manual step (student must ask the coach); Brandon noted this is an important workflow. Chris acknowledged it's on the roadmap.</li>
+    <li>Broader institutional impact beyond the NSLS chapter — Brandon said he would need hands-on time with the system before he could speak to how Society would fit alongside SUU's existing and planned career infrastructure.</li>
+    <li>Other career coaches at SUU are not part of NSLS — Brandon noted Society's direct benefit to him as an advisor is clear, but the pathway for non-NSLS career coaches to leverage the tool is less defined.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Brandon's T-Bird Ready program is a notably sophisticated, independently developed system that mirrors several Society concepts (competency badging, skill articulation, evidence submission, SAR-based reflection). This represents a strong existing framework that Society could complement or integrate with — Chris flagged this explicitly as a potential feature development opportunity.</li>
+    <li>Brandon asked about the SNT goal-to-achievements workflow unprompted, indicating he was mentally stress-testing the system's coherence in real time — a sign of genuine engagement rather than surface-level enthusiasm.</li>
+    <li>Brandon's 10/10 score was given directly and without qualification — unusually strong given his otherwise measured and analytical communication style throughout the call.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Clarity Track (Career Direction)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Brandon mapped it directly to his own career design phase. Said this is what students are looking for — visible progress on career direction from day one of membership.</td>
+      </tr>
+      <tr>
+        <td>AI Coach (Personalized Guidance)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Framed as a natural complement to human career coaches. Brandon saw it as filling coverage gaps given the national 2,060:1 student-to-coach ratio. Reacted positively to personality-based personalization (MBTI, DISC, etc.).</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score / Advisor Dashboard</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Directly addresses a data gap Brandon named. He confirmed SUU is still "pretty dated" in data collection and needs a way to show career learning outcome progression. The idea of seeing a student's score before a coaching appointment was called out as immediately useful. Chris noted a potential tie to T-Bird Ready metrics.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching &amp; Huddle Tool</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Brandon confirmed SNT drop-off is a real problem and called the cross-campus networking capability "beautiful." Said it broadens student networks beyond the university, which is a core goal of effective networking at SUU.</td>
+      </tr>
+      <tr>
+        <td>Achievements Engine / SMART Goal Tracking</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Brandon asked specifically whether SNT SMART goals auto-populate into achievements. Current answer: not automatic — student must ask the coach to add them. Brandon acknowledged the roadmap plan positively but the current manual step is a friction point worth monitoring.</td>
+      </tr>
+      <tr>
+        <td>Prerequisite-Gated Track Structure</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Brandon raised the content overwhelm risk unprompted, then visibly settled when Chris explained that tracks are gated and the AI coach enforces focus. He said "gotcha" and moved on — friction resolved in session.</td>
+      </tr>
+      <tr>
+        <td>Groups / Affinity Groups &amp; Events</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Brandon connected this to long-term alumni network re-engagement and ongoing membership value. He did not raise specific use cases but responded positively to the concept of structured groups beyond SNTs.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessment Approximations (Myers-Briggs, DISC, Enneagram, etc.)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Brandon referenced MBTI (Myers-Briggs) as part of his own career design phase framework. Did not raise concerns about the approximation methodology — received the explanation without friction.</td>
+      </tr>
+      <tr>
+        <td>Handshake Integration (Planned)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>SUU uses Handshake as their primary career tool. Chris mentioned a potential integration for event data and job application tracking. Brandon did not respond substantively — needs follow-up to assess interest and feasibility from SUU's side.</td>
+      </tr>
+      <tr>
+        <td>Video Story Recording + AI Analysis (NACE Standards)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Chris floated the idea of students recording their professional story for AI analysis alongside resume and LinkedIn review. Brandon did not respond directly — he was being addressed in the context of the career readiness score mock-up. Relevant to his articulation focus but not yet validated with him.</td>
+      </tr>
+      <tr>
+        <td>Campus-Wide Deployment (Beyond NSLS Members)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Brandon said there's "potential there for sure" but wants more time with the system before assessing how it would integrate with SUU's existing and planned career infrastructure. Non-NSLS career coaches at SUU are not currently in scope — a gap to address if broader deployment is pursued.</td>
+      </tr>
+      <tr>
+        <td>Upsell / For-Credit Course Messaging</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Brandon raised this as a trust and legitimacy issue — SUU does not honor NSLS for-credit course credits, and students who pay feel misled. Concrete relationship damage has occurred. Chris acknowledged this as a known issue across ~50% of schools visited and said messaging improvements are in progress. Needs monitoring and proactive follow-through before fall rollout.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Send Brandon the OurSociety.org link via Zoom chat (URL was accidentally sent to the NSLS bot during the call — confirm Brandon received it) and prompt him to log in with his NSLS credentials to explore the platform independently. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Schedule a follow-up meeting within one to two weeks to discuss pilot rollout logistics, including advisor feedback collection format and next steps for bringing in faculty/staff testers. <span class="owner-tag">Gregg Gudelinis</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Facilitate Brandon's hands-on exploration of Society so he can provide structured feedback on his experience — format is flexible (written, recorded, or otherwise). Feedback should specifically address where the platform aligns with or diverges from SUU's T-Bird Ready framework and three-phase career model. <span class="owner-tag">Brandon Street</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Coordinate a second onboarding cohort step: Brandon to identify trusted faculty, staff, or colleagues at SUU to test the platform and provide early feedback before a student cohort is introduced. <span class="owner-tag">Brandon Street / Gregg Gudelinis</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Explore whether the career readiness score dashboard can be configured to reflect or integrate with T-Bird Ready's eight competency framework — flag as a potential product development discussion for the roadmap. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Follow up on the Handshake integration roadmap item — confirm current status and timeline, and assess whether SUU's use of Handshake makes them a viable early integration test partner. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Ensure Brandon is briefed on messaging improvements being made to address the upsell/for-credit legitimacy concern before any fall rollout communications go out to SUU students. <span class="owner-tag">Chris Higbee / Gregg Gudelinis</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>Can Society's career readiness score be configured to align with or ingest data from SUU's existing T-Bird Ready competency tracking system?</li>
+    <li>What is the timeline for Handshake integration, and is SUU a viable test case given they are a confirmed Handshake user?</li>
+    <li>How will non-NSLS career coaches at SUU be brought into the Society ecosystem if a campus-wide deployment is pursued? What is the access and licensing model for that?</li>
+    <li>Will SNT SMART goals auto-populate into the achievements engine before fall rollout, or will the manual coach-interaction step remain? Brandon flagged this as an important workflow.</li>
+    <li>What does the broader institutional impact assessment look like for SUU — who beyond Brandon would need to be involved for a campus-wide or career center deployment decision?</li>
+    <li>How will NSLS proactively communicate the resolution of the upsell/for-credit messaging issue to SUU students and to Brandon so he can speak to it confidently on campus?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Southern Utah University (SUU)</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Cedar City, UT</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Public 4-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established (current advisor approximately six months in)</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Standard — primarily in-person delivery</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>10/10 (self-reported by Brandon Street)</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — explicitly confirmed by Brandon during the call</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>Yes — Brandon expressed willingness to participate when the Product Council was described</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>Upsell/for-credit legitimacy damage with students; SNT drop-off; lack of career learning outcome data; students not articulating skills they have developed</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>SUU's T-Bird Ready program mirrors Society's career readiness architecture — strong product-market fit and a potential integration/co-development opportunity. Brandon is analytically engaged, institutionally aligned, and motivated by outcomes that Society is directly designed to address.</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Gregg Gudelinis</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Southern Utah University &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; June 22, 2026
+</footer>
+
+</body>
+</html>

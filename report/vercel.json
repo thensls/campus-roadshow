@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/pilot-survey-submit.js": {
+      "memory": 256,
+      "maxDuration": 10
+    }
+  }
+}

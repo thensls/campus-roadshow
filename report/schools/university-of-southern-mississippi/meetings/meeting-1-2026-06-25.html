@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University of Southern Mississippi — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">June 25, 2026</span>
+    </div>
+    <h1>University of Southern Mississippi &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; University of Southern Mississippi Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/723124694" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> University of Southern Mississippi</p>
+    <p><strong>Location:</strong> Hattiesburg, MS</p>
+    <p><strong>School Type:</strong> Public 4-Year</p>
+    <p><strong>Chapter Status:</strong> Established — advisor has been in place for over four years with consistent CSR support</p>
+    <p><strong>Chapter Type:</strong> Not explicitly stated in transcript</p>
+    <p><strong>Segment/Tier:</strong> 3</p>
+    <p><strong>CSR:</strong> Gregg Gudelinis</p>
+    <p><strong>Advisors Present:</strong> Michael King (Dr. King), Faculty/Staff Advisor</p>
+    <p><strong>Notable Context:</strong> Southern Miss is approximately 50% Pell-eligible or financially assisted students. Financial aid gaps are the primary driver of attrition.<a href="https://fathom.video/calls/723124694?t=361" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:01</a> The institution is currently mid-implementation of a student engagement platform called Eagle Hub (built on Campus Groups), roughly 1.5 years in.<a href="https://fathom.video/calls/723124694?t=420" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:00</a> A prior strategic focus on co-curricular learning outcomes and NACE competency alignment has been deprioritized under the current VP of Student Affairs.<a href="https://fathom.video/calls/723124694?t=403" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:43</a> Career readiness is acknowledged as a priority with significant headroom outside the classroom. Gregg described Dr. King as one of his best advisors, citing strong chapter performance and consistent responsiveness over four years.<a href="https://fathom.video/calls/723124694?t=210" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 3:30</a></p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+  <div class="advisor-card">
+    <h3>Dr. Michael King</h3>
+    <p><strong>Role:</strong> NSLS Chapter Advisor, University of Southern Mississippi. Also involved in campus-wide student engagement initiatives, including the Eagle Hub platform implementation.</p>
+    <p><strong>Background:</strong> Came to Southern Miss for graduate school and stayed.<a href="https://fathom.video/calls/723124694?t=59" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 0:59</a> Has a self-described quantitative background. Involved in prior institutional efforts to embed learning outcomes into co-curricular experiences and align with NACE competencies. Familiar with CliftonStrengths and personality assessment frameworks. Has been the NSLS advisor at USM for the duration of Gregg Gudelinis's four-plus years as CSR.</p>
+    <p><strong>Motivations:</strong> Interested in data-driven approaches to student success — specifically gaining the ability to quantify the student experience. Eager to connect co-curricular work to career readiness and NACE competency alignment. Personally invested in seeing the Eagle Hub platform generate actionable engagement data. Expressed immediate interest in sharing Society with colleagues across programs and departments.</p>
+    <p><strong>Communication Style:</strong> Direct, candid, and measured. Expressed healthy skepticism toward new product promises ("I wouldn't believe you on that — number one") while remaining genuinely open. Engaged thoughtfully with the demo, asked specific follow-up questions (e.g., about CliftonStrengths). Collaborative and already thinking ahead to internal champions before the meeting ended.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Explicitly agreed to pilot participation during the meeting. Immediately identified internal colleagues and departments he would loop in. Rated Society 8–9 out of 10. Gregg confirmed strong chapter health and advisor responsiveness. Well-suited for Product Council given his quantitative orientation, institutional influence, and early enthusiasm.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>The strong, established NSLS chapter relationship at Southern Miss — noted by Gregg as one of his best accounts with demonstrated results over four years</li>
+    <li>The momentum and investment already made in Eagle Hub (Campus Groups) as the school's student engagement infrastructure</li>
+    <li>The quantitative approach to understanding the student experience — Dr. King wants to leverage data he now has access to through Eagle Hub</li>
+    <li>The prior institutional vision around co-curricular learning outcomes and NACE alignment, even if currently deprioritized — Dr. King expressed that this work matters and he was a key part of it<a href="https://fathom.video/calls/723124694?t=411" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:51</a></li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Student attrition driven primarily by financial aid gaps and personal obligations (e.g., serving as primary caretakers for family members) — described as the core retention challenge</li>
+    <li>The prior focus on co-curricular learning outcomes and NACE competency alignment has been "pushed to the background" under the current leadership transition</li>
+    <li>Career readiness work outside the classroom is underdeveloped — Dr. King acknowledged "a great deal of headroom" and described current efforts as pockets of interest rather than a broad institutional push</li>
+    <li>Lack of longitudinal data on students — previously unable to quantify the co-curricular student experience in a meaningful way (Eagle Hub is meant to address this going forward)</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Enrollment growth — explicitly named as the top institutional priority</li>
+    <li>Student retention — closely linked to enrollment; financial aid gaps are the primary lever to address</li>
+    <li>Digital student engagement — Eagle Hub implementation is a current, active institutional initiative with high visibility</li>
+    <li>Career readiness — identified as important and aspirational, with the "Ready for Life" marketing campaign, but acknowledged as an area with significant room to grow outside the classroom</li>
+    <li>NACE competency alignment — career services is interested; was previously part of a broader co-curricular learning outcomes initiative Dr. King was leading</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Data Hunger Is a Primary Driver</h3>
+    <p>Dr. King explicitly described himself as having a quantitative background but lacking the data to leverage it — until now. Eagle Hub is the current vehicle for that. Society's student engagement dashboard and career readiness score landed as directly relevant to this need. The framing of "Michael King in your pocket" as an advisor intelligence tool resonated clearly. He will respond well to any feature that surfaces actionable, student-level data.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Financial Barriers Are the Core Retention Problem</h3>
+    <p>Approximately half of Southern Miss students are Pell-eligible or receive financial assistance. When students leave, it is most often tied to finances or family caregiving responsibilities. This is the institution's most pressing student success challenge. Society's career readiness and clarity features are indirectly relevant here — helping students see a clearer path to employment may reinforce persistence — but no direct connection was made in the meeting.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Career Readiness Has Institutional Buy-In but Lacks Infrastructure</h3>
+    <p>Dr. King confirmed that career readiness is valued — the school markets it with the "Ready for Life" tagline — but acknowledged that execution outside the classroom is thin. Career services wants NACE competency alignment, and Dr. King was previously driving a co-curricular learning outcomes initiative that would have intersected with this. Society's Career Clarity track was positioned as a low-lift solution for exactly this gap, and Dr. King was receptive.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Healthy Skepticism Toward Product Promises</h3>
+    <p>When told Society could support NACE alignment with "very little heavy lifting," Dr. King's immediate response was: "I wouldn't believe you on that — number one."<a href="https://fathom.video/calls/723124694?t=589" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 9:49</a> His 8–9 enthusiasm score included a candid acknowledgment that the remaining points were skepticism about new products generally. This is not resistance — it is a signal that proof of delivery will matter more than the pitch. Pilot access was the right move to address this directly.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Integration with Eagle Hub Is a Natural Ask</h3>
+    <p>Dr. King is actively building out Eagle Hub (Campus Groups) as the school's student engagement platform, including event calendaring, student org pages, badging, and gamification. When Chris raised the idea of an integration between Society and their student engagement platform, Dr. King's response was immediate: "I would love that."<a href="https://fathom.video/calls/723124694?t=1281" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 21:21</a> This is a meaningful signal — not polite agreement, but an expression of genuine operational interest.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+  <div class="enthusiasm-score">8.5/10</div>
+  <p><em>Dr. King self-reported "8 to 9," attributing the gap to general skepticism about new products rather than specific concerns about Society.<a href="https://fathom.video/calls/723124694?t=1406" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 23:26</a></em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The Career Clarity track concept — the Renee story of a non-traditional student finding a highly specific class through the AI coach was a concrete, compelling use case</li>
+    <li>The advisor intelligence dashboard — specifically the idea of seeing a career readiness score before a student meeting so the advisor knows where to focus ("hey, I reviewed your report, and here are some things we ought to talk about")</li>
+    <li>The concise AI coach responses — Dr. King noticed and commented positively that the coach didn't "go on and on" like a typical LLM<a href="https://fathom.video/calls/723124694?t=1046" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 17:26</a></li>
+    <li>The goal-setting and SMART goal integration — connecting back to Foundations of Leadership content felt coherent and purposeful</li>
+    <li>Longitudinal data capability — Dr. King has been limited by semester-only views; multi-cohort data was noted as addressing a known frustration<a href="https://fathom.video/calls/723124694?t=1240" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 20:40</a></li>
+    <li>The pilot access offer — Dr. King immediately named internal colleagues and departments he would want to bring in</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Skepticism about the "low-lift" promise for NACE alignment — Dr. King pushed back directly on this claim and will need to validate it through use</li>
+    <li>CliftonStrengths integration — Dr. King asked specifically whether "strengths" referred to CliftonStrengths; the answer was not yet but potentially in the future.<a href="https://fathom.video/calls/723124694?t=914" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 15:14</a> This is a tool already familiar to him and likely in use at Southern Miss</li>
+    <li>General new-product skepticism — explicitly stated; not a blocker, but requires proof-of-concept follow-through this summer</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Dr. King did not ask about student privacy, data ownership, or FERPA — notable absence given his institutional context</li>
+    <li>He immediately began mentally populating a list of internal champions before the meeting ended<a href="https://fathom.video/calls/723124694?t=1344" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 22:24</a>, suggesting strong internal network awareness and genuine intent to move forward</li>
+    <li>The Eagle Hub integration ask came from Dr. King's own context, not as a prompted response — this signals that cross-platform thinking is already top of mind for him institutionally</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Career Clarity Track</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>The Renee use case resonated. Dr. King sees direct relevance to the "Ready for Life" institutional priority and the career services NACE alignment interest. Low-lift promise was met with skepticism — needs summer pilot to validate.</td>
+      </tr>
+      <tr>
+        <td>Personal Insights / Personality Assessments</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Dr. King engaged with this conceptually. The ability to generate Myers-Briggs, Enneagram, Big Five, and Holland Code results was noted. He asked specifically about CliftonStrengths, signaling familiarity with strengths-based frameworks and likely institutional use of that tool.</td>
+      </tr>
+      <tr>
+        <td>CliftonStrengths Integration</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Dr. King directly asked whether "strengths" referred to CliftonStrengths. Answer was no, but a potential partnership was mentioned. This is worth tracking — if Southern Miss already uses CliftonStrengths, an integration or import path would increase adoption confidence.</td>
+      </tr>
+      <tr>
+        <td>AI Coach (Concise Responses)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Dr. King noticed and explicitly commented that the coach didn't over-generate text. This design choice was validated as appropriate for the student audience and appreciated by the advisor.</td>
+      </tr>
+      <tr>
+        <td>SMART Goal Setting via AI Coach</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>The connection between AI-generated goals and Foundations of Leadership content (SMART goals) was coherent and landed well. Achieving continuity between existing NSLS curriculum and Society features is a credibility signal.</td>
+      </tr>
+      <tr>
+        <td>Achievements Engine</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Goal tracking, reflection, and artifact attachment were shown. No specific friction raised. The concept of the coach learning from completed goals as additional context was presented and accepted without pushback.</td>
+      </tr>
+      <tr>
+        <td>Push Notifications for Goal Reminders</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Mentioned as an upcoming feature. No pushback from Dr. King. Consistent with the broader goal-setting and accountability framing he responded to well.</td>
+      </tr>
+      <tr>
+        <td>Advisor Intelligence Dashboard / Career Readiness Score</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>This was the feature most directly aligned with Dr. King's stated data needs. The example of reviewing a student's career readiness score before a meeting — and knowing where to focus the conversation — was framed precisely in his language and landed clearly.</td>
+      </tr>
+      <tr>
+        <td>Longitudinal / Multi-Cohort Data</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Chris explicitly named semester-only data views as a known frustration. Dr. King did not object or redirect — accepting the framing suggests this is a real pain point. Longitudinal tracking aligns with his quantitative background and institutional goals.</td>
+      </tr>
+      <tr>
+        <td>Eagle Hub / Campus Groups Integration</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Dr. King's immediate response was "I would love that." This was unprompted enthusiasm. Eagle Hub is a live, active institutional investment at Southern Miss. An integration path — even a future one — would be a meaningful retention and expansion signal for this account.</td>
+      </tr>
+      <tr>
+        <td>SNT Group Messaging / Event Scheduling in Society</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Mentioned by Chris but not directly responded to by Dr. King. Given the existing Eagle Hub investment, there may be overlap or redundancy concerns if Society tries to replicate student org/event functionality the school has already built out.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Share Society platform URL with Dr. King via chat (completed during meeting) and confirm he has access to log in and explore independently. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Dr. King to explore Society platform and record feedback (written, video, or voicemail) before follow-up meeting. <span class="owner-tag">Michael King</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Dr. King to send available days and times for a follow-up 30-minute pilot implementation planning meeting. Gregg suggested scheduling in a couple of weeks to allow time for platform exploration. <span class="owner-tag">Michael King</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Schedule follow-up 30-minute meeting with Dr. King to walk through pilot implementation details for University of Southern Mississippi. <span class="owner-tag">Gregg Gudelinis</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Dr. King to identify internal colleagues across programs and departments to include in the summer pilot cohort — he stated he already has a mental list formed. <span class="owner-tag">Michael King</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Flag University of Southern Mississippi as a pilot partner candidate and track for full fall rollout to all NSLS members at the school. <span class="owner-tag">Gregg Gudelinis</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Explore feasibility of a Society integration with Campus Groups (Eagle Hub) — flagged as a strong interest by Dr. King and as a request heard from other schools. Bring to product team for roadmap consideration. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">8</div>
+      <div>Investigate CliftonStrengths usage at University of Southern Mississippi and assess whether a CliftonStrengths import or integration path in Society would increase adoption confidence for this account. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>Does Southern Miss currently use CliftonStrengths institutionally? If so, how widely — and would an import/integration path in Society be a prerequisite for broader adoption?</li>
+    <li>What is the current status of the co-curricular learning outcomes and NACE alignment initiative that was deprioritized? Is there an opportunity for Society to help revive or accelerate that work under the new VP of Student Affairs?</li>
+    <li>How does Dr. King envision Society coexisting with Eagle Hub — particularly around student engagement tracking, badging, and gamification features that overlap with what Campus Groups already offers?</li>
+    <li>Who are the specific colleagues and departments Dr. King has in mind for the pilot? Are there career services staff included, given that office's stated interest in NACE competencies?</li>
+    <li>What is the timeline and scope of the Eagle Hub rollout for next year, and are there integration partnership conversations that should happen at the institutional rather than chapter level?</li>
+    <li>Will the summer pilot involve students directly, or primarily advisors and staff as initial testers? The meeting referenced "a handful of students" but also colleagues — clarity on the pilot population would help set expectations.</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>University of Southern Mississippi</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Hattiesburg, MS</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Public 4-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established (advisor in place 4+ years)</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Not specified in transcript</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>8.5 / 10 (self-reported "8 to 9"; gap attributed to general new-product skepticism)</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — verbally confirmed during meeting; Dr. King immediately began identifying internal champions</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>High — quantitative orientation, institutional influence, data focus, and early enthusiasm make Dr. King a strong candidate</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>Student attrition driven by financial aid gaps; lack of longitudinal engagement data; career readiness work underdeveloped outside the classroom; NACE alignment initiative deprioritized under current leadership</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Immediate, unprompted enthusiasm for a Society–Eagle Hub (Campus Groups) integration; strong appetite for advisor intelligence dashboard and career readiness score data</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Gregg Gudelinis</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; University of Southern Mississippi &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; June 25, 2026
+</footer>
+
+</body>
+</html>
