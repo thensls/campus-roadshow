@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Society Feedback — NSLS Society Roadshow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<!-- Add your Adobe Fonts kit <link> here to enable Cigars (matches the main report). -->
+<style>
+  :root{
+    --black:#1E1414; --white:#FFFDF8; --paper:#F2E9E2; --card:#E8DDD5;
+    --navy:#1A3550; --navy2:#243B52; --muted:#6B6357;
+    --gold:#F2DA4E; --green:#88D86B; --purple:#949AE2; --coral:#C96058;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--paper); color:var(--black);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--black);line-height:1.5}
+  h1,h2,h3{font-family:'Cigars',Georgia,'Times New Roman',serif}
+  a{color:var(--black);text-decoration:none;transition:color .2s}
+  a:hover{color:var(--coral)}
+
+  /* Header (mirrors report/index.html) */
+  .header{background:var(--paper);border-bottom:2px solid var(--navy);padding:48px 0 9px}
+  .header-inner{max-width:1200px;margin:0 auto;padding:0 40px}
+  .header-meta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  .badge{background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;
+    font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--navy2)}
+  .header h1{font-size:32px;font-weight:700;margin:0 0 6px;color:var(--navy)}
+  .header h2{font-size:17px;font-weight:400;margin:0;color:var(--muted)}
+
+  main{max-width:1200px;margin:0 auto;padding:40px 40px 80px}
+  .intro{max-width:860px;font-size:15px;color:#3a342c;margin:0 0 32px}
+
+  /* Summary tiles */
+  .summary-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:36px}
+  .summary-tile{background:var(--card);border-radius:10px;border:1px solid rgba(30,20,20,0.1);padding:18px 28px;text-align:center;min-width:130px}
+  .summary-tile .val{font-size:30px;font-weight:800;color:var(--black);line-height:1;margin-bottom:5px;font-family:'Cigars',Georgia,serif}
+  .summary-tile .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+
+  .section-header{font-size:20px;font-weight:700;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:10px;margin:0 0 20px;font-family:'Cigars',Georgia,serif}
+  .themes-hint{font-size:13px;color:var(--muted);margin:-8px 0 16px}
+  .themes-band{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 34px}
+  .theme-pill{background:var(--card);border:1px solid rgba(30,20,20,0.14);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--navy2);cursor:pointer;font-family:inherit;transition:background .15s,border-color .15s}
+  .theme-pill:hover{background:#DDD0C7}
+  .theme-pill .tc{color:var(--muted);font-weight:700;margin-left:7px}
+  .theme-pill.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .theme-pill.active .tc{color:#c9d6e5}
+  .synopsis{background:var(--white);border:1px solid rgba(30,20,20,0.1);border-left:4px solid var(--gold);border-radius:10px;padding:18px 22px;margin:0 0 34px}
+  .synopsis h4{font-family:'Cigars',Georgia,serif;color:var(--navy);font-size:17px;margin:0 0 4px}
+  .synopsis .syn-meta{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin:0 0 12px}
+  .synopsis p{margin:0;font-size:14.5px;color:#2c2620;line-height:1.6}
+  .synopsis .dd{color:var(--coral);font-weight:600;cursor:pointer;border-bottom:1px dotted var(--coral)}
+  .synopsis .dd:hover{background:#FFF0EE}
+
+  /* Controls */
+  .controls{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end;background:var(--card);border:1px solid rgba(30,20,20,0.1);border-radius:12px;padding:16px 18px;margin-bottom:22px}
+  .field{display:flex;flex-direction:column;gap:5px}
+  .field label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+  select,input[type=search]{padding:9px 11px;border:1px solid rgba(30,20,20,0.2);border-radius:8px;font-size:14px;background:var(--white);color:var(--black);font-family:inherit;min-width:180px}
+  input[type=search]{min-width:230px}
+  .reset{margin-left:auto;background:var(--coral);color:var(--white);border:none;border-radius:8px;padding:10px 16px;font-size:13px;font-weight:600;cursor:pointer;transition:background .15s}
+  .reset:hover{background:#b8534b}
+  .count{font-size:13px;color:var(--muted);margin:0 0 14px}
+
+  /* Table card */
+  .table-wrap{background:var(--card);border:1px solid rgba(30,20,20,0.1);border-radius:12px;overflow:hidden}
+  table{width:100%;border-collapse:collapse}
+  thead th{background:#DFD2C8;color:var(--navy);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:12px 16px;border-bottom:1px solid rgba(30,20,20,0.12)}
+  thead th.sortable{cursor:pointer;user-select:none}
+  thead th.sortable:hover{background:#D6C7BB}
+  thead th .caret{font-size:9px;margin-left:5px;opacity:.35}
+  thead th.sorted .caret{opacity:1}
+  tbody td{padding:14px 16px;border-bottom:1px solid rgba(30,20,20,0.08);font-size:14px;vertical-align:top}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:#EFE6DE}
+  .school{font-weight:700;color:var(--navy);white-space:nowrap;font-family:'Cigars',Georgia,serif}
+  .src{font-size:12px;color:var(--muted);margin-top:3px;font-family:'Inter',sans-serif;font-weight:400}
+  .chip{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.03em;white-space:nowrap}
+  .Praise{background:rgba(136,216,107,0.20);color:#2a7a10}
+  .Complaint{background:#FFF0EE;color:#b8534b;border:1px solid rgba(201,96,88,0.30)}
+  .Idea{background:rgba(242,218,78,0.28);color:#8a6d1a;border:1px solid rgba(242,218,78,0.55)}
+  .area{font-size:13px;color:#3a342c;white-space:nowrap}
+  .fb{max-width:560px;color:var(--black)}
+  .lnk{white-space:nowrap;font-size:12px}
+  .lnk a{color:var(--navy2);border-bottom:1px dotted var(--navy2)}
+  .lnk a:hover{color:var(--coral);border-color:var(--coral)}
+  .empty{padding:44px;text-align:center;color:var(--muted)}
+  .note{background:var(--white);border:1px solid rgba(30,20,20,0.1);border-left:3px solid var(--gold);border-radius:8px;padding:13px 16px;font-size:13px;color:#3a342c;margin-top:20px}
+  .note code{background:#EFE6DE;padding:1px 5px;border-radius:4px;font-size:12px}
+  @media (max-width:860px){.header-inner,main{padding-left:20px;padding-right:20px}.fb{max-width:none}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <div class="header-meta">
+      <a href="/index.html" class="badge">NSLS Society Roadshow</a>
+      <span class="badge">Spring 2026</span>
+      <span class="badge">Feedback Appendix</span>
+    </div>
+    <h1>Society Feedback</h1>
+    <h2>Consolidated advisor &amp; student feedback from the pilot · Updated July 10, 2026</h2>
+  </div>
+</header>
+
+<main>
+  <p class="intro">This report collects the feedback to date from students and faculty at pilot schools who used Society firsthand as part of the pilot program. Each entry is drawn from their emailed responses and tagged by school, product area, and whether it's praise, a complaint, or an idea — so the field's reactions can be filtered, tracked, and folded into product decisions.</p>
+
+  <div class="summary-row" id="stats"></div>
+
+  <div class="section-header">Recurring Themes</div>
+  <p class="themes-hint">Patterns that surfaced across multiple schools. Click a theme to filter the log; click again to clear.</p>
+  <div class="themes-band" id="themes"></div>
+  <div id="synopsis"></div>
+
+  <div class="section-header">Feedback Log</div>
+
+  <div class="controls">
+    <div class="field"><label for="fSchool">School</label>
+      <select id="fSchool"><option value="">All schools</option></select></div>
+    <div class="field"><label for="fAud">Audience</label>
+      <select id="fAud"><option value="">All audiences</option><option>Student</option><option>Faculty / Staff</option></select></div>
+    <div class="field"><label for="fArea">Product Area</label>
+      <select id="fArea"><option value="">All areas</option></select></div>
+    <div class="field"><label for="fType">Type</label>
+      <select id="fType"><option value="">All types</option><option>Praise</option><option>Complaint</option><option>Idea</option></select></div>
+    <div class="field"><label for="fSearch">Search</label>
+      <input type="search" id="fSearch" placeholder="Search feedback…"></div>
+    <button class="reset" id="reset">Reset</button>
+  </div>
+
+  <p class="count" id="count"></p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr>
+        <th class="sortable" data-key="school">School<span class="caret"></span></th>
+        <th class="sortable" data-key="audience">Audience<span class="caret"></span></th>
+        <th class="sortable" data-key="type">Type<span class="caret"></span></th>
+        <th class="sortable" data-key="area">Product Area<span class="caret"></span></th>
+        <th class="sortable" data-key="text">Feedback<span class="caret"></span></th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+</main>
+
+<script>
+const GM="https://mail.google.com/mail/u/0/#all/";
+const FEEDBACK=[
+  {school:"Johnston CC",source:"Olivia Reitmann",role:"Student",area:"Platform / UX",type:"Complaint",text:"Website is buggy on mobile — images slow to upload, framing suboptimal, scrolling stifled.",link:GM+"19f42a8863980dc5"},
+  {school:"Johnston CC",source:"Olivia Reitmann",role:"Student",area:"Onboarding",type:"Complaint",text:"Age 17 was not a selectable option; had to choose 19 because 18 wasn't available either.",link:GM+"19f42a8863980dc5"},
+  {school:"Johnston CC",source:"Olivia Reitmann",role:"Student",area:"Personal Insights / Assessments",type:"Complaint",text:"Assessment felt monotonous, time-consuming, and predictable; binary multiple-choice reinforces bias and didn't capture full personality.",link:GM+"19f42a8863980dc5"},
+  {school:"Johnston CC",source:"Olivia Reitmann",role:"Student",area:"Personal Insights / Assessments",type:"Idea",text:"Condense the assessment and add more write-in/open-response questions instead of stereotype-enforcing multiple choice.",link:GM+"19f42a8863980dc5"},
+  {school:"Johnston CC",source:"Olivia Reitmann",role:"Student",area:"Visual / Content",type:"Complaint",text:"Doesn't care for the chat option; artwork should be made by a real artist, not AI — the added 'motion' was clunky and unsettling.",link:GM+"19f42a8863980dc5"},
+  {school:"Johnston CC",source:"Olivia Reitmann",role:"Student",area:"Career Clarity",type:"Complaint",text:"Suggested careers weren't inspiring or related to her passions; entered her own dream career and left with no new insight. Feels the algorithm lacks the insight a human mentor provides.",link:GM+"19f42a8863980dc5"},
+  {school:"Johnston CC",source:"Tiffany Ruiz",role:"Faculty",area:"Overall",type:"Praise",text:"\"A wonderful tool — I wish I'd had it when I was younger, and still find it beneficial at any stage.\" Didn't notice anything to fix.",link:GM+"19f42d4a428d09a4"},
+  {school:"Johnston CC",source:"Tiffany Ruiz",role:"Faculty",area:"Coach Chat",type:"Praise",text:"Enjoyed the interaction throughout the question portion; believes it will be truly helpful for those who fully engage with the AI.",link:GM+"19f42d4a428d09a4"},
+  {school:"Johnston CC",source:"Shelby Anderson",role:"Student",area:"Onboarding",type:"Praise",text:"Getting started was straightforward and easy to work with. Overall liked it.",link:GM+"19f4868d6472d658"},
+  {school:"Johnston CC",source:"Shelby Anderson",role:"Student",area:"Personal Insights / Assessments",type:"Idea",text:"Either-or answers don't fit; add a 'both' option or fill-in-the-blank since responses vary by situation.",link:GM+"19f4868d6472d658"},
+  {school:"Johnston CC",source:"Shelby Anderson",role:"Student",area:"Platform / UX",type:"Idea",text:"Label the 'back' arrow — worried clicking it would erase her progress.",link:GM+"19f4868d6472d658"},
+  {school:"Johnston CC",source:"Shelby Anderson",role:"Student",area:"Coach Chat",type:"Idea",text:"Auto-generate starter prompts for the Coach Chat (struggled to come up with a question); add tabs so multiple topics don't get mixed up.",link:GM+"19f4868d6472d658"},
+  {school:"Johnston CC",source:"Shelby Anderson",role:"Student",area:"Career Clarity",type:"Idea",text:"Add help understanding costs for people who aren't good with prices.",link:GM+"19f4868d6472d658"},
+  {school:"Johnston CC",source:"Shelby Anderson",role:"Student",area:"Platform / UX",type:"Idea",text:"Show estimated time to complete each section — the process took longer than expected.",link:GM+"19f4868d6472d658"},
+  {school:"Johnston CC",source:"Kessler Holmes",role:"Student",area:"Overall",type:"Praise",text:"Brief positive impression — flagged as a potential pull-quote candidate.",link:GM+"19f4859a7cd8500a"},
+  {school:"Johnston CC",source:"Megan Shaner",role:"Advisor",area:"Coach Chat",type:"Praise",text:"Really enjoyed the tools and the interaction with the AI coach; tonally appropriate, bridging college and career. (Set July 15 feedback timeline.)",link:GM+"19ed7c63127578f6"},
+  {school:"SPCC",source:"Dr. Marsha Thomas",role:"Dean",area:"Onboarding",type:"Praise",text:"Welcome flow quick and easy; personality type outcome given and can be saved to profile.",link:GM+"19f3e173011255c4"},
+  {school:"SPCC",source:"Dr. Marsha Thomas",role:"Dean",area:"Coach Chat",type:"Praise",text:"Coach Chat generates a clear, multi-section response with a good follow-up question; strong opportunity to 'dig deep' to unpack results.",link:GM+"19f3e173011255c4"},
+  {school:"SPCC",source:"Dr. Marsha Thomas",role:"Dean",area:"Personal Insights / Assessments",type:"Praise",text:"Loves the variety of assessments; consistent structure across sections works well.",link:GM+"19f3e173011255c4"},
+  {school:"SPCC",source:"Dr. Marsha Thomas",role:"Dean",area:"Personal Insights / Assessments",type:"Complaint",text:"Problem-solving section can feel predictable/redundant — users may get bored and click without thinking.",link:GM+"19f3e173011255c4"},
+  {school:"SPCC",source:"Dr. Marsha Thomas",role:"Dean",area:"Career Clarity",type:"Praise",text:"Appreciates the financial-needs section; '5 dream jobs' is a good starting point; the career statement is a powerful, reusable output for cover letters.",link:GM+"19f3e173011255c4"},
+  {school:"Drew University",source:"Anonymous tester (via C. Gonzalez)",role:"Staff",area:"Career Clarity",type:"Praise",text:"\"So accurate — much more than any other site I've used.\" Dream Job returned Community Engagement Specialist (with Graphic Designer second), which felt spot-on.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Anonymous student (via C. Gonzalez)",role:"Student",area:"Personal Insights / Assessments",type:"Idea",text:"Disliked getting a new question only after answering the prior one — would prefer all questions (or ~10 per section) shown together as a scrollable list.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Anonymous student (via C. Gonzalez)",role:"Student",area:"Visual / Content",type:"Complaint",text:"Found the attached images distracting and unhelpful for answering — the contrast between plain text and the colorful, clay-like images was jarring.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Anonymous student (via C. Gonzalez)",role:"Student",area:"Coach Chat",type:"Complaint",text:"Didn't find the open-ended responses helpful. (Note: this comment was cut off in the source and may be incomplete.)",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Anonymous student (via C. Gonzalez)",role:"Student",area:"Career Clarity",type:"Praise",text:"Really enjoyed the financial aspect and how it calculated an 'enough' income.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Anonymous student (via C. Gonzalez)",role:"Student",area:"Platform / UX",type:"Complaint",text:"Unclear what the final product/outcome was supposed to be.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Visual / Content",type:"Complaint",text:"Noticed a lack of NSLS branding throughout the site.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Coach Chat",type:"Idea",text:"Where is it noted that the 'Career Coach' isn't an actual person? Add somewhere that describes what the Coach is.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Onboarding",type:"Complaint",text:"Profile 'Ages' has no under-18 option — they have concurrent-enrollment students under 18. Is access to Society age-limited?",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Onboarding",type:"Idea",text:"'Duration for Jobs' — unclear how to handle partial years (e.g., 2.5); add guidance on whether to round up or down.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Personal Insights / Assessments",type:"Complaint",text:"While filling the four quadrants, was never asked about 'Personal Network' or 'Professional Network' — are these not built yet?",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Personal Insights / Assessments",type:"Complaint",text:"Personality questions felt forced — most pitted a plain option against a statement containing the word 'emotions'; balance the wording.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Visual / Content",type:"Complaint",text:"A weird animated graphic on the 'Social Situations' results — the shirt moved in an odd way.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Personal Insights / Assessments",type:"Complaint",text:"Strengths — unclear whether to select from the text-bubble options or type your own; at first assumed he had to select.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Platform / UX",type:"Complaint",text:"Not obvious you can scroll the Strengths text bubbles further to the right.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Platform / UX",type:"Complaint",text:"Didn't realize you could scroll down in Inspirations/Strengths for 2 more options (thought there were only 6) — could skew results.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Platform / UX",type:"Idea",text:"Values — add a counter of how many you've selected, instead of scrolling back to the top to check.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Personal Insights / Assessments",type:"Complaint",text:"Duplicative Values text — 'Compassion: showing kindness to others' overlaps with a separate 'Kindness' value; don't use one value inside another's definition.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Platform / UX",type:"Idea",text:"The progress tracker only covers Career Clarity — unclear how much overall profile work remains; consider an overall completion indicator.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Career Clarity",type:"Complaint",text:"Financial Needs — unclear what 'total monthly housing cost' includes (rent + utilities?); a Utilities section appeared later. Ask them together or clarify housing = rent/mortgage only.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Platform / UX",type:"Complaint",text:"Dream Job forced clicking 'Open to any industry' to continue (not what the prompt implied); same with 'Nothing to share' and another screen — not intuitive.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Coach Chat",type:"Complaint",text:"In Dream Job, the coach shifts to 'Dan has…' language instead of 'You have…' — jarring vs the otherwise 'you'-focused voice.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Coach Chat",type:"Complaint",text:"Career Statement — the Coach said he could edit his statement, but editing doesn't actually work.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Platform / UX",type:"Complaint",text:"Set a goal for July 5, the card changed it to July 7, and he couldn't edit the date back — bug.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Dan Balski",role:"Advisor",area:"Coach Chat",type:"Complaint",text:"Raised an AI / environmental-impact question (per the forwarding email) and wants guidance on how to address it with students.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Jessica Horning",role:"Advisor",area:"Visual / Content",type:"Complaint",text:"Odd that there isn't any NSLS branding on the site.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Jessica Horning",role:"Advisor",area:"Onboarding",type:"Complaint",text:"Education step bumps you back to the form; the college logo made her think her info wasn't accepted — enlarge the confirmation or add a button asking if you need to add more education info.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Jessica Horning",role:"Advisor",area:"Visual / Content",type:"Complaint",text:"Motion on the graphics is a bit creepy (Personal Growth section).",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Jessica Horning",role:"Advisor",area:"Personal Insights / Assessments",type:"Praise",text:"Loves the personality assessment results.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Jessica Horning",role:"Advisor",area:"Personal Insights / Assessments",type:"Complaint",text:"Wishes the personality results went into more detail — the answer choices were limited and left little room for nuance.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Jessica Horning",role:"Advisor",area:"Career Clarity",type:"Complaint",text:"Housing costs — unclear whether it's asking what you can spend or what you currently spend.",link:GM+"19f37be84c9fd74e"},
+  {school:"Arapahoe CC",source:"Jessica Horning",role:"Advisor",area:"Career Clarity",type:"Idea",text:"Can't hit Continue on the career-suggestions list until choosing one — what if students want to keep options open? Allow selecting more than one.",link:GM+"19f37be84c9fd74e"},
+  {school:"Drew University",source:"Cassandra Gonzalez",role:"Career Services",area:"Onboarding",type:"Praise",text:"Intro to the Clarity path was straightforward; the nickname step is a nice touch, and it was easy to enter education and work experience.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Cassandra Gonzalez",role:"Career Services",area:"Platform / UX",type:"Idea",text:"The assessment felt long and fatiguing, and it was unclear whether progress would save on exit — add a save button and a 'you don't have to finish in one sitting' disclaimer.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Cassandra Gonzalez",role:"Career Services",area:"Platform / UX",type:"Idea",text:"Add an overall progress tracker (left side) showing how much is left before reaching the 'dream job.'",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Cassandra Gonzalez",role:"Career Services",area:"Coach Chat",type:"Idea",text:"Add suggested prompts to the in-between coach chats — would have used them more.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Cassandra Gonzalez",role:"Career Services",area:"Personal Insights / Assessments",type:"Complaint",text:"Personal Insights felt off — unlimited options and vague descriptions made accuracy unclear, and choices were repetitive (e.g., emotions vs. analytical) compared with more discrete personality tests.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Cassandra Gonzalez",role:"Career Services",area:"Personal Insights / Assessments",type:"Idea",text:"Offer more choices on the single-word-selection questions.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Cassandra Gonzalez",role:"Career Services",area:"Personal Insights / Assessments",type:"Idea",text:"The Values list is missing core values (e.g., 'Love') — add more options or a write-in blank.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Cassandra Gonzalez",role:"Career Services",area:"Career Clarity",type:"Complaint",text:"Financial Needs Summary ignores splitting costs with a partner and expenses like school/childcare, and it's unclear whether students enter current or future 'realistic' expenses — needs more thought.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Cassandra Gonzalez",role:"Career Services",area:"Career Clarity",type:"Idea",text:"Let users select more than one dream job / provide more dream-job options — many are open to multiple paths.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Cassandra Gonzalez",role:"Career Services",area:"Platform / UX",type:"Complaint",text:"The flow ended abruptly at the coach chat — expected a 'congratulations, first step' moment or a clear transition after such a long process.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Cassandra Gonzalez",role:"Career Services",area:"Career Clarity",type:"Praise",text:"Found the 'ideal work environment' and 'living environment' results really interesting.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Cassandra Gonzalez",role:"Career Services",area:"Career Clarity",type:"Praise",text:"Loved the career statement.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Cassandra Gonzalez",role:"Career Services",area:"Coach Chat",type:"Praise",text:"Likes the 'Ask your coach' suggestions on the dashboard.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Kim Giorgio",role:"Career Services",area:"Onboarding",type:"Complaint",text:"After signing in, the 'Continue' button was buried too low on the screen and not immediately obvious.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Kim Giorgio",role:"Career Services",area:"Platform / UX",type:"Complaint",text:"The dashboard appears optimized for mobile rather than desktop, making it less intuitive on a computer.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Kim Giorgio",role:"Career Services",area:"Platform / UX",type:"Complaint",text:"The overall experience felt very long and hard to finish in one sitting; lost focus and engagement by the Career Clarity section.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Kim Giorgio",role:"Career Services",area:"Visual / Content",type:"Complaint",text:"Photo captions in the Strengths & Inspirations section were extremely hard to read, especially after the second click-through — improve contrast/font size.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Kim Giorgio",role:"Career Services",area:"Personal Insights / Assessments",type:"Praise",text:"Really liked the Values Exercise and the way it broke down and explained personal values.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Kim Giorgio",role:"Career Services",area:"Onboarding",type:"Idea",text:"Auto-parse the Work Information section from an uploaded résumé instead of requiring manual entry.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Kim Giorgio",role:"Career Services",area:"Coach Chat",type:"Complaint",text:"The Career Clarity chat lacked guidance — often didn't know what to ask or how to engage effectively.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Kim Giorgio",role:"Career Services",area:"Coach Chat",type:"Idea",text:"Reduce reliance on fully open-ended AI chat — add guided prompts, suggested responses, multiple-choice pathways, and examples, especially for students new to self-reflection.",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Kim Giorgio",role:"Career Services",area:"Career Clarity",type:"Idea",text:"Goal-setting is too open-ended — provide goal categories/pathways (Career, Academic, Financial, Personal Development, Wellness).",link:GM+"19eb21d342c6aa3d"},
+  {school:"Drew University",source:"Kim Giorgio",role:"Career Services",area:"Career Clarity",type:"Idea",text:"The financial section may confuse students — add sample budgets, guided budget-building, and educational content before asking for inputs.",link:GM+"19eb21d342c6aa3d"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Onboarding",type:"Idea",text:"Does 'Job Experience' have to be required to move forward? Consider making it optional in bio-building.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Onboarding",type:"Complaint",text:"Needs clarification on what 'Career Clarity', 'Professional Network', 'Personal Network', and 'Job Acquisition Confidence' actually mean.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Onboarding",type:"Complaint",text:"Unclear whether students are auto-enrolled into bio-building at signup or it's optional — worried students will drop off if forced into the survey automatically.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Platform / UX",type:"Idea",text:"Add a break between bio-building and the insights survey.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Personal Insights / Assessments",type:"Idea",text:"Two options per question feels oversimplified; three options would provide more depth.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Personal Insights / Assessments",type:"Idea",text:"Add an overview page explaining each assessment and what it measures, so users don't have to ask the coach mid-flow.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Personal Insights / Assessments",type:"Idea",text:"Clarify that results reflect a work setting — answers can shift back and forth depending on context.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Personal Insights / Assessments",type:"Idea",text:"Add a disclaimer that personality types can change based on your current state of mind.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Coach Chat",type:"Idea",text:"Provide prompting questions to help users interpret the personality tests (raised repeatedly across sections).",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Personal Insights / Assessments",type:"Complaint",text:"Strengths: unclear whether to write in tasks you're good at or only select from what's given.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Personal Insights / Assessments",type:"Idea",text:"Add more options to select from in the Strengths section.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Personal Insights / Assessments",type:"Praise",text:"The strengths the assessment came up with were very accurate!",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Content / Compliance",type:"Complaint",text:"Social-justice-advocacy terminology in Inspirations may conflict with Texas SB17 — student orgs may be protected, but this needs checking.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Coach Chat",type:"Complaint",text:"Asked a career-paths question (philosophical inquiry + social impact), hit a long buffer, and got no answer the first time; a retry worked — latency/reliability issue.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Personal Insights / Assessments",type:"Praise",text:"Values was the most interesting section — narrowing down the options was more engaging than a normal assessment.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Career Clarity",type:"Idea",text:"After the Work Environment assessment, show how it's relevant to the workplace and how to tell whether a potential employer fits your preferences.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Career Clarity",type:"Complaint",text:"Living Environment's 'what type of scene' is vague — add options clarifying what's being asked.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Career Clarity",type:"Idea",text:"Costs: add tips/explanation for calculating housing costs — many students don't know what it costs to live on their own.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Career Clarity",type:"Complaint",text:"Confused whether 'total monthly housing cost' means rent only or all expenses (groceries, gas, insurance, phone).",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Career Clarity",type:"Idea",text:"Dream Job: let users see info from multiple options instead of choosing just one — undeclared students may want to compare.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Career Clarity",type:"Idea",text:"Use the Career Statement step to have students reflect on the values surfaced earlier.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Career Clarity",type:"Complaint",text:"Career statement didn't sound like her (vocabulary) — let students personalize before the coach fully drafts it, or warn them to personalize.",link:GM+"19e9942b8e278ef2"},
+  {school:"UNT",source:"Sydney Pickett",role:"Advisor",area:"Career Clarity",type:"Complaint",text:"Career statement needs more context specific to the chosen career — hers mentioned higher education only once and education twice.",link:GM+"19e9942b8e278ef2"},
+  {school:"Central Wyoming College",source:"Lisa Appelhans",role:"Advisor",area:"Overall",type:"Praise",text:"Went through the Society program; found it interesting and believes students will realize many benefits from learning about themselves.",link:GM+"19ebdcd74eae5fc7"},
+  {school:"Muskingum University",source:"Melissa Hartley",role:"Staff",area:"Overall",type:"Praise",text:"\"Thorough and comprehensive — really all-encompassing.\" Her favorite assessment of this kind so far, because of how in-depth it is and how many resources it pulls from.",link:GM+"19e2c0e81a6d5de6"},
+  {school:"Muskingum University",source:"Melissa Hartley",role:"Staff",area:"Career Clarity",type:"Idea",text:"The 'enough' income from monthly expenses isn't tied to the Dream Job description — there should be a correlation, since a dream job might not support the life you want or need to survive.",link:GM+"19e2c0e81a6d5de6"},
+  {school:"Muskingum University",source:"Melissa Hartley",role:"Staff",area:"Career Clarity",type:"Idea",text:"Multiple dream jobs are shown but you can only pick one — let students choose their top 2 for comparison.",link:GM+"19e2c0e81a6d5de6"},
+  {school:"Muskingum University",source:"Amy Nestor",role:"Staff",area:"Coach Chat",type:"Praise",text:"Really enjoyed the Career Coach module — very easy to use and does a great job covering the major areas of self-understanding and career exploration.",link:GM+"19e2c0e81a6d5de6"},
+  {school:"Muskingum University",source:"Amy Nestor",role:"Staff",area:"Career Clarity",type:"Complaint",text:"Students often lack the life/work experience to answer meaningfully — e.g., as a student she'd have picked an office environment just because it's all she knew, though she might have thrived somewhere hands-on.",link:GM+"19e2c0e81a6d5de6"},
+  {school:"Muskingum University",source:"Amy Nestor",role:"Staff",area:"Career Clarity",type:"Complaint",text:"Financial section may feel overwhelming or discouraging — most students underestimate housing/living costs. Wondered whether the AI coach recognizes that and offers guidance/context.",link:GM+"19e2c0e81a6d5de6"},
+  {school:"Muskingum University",source:"Amy Nestor",role:"Staff",area:"Coach Chat",type:"Idea",text:"The AI coach should proactively add explanation/context within the summaries instead of waiting for the student to ask — many students won't realize they should dig deeper or know what to ask.",link:GM+"19e2c0e81a6d5de6"},
+  {school:"Muskingum University",source:"Amy Nestor",role:"Staff",area:"Overall",type:"Praise",text:"A very detailed, thoughtful inventory; likes the focus on connecting strengths, values, personality, career interests, and wellbeing to build student confidence and clarity.",link:GM+"19e2c0e81a6d5de6"},
+  {school:"Muskingum University",source:"Amy Nestor",role:"Staff",area:"Personal Insights / Assessments",type:"Complaint",text:"Her personality result was a little off (labeled extrovert; she's an introvert). Appreciated the coach's note that assessments aren't always accurate, but worries students will accept results at face value without challenging them.",link:GM+"19e2c0e81a6d5de6"}
+];
+
+const $=s=>document.querySelector(s);
+const rowsEl=$("#rows"),countEl=$("#count");
+function uniq(k){return[...new Set(FEEDBACK.map(f=>f[k]))].sort()}
+function fill(sel,vals){vals.forEach(v=>{const o=document.createElement("option");o.textContent=v;sel.appendChild(o)})}
+fill($("#fSchool"),uniq("school"));fill($("#fArea"),uniq("area"));
+function stats(list){const by=t=>list.filter(f=>f.type===t).length;
+  $("#stats").innerHTML=[["Total",list.length],["Respondents",new Set(list.map(f=>f.source)).size],["Schools",new Set(list.map(f=>f.school)).size],["Praise",by("Praise")],["Complaints",by("Complaint")],["Ideas",by("Idea")]]
+   .map(([l,n])=>`<div class="summary-tile"><div class="val">${n}</div><div class="lbl">${l}</div></div>`).join("")}
+const audOf=r=>r==="Student"?"Student":"Faculty / Staff";
+const THEMES=[
+  {label:"Financial / cost clarity",re:/financ|housing|cost|budget|expens|income|utilit/i,
+   story:`The financial / cost-of-living step is the single most-flagged source of confusion across the pilot. The recurring question is what <a class="dd" data-q="housing">total monthly housing cost</a> actually includes — rent only, or utilities, groceries, and more — asked independently at ACC, UNT, and Drew. A deeper worry is that students lack the context to answer at all: reviewers note most <a class="dd" data-q="underestimate">underestimate real expenses</a> and want <a class="dd" data-q="sample budget">sample budgets or guided budgeting</a> before inputs. Muskingum's Melissa Hartley raises the sharpest logic gap — the <a class="dd" data-q="enough">'enough' income figure isn't tied back to the chosen dream job</a>, so a dream job may not fund the life the tool implies.`},
+  {label:"Binary questions need nuance",re:/two option|either|binary|oversimpl|nuance|three option|more option|more choices|one word/i,
+   story:`A consistent critique of the assessments is that the two-option, either/or format feels oversimplified. Reviewers at UNT, Drew, JCC, and ACC say <a class="dd" data-q="two option">two choices don't capture depth</a> and want <a class="dd" data-q="three option">a third option, a 'both,' or a write-in</a>. Several also flag <a class="dd" data-q="more option">too few options to choose from</a> in Strengths and Values, and a JCC student felt the binary framing <a class="dd" data-q="bias">reinforces bias</a>. The through-line: room for nuance, especially where results feel forced.`},
+  {label:"Career statement voice",re:/career statement/i,
+   story:`The AI-drafted career statement draws both praise and a clear reservation. People <a class="dd" data-q="loved">value having a statement</a> and call it reusable for cover letters (SPCC, Drew), but the recurring complaint is that it <a class="dd" data-q="sound like">doesn't sound like the student</a> and <a class="dd" data-q="context">lacks context specific to the chosen career</a>. The suggested fix is to let students personalize before the coach fully drafts it, or warn them to — a 'good output, wrong voice' problem.`},
+  {label:"Compare multiple dream jobs",re:/dream job|top 2|more than one|multiple option/i,
+   story:`Four schools independently ask for the same thing: the ability to <a class="dd" data-q="more than one">choose more than one dream job</a>. Muskingum, UNT, Drew, and ACC note the exercise forces a single pick, but many students — especially <a class="dd" data-q="undeclared">undeclared ones</a> — want to <a class="dd" data-q="top 2">compare their top options</a> rather than commit to one. It's one of the most cross-cutting, low-ambiguity feature requests in the set.`},
+  {label:"Guided coach prompts",re:/prompt|guided|open-ended|what to ask|suggest|proactiv/i,
+   story:`The most common product idea is that the AI coach should guide more and lean less on open-ended chat. Across Drew, JCC, UNT, and Muskingum, reviewers say students <a class="dd" data-q="what to ask">don't know what to ask</a> and want <a class="dd" data-q="prompt">suggested prompts, examples, or multiple-choice pathways</a>. Muskingum's Amy Nestor pushes further: the coach should <a class="dd" data-q="proactiv">proactively add context in the summaries</a> rather than wait for questions students don't know to ask. This is the clearest design mandate in the feedback.`},
+  {label:"Graphics / readability",re:/motion|animat|clay|artwork|image|graphic|creepy|readab|caption|contrast/i,
+   story:`The visual layer is a recurring irritant. Multiple reviewers describe the <a class="dd" data-q="motion">graphic 'motion' / animation as clunky or creepy</a> (JCC, ACC), and Drew's Kim flags <a class="dd" data-q="caption">hard-to-read captions and contrast</a> in Strengths & Inspirations. A JCC student objected specifically to <a class="dd" data-q="artwork">AI-generated artwork</a>. Low-effort, high-visibility fixes live here.`},
+  {label:"Length / progress",re:/one sitting|fatigu|too long|very long|progress tracker|estimated time|abrupt/i,
+   story:`Several reviewers found the experience <a class="dd" data-q="long">too long to finish in one sitting</a> and lost focus by the Career Clarity section (Drew, JCC). Requests cluster on orientation and reassurance: a <a class="dd" data-q="save">save option</a> or 'no need to finish in one sitting' note, an <a class="dd" data-q="progress">overall progress tracker</a>, and <a class="dd" data-q="estimated time">estimated time per section</a>. One reviewer also felt the flow <a class="dd" data-q="abrupt">ended abruptly</a> without a closing moment.`},
+  {label:"Assessment accuracy",re:/accurate|accuracy|spot-on/i,
+   story:`When the assessments hit, they land well — the strongest praise in the set is about accuracy. A Drew staff tester called it <a class="dd" data-q="accurate">'so accurate, more than any other site'</a>, and UNT's Sydney said the Strengths results were very accurate, with Values repeatedly the most-liked section. The caveat (Muskingum's Amy): results aren't always right — hers mislabeled her as an extrovert — and a student may accept a wrong result at face value.`},
+  {label:"Bugs / broken flows",re:/couldn't edit|can't edit|cannot|buffer|no answer|changed it to|forced|buried|doesn't actually work|regress|under 18|select 18/i,
+   story:`A handful of items are genuine defects, not preferences, and belong in front of engineering. Dan Balski (ACC) hit the clearest: a <a class="dd" data-q="changed it to">goal date that changed on its own and couldn't be edited</a>, a coach that <a class="dd" data-q="doesn't actually work">said he could edit his statement but couldn't</a>, and <a class="dd" data-q="forced">forced 'click to continue' buttons</a> that contradict the prompt. UNT's Sydney hit a <a class="dd" data-q="buffer">chat that buffered and returned no answer</a> until retry, and the <a class="dd" data-q="18">under-18 age gap</a> blocks concurrent-enrollment students at signup.`}
+];
+let activeTheme=null;
+function renderThemes(){
+  const el=$("#themes");
+  el.innerHTML=THEMES.map((t,i)=>`<button class="theme-pill${activeTheme===i?' active':''}" data-i="${i}">${t.label}<span class="tc">${FEEDBACK.filter(f=>t.re.test(f.text)).length}</span></button>`).join("");
+  el.querySelectorAll(".theme-pill").forEach(b=>b.addEventListener("click",()=>{const i=+b.dataset.i;activeTheme=activeTheme===i?null:i;renderThemes();render();}));
+}
+let sortKey="school",sortDir="asc";
+const getVal=(f,k)=>(k==="audience"?audOf(f.role):(f[k]||"")).toString();
+function render(){
+  const s=$("#fSchool").value,au=$("#fAud").value,a=$("#fArea").value,t=$("#fType").value,q=$("#fSearch").value.toLowerCase().trim();
+  const list=FEEDBACK.filter(f=>(!s||f.school===s)&&(!au||audOf(f.role)===au)&&(!a||f.area===a)&&(!t||f.type===t)&&(activeTheme===null||THEMES[activeTheme].re.test(f.text))&&(!q||(f.text+f.source+f.school+f.area).toLowerCase().includes(q)));
+  list.sort((x,y)=>{const c=getVal(x,sortKey).localeCompare(getVal(y,sortKey),undefined,{sensitivity:"base"});return sortDir==="asc"?c:-c;});
+  stats(list);
+  countEl.textContent=`Showing ${list.length} of ${FEEDBACK.length} feedback items`;
+  rowsEl.innerHTML=list.length?list.map(f=>`<tr>
+    <td class="school">${f.school}<div class="src">${f.source}${f.role?" · "+f.role:""}</div></td>
+    <td class="area">${audOf(f.role)}</td>
+    <td><span class="chip ${f.type}">${f.type}</span></td>
+    <td class="area">${f.area}</td>
+    <td class="fb">${f.text}</td></tr>`).join("")
+    :`<tr><td colspan="5" class="empty">No feedback matches these filters.</td></tr>`;
+  document.querySelectorAll("thead th.sortable").forEach(th=>{const on=th.dataset.key===sortKey;th.classList.toggle("sorted",on);th.querySelector(".caret").textContent=on?(sortDir==="asc"?"▲":"▼"):"";});
+  renderSynopsis();
+}
+function renderSynopsis(){
+  const el=$("#synopsis");
+  if(activeTheme===null){el.innerHTML="";return;}
+  const t=THEMES[activeTheme];
+  const items=FEEDBACK.filter(f=>t.re.test(f.text));
+  const schools=new Set(items.map(f=>f.school)).size;
+  const resp=new Set(items.map(f=>f.source)).size;
+  const c=x=>items.filter(f=>f.type===x).length;
+  el.innerHTML=`<div class="synopsis"><h4>${t.label}</h4><div class="syn-meta">${items.length} items · ${resp} respondents · ${schools} schools · ${c("Praise")} praise · ${c("Complaint")} complaints · ${c("Idea")} ideas</div><p>${t.story}</p></div>`;
+  el.querySelectorAll(".dd").forEach(a=>a.addEventListener("click",()=>{$("#fSearch").value=a.dataset.q;render();}));
+}
+["#fSchool","#fAud","#fArea","#fType"].forEach(id=>$(id).addEventListener("change",render));
+$("#fSearch").addEventListener("input",render);
+document.querySelectorAll("thead th.sortable").forEach(th=>th.addEventListener("click",()=>{const k=th.dataset.key;if(sortKey===k)sortDir=sortDir==="asc"?"desc":"asc";else{sortKey=k;sortDir="asc";}render();}));
+$("#reset").addEventListener("click",()=>{$("#fSchool").value="";$("#fAud").value="";$("#fArea").value="";$("#fType").value="";$("#fSearch").value="";activeTheme=null;sortKey="school";sortDir="asc";renderThemes();render()});
+renderThemes();
+render();
+</script>
+</body>
+</html>

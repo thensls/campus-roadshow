@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/chrishigbee/Documents/NSLS/Claude/customerio-viewer/**)",
+      "Read(//Users/chrishigbee/Documents/NSLS/Claude/customerio-viewer/api/**)",
+      "Read(//opt/homebrew/bin/**)",
+      "Bash(/opt/homebrew/bin/brew --version)",
+      "Bash(pkill -f \"http.server 8787\")"
+    ]
+  }
+}
