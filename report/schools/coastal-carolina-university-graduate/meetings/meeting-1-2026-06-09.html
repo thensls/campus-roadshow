@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coastal Carolina University — Graduate — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">June 9, 2026</span>
+    </div>
+    <h1>Coastal Carolina University — Graduate &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Coastal Carolina University — Graduate Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/702857907" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Coastal Carolina University — Graduate Chapter</p>
+    <p><strong>Location:</strong> Conway, SC</p>
+    <p><strong>School Type:</strong> Public 4-Year (Graduate chapter in formation)</p>
+    <p><strong>Chapter Status:</strong> New — graduate chapter actively being stood up at the time of this meeting</p>
+    <p><strong>Chapter Type:</strong> Hybrid (undergraduate chapter); primarily asynchronous/online model planned for the graduate chapter</p>
+    <p><strong>Advisors Present:</strong> Daphne Holland (undergraduate chapter advisor), Jordan Ross (additional advisor, limited audio at start), Megan Grandey (staff support). Tyrone McKenney was referenced but not present on the call.</p>
+    <p><strong>CSR:</strong> Maryanna Laferriere</p>
+    <p><strong>Notable Context:</strong> Coastal Carolina has a well-established undergraduate chapter with a strong in-person culture built from the ground up by Daphne Holland. A graduate chapter is being launched simultaneously, with Tyrone McKenney designated as the graduate chapter advisor. The graduate chapter is expected to operate primarily online and asynchronously — a meaningfully different operational model than the undergraduate chapter. Maryanna flagged an existing articulation agreement covering advanced and executive NSLS courses. The school has an incoming e-board described as high-performing. Orientation was imminent at time of meeting, creating urgency around the pilot testing timeline. Login/authentication bugs were surfaced live during the session, providing the product team with its first documented bug report for Society.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Tyrone McKenney</h3>
+    <p><strong>Role:</strong> Designated chapter advisor for the Coastal Carolina University Graduate NSLS chapter (in formation)</p>
+    <p><strong>Background:</strong> Not present on this call. Referenced by Maryanna Laferriere as the individual she is actively working with to stand up the graduate chapter. No further biographical detail was provided in the transcript.</p>
+    <p><strong>Motivations:</strong> Implied through context: the graduate chapter model he will oversee is expected to be primarily online and asynchronous, suggesting an interest in scalable, low-friction digital programming that fits graduate student schedules and availability.</p>
+    <p><strong>Communication Style:</strong> Unknown — not present on the call. No direct quotes or behavioral signals available.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High strategic potential. Maryanna explicitly proposed using the graduate chapter as a parallel pilot track — running Society as the primary engagement platform in the asynchronous model while the undergraduate chapter uses it as a post-induction benefit. This makes Tyrone and the graduate chapter a unique comparative data source. Recommend a dedicated onboarding touchpoint with Tyrone before the fall rollout to align on expectations, access, and feedback collection.</p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Daphne Holland</h3>
+    <p><strong>Role:</strong> Undergraduate chapter advisor, Coastal Carolina University</p>
+    <p><strong>Background:</strong> Has built the undergraduate NSLS chapter from the ground up. Describes the effort with significant personal investment ("blood, sweat and tears"). Manages a hybrid model with a strong preference for in-person programming. Closely connected to campus administration (associate deans, deans) and has staff she can leverage for pilot testing.</p>
+    <p><strong>Motivations:</strong> Protecting the in-person engagement culture she has built; ensuring Society adds value without disrupting what is already working. Interested in using Society as a post-induction benefit rather than a replacement for existing programming. Oriented toward practical, fast execution given orientation was approaching.</p>
+    <p><strong>Communication Style:</strong> Direct, candid, high-energy. Asks clarifying questions. Proactively troubleshot the login issue live. Comfortable flagging problems in real time. Action-oriented ("if they're going to do it, we got to do it now").</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Strong. Engaged, resourceful, and already bought into the pilot framing. Expressed genuine enthusiasm for Society as an added membership benefit. Her network of deans and staff colleagues makes her a valuable conduit for faculty/administrator feedback.</p>
+  </div>
+
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>In-person programming as the primary engagement mode — Daphne was unequivocal that moving to fully online would cause membership numbers to "plummet" and is not aligned with campus culture.</li>
+    <li>The hybrid model they have built: in-person first, with virtual availability the following day for those who cannot attend.</li>
+    <li>The strong in-person e-board culture — Maryanna noted the incoming e-board is already trained and described them as "rock stars."</li>
+    <li>The articulation agreement covering advanced and executive NSLS courses, which remains on the legacy system through fall.</li>
+    <li>The momentum and community built from years of in-person relationship investment.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Society login via magic link (email verification) was broken for multiple users during the live session — both Daphne Holland and Megan Grandey received "verification link expired or already used" errors repeatedly.</li>
+    <li>Megan Grandey was also unable to log into the existing NSLS legacy dashboard with her credentials (invalid credentials error), a separate issue resolved temporarily by a CSR password reset.</li>
+    <li>Society has not yet been trained on school-specific data (course catalog, faculty directory, departments) — the AI coach cannot make campus-specific recommendations yet.</li>
+    <li>The in-person facilitation support features (SNT matching in-platform, orientation flow, LTD support) are not yet available in Society, creating a gap for chapters running hybrid or in-person models.</li>
+    <li>No leadership track exists in Society yet (confirmed as under development).</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Successfully launching the graduate chapter with Tyrone McKenney before or at the start of fall semester.</li>
+    <li>Completing the Society pilot testing cycle (advisors → faculty/staff → students) before orientation begins in a matter of weeks.</li>
+    <li>Maintaining strong in-person induction and programming for the undergraduate chapter in fall.</li>
+    <li>Coordinating fall orientation dates and event scheduling with the e-board (meeting with Lily referenced as upcoming).</li>
+    <li>Using chapter credits for Summit registrations — logistics actively in progress.</li>
+  </ul>
+
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Society as a Post-Induction Benefit, Not a Replacement</h3>
+    <p>Both Daphne and Maryanna aligned strongly around the framing of Society as a "carrot" unlocked after induction — preserving the in-person programming pipeline while adding a digital career readiness layer. Daphne used the exact framing: "once you get through all of this, this is an added benefit that you guys get all of this access." This is a replicable positioning model for hybrid-culture chapters.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Graduate Chapter as a Natural Parallel Pilot</h3>
+    <p>Maryanna proactively proposed using the graduate chapter (led by Tyrone McKenney) as a second pilot track running Society as the primary platform in an asynchronous model — in contrast to the undergraduate chapter's post-induction benefit approach. This creates a rare A/B comparison opportunity across two delivery models at the same institution. Tyrone McKenney has not yet been engaged directly and represents an open onboarding item.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Urgency Around Pilot Testing Window</h3>
+    <p>Orientation is imminent. Daphne explicitly noted that faculty are largely off-campus and the window to complete advisor, faculty, and student testing is extremely narrow ("if they're going to do it, we got to do it now"). The product team needs to move quickly on invitations and onboarding support to hit the pre-orientation deadline.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Authentication Bugs Discovered Live</h3>
+    <p>Multiple login failures were documented in real time: magic link expiration errors for both Daphne and Megan on Society, and a separate invalid credentials failure for Megan on the legacy NSLS dashboard. These are the first confirmed Society bugs surfaced in a roadshow setting. The product team received screenshots and screen-share visuals. Gmail login was confirmed as a functional workaround for Society access.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Broad Enthusiasm for Career Clarity Value Proposition</h3>
+    <p>Maryanna expressed genuine personal enthusiasm for Society's career clarity features, noting their relevance beyond students — including for people already in the workforce who are unhappy or seeking validation. This "broader than students" signal suggests the tool could resonate with faculty reviewers, career services, and the graduate audience Tyrone McKenney will serve.</p>
+  </div>
+
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">8/10</div>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The career clarity track and dream job recommendations — Maryanna described immediate personal resonance, noting the tool validates people already in careers and offers new direction to those who are unfulfilled.</li>
+    <li>The framing of Society as a post-induction benefit / membership perk — Daphne adopted the language immediately and repeated it back as "these are the things to focus on."</li>
+    <li>SMART goal methodology integration within the AI coach — presented clearly and seen as a practical accountability tool.</li>
+    <li>The values-sorting flow within personal insights — the progressive narrowing (top 12 → 8 → 6) was walkable and understandable in demo.</li>
+    <li>Maryanna's enthusiasm was explicit: "I'm really excited for this new product. I think it's going to be huge."</li>
+    <li>The graduate chapter fit — Maryanna immediately saw Society's asynchronous-first structure as a natural fit for the graduate chapter model being built with Tyrone McKenney.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>SNT matching in-platform is not available for the hybrid/in-person rollout model — Chris acknowledged this as a meaningful missing feature for this fall.</li>
+    <li>No leadership track yet built — noted as under development, but its absence means the platform is incomplete for the Foundations of Leadership workflow.</li>
+    <li>In-person facilitation features (orientation flow, LTD support) are not yet in Society — the legacy system still handles this better, which limits Society's near-term utility for undergraduate chapter operations.</li>
+    <li>School-specific AI training is not yet complete — the coach cannot reference Coastal Carolina's course catalog, departments, or faculty, limiting the relevance of its campus-specific recommendations.</li>
+    <li>Login authentication failed for multiple participants during the live session, undermining confidence in the readiness for wider pilot distribution.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Maryanna surfaced the graduate chapter opportunity unprompted during the rollout planning discussion — this was not on the agenda and added meaningful scope to the pilot.</li>
+    <li>The login bug was discovered live, in front of the advisor being asked to become a pilot partner — a notable timing risk that was handled transparently by Chris.</li>
+    <li>Daphne's willingness to leverage her dean/associate dean network for faculty testing was not anticipated and expands the potential reach and credibility of the pilot feedback cohort.</li>
+    <li>Maryanna expressed interest in having a personal connection (her niece) test Society — an unsolicited signal of personal trust in the product beyond professional obligations.</li>
+  </ul>
+
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Career Clarity Track (Dream Job Recommendations)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Maryanna expressed strong personal enthusiasm. Noted value for students, career-changers, and people already in the workforce. Chris validated with his own Chief Innovation Officer example.</td>
+      </tr>
+      <tr>
+        <td>Personal Insights / Values Assessment</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Progressive values-narrowing flow described clearly in demo. No friction raised. Seen as a logical precursor to career clarity.</td>
+      </tr>
+      <tr>
+        <td>AI Coach (Conversational)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>SMART goal integration was well-received. Advisors understood the contextual personalization model. Limitation: not yet trained on school-specific data (Coastal Carolina course catalog, faculty directory).</td>
+      </tr>
+      <tr>
+        <td>SMART Goal Setting &amp; Achievement Tracking</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Notification reminders and reflection prompts noted as strong accountability tools. No objections raised.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching In-Platform</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Not available for this fall's rollout given the hybrid/in-person model recommendation. Chris acknowledged it as a meaningful gap. Will be a valuable add when full Society transition occurs.</td>
+      </tr>
+      <tr>
+        <td>Leadership Track</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Not yet built. Chris stated it is under development and likely available by fall, but would not commit. Absence limits Society's Foundations of Leadership integration for now.</td>
+      </tr>
+      <tr>
+        <td>In-Person Facilitation Support (Orientation, LTD, SNT)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Legacy system still handles in-person facilitation better. Chris confirmed these features are being built but are not committed for fall. Daphne was clear that in-person support is non-negotiable for the undergraduate chapter.</td>
+      </tr>
+      <tr>
+        <td>Magic Link / Email Authentication (Login)</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Confirmed broken for Daphne Holland and Megan Grandey during live session ("verification link expired or already used"). Screenshots captured. Gmail SSO confirmed as functional workaround. Bug escalated to product team.</td>
+      </tr>
+      <tr>
+        <td>School-Specific AI Training (Campus Agent)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Not yet available. Chris confirmed a school-specific agent is being built and will be informed/updated by advisors over time. No timeline committed. Advisors understand the current limitation.</td>
+      </tr>
+      <tr>
+        <td>Society as Post-Induction Benefit (Positioning)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Both Daphne and Maryanna aligned immediately and enthusiastically to this framing. Described as a "carrot" to incentivize induction completion. Daphne repeated the benefit framing back unprompted.</td>
+      </tr>
+      <tr>
+        <td>Asynchronous / Graduate Chapter Model Fit</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Maryanna proactively identified Society's asynchronous structure as a strong fit for the graduate chapter Tyrone McKenney will advise. Proposed parallel pilot across undergraduate (benefit model) and graduate (primary platform model).</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Daphne Holland and Jordan Ross to log into Society via Gmail workaround (oursociety.org) and begin self-directed exploration of the platform immediately — completing the welcome track, personal insights, and career clarity track and providing raw feedback to Maryanna and Chris. <span class="owner-tag">Daphne Holland / Jordan Ross</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Daphne Holland to compile a list of 5 or so trusted faculty/staff colleagues (associate deans, deans, staff on campus for summer) with names, email addresses, titles, and departments — to be sent to Chris and Maryanna before orientation begins. <span class="owner-tag">Daphne Holland</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Chris Higbee / Maryanna Laferriere to send Society testing invitations to faculty/staff list provided by Daphne, copying Daphne and introducing themselves as contacts for technical questions. <span class="owner-tag">Chris Higbee / Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Daphne Holland to identify 10–20 students (ideally e-board / inducted members available over summer) for the student pilot cohort and provide names and emails — target: before orientation, ideally mid-June. <span class="owner-tag">Daphne Holland</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Chris Higbee to escalate the Society magic link / email authentication bug to the product team with screenshots captured during the live session. Gmail SSO to be confirmed as the interim workaround in all pilot invitations. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Maryanna Laferriere to initiate a dedicated touchpoint with Tyrone McKenney to onboard him to the graduate chapter pilot — aligning on Society as the primary platform for the asynchronous graduate model and establishing his feedback role. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Maryanna Laferriere to confirm with Chris Higbee the mechanics of running the graduate chapter as a parallel pilot track (asynchronous/Society-primary model) alongside the undergraduate chapter's post-induction benefit model. <span class="owner-tag">Maryanna Laferriere / Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">8</div>
+      <div>Megan Grandey to meet with Lily (e-board) on Wednesday to confirm fall induction dates and programming schedule, then share finalized dates with Maryanna Laferriere so fall semester can be queued. <span class="owner-tag">Megan Grandey</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>What is the confirmed timeline for the leadership track to be available in Society — and will it be ready before fall semester begins?</li>
+    <li>When will the school-specific AI agent (trained on Coastal Carolina's course catalog, faculty directory, and departments) be available, and what is the advisor's role in maintaining it?</li>
+    <li>Will the in-person facilitation features (orientation, LTD, SNT flows) be ready in Society in time for Coastal Carolina to consider a fuller transition beyond fall's post-induction benefit model?</li>
+    <li>How will the articulation agreement covering advanced and executive courses interact with Society access once the legacy system is eventually deprecated?</li>
+    <li>Has Tyrone McKenney been formally brought into the Society pilot conversation, and what support does he need to stand up the graduate chapter in an asynchronous-first model?</li>
+    <li>Is the "verification link expired" login bug isolated to Coastal Carolina's email environment (possible IT whitelist issue) or a broader platform-wide authentication failure?</li>
+    <li>What specific feedback format and submission method should pilot testers use — video walkthroughs, written notes, or direct email to Chris/Maryanna?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Coastal Carolina University — Graduate</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Conway, SC</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Public 4-Year (Graduate chapter)</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>New (graduate chapter in formation); established undergraduate chapter</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Hybrid (undergraduate); Asynchronous/Online (graduate — planned)</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>8/10</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — confirmed. Daphne Holland committed to advisor, faculty/staff, and student testing phases. Graduate chapter (Tyrone McKenney) proposed as parallel pilot track.</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>High potential — Daphne Holland (undergraduate) and Tyrone McKenney (graduate) represent two distinct use-case models at the same institution. Tyrone not yet directly engaged.</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>Society magic link authentication broken (confirmed bug); no in-person facilitation features yet; no leadership track yet; AI coach not trained on school-specific data; SNT matching not available for hybrid rollout this fall</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Dual-chapter parallel pilot opportunity (undergraduate post-induction benefit model vs. graduate asynchronous-primary model) proposed by CSR — highest-value comparative data scenario identified in this roadshow session</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Maryanna Laferriere</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Coastal Carolina University — Graduate &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; June 9, 2026
+</footer>
+
+</body>
+</html>

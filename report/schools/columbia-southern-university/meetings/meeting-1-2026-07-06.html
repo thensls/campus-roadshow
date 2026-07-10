@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Columbia Southern University — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">July 6, 2026</span>
+    </div>
+    <h1>Columbia Southern University &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Columbia Southern University Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/734408917" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Columbia Southern University (CSU)</p>
+    <p><strong>Location:</strong> Orange Beach, AL</p>
+    <p><strong>School Type:</strong> Private, For-Profit, Online-Only 4-Year Institution</p>
+    <p><strong>Chapter Status:</strong> Established</p>
+    <p><strong>Chapter Type:</strong> Online (fully virtual; relies entirely on NSLS National Events Team for induction facilitation)</p>
+    <p><strong>Advisors Present:</strong> Katelyn Garrison (Director of Student Organizations & First Year Experience); Linda Condon (CSR)</p>
+    <p><strong>Notable Context:</strong> CSU is a large-scale online institution with approximately 26,200 active students (defined as having taken a course within the past year) and roughly 20,000 currently enrolled. The NSLS chapter is approaching 19,600 members — nearly surpassing the currently enrolled student count, which Katelyn described as an exciting milestone. The average student age was approximately 37–38 in the most recent data cycle, reflecting a heavily non-traditional, working-adult student body. CSU has expanded significantly in recent years, adding new colleges (Education, Nursing, Military) and new programs (e.g., Master's in Psychology). CSU was an early pilot participant for the national virtual induction ceremony<a href="https://fathom.video/calls/734408917?t=414" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:54</a> and was proactively invited into the Society roadshow. Katelyn operates a CSU-specific NSLS Facebook group to supplement national communications<a href="https://fathom.video/calls/734408917?t=449" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:29</a> and is actively developing an internal mentorship program featuring NSLS inducted members.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+  <div class="advisor-card">
+    <h3>Katelyn Garrison</h3>
+    <p><strong>Role:</strong> Director of First Year Experience & Student Organizations, Columbia Southern University</p>
+    <p><strong>Background:</strong> Has been at CSU for over 10 years, beginning in student services as a Student Support Specialist, progressing to a mentor-adjacent role, then to Student Operations Specialist, and then to Career Services (Career Development Specialist) in 2020. Student organizations were transferred into Career Services during her hiring process; she took them on enthusiastically. As the chapter grew under her leadership, CSU created a dedicated position for First Year Experience and Student Organizations, which she now holds exclusively. She holds a degree in Public Relations. She also collaborates closely with CSU's marketing team and manages the CSU NSLS Facebook group.</p>
+    <p><strong>Motivations:</strong> Deeply passionate about student recognition, engagement, and reducing friction in the membership journey. Motivated by connecting non-traditional, working-adult students to tangible career and leadership outcomes. Interested in data that can serve cross-departmental needs (particularly Career Services and Compliance). Currently building an internal CSU mentorship program featuring NSLS inducted members. Described herself as coming in "like a bull in a china shop" — proactive, hands-on, and reform-minded.</p>
+    <p><strong>Communication Style:</strong> High-energy, candid, and detail-oriented. Asks precise, forward-thinking questions. Self-described as visual and brain-driven — she writes down questions in real time during demos and works through ideas verbally as they form. Comfortable acknowledging limitations and asking for clarification. Warm and collaborative with Linda Condon; the two communicate frequently.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> Very high. Katelyn was proactively signed up for this meeting after an in-person visit from an NSLS team member (Ashley). She asks the kinds of questions — about data exports, FERPA, AI scope, cross-departmental utility, and platform integration — that reflect genuine strategic investment. Her scale (nearly 20K members), her cross-functional relationships (Career Services, Compliance, Marketing), and her self-starter energy make her an ideal Product Council contributor and pilot partner.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>The online/virtual delivery model — Katelyn explicitly said "never get rid of that, only increase the virtual, if anything." It is foundational to CSU's ability to participate in NSLS at all.</li>
+    <li>Student recognition — the invitation process, physical and digital recognition artifacts (badges, membership kit), and the emotional weight of being acknowledged. Katelyn noted that even students in their 70s who don't expect career benefit still value the recognition deeply<a href="https://fathom.video/calls/734408917?t=652" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 10:52</a>.</li>
+    <li>Badges shared on LinkedIn — Katelyn specifically observed that during invitation cycles, she sees students sharing NSLS badges on LinkedIn<a href="https://fathom.video/calls/734408917?t=686" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 11:26</a>, signaling that social recognition is alive and meaningful.</li>
+    <li>The ability to communicate with members in bulk via the chapter leader dashboard — she uses it regularly to drive engagement, though the reply experience is a pain point<a href="https://fathom.video/calls/734408917?t=464" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:44</a>.</li>
+    <li>The national events team facilitation model — since CSU cannot run local in-person events, the national team is the backbone of their induction pipeline.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Bulk email reply threading — when Katelyn sends messages to up to ~1,000 students at a time, all responses come back on one collapsed thread rather than individual conversations. She described managing over 300 responses in a single thread after one campaign as unwieldy<a href="https://fathom.video/calls/734408917?t=807" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 13:27</a>. She wants bulk messaging to feel personal on receipt and manageable on return.</li>
+    <li>Students completing induction — a recurring issue where students believe they are fully members upon joining but have not completed orientation, Leadership Training Day, SNTs, or other requirements. Katelyn said she frequently receives emails from students saying they haven't received their membership kit<a href="https://fathom.video/calls/734408917?t=1238" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 20:38</a>, only to discover they haven't finished induction.</li>
+    <li>Lack of a clear "you are here" progress experience — students don't have a simple, visual, step-by-step breakdown of where they are in the induction journey<a href="https://fathom.video/calls/734408917?t=1263" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 21:03</a> and what comes next. Katelyn wants this to be simple, not overwhelming, but complete.</li>
+    <li>Students not understanding time commitment upfront — "How long is it going to take me?" is one of the most frequent questions she receives<a href="https://fathom.video/calls/734408917?t=1292" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 21:32</a>. The FAQ addresses it, but the context for a working adult (who may already attend weekly SNT-like meetings in their job) is different from a traditional student.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Enrollment growth — CSU is a for-profit institution and explicitly prioritizes increasing enrollments and admissions.</li>
+    <li>Degree program expansion — CSU has launched new colleges (Education, Nursing, Military) and new degree programs (e.g., Master's in Psychology) in recent years, with additional programs pending announcement.</li>
+    <li>Returning to pre-pandemic active student numbers — Katelyn noted they are close, with 26,200 active students and 20,000 currently enrolled.</li>
+    <li>Compliance and outcomes documentation — Katelyn mentioned a recent meeting with CSU's compliance director related to tracking whether students who complete degrees are obtaining relevant employment<a href="https://fathom.video/calls/734408917?t=2357" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 39:17</a>. Career readiness and outcome data are actively relevant to this institutional obligation.</li>
+    <li>Career readiness and workforce preparation — though CSU already uses tools like Forage and Big Interview in Career Services, Katelyn was clearly interested in how Society's data could complement or integrate with those existing efforts.</li>
+    <li>Student engagement for non-traditional learners — nearly all students are working adults balancing personal, professional, and academic schedules. Any engagement tool must be frictionless, self-paced, and immediately useful.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Recognition Is the Hook — Career Clarity Could Be the Anchor</h3>
+    <p>Katelyn confirmed that recognition (badges, physical kits, LinkedIn shares) is what draws students in and what she leads with. However, she also recognized — without being prompted — that for CSU's older, career-established students, traditional leadership framing may not resonate the way career clarity does. The Renee story landed because it mapped directly to CSU's student reality. Society's career clarity track is positioned as the engagement layer that could convert passive members into active participants.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Induction Completion Is the Core Engagement Problem</h3>
+    <p>Katelyn described a persistent pattern: students join, feel recognized, then go dark — never finishing induction — and only resurface when they want something (membership kit, benefits). This is not a motivation problem; it's a visibility and scaffolding problem. She explicitly asked for a "you are here" view that shows students their full journey in a simple, non-overwhelming format. Society's welcome track and progress dashboard directly address this, and she responded positively when she saw it.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Data Portability and Cross-Departmental Value Are Strategic Priorities</h3>
+    <p>Katelyn asked unprompted whether student-inputted career data (current job titles, dream jobs, career trajectories) would be exportable and accessible to other departments. She specifically named Career Services and Compliance as stakeholders who would want this data. She drew a direct line between Society's career readiness score concept and CSU's compliance obligations around graduate employment outcomes. This signals that Society has the potential to serve as more than an NSLS tool — it could become an institutional data asset.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. AI Enthusiasm Is High but Scoped — Safety Guardrails Are Welcomed</h3>
+    <p>Katelyn described AI as "a vast ocean that is so deep — I don't know where it begins nor ends." She asked sharp questions about AI scope: Can it help find books? Can it recommend career services staff? Can it facilitate networking practice? She was genuinely excited about the Campus Agent concept. Importantly, when Chris explained URL restrictions and malicious injection risks, Katelyn immediately validated the caution — "if it's going to happen, it's going to happen to one of my students." She is an enthusiastic AI adopter who nonetheless values protective guardrails.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Platform Integration Clarity Is Needed Before Rollout</h3>
+    <p>Katelyn asked a direct and practical question about how Society would coexist with the existing NSLS core platform — would it require a separate registration, separate login, or additional clicks? She framed this explicitly in terms of anticipating student confusion ("just thinking of multiple clicks that a student would have to do"). Chris clarified that both platforms would be unified within a year and that students using the national events team pathway would access Society directly from their invitation. This resolved her concern, but it signals that clear communication about the transition will be essential for CSU's onboarding.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+  <div class="enthusiasm-score">7–8/10</div>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The "you are here" welcome track concept — directly matched what Katelyn had already been asking for: a clear, simple, step-by-step view of where students are in their journey.</li>
+    <li>The career clarity track and dream job generation — she connected it immediately to her non-traditional student population and to the Renee story. She saw the career framing as more compelling than standalone leadership development for her students.</li>
+    <li>The AI coach and SMART goal generation tied to SNTs — she found the idea of the coach pulling goals from SNT transcripts and storing them in an achievements engine compelling and relevant.</li>
+    <li>The Campus Agent concept — her reaction was enthusiastic. She immediately began imagining use cases: routing students to Career Services, facilitating networking conversations, scheduling mentorship calls with NSLS alumni.</li>
+    <li>The advisor dashboard with career readiness score and individual student data — she immediately saw cross-departmental utility (Career Services, Compliance) and asked about data export capability.</li>
+    <li>SNT matching with availability-based and affinity-based parameters — she appreciated that students using the national events team could still match with students across the country on relevant criteria.</li>
+    <li>Custom track capability (future) — the mention of building custom tracks aligned with her existing mentorship program development.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Platform separation — she was initially unsure whether Society was a separate registration or an add-on to existing NSLS membership. Required clarification before she felt comfortable. Resolved by Chris's explanation of the unification roadmap.</li>
+    <li>AI scope and limits — she asked whether the AI could recommend book purchase links, route to bookstore inventory, or facilitate networking conversations. Chris clarified current limitations (no live URLs, relatively generic responses at MVP stage). Katelyn accepted this but flagged URL safety as a genuine concern for her student population.</li>
+    <li>Overlap with existing career tools — Katelyn noted that CSU's Career Services already uses Forage and Big Interview, which have overlapping personality/career assessment features. She was processing where Society fits versus those tools, particularly since Society is currently scoped to post-invitation members while Forage is used pre- and post-enrollment.</li>
+    <li>FERPA boundaries on advisor data access — she did not raise this as a concern per se, but Chris proactively noted FERPA parameters around what advisors can view. Worth confirming her understanding of consent flows.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Katelyn was already actively developing a CSU-internal mentorship program featuring NSLS inducted members — something Linda had apparently not surfaced in the pre-meeting prep. This creates a natural integration point with Society's Connections and alumni mentorship features.</li>
+    <li>She raised the compliance/outcomes reporting use case entirely on her own — connecting Society's career readiness data to an institutional obligation she had just discussed with CSU's compliance director. This was not a prompted response; it reflects a sophisticated understanding of how the platform could serve institutional needs beyond student engagement.</li>
+    <li>Her enthusiasm score was self-qualified: she rated it 7–8 (not lower, not higher) specifically because her Career Services brain and Society brain were "doing this with one another" — she wanted to explore overlap and differentiation before committing fully. This is a thoughtful, not resistant, response.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Welcome Track / "You Are Here" Progress View</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Katelyn had independently identified this need before seeing Society. She described wanting a full but simple breakdown of where students are and what's next — not overwhelming. Direct match to her stated pain point around induction completion drop-off.</td>
+      </tr>
+      <tr>
+        <td>Career Clarity Track / Dream Job Generation</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Resonated strongly given CSU's non-traditional, career-established student body. She connected it to the Renee story and saw it as a more compelling hook than leadership development alone for students aged 37+.</td>
+      </tr>
+      <tr>
+        <td>AI Coach (Goal Setting, SNT Integration, Achievements Engine)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>She was engaged and asked clarifying questions about scope. The SMART goal methodology tied to Foundations of Leadership resonated. She appreciated that goals from SNT transcripts would be stored and tracked automatically.</td>
+      </tr>
+      <tr>
+        <td>Campus Agent (School-Specific AI)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Enthusiastic reaction. She immediately generated use cases: routing to Career Services, networking conversation practice, scheduling alumni mentorship calls. Flagged that she'd want it to know CSU's specific departments and staff. Currently in development — she understands it's not live yet.</td>
+      </tr>
+      <tr>
+        <td>Advisor Dashboard / Career Readiness Score</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Asked unprompted whether career and job-title data would be downloadable and shareable with Career Services and Compliance. Saw institutional reporting value beyond student engagement. Wants to see individual student dream job history over time.</td>
+      </tr>
+      <tr>
+        <td>SNT Matching (Availability + Affinity Based)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Appreciated the lobby/matching mechanic and the ability to match across the country by major, availability, and career interest. Relevant for CSU's fully online, geographically distributed student population.</td>
+      </tr>
+      <tr>
+        <td>In-Platform Video Meetings (Recorded, Transcribed, Attendance Tracked)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>No friction raised. She found the idea of the coach pulling goals from meeting transcripts to be a logical and useful extension of the SNT experience.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessment Generation (Myers-Briggs, DISC, Enneagram, etc.)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>She noted CSU already uses similar tools (Forage, Big Interview) in Career Services. Did not see this as redundant — saw it as potentially complementary — but is still processing how the data would be reconciled or shared across platforms.</td>
+      </tr>
+      <tr>
+        <td>Bulk Messaging / Chapter Leader Dashboard Email</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Existing pain point — not a Society feature per se, but directly affects engagement. Bulk email replies thread together rather than arriving as individual conversations. Katelyn managed 300+ replies in one thread after a single campaign. Wants replies to feel personal and be manageable. Chris acknowledged it is on the roadmap.</td>
+      </tr>
+      <tr>
+        <td>Platform Unification (Society + NSLS Core)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Katelyn asked how students would access Society relative to existing NSLS login — separate registration, additional clicks, or unified. Chris explained that within approximately one year, the platforms will be fully combined and the invitation will route directly to Society. Katelyn accepted this but was clearly tracking friction risk for her students.</td>
+      </tr>
+      <tr>
+        <td>AI URL / External Link Restrictions</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Katelyn asked whether the AI could link to book purchases or external resources. Chris explained current conservative approach (no live URLs due to injection risk). Katelyn validated the caution immediately — "if it's going to happen, it's going to happen to one of my students." Conservative guardrails are welcome; communicate them proactively to advisors.</td>
+      </tr>
+      <tr>
+        <td>Custom Track Building (Future)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>She is actively building a CSU-internal mentorship program for NSLS inducted members. The mention of custom tracks down the road was noted as a potential fit for that initiative.</td>
+      </tr>
+      <tr>
+        <td>Alumni Mentorship / Connections via NSLS Network</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>She independently asked whether the platform could facilitate networking conversations and mentorship scheduling with NSLS alumni. This aligned exactly with the Connections track direction Chris described. She is already thinking in this space given her internal mentorship program work.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Send Katelyn the post-meeting survey link (approximately 10 minutes to complete; includes free-text fields for expanded pain point capture). <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Send Katelyn the meeting report and any follow-up materials referenced during the demo. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Katelyn to log in to oursociety.org using her Gmail account, complete the onboarding flow personally, and document her feedback (written or recorded on phone) to share with Linda and Chris. <span class="owner-tag">Katelyn Garrison</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Schedule a follow-up implementation meeting (approximately 20 minutes) within the next one to two weeks to walk through next steps after Katelyn has explored the platform. <span class="owner-tag">Linda Condon</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Confirm NSLS login compatibility with oursociety.org (Chris noted there have been issues with the NSLS email login option; Katelyn will attempt it and report back). <span class="owner-tag">Chris Higbee / Katelyn Garrison</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Explore whether Society's career readiness and job-title data can be made available in an exportable format suitable for Career Services and Compliance review at CSU. Flag for product roadmap consideration. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Flag Katelyn's CSU mentorship program (featuring NSLS inducted members) as a potential use case for the Connections track and custom track feature — follow up as those features mature. <span class="owner-tag">Chris Higbee / Linda Condon</span></div>
+    </li>
+    <li>
+      <div class="action-number">8</div>
+      <div>Ensure bulk email reply threading fix is escalated and tracked — Katelyn is a highly active bulk emailer (up to ~1,000 students per send); this pain point predates Society and affects her current workflow significantly. <span class="owner-tag">Chris Higbee (flag to Dasha / Jordan's team)</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>How will the transition from NSLS Core to Society be communicated to students already mid-induction? Will their progress carry over seamlessly?</li>
+    <li>What is the FERPA consent flow for advisor access to student career data (dream job, job history, career readiness score)? Does the student opt in explicitly?</li>
+    <li>Can Society's career data (job titles, dream jobs, career trajectory inputs) be exported in a format usable by CSU's Career Services and Compliance teams? Is there a data sharing agreement pathway?</li>
+    <li>How will Society differentiate from or complement existing tools CSU Career Services already uses (Forage, Big Interview)? Is there a cross-platform positioning document or talking points that could help Katelyn introduce Society to Career Services colleagues?</li>
+    <li>When the Campus Agent is built, what is the process for ingesting CSU-specific information (course catalog, staff directory, department contacts)? Who owns that setup — NSLS or the school?</li>
+    <li>Will the local chapter certificate/award feature in the existing NSLS documents area carry into Society, or does that remain in Core? Katelyn mentioned she has not yet utilized it but wants to use it for highly engaged students.</li>
+    <li>What is the timeline for the Connections track and alumni mentorship scheduling feature to reach a state usable by CSU students?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Columbia Southern University</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Orange Beach, AL</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Private, For-Profit, Online-Only 4-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Online (National Events Team facilitated)</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>7–8 / 10 (self-reported; qualified by active comparison with existing Career Services tools)</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — Katelyn agreed to log in to oursociety.org and provide feedback; follow-up implementation meeting scheduled</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>High — Katelyn proactively signed up for this meeting, asks strategic product-level questions, and has cross-departmental relationships (Career Services, Compliance, Marketing) that amplify her feedback value</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>1. Bulk email reply threading (all replies collapse into one thread); 2. Induction completion drop-off (students stop after joining, never finish); 3. No clear "you are here" progress view for students; 4. Students don't understand time commitment upfront</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Katelyn independently connected Society's career readiness data to CSU's compliance reporting obligations and requested data export capability for Career Services — signaling Society has cross-departmental institutional value potential well beyond student engagement</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Linda Condon</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Columbia Southern University &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; July 6, 2026
+</footer>
+
+</body>
+</html>
