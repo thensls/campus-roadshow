@@ -2,9 +2,13 @@
   "name": "campus-roadshow-report",
   "private": true,
   "version": "0.1.0",
-  "description": "Static stakeholder report site for the NSLS Society Campus Roadshow. Vercel-hosted with a small serverless API for the Fall Pilot Setup Survey submission.",
+  "description": "Static stakeholder report site for the NSLS Society Campus Roadshow. Vercel-hosted with a small serverless API for the Fall Pilot Setup Survey submission and NSLS Auth (OpenID Connect) integration.",
   "type": "module",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "iron-session": "^8.0.4",
+    "openid-client": "^5.7.0"
   }
 }

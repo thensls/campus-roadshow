@@ -46,7 +46,7 @@
       margin: 0 auto;
       padding: 0 40px;
     }
-    .header-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+    .header-meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
     .badge { transition: color .2s;
       background: transparent;
       border: 1px solid rgba(36,59,82,0.35);
@@ -58,6 +58,10 @@
       text-transform: uppercase;
       color: #243B52;
     }
+    .header-auth { margin-left: auto; display: flex; gap: 10px; align-items: center; font-size: 12px; color: #6B6357; }
+    .header-auth .user-name { font-weight: 600; color: #1A3550; }
+    .header-auth .sign-out { color: #6B6357; text-decoration: underline; text-underline-offset: 3px; }
+    .header-auth .sign-out:hover { color: #C96058; }
     .header h1 { font-size: 32px; font-weight: 700; margin-bottom: 6px; color: #1A3550; }
     .header h2 { font-size: 17px; font-weight: 400; color: #6B6357; }
 
@@ -932,6 +936,10 @@
     <div class="header-meta">
       <a href="/index.html" class="badge" style="text-decoration:none;">NSLS Society Roadshow</a>
       <span class="badge">Spring 2026</span>
+      <div class="header-auth" id="auth-chip" hidden>
+        <span>Signed in as <span class="user-name" id="auth-user-name"></span></span>
+        <a class="sign-out" href="/api/auth/logout">Sign out</a>
+      </div>
     </div>
     <h1>Society Roadshow</h1>
   </div>
@@ -3359,6 +3367,24 @@
       console.error('Roadshow map: TopoJSON load failed', err);
       svgEl.style.display = 'none';
     });
+  })();
+</script>
+
+<script>
+  // Populate the "Signed in as X · Sign out" chip in the header.
+  // Fails silently — the chip stays hidden if /api/auth/me is unavailable.
+  (function () {
+    fetch('/api/auth/me', { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data || !data.authenticated || !data.user) return;
+        var chip = document.getElementById('auth-chip');
+        var nameEl = document.getElementById('auth-user-name');
+        if (!chip || !nameEl) return;
+        nameEl.textContent = data.user.name || data.user.email || '';
+        chip.hidden = false;
+      })
+      .catch(function () { /* silent */ });
   })();
 </script>
 </body>
