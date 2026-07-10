@@ -26,13 +26,18 @@ function sessionOptions() {
   return { password };
 }
 
+// iron-session's `ttl` bounds the seal's server-side validity; without it
+// the encrypted payload stays decryptable for the default 14 days regardless
+// of `cookieOptions.maxAge`. Setting both keeps browser + server aligned.
+
 export function getSession(req, res) {
   return getIronSession(req, res, {
     ...sessionOptions(),
+    ttl: 60 * 60 * 8, // 8 hours — seal expires with the cookie
     cookieName: "roadshow_session",
     cookieOptions: {
       ...BASE_COOKIE_OPTIONS,
-      maxAge: 60 * 60 * 8, // 8 hours
+      maxAge: 60 * 60 * 8,
     },
   });
 }
@@ -40,10 +45,11 @@ export function getSession(req, res) {
 export function getLoginSession(req, res) {
   return getIronSession(req, res, {
     ...sessionOptions(),
+    ttl: 60 * 10, // 10 min — seal expires with the login-transaction cookie
     cookieName: "roadshow_login",
     cookieOptions: {
       ...BASE_COOKIE_OPTIONS,
-      maxAge: 60 * 10, // 10 minutes — enough to bounce through auth.nsls.org
+      maxAge: 60 * 10,
     },
   });
 }
