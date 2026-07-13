@@ -9,10 +9,11 @@
 //
 // Excluded paths:
 //   - /api/auth/*                 — the auth handshake itself
-//   - /api/pilot-survey-submit    — public form endpoint for external advisors
-//   - /pilot-survey.html          — the form UI advisors submit through
-//   - /society-feedback.html      — public feedback form
 //   - Vercel internals + favicon
+//
+// Everything else — including pilot-survey.html, society-feedback.html,
+// and /api/pilot-survey-submit — requires a valid session. External
+// advisors following emailed links will bounce through auth.nsls.org.
 //
 // Using unsealData (rather than getIronSession) because middleware runs
 // in the Edge runtime with a Web-standard Request; getIronSession's
@@ -28,7 +29,7 @@ const SESSION_TTL_SECONDS = 60 * 60 * 8;
 
 export const config = {
   matcher: [
-    "/((?!api/auth|api/pilot-survey-submit|pilot-survey\\.html|society-feedback\\.html|_next|_vercel|favicon\\.ico).*)",
+    "/((?!api/auth|_next|_vercel|favicon\\.ico).*)",
   ],
 };
 
