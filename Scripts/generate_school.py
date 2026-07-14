@@ -810,6 +810,7 @@ def render_hub_html(s: dict, hub: dict, airtable_html: str, has_local_survey: bo
 document.getElementById('last-updated-badge').textContent =
   'Latest Update: ' + new Date().toLocaleDateString('en-US', {{ month: 'long', day: 'numeric', year: 'numeric' }});
 </script>
+<script src="/auth-chip.js"></script>
 </body>
 </html>"""
 
@@ -961,6 +962,7 @@ def render_report_html(s: dict, sections_html: str, has_local_survey: bool = Fal
   NSLS Society Roadshow &nbsp;&middot;&nbsp; {name} &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; {fmt_date(date)}
 </footer>
 
+<script src="/auth-chip.js"></script>
 </body>
 </html>"""
 

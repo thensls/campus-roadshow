@@ -511,6 +511,7 @@ def render_page(school: str, slug: str, at_id: str, fields: dict) -> str:
   Airtable Record: {at_id} &nbsp;&middot;&nbsp; Generated {today}
 </div>
 
+<script src="/auth-chip.js"></script>
 </body>
 </html>"""
 
