@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lehigh University — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">July 22, 2026</span>
+    </div>
+    <h1>Lehigh University &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; Lehigh University Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/755742568" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> Lehigh University</p>
+    <p><strong>Location:</strong> Bethlehem, PA</p>
+    <p><strong>School Type:</strong> Private 4-Year</p>
+    <p><strong>Chapter Status:</strong> Established — Lehigh's chapter began approximately two years ago with initial onboarding, officially became a recognized student organization in Spring 2025<a href="https://fathom.video/calls/755742568?t=76" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:16</a>, and completed its first full academic year of chapter programming in 2024–2025.</p>
+    <p><strong>Chapter Type:</strong> Online (though the e-board and students expressed a strong preference for in-person engagement where possible<a href="https://fathom.video/calls/755742568?t=323" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 5:23</a>)</p>
+    <p><strong>Advisors Present:</strong> Jennifer Freemont (Chapter Advisor, Career Development), Maryanna Laferriere (CSR)</p>
+    <p><strong>NSLS Team Present:</strong> Chris Higbee (Sales Enablement), Lauren Prentiss (Product Manager, Society)</p>
+    <p><strong>Notable Context:</strong> Jennifer Freemont brings rare dual perspective — she was the inaugural NSLS chapter president at Seals University as an undergraduate, running the chapter for three years<a href="https://fathom.video/calls/755742568?t=72" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:12</a>, and is now in her first year as advisor at Lehigh. She brings nearly 10 years of career development experience across undergraduate, graduate, and full-time roles<a href="https://fathom.video/calls/755742568?t=128" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 2:08</a>. The chapter's co-presidents (Michael and Sabine) operate with significant autonomy, meeting directly with the CSR<a href="https://fathom.video/calls/755742568?t=211" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 3:31</a> and leading chapter activity. Lehigh's institutional priority is framed as being "first, the best, or the only"<a href="https://fathom.video/calls/755742568?t=374" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:14</a> — with a particular emphasis on career outcomes and interdisciplinary programs. The chapter's community-building infrastructure, including a newer Community Service Chair role, is still developing.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+  <div class="advisor-card">
+    <h3>Jennifer Freemont</h3>
+    <p><strong>Role:</strong> Chapter Advisor, NSLS at Lehigh University; Career Development Professional, Lehigh University</p>
+    <p><strong>Background:</strong> Freemont has been at Lehigh since June 2022 and began advising the NSLS chapter approximately one year ago. As an undergraduate at Seals University, she was the inaugural NSLS chapter president and led the chapter for three years. She is entering her 10th year in career development, with experience across undergraduate advising, graduate support, and full-time career services roles.</p>
+    <p><strong>Motivations:</strong> Freemont is passionate about holistic career readiness — not just job placement at graduation, but helping students build self-awareness, career clarity, and professional identity throughout their entire undergraduate journey. She values empowering students to lead, wants NSLS membership to be something students can actively market and articulate (on LinkedIn, in interviews, on resumes), and is interested in tools that help students understand themselves and their professional trajectory earlier. She explicitly cares about faculty buy-in to embed career development into the classroom and is focused on fighting the stigma that career preparation only matters in junior and senior year.</p>
+    <p><strong>Communication Style:</strong> Reflective and analytical. Freemont asked substantive questions in real time, took notes during the demo, and offered candid product observations — including a thoughtful critique of the "dream job" framing and a pointed question about whether entry-level pathways and reverse-engineered career steps are planned for the platform. She is collaborative and visibly engaged, but measured — she gave an 8–9 out of 10 rather than a 10, noting she is "always hard to give a 10."</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Freemont expressed genuine enthusiasm (8–9/10), engaged meaningfully with product details, asked forward-looking feature questions, and articulated clear institutional alignment with Society's career readiness value proposition. Her background as a former chapter president and current career development professional makes her an unusually credible and informed voice. She was receptive to the pilot school and Product Council invitation and indicated she would follow up with Maryanna.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>Student empowerment and autonomy — Freemont emphasized that co-presidents Michael and Sabine lead chapter operations independently, meeting directly with the CSR. She values being a "true advisor" who is consulted rather than one who directs. This structure should not be disrupted.</li>
+    <li>The NSLS organizational structure that allows students to thrive — Freemont cited the chapter structure itself as a growth mechanism and does not want it flattened or replaced by the new platform.</li>
+    <li>The SNT format's flexibility and small-group customization — she noted that the current model of giving groups the autonomy to meet independently (after an initial large-group session) is a feature, not a bug<a href="https://fathom.video/calls/755742568?t=1056" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 17:36</a>, and expressed openness to reducing front-end coordination overhead if Society could help with that.</li>
+    <li>Personality and strengths-based discovery tools — Freemont is a proponent of tools like CliftonStrengths and Gallup assessments that help students understand what they bring to the table, and she responded positively to seeing similar functionality in Society's Personal Insights track.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Community building is underdeveloped — as a newer chapter, Lehigh's NSLS is still figuring out how to build meaningful community among members, both in-person and online. The Community Service Chair role exists but is new and still finding its footing<a href="https://fathom.video/calls/755742568?t=280" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:40</a>.</li>
+    <li>Heavy coordination burden for SNTs — the current SNT process involves significant up-front organizational work (preference sheets, group matching, coordinating schedules, setting up room assignments). Freemont implied this overhead is not always necessary and could be streamlined.</li>
+    <li>Students join NSLS for resume value but don't know how to articulate or leverage the experience — Freemont raised this directly: students need to understand not just how NSLS helps them personally, but how to market it professionally on LinkedIn, in interviews, and in career conversations.</li>
+    <li>Career development is siloed to the junior/senior years — Freemont noted this is a systemic challenge at Lehigh: students and sometimes faculty assume career preparation starts late, and she is actively working to push career integration earlier and into the classroom.</li>
+    <li>Lack of faculty buy-in to integrate career into the curriculum — getting faculty to see career development as part of the academic experience remains an ongoing challenge<a href="https://fathom.video/calls/755742568?t=474" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 7:54</a>.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>Career outcomes leadership — Lehigh's stated institutional goal is to be "first, the best, or the only" in outcomes. While not yet precisely defined, this centers on where students land after graduation and what tools helped them get there.</li>
+    <li>Interdisciplinary programming — Lehigh is actively building crossovers between colleges (e.g., College of Business and College of Health)<a href="https://fathom.video/calls/755742568?t=407" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 6:47</a> to create integrated programs and degrees.</li>
+    <li>Early career clarity for students — Freemont wants tools that reach students in their first and sophomore years to help them align coursework, campus involvement, and internship decisions with emerging career goals.</li>
+    <li>AI integration — Lehigh is actively embracing AI (including developing an AI major) while still working out institutional language and best practices. The official framing is "AI as a tool, not your final product."</li>
+    <li>Outcomes data — the institution needs evidence that programs are producing measurable results, not just participation metrics.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Early Intervention as the Core Value Proposition</h3>
+    <p>Freemont's most energized response came when she connected Society to the possibility of reaching students early — freshmen in the spring, sophomores accepting NSLS invites — before career decision-making calcifies. She envisions Society helping students align their major selection, campus involvement, and internship choices with emerging career clarity, rather than scrambling in their junior or senior year. This is both a personal professional mission for her and a stated institutional priority at Lehigh.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. The "Dream Job" Framing Needs Refinement</h3>
+    <p>Freemont raised a substantive product critique: the dream job concept skews aspirational and may alienate students who are simply trying to figure out what's next, not map a 20-year arc. She also noted that high-level roles like "Chief Innovation Officer" are not realistic near-term targets for undergraduates, and asked directly whether entry-level pathways and reverse-engineered career steps are planned. Lauren Prentiss confirmed this is on the roadmap. This is an actionable signal for copy, UX, and feature sequencing.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. Student Honesty Requires Privacy Controls</h3>
+    <p>When shown the confidence and career clarity scoring features, Freemont immediately flagged a concern: if students can see each other's scores, they will game them upward rather than answer honestly. She expressed this clearly — "I don't want them to be like, 'Oh, but if Johnny sees I have a three.'" Lauren confirmed that opt-in sharing controls are planned and that sensitive reflective data (strengths, values, personality) would not appear on public profiles. This landed well with Freemont and should be a highlighted design principle in future demos.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. NSLS Membership Needs a Professional Articulation Layer</h3>
+    <p>Freemont expressed a clear frustration that students join NSLS because "it looks good on a resume" but don't know how to talk about the experience in interviews, on LinkedIn, or in career conversations. She wants a bridge between NSLS participation and professional self-marketing. Society's Personal Insights, Career Clarity, and Achievement tracking features were seen as potentially addressing this gap — but the connection was not made explicit in the demo and should be.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. SNT Coordination Overhead Is a Real Pain Point</h3>
+    <p>Freemont noted that the current SNT process puts significant organizational burden on the SNT coordinator and e-board members up front — preference sheets, group matching, scheduling, room assignments, and a mandatory all-groups kickoff session. She questioned whether that level of structure is necessary and was receptive to the idea that Society could absorb much of that coordination work, freeing students to focus on the actual SNT experience. The possibility of chapter-level vs. national-level SNTs also generated genuine interest and curiosity.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+  <div class="enthusiasm-score">8.5/10</div>
+  <p><em>Freemont stated "I'm like an 8–9 here," noting she is always hesitant to give a 10. Score represented here as 8.5 to reflect her stated range.</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The Personal Insights track — Freemont responded positively to strengths, personality, and values discovery tools, connecting them to her existing use of CliftonStrengths and Gallup in her advising practice.</li>
+    <li>The dream job generation concept — she appreciated that it encourages students to think expansively about future possibilities, even while noting the framing and scope needed refinement.</li>
+    <li>The AI coach framing as a guide, not a shortcut — Lehigh's institutional stance ("AI as a tool, not your final product") is well-aligned with Society's guardrails, and Freemont appreciated this distinction.</li>
+    <li>The career readiness score and advisor reporting dashboard — the idea of having a single score that rolls up student readiness data, and being able to review it before a student appointment, resonated strongly with her career services background.</li>
+    <li>Advisor access to messaging and student data — when Lauren confirmed advisors could be included in SNT messaging, Freemont responded positively.</li>
+    <li>The balance of AI personalization and human interaction — in her closing remarks, Freemont specifically cited "the integration of AI and the personalization, but also the student experience and the student interaction" as what made the platform compelling.</li>
+    <li>The SMART goal-setting methodology in the coach — she recognized this as consistent with NSLS Foundations of Leadership curriculum, which she appreciated as a continuity signal.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>"Dream job" language may be off-putting to students who are not ready for long-term visioning — Freemont raised this organically and Lauren acknowledged it as a known copy/UX issue.</li>
+    <li>No clear pathway from dream job to entry-level roles — Freemont asked directly whether the platform plans to show reverse-engineered steps from aspirational roles to near-term positions. This is on the roadmap but not yet built.</li>
+    <li>Personality assessment retake policy is unclear — Freemont asked whether assessments are one-and-done or whether students are prompted to revisit them. Lauren confirmed retakes are possible but acknowledged that prompting students to revisit is not yet built in.</li>
+    <li>SNT features are still in development and not yet broadly available — Chris flagged this during the demo. Freemont absorbed it without apparent concern but it is a gap in what she can act on now.</li>
+    <li>Timeline for self-leadership track and SNT features was not specific — Freemont asked for a timeline and received a general "fall sometime" answer, which is not fully satisfying for planning purposes.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Freemont was not previously aware that SNTs could potentially be structured at both chapter level and national level — Maryanna raised this during the SNT discussion and it visibly sparked Freemont's interest. She immediately began thinking through how a local-first, national-optional structure might work and whether Society SNTs could serve as the "advanced" continuation layer beyond the standard three required for induction.</li>
+    <li>Freemont connected Society's potential impact directly to academic decision-making — she articulated unprompted that if students gain career clarity early through Society, it could influence their major selection and campus involvement, not just their job search. This is a broader value claim than the NSLS team led with and worth capturing as a proof point.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Personal Insights Track (strengths, values, personality discovery)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Freemont directly connected this to her existing use of CliftonStrengths and Gallup in career advising. Sees this as a natural complement to her current practice and something students would benefit from early in their journey.</td>
+      </tr>
+      <tr>
+        <td>Career Clarity Track — Dream Job Generation</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Appreciated the aspirational framing for students who are ready for it. However, raised a substantive concern that the language and scope skew too senior/graduate-level and may alienate undergraduates focused on near-term employment. Wants entry-level pathways and reverse-engineered steps.</td>
+      </tr>
+      <tr>
+        <td>AI Coach (on-demand, in-line guidance)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Responded well to the framing of AI as a guide, not a shortcut. Aligned with Lehigh's institutional AI stance. Appreciated guardrails. Specifically noted the balance of AI personalization with student interaction as a strength of the platform.</td>
+      </tr>
+      <tr>
+        <td>SMART Goal Setting via Coach + Achievements Engine</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Recognized the SMART goal methodology as consistent with Foundations of Leadership training. The ability to set goals, track them, reflect on completions, and have that context feed back into the coach was seen as a meaningful loop.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score + Advisor Reporting Dashboard</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>This resonated immediately with Freemont's career services identity. The idea of being able to review a student's readiness score and underlying data before an advising appointment was framed as a meaningful upgrade to how she currently prepares for student meetings.</td>
+      </tr>
+      <tr>
+        <td>Personality Assessment Retake / Revisit Prompting</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Freemont asked whether students are one-and-done or encouraged to retake assessments as they grow. Lauren confirmed retakes are possible but acknowledged that structured prompting to revisit (e.g., start of a new semester, after a new experience) is not yet built. Freemont found the concept of periodic revisiting compelling.</td>
+      </tr>
+      <tr>
+        <td>Student Profile Visibility / Privacy Controls on Scores</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Freemont raised a clear concern that if students can see each other's confidence or career clarity scores, they will answer dishonestly to avoid embarrassment. She wants students to self-report honestly. Lauren's response — that reflective/internal data won't appear on public profiles and students can opt in to what they share — landed well, but this needs to be a prominent design principle and communicated clearly during onboarding.</td>
+      </tr>
+      <tr>
+        <td>Success Networking Teams (SNTs) via Society Platform</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Freemont was receptive to the idea of Society reducing SNT coordination overhead. She questioned whether the current all-groups kickoff structure is necessary and saw value in small-group flexibility. She was also genuinely intrigued by the idea of chapter-level vs. national-level SNTs and began constructing a model aloud where required SNTs are chapter-local and Society SNTs serve as an optional national extension.</td>
+      </tr>
+      <tr>
+        <td>In-Platform Messaging (student-to-student, student-to-advisor)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Freemont responded positively when Lauren confirmed that advisors can be included in SNT messaging. No friction raised. Still in development for broader use.</td>
+      </tr>
+      <tr>
+        <td>Events Management via Society</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Currently limited to SNT events. Freemont did not comment directly on this feature. Broader event management (speaker broadcasts, campus events) is on the roadmap but not yet available.</td>
+      </tr>
+      <tr>
+        <td>School-Specific AI Agent (surfaces local classes, programs, resources)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Chris described this as a roadmap feature — an agent that would learn Lehigh's specific offerings (e.g., public speaking courses, Toastmasters on campus) and surface them in coaching conversations. Freemont did not react verbally but this directly addresses her interest in integrating career tools with academic programs.</td>
+      </tr>
+      <tr>
+        <td>Self-Leadership Track (in development)</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Freemont asked for a timeline and received a general "fall sometime" answer. No negative reaction, but the lack of specificity is a gap for planning. She did not engage with the content of this track substantively since it is not yet available.</td>
+      </tr>
+      <tr>
+        <td>Entry-Level Role Pathways / Reverse-Engineered Career Steps</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Freemont asked directly whether the platform plans to show students the steps from where they are now to a dream job — not just the end destination. Lauren confirmed it is on the roadmap. This is a meaningful gap for undergraduate users and should be prioritized in the product roadmap and communicated clearly in future demos to career services advisors.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Chris Higbee to send Freemont a written summary of the meeting and a follow-up survey to capture her feedback in a standardized format for cross-school comparison. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Maryanna Laferriere to follow up with Freemont to discuss pilot school participation and next steps for Lehigh's involvement in Society rollout this fall. <span class="owner-tag">Maryanna Laferriere</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Freemont to discuss the pilot school opportunity internally at Lehigh and signal interest or questions back to Maryanna Laferriere. <span class="owner-tag">Jennifer Freemont</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Product team to review the "dream job" framing and evaluate whether copy changes, a student-facing scope question (near-term vs. long-term), or entry-level pathway features should be prioritized in the roadmap based on feedback from this and other school visits. <span class="owner-tag">Lauren Prentiss</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Product team to evaluate adding structured prompts or nudges that encourage students to revisit personality assessments and career clarity inputs at natural inflection points (e.g., new semester, post-internship). <span class="owner-tag">Lauren Prentiss</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Product team to ensure privacy controls and opt-in sharing settings for student scores and reflective data are clearly communicated during onboarding — this was flagged as a trust and data integrity issue by Freemont. <span class="owner-tag">Lauren Prentiss</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>NSLS team to provide Freemont with a more specific timeline for the SNT features and self-leadership track availability when confirmed, to support Lehigh's fall planning. <span class="owner-tag">Maryanna Laferriere / Lauren Prentiss</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>Will the platform eventually surface entry-level roles and reverse-engineered career pathways, not just aspirational "dream jobs"? When is this planned and what will it look like for an undergraduate user?</li>
+    <li>How will the chapter-level vs. national-level SNT structure work in practice? Can a student complete required chapter SNTs locally and then opt into national Society SNTs as an extension — and does that count toward any additional NSLS recognition?</li>
+    <li>What is the specific fall target date for SNT features and the self-leadership track being available to pilot schools?</li>
+    <li>Will the school-specific AI agent (surfacing local courses, programs, and resources) be part of the pilot school experience or is it further down the roadmap?</li>
+    <li>How will students be prompted or encouraged to revisit their personality assessments and career clarity inputs over time — is there a built-in re-engagement mechanism planned?</li>
+    <li>What level of advisor access to student data (coaching transcripts, goal history, readiness scores) will be available at launch vs. later, and how will student consent be managed?</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <th>School</th>
+        <td>Lehigh University</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>Bethlehem, PA</td>
+      </tr>
+      <tr>
+        <th>School Type</th>
+        <td>Private 4-Year</td>
+      </tr>
+      <tr>
+        <th>Chapter Status</th>
+        <td>Established — first full academic year completed 2024–2025; officially recognized Spring 2025</td>
+      </tr>
+      <tr>
+        <th>Chapter Type</th>
+        <td>Online (with strong expressed preference for in-person community building)</td>
+      </tr>
+      <tr>
+        <th>Segment</th>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <th>Enthusiasm Score</th>
+        <td>8.5/10 (self-reported as "8–9")</td>
+      </tr>
+      <tr>
+        <th>Pilot Partner Interest</th>
+        <td>Yes — receptive; Freemont indicated she would follow up with Maryanna to confirm</td>
+      </tr>
+      <tr>
+        <th>Product Council Interest</th>
+        <td>Yes — strong candidate; dual expertise as former chapter president and career development professional makes her a high-value long-term voice</td>
+      </tr>
+      <tr>
+        <th>Top Pain Points</th>
+        <td>Community building in a new chapter; SNT coordination overhead; students joining NSLS for resume value without knowing how to articulate the experience; career development siloed to junior/senior years; lack of early-stage career clarity tools for freshmen and sophomores</td>
+      </tr>
+      <tr>
+        <th>Key Signal</th>
+        <td>Freemont envisions Society as an early-intervention tool that helps students align major selection, campus involvement, and internship choices with career clarity — not just a senior-year job search aid. She also surfaced a meaningful product gap: the platform needs entry-level pathways and reverse-engineered steps, not only aspirational dream job framing.</td>
+      </tr>
+      <tr>
+        <th>CSR</th>
+        <td>Maryanna Laferriere</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; Lehigh University &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; July 22, 2026
+</footer>
+
+<script src="/auth-chip.js"></script>
+</body>
+</html>

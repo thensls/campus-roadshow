@@ -13,7 +13,7 @@ Steps:
 
 Usage
 -----
-  python ~/Desktop/generate_school.py \\
+  python3 Scripts/generate_school.py \\
     --name "Mott Community College" \\
     --location "Flint, MI" \\
     --type "Community College · Public 2-Year" \\
@@ -57,9 +57,9 @@ AIRTABLE_BASE    = "https://api.airtable.com/v0"
 AIRTABLE_BASE_ID = "app5rj9bOGQNFoIoD"
 AIRTABLE_TABLE   = "Survey%20Responses"
 
-DESKTOP    = Path.home() / "Desktop"
-PROJECT    = DESKTOP / "Campus Roadshow" / "report"
-INDEX_FILE = PROJECT / "index.html"
+SCRIPTS_DIR = Path(__file__).parent
+PROJECT     = SCRIPTS_DIR.parent / "report"
+INDEX_FILE  = PROJECT / "index.html"
 
 
 # ─────────────────────────────────────────────────────────────────────────────
