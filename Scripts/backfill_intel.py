@@ -7,11 +7,12 @@ Backfill three Airtable tables from index.html:
 """
 
 import os, re, html as hl, time, requests
+from pathlib import Path
 
 BASE_ID = "app5rj9bOGQNFoIoD"
 API_KEY = os.environ["AIRTABLE_API_KEY"]
 HEADERS = {"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/json"}
-INDEX   = os.path.expanduser("~/Desktop/Campus Roadshow/report/index.html")
+INDEX   = str(Path(__file__).parent.parent / "report" / "index.html")
 
 with open(INDEX) as f:
     RAW = f.read()

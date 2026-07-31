@@ -567,7 +567,7 @@ def wrap_with_original_template(html_content: str, school_name: str, title: str,
     return html
 
 
-def reformat_school_reports(school_slugs: list[str], base_path: str = '/Users/chrishigbee/Desktop/Campus Roadshow/report/schools'):
+def reformat_school_reports(school_slugs: list[str], base_path: str = str(Path(__file__).parent.parent / "report" / "schools")):
     """Reformat meeting reports for specified schools."""
     
     base_path_obj = Path(base_path)

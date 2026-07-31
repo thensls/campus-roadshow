@@ -12,6 +12,7 @@ import re
 import json
 import time
 import requests
+from pathlib import Path
 
 BASE_ID = "app5rj9bOGQNFoIoD"
 MEETINGS_TABLE_ID = "tblLMsmz7pQOpeQr8"
@@ -26,9 +27,7 @@ HEADERS = {
     "Content-Type": "application/json",
 }
 
-REPORTS_ROOT = os.path.expanduser(
-    "~/Desktop/Campus Roadshow/report/schools"
-)
+REPORTS_ROOT = str(Path(__file__).parent.parent / "report" / "schools")
 
 # Mapping from (school_dir, meeting_filename) → Airtable record ID
 # Only for records that already exist
