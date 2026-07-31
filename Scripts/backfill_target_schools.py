@@ -16,12 +16,13 @@ Source:
 """
 
 import os, re, html, time, requests
+from pathlib import Path
 
 BASE_ID   = "app5rj9bOGQNFoIoD"
 TABLE_ID  = "tbleaeYm3UEINl1oU"
 API_KEY   = os.environ["AIRTABLE_API_KEY"]
 HEADERS   = {"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/json"}
-ROOT      = os.path.expanduser("~/Desktop/Campus Roadshow/report")
+ROOT      = str(Path(__file__).parent.parent / "report")
 
 # Map school card href slug → Airtable Target Schools record ID
 SLUG_TO_RECORD = {
