@@ -33,7 +33,7 @@ AIRTABLE_BASE    = "https://api.airtable.com/v0"
 AIRTABLE_BASE_ID = "app5rj9bOGQNFoIoD"
 AIRTABLE_TABLE   = "Survey%20Responses"
 
-PROJECT = Path.home() / "Desktop" / "Campus Roadshow" / "report"
+PROJECT = Path(__file__).parent.parent / "report"
 
 # ── Feature signal field names (top pick + runner-ups per category) ────────
 FEATURE_CATEGORIES = [
