@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University at Albany — Discovery &amp; Demo Meeting | NSLS Roadshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --navy:#1A3550; --gold:#F2DA4E; --red:#C96058; --bg:#F2E9E2; --card:#E8DDD5;
+    --text:#1E1414; --muted:#6B6357; --border:rgba(30,20,20,0.1);
+    --yellow:#F2DA4E; --white:#FFFDF8; --black:#1E1414; --purple:#4a4faa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  a{color:#1A3550;} a:hover{color:#C96058;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2E9E2;color:var(--black);line-height:1.6;}
+  h1,h2{font-family:'Cigars',Georgia,'Times New Roman',serif;}
+  .page-header{background:#F2E9E2;border-bottom:2px solid #1A3550;padding:2rem 0 0.56rem;}
+  .page-header .header-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;}
+  .page-header .header-pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .page-header .header-pill{transition:color .2s;background:transparent;border:1px solid rgba(36,59,82,0.35);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#243B52;}
+  .page-header a.header-pill:hover{color:#C96058;}
+  .page-header .header-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+  .page-header .header-btn{display:inline-flex;align-items:center;gap:8px;background:#243B52;border:1px solid #243B52;color:#FFFDF8;border-radius:8px;padding:8px 18px;font-weight:600;font-size:14px;text-decoration:none;transition:background 0.15s;}
+  .page-header .header-btn:hover{background:#1a2d3e;color:#FFFDF8;}
+  .page-header h1{font-size:1.75rem;font-weight:700;color:#1A3550;margin-bottom:0.5rem;}
+  .page-header .recording-link{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.85rem;background:#C96058;border:1px solid #C96058;border-radius:6px;color:#FFFDF8;font-size:0.8rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+  .page-header .recording-link:hover{opacity:0.88;color:#FFFDF8;}
+  main{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4rem;display:flex;align-items:flex-start;gap:2rem;}
+  .content{flex:1;min-width:0;}
+  .toc-sidebar{width:185px;flex-shrink:0;position:sticky;top:1.5rem;}
+  .toc-nav{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:0.9rem 1rem;}
+  .toc-nav .toc-heading{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.65rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+  .toc-nav a{display:block;font-size:0.78rem;color:var(--text);text-decoration:none;padding:0.28rem 0.5rem;border-radius:4px;line-height:1.4;margin-bottom:0.05rem;}
+  .toc-nav a:hover{background:rgba(30,20,20,0.05);color:var(--navy);}
+  .section-accordion>summary{list-style:none;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .section-accordion>summary::-webkit-details-marker{display:none;}
+  .section-accordion>summary::after{content:"▸ Show";font-size:0.78rem;font-weight:600;color:var(--muted);flex-shrink:0;margin-left:0.75rem;}
+  details[open].section-accordion>summary::after{content:"▾ Hide";}
+  .section{margin-bottom:2.5rem;}
+  .section-title{font-size:20px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.25rem 1.5rem;}
+  .card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;margin-top:1rem;}
+  .card h3:first-child{margin-top:0;}
+  .card ul{padding-left:1.25rem;}
+  .card li{margin-bottom:0.3rem;font-size:0.93rem;}
+  .card p{font-size:0.93rem;}
+  .theme-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid #1A3550;}
+  .theme-card .theme-title{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .theme-card p{font-size:0.9rem;color:var(--text);}
+  .enthusiasm-score{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:#C96058;color:#FFFDF8;font-size:1.3rem;font-weight:800;margin-bottom:1rem;font-family:'Cigars',Georgia,serif;}
+  .feature-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .feature-table thead tr{background:#1A3550;color:#FFFDF8;}
+  .feature-table th{padding:0.7rem 1rem;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;}
+  .feature-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .feature-table tr:last-child td{border-bottom:none;}
+  .feature-table tr:nth-child(even){background:rgba(30,20,20,0.03);}
+  .badge{display:inline-flex;align-items:center;gap:0.25rem;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;font-weight:600;white-space:nowrap;}
+  .badge-strong{background:rgba(60,140,30,0.1);color:#2a7a10;}
+  .badge-positive{background:#E2E4F3;color:#4a4faa;}
+  .badge-question{background:rgba(180,130,0,0.1);color:#7a5500;}
+  .badge-care{background:rgba(201,96,88,0.12);color:#C96058;}
+  .advisor-card{background:var(--card);border-radius:8px;border:1px solid var(--border);padding:1.1rem 1.4rem;margin-bottom:0.75rem;}
+  .advisor-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .advisor-card p{font-size:0.9rem;color:var(--text);}
+  .action-items{list-style:none;padding:0;}
+  .action-items li{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .action-items li:last-child{border-bottom:none;}
+  .action-number{background:#C96058;color:#FFFDF8;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .owner-tag{display:inline-block;background:#E2E4F3;color:#4a4faa;border:1px solid #C8CBE8;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .open-questions{list-style:none;padding:0;}
+  .open-questions li{padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .open-questions li:last-child{border-bottom:none;}
+  .metadata-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-size:0.88rem;}
+  .metadata-table th{padding:0.6rem 1rem;text-align:left;font-weight:600;color:var(--muted);font-size:0.8rem;width:38%;background:rgba(30,20,20,0.04);border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .metadata-table tr:last-child th,.metadata-table tr:last-child td{border-bottom:none;}
+  .section>h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin:1.25rem 0 0.5rem;padding:0.4rem 0.75rem;background:rgba(30,20,20,0.04);border-radius:4px;}
+  .section>h3:first-of-type{margin-top:0;}
+  .section>ul{padding-left:1.5rem;margin-bottom:1rem;background:rgba(30,20,20,0.02);border-radius:0 0 6px 6px;border:1px solid var(--border);border-top:none;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;}
+  .section>ul li{margin-bottom:0.5rem;font-size:0.9rem;line-height:1.65;}
+  .section>p{font-size:0.9rem;line-height:1.65;margin-bottom:1rem;background:rgba(30,20,20,0.02);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;}
+  footer{text-align:center;font-size:0.75rem;color:#6B6357;padding:2rem;border-top:1px solid rgba(30,20,20,0.1);background:#F2E9E2;margin-top:3rem;}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-pills">
+      <a href="../../../index.html" class="header-pill" style="text-decoration:none;">NSLS Society Roadshow</a>
+      <span class="header-pill">August 7, 2026</span>
+    </div>
+    <h1>University at Albany &mdash; Discovery &amp; Demo Meeting</h1>
+    <div class="header-buttons">
+      <a class="header-btn" href="../index.html">&larr; University at Albany Hub</a>
+      <a class="header-btn" href="../survey.html">Survey Results</a>
+      <a class="recording-link" href="https://fathom.video/calls/775395907" target="_blank">&#9654; Fathom Recording</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <aside class="toc-sidebar">
+    <nav class="toc-nav">
+      <div class="toc-heading">Contents</div>
+      <a href="#s1">1 &mdash; School Snapshot</a>
+      <a href="#s2">2 &mdash; Advisor Profiles</a>
+      <a href="#s3">3 &mdash; Discovery Findings</a>
+      <a href="#s4">4 &mdash; Key Themes &amp; Signals</a>
+      <a href="#s5">5 &mdash; Society Reception</a>
+      <a href="#s6">6 &mdash; Feature-Level Feedback</a>
+      <a href="#s7">7 &mdash; Next Steps &amp; Open Items</a>
+      <a href="#s8">8 &mdash; Roadshow Metadata</a>
+    </nav>
+  </aside>
+  <div class="content">
+<section class="section" id="s1">
+  <h2 class="section-title">Section 1 — School Snapshot</h2>
+  <div class="card">
+    <p><strong>School:</strong> University at Albany (UAlbany)</p>
+    <p><strong>Location:</strong> Albany, NY</p>
+    <p><strong>School Type:</strong> Public 4-Year Research University (R1)</p>
+    <p><strong>Chapter Status:</strong> Established — the NSLS chapter has been active for at least five years, though Jermaine noted the back-end platform appeared unmaintained, with data inconsistencies suggesting limited active management over that period.</p>
+    <p><strong>Chapter Type:</strong> Standard (student-run SNTs; no mentor oversight currently embedded)</p>
+    <p><strong>Advisors Present:</strong> Sari Khatib (Associate Director, Office of Student Engagement and Belonging / Orientation) and Jermaine Harris (Employer Relations, Career Professional Development). CSR Alexis Scott was also present.</p>
+    <p><strong>Notable Context:</strong> UAlbany has recently launched a university-wide student success initiative branded <em>Thrive</em>, organized around four pillars: health and well-being, financial literacy, belonging on campus, and career and professional development<a href="https://fathom.video/calls/775395907?t=247" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:07</a>. This framework was introduced heading into the current academic year and is directly relevant to Society's value proposition. Jermaine was new to NSLS entirely — he encountered the organization through a NASPA conference<a href="https://fathom.video/calls/775395907?t=120" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 2:00</a> and was brought into this meeting as a career technology stakeholder. His office sits on the student affairs side and operates within a technology committee alongside Sari. Both advisors serve on that committee together, making them a natural evaluation pair for any platform decisions.</p>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2 class="section-title">Section 2 — Advisor Profiles</h2>
+
+  <div class="advisor-card">
+    <h3>Sari Khatib</h3>
+    <p><strong>Role:</strong> Associate Director, Office of Student Engagement and Belonging; closely involved with the Orientation Program</p>
+    <p><strong>Background:</strong> Sari has an established relationship with NSLS and is familiar with core member benefits including the Broadcast Speaker Series, the NSLS job board, and scholarship opportunities<a href="https://fathom.video/calls/775395907?t=89" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:29</a>. She works at the intersection of student engagement, belonging, and orientation — areas directly aligned with Society's personal insights and community-building features. She also sits on a technology committee with Jermaine, giving her cross-functional visibility into platform decisions.</p>
+    <p><strong>Motivations:</strong> Sari is focused on reducing platform overload for students and creating a consolidated, tech-forward experience that meets students where they are. She cited student feedback calling for a "one-stop shop" for resources. She is also motivated by UAlbany's new Thrive initiative and wants tools that tangibly support its four pillars. Her question about whether an AI coach could be complemented by a real-life coach signals interest in human-AI hybrid support models<a href="https://fathom.video/calls/775395907?t=1665" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 27:45</a>.</p>
+    <p><strong>Communication Style:</strong> Measured and institutional. Sari asks thoughtful, process-oriented questions and frames concerns around back-end usability, staff buy-in, and cross-divisional coordination. She thinks in terms of systems and rollout feasibility rather than features alone. Rated Society a 7/10 — expressing genuine promise but flagging implementation complexity as her key concern.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High. Sari is embedded in both engagement and orientation functions and sits on the technology committee. She is already an NSLS chapter contact and understands the member experience. Her concern about back-end usability is exactly the kind of feedback that would be valuable in a pilot relationship. She and Jermaine would need to evaluate together before any formal commitment.</p>
+  </div>
+
+  <div class="advisor-card">
+    <h3>Jermaine Harris</h3>
+    <p><strong>Role:</strong> Employer Relations, Career Professional Development (Student Affairs side); manages career platforms and the technology committee alongside Sari</p>
+    <p><strong>Background:</strong> Jermaine is new to NSLS but brings deep career services expertise. His work centers on connecting employers and students through career fairs, site visits, and platform management. He is familiar with tools such as Focus 2, Handshake, 12twenty, Gallup StrengthsFinder, and various resume AI and mock interview platforms. He has prior experience evaluating and piloting career technology and applies a rigorous, back-end-first lens to any new platform. He noted that UAlbany's existing NSLS back-end data appeared uncleaned and inconsistent — citing a figure of 72,000 users he found implausible — and used the phrase "data rich but analytic poor" to describe higher ed broadly<a href="https://fathom.video/calls/775395907?t=2894" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 48:14</a>.</p>
+    <p><strong>Motivations:</strong> Jermaine wants tools that improve the efficiency and quality of in-person career advising interactions, not replace them. He is focused on data integrity, self-reported student outcomes, and first-destination data. He sees value in AI coaching that scaffolds student thinking rather than generating answers for them — he explicitly praised platforms that "walk students through it instead of just giving them the answer."<a href="https://fathom.video/calls/775395907?t=3214" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 53:34</a> He is also attuned to platform sustainability, noting that higher ed institutions become "graveyards for platforms" when staff turnover occurs or buy-in is absent.</p>
+    <p><strong>Communication Style:</strong> Direct, skeptical, and experienced. Jermaine asks sharp back-end and operational questions (login architecture, career center integration, data scrubbing, platform adoption patterns). He self-described his 7–8/10 enthusiasm score as reflecting healthy skepticism<a href="https://fathom.video/calls/775395907?t=2873" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 47:53</a> — he wants to see the system in use before drawing conclusions. He is collegial and engaged but will not advocate for a platform he hasn't pressure-tested.</p>
+    <p><strong>Pilot Partner / Product Council Potential:</strong> High — particularly for the Career Services integration workstream. Jermaine explicitly said he would share the Society recording with his career education team<a href="https://fathom.video/calls/775395907?t=3743" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 1:02:23</a>. He endorsed NSLS's strategy of piloting with a focused cohort first. His instinct to run pilots through EOP counselors or specific courses mirrors exactly how NSLS is approaching rollout<a href="https://fathom.video/calls/775395907?t=2720" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 45:20</a>. He would need to loop in the career education side of his office before any formal commitment and indicated Sari would be the right co-partner for that process.</p>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2 class="section-title">Section 3 — Discovery Findings</h2>
+
+  <h3>What They Want to Preserve</h3>
+  <ul>
+    <li>The Broadcast Speaker Series — Sari cited this as a resource students value and that should not be lost in any platform transition.</li>
+    <li>The NSLS job board — identified by Sari as a meaningful member benefit students actively use.</li>
+    <li>Scholarship opportunities — Sari noted these as a third core value-driver for NSLS members at Albany.</li>
+    <li>Human-centered advising conversations — Jermaine emphasized that AI should prepare students for more efficient in-person meetings, not replace those interactions.</li>
+    <li>Institutional data integrity — Jermaine stressed the importance of accurate, well-maintained platform data and called out the risks of uncleaned records.</li>
+  </ul>
+
+  <h3>What Isn't Working</h3>
+  <ul>
+    <li>Platform overload — Sari reported direct student feedback about having too many places to go for information; students are asking for a consolidated resource hub<a href="https://fathom.video/calls/775395907?t=296" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 4:56</a>.</li>
+    <li>Back-end neglect — Jermaine discovered the NSLS platform had not been properly maintained at Albany, with data that appeared inflated or uncleaned over five-plus years<a href="https://fathom.video/calls/775395907?t=2894" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 48:14</a>. He expressed frustration that no one had been managing or scrubbing it.</li>
+    <li>Disconnected tools in career services — Jermaine described the current landscape as fragmented: StrengthsFinder, Focus 2, resume AI tools, and mock interview platforms are all siloed across separate systems. Everyone is looking for a one-stop shop but the ones that exist are either poor quality or prohibitively expensive for state schools.</li>
+    <li>Student misinterpretation of interest-based tools — Jermaine flagged a recurring problem with Focus 2: students conflate interest results with capability or job prescriptions, leading to confusion that requires a follow-up meeting with a career coach to untangle.</li>
+    <li>AI misuse for generic outputs — Jermaine shared a specific example of two accounting students submitting identical ChatGPT-generated resumes without personalization<a href="https://fathom.video/calls/775395907?t=954" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 15:54</a>, illustrating a structural problem with unguided AI use.</li>
+    <li>Platform adoption and sustainability — Jermaine described a pattern of platforms being adopted and abandoned when staff leave or buy-in erodes, calling higher ed institutions "graveyards for platforms."<a href="https://fathom.video/calls/775395907?t=3453" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 57:33</a></li>
+    <li>University email expiration — Jermaine flagged that institutional emails typically deactivate three to six months post-graduation<a href="https://fathom.video/calls/775395907?t=3405" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 56:45</a>, creating continuity problems for platforms tied to those credentials.</li>
+  </ul>
+
+  <h3>School Priorities</h3>
+  <ul>
+    <li>UAlbany's newly launched <em>Thrive</em> initiative establishes four institutional student success pillars: health and well-being, financial literacy, belonging on campus, and career and professional development.</li>
+    <li>Capturing and reporting on student experiential learning data (internships, outcomes) in a reliable, self-reported format — Jermaine cited the shift toward platforms like Handshake and 12twenty to enable real-time student self-reporting in response to employer data-sharing limitations<a href="https://fathom.video/calls/775395907?t=216" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 3:36</a>.</li>
+    <li>Increasing student engagement with career services and academic advising through more efficient, informed touchpoints — both advisors expressed interest in a model where AI prepares students for more productive in-person meetings.</li>
+    <li>Cross-divisional coordination — Sari emphasized that any platform affecting multiple units (engagement, career services, academic advising) requires broad staff buy-in and careful rollout planning across divisions.</li>
+    <li>First-destination outcomes data — Jermaine described this as a long-standing institutional need, noting that scrubbing LinkedIn data is already common practice among platforms serving this function.</li>
+  </ul>
+</section>
+
+<section class="section" id="s4">
+  <h2 class="section-title">Section 4 — Key Themes & Signals</h2>
+
+  <div class="theme-card">
+    <h3 class="theme-title">1. Platform Consolidation Is a Student-Stated and Staff-Felt Need</h3>
+    <p>Sari directly cited student feedback calling for a single place to access resources. Jermaine echoed this from the staff side, noting he has sat through demos of one-stop-shop platforms — some good, some too expensive for a state school. Both advisors framed fragmentation as a core problem. Society's multi-track, AI-unified architecture maps directly onto this pain point, but the promise has been made before and not delivered. Credibility will require demonstrating back-end simplicity, not just front-end breadth.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">2. Back-End Usability and Staff Buy-In Are Make-or-Break Conditions</h3>
+    <p>Both advisors converged independently on this theme. Sari raised it as her primary concern when rating Society a 7/10 — "the behind the scenes and what that's going to look like."<a href="https://fathom.video/calls/775395907?t=2953" target="_blank" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;background:rgba(242,218,78,0.1);border:1px solid rgba(242,218,78,0.3);border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap;" title="Jump to this moment in the recording">&#9654; 49:13</a> Jermaine articulated the systemic version: higher ed is a graveyard for platforms when staff don't use them or someone leaves. His observation that the existing NSLS back-end had five-plus years of uncleaned data at Albany is a direct signal that ease of administration and ongoing support must be core design priorities, not afterthoughts.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">3. AI Should Scaffold Thinking, Not Generate Answers</h3>
+    <p>Jermaine articulated a clear and strongly held philosophy: AI tools are valuable when they guide students through a process, not when they hand students outputs to copy-paste. He shared a concrete example of two accounting students submitting identical ChatGPT resumes. He explicitly praised Society's coaching approach — "I love those platforms that help walk them through it instead of just giving them the answer" — making this a confirmed value alignment. This framing should be reinforced in all career services messaging for Society.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">4. Career Services Integration Requires a Dedicated Pathway</h3>
+    <p>Jermaine made clear that career services operates with its own tools, conferences (NACE, Eastern NACE), and internal structures — distinct from student affairs. He noted career services can sit under either student affairs or academic affairs depending on the institution, which affects how and to whom Society should be introduced. He sees value in the AI-to-human handoff model but will need to bring in his career education colleagues before any formal partnership. He committed to sharing the Society recording with that team, which is a meaningful voluntary next step.</p>
+  </div>
+
+  <div class="theme-card">
+    <h3 class="theme-title">5. Data Integrity and Longitudinal Outcomes Reporting Are Institutional Imperatives</h3>
+    <p>Jermaine described higher ed as "data rich but analytic poor" — a systemic condition where data exists but is poorly cleaned, managed, or analyzed. He wants student outcome data (a "report card" of what helped students succeed) and first-destination outcomes that are accurate and self-reported. His awareness of LinkedIn scraping as a common practice signals sophistication. The proposed career readiness score and longitudinal advisor dashboard landed as directionally right, but the advisors will judge Society on whether the data it produces is actually trustworthy and actionable — not just voluminous.</p>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2 class="section-title">Section 5 — Society Reception</h2>
+
+  <div class="enthusiasm-score">7/10</div>
+  <p><em>Both Sari Khatib and Jermaine Harris independently rated Society a 7 (with Jermaine offering 7–8). Scores reflect genuine interest and alignment tempered by back-end concerns and appropriate skepticism from two experienced platform evaluators.</em></p>
+
+  <h3>What Landed Well</h3>
+  <ul>
+    <li>The AI coach's guided, Socratic approach — Jermaine explicitly endorsed the model of walking students through thinking rather than generating answers for them.</li>
+    <li>The career readiness score concept — the idea of a pre-meeting snapshot that lets advisors understand where a student stands before they walk in resonated with Jermaine's vision for more efficient advising conversations.</li>
+    <li>The human-AI handoff model — Jermaine confirmed he has seen other products taking this approach and acknowledged it as the right direction, particularly for career services contexts with high student volume and limited staff.</li>
+    <li>The Renee story — the 68-year-old nontraditional student narrative illustrated that Society can capture students that traditional leadership framing misses, and that deep personalization drives engagement even in unexpected demographics.</li>
+    <li>The multi-email / login flexibility — Jermaine immediately flagged the problem of institutional email expiration post-graduation and was reassured by the ability to link personal and school emails within a single record.</li>
+    <li>NSLS's piloting strategy — Jermaine validated using the NSLS membership cohort as a built-in focus group before broader rollout, comparing it to his own practice of piloting tools with EOP counselors or specific courses.</li>
+    <li>Alignment with UAlbany's Thrive initiative — Sari recognized Society's four tracks as directionally consistent with the school's four student success pillars.</li>
+  </ul>
+
+  <h3>What Raised Questions or Friction</h3>
+  <ul>
+    <li>Back-end complexity and administrator burden — Sari's primary concern was the investment required to build and manage the platform institutionally, especially given that staff are already pressed for time and portfolios are shifting.</li>
+    <li>Interests vs. capabilities distinction — Jermaine raised a well-formed concern about whether Society's career recommendations reflect interests or capabilities, drawing on his experience with Focus 2 and the confusion it creates for students. He was satisfied with Chris's clarification but flagged this as an ongoing risk to manage in student communications.</li>
+    <li>Gallup StrengthsFinder absence — Jermaine noted the values exercise reminded him of StrengthsFinder and asked directly about integration. He confirmed the career education team at Albany is "heavily on" Gallup Strengths, making this a meaningful gap for that audience.</li>
+    <li>Career center integration pathway — Jermaine indicated Society is not yet ready for a formal career services partnership and that the right next step is looping in career education colleagues. He framed this as a sequencing issue, not a rejection.</li>
+    <li>Platform sustainability track record — Jermaine's observation about higher ed platform graveyards was a direct challenge to NSLS to demonstrate ongoing support, maintenance, and adoption infrastructure — not just a strong product demo.</li>
+    <li>State school budget constraints — Jermaine noted unprompted that some one-stop-shop platforms he has evaluated are "overly expensive" and impossible to get past purchasing at a state school, signaling that pricing will be a critical factor if Society expands beyond the NSLS membership bundle.</li>
+  </ul>
+
+  <h3>Surprises</h3>
+  <ul>
+    <li>Jermaine had zero prior NSLS familiarity — he encountered the organization only recently at NASPA and had not been engaged by the chapter at Albany despite working on the same campus. This represents a significant internal visibility gap for NSLS at the institution.</li>
+    <li>The existing NSLS back-end data at Albany appeared severely neglected — Jermaine discovered what he described as implausible user numbers (72,000) and called out a lack of data maintenance going back years. This was not raised as a criticism of Society specifically, but it reflects a broader trust and credibility challenge that the new platform will need to overcome.</li>
+    <li>Jermaine volunteered — unprompted — to share the Society recording with the career education team. This was the strongest organic signal of advocacy in the meeting and suggests he sees genuine potential for cross-departmental interest despite his stated skepticism.</li>
+    <li>Sari's question about human-coach complementarity surfaced an unmet need: the advisors want to understand how Society positions human staff in relation to the AI coach — a question about role clarity that the product team should address more explicitly in future demos.</li>
+  </ul>
+</section>
+
+<section class="section" id="s6">
+  <h2 class="section-title">Section 6 — Feature-Level Feedback</h2>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Signal</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>AI Coach (Guided / Socratic Model)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Jermaine explicitly praised the approach of walking students through thinking rather than generating answers. He contrasted it favorably against generic ChatGPT use. Sari also asked whether the AI coach could be complemented by a real human coach — validating the concept while requesting clearer human integration.</td>
+      </tr>
+      <tr>
+        <td>Career Clarity Track / Dream Job Engine</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Jermaine engaged substantively with the interests-vs-capabilities distinction, drawing on his Focus 2 experience. He was satisfied with the clarification but flagged that student communication around what the tool is showing them (personality-fit, not job prescription) will be critical to prevent the same confusion he sees with other tools.</td>
+      </tr>
+      <tr>
+        <td>Career Readiness Score</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>The concept of a pre-meeting snapshot score that advisors can review before a student appointment resonated with both advisors. Jermaine connected it directly to his goal of making in-person career advising more efficient and targeted. Feature is still in development; advisors acknowledged this.</td>
+      </tr>
+      <tr>
+        <td>Advisor / Staff Dashboard</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Sari's primary question about AI-to-human handoff led directly to the dashboard demo. Both advisors responded positively to the concept of seeing student profiles, progress, and career readiness data before meetings. Sari envisioned using it to refer students to career events like job fairs. Jermaine focused on the efficiency gains for career advising. Still in development — advisors noted this and said usability will determine whether it actually gets adopted.</td>
+      </tr>
+      <tr>
+        <td>Personal Insights Track (Values, Personality Approximations)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Jermaine noted the values exercise reminded him of Gallup StrengthsFinder and asked directly about integration. He confirmed the career education team at Albany relies heavily on Gallup Strengths. The approximated DISC / Myers-Briggs / Enneagram / Holland outputs were not specifically challenged but were not highlighted as differentiators either.</td>
+      </tr>
+      <tr>
+        <td>Gallup StrengthsFinder Integration</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Jermaine raised this unprompted after seeing the values exercise. He confirmed Albany's career education team is "heavily on" Gallup Strengths. Currently not built in. Chris acknowledged other schools have also requested this. Jermaine's feedback is a second data point validating the need. Product team should be informed.</td>
+      </tr>
+      <tr>
+        <td>SNT Groups (Peer Matching, Video, Goal Accountability)</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>Jermaine asked whether SNTs are peer-only or mentor-supervised. Sari confirmed Albany's SNTs are currently student-run. The built-in scheduling, video conferencing, and transcript features were noted as improvements over the current coordination burden. Jermaine asked whether SNT functionality could support mock interviews and industry expert events — Chris confirmed this is the direction. No friction raised.</td>
+      </tr>
+      <tr>
+        <td>SMART Goal Setting and Achievements Tracking</td>
+        <td><span class="badge badge-positive">Positive</span></td>
+        <td>The goal-setting coach interaction and achievements card were demonstrated without pushback. The SMS notification feature (in development) was received positively. No specific questions raised by either advisor; accepted as directionally sound.</td>
+      </tr>
+      <tr>
+        <td>School-Aware AI Agent (Course Catalog, Staff Directory)</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>The concept of an AI agent that learns the school's course catalog, faculty, and departmental resources — and routes students accordingly — generated clear enthusiasm. Sari's vision of cross-departmental referrals (e.g., pointing students to career fairs from within the platform) maps directly onto this feature. Jermaine's interest in the AI-to-career-advisor scheduling handoff also depends on this capability. Currently in development.</td>
+      </tr>
+      <tr>
+        <td>Event Management and Notifications</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Jermaine asked whether events shown in Society are NSLS-only or campus-wide. Chris confirmed currently NSLS-only with intent to expand. Jermaine validated the filtering logic — his own platform only surfaces career-relevant events. The scope question remains open: advisors will want clarity on when and how campus events can be integrated.</td>
+      </tr>
+      <tr>
+        <td>Multi-Email Login / Post-Graduation Account Continuity</td>
+        <td><span class="badge badge-strong">Strong</span></td>
+        <td>Jermaine flagged unprompted that institutional emails expire three to six months post-graduation, causing data and continuity problems across platforms. The ability to link personal and institutional emails within a single record directly addressed his concern. He responded immediately and positively.</td>
+      </tr>
+      <tr>
+        <td>LinkedIn Integration / First-Destination Outcomes Data</td>
+        <td><span class="badge badge-question">Open Question</span></td>
+        <td>Jermaine noted awareness of platforms that already scrub LinkedIn for first-destination outcomes data, signaling this is a crowded but validated space. He wants longitudinal, accurate student outcome data. The proposed LinkedIn integration and multi-year dashboard were received as the right direction but are not yet built. Jermaine will evaluate based on execution, not concept.</td>
+      </tr>
+      <tr>
+        <td>Financial Literacy Touchpoints in Career Clarity</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Chris proactively surfaced the financial reality framing (e.g., cost of living aligned to dream job location) as a complement to UAlbany's financial literacy pillar. Neither Sari nor Jermaine responded directly to this feature. It was not challenged but also not validated. Given Thrive's explicit financial literacy pillar, this should be revisited and positioned more deliberately in future conversations with Sari.</td>
+      </tr>
+      <tr>
+        <td>Back-End Administrator Experience</td>
+        <td><span class="badge badge-care">Needs Care</span></td>
+        <td>Both advisors raised this independently. Sari rated Society a 7/10 primarily because of back-end uncertainty. Jermaine described higher ed as a "graveyard for platforms" when back-end usability fails. Existing NSLS back-end data at Albany was described as uncleaned and inconsistent. This is the highest-risk area for adoption and must be addressed before any pilot conversation.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="s7">
+  <h2 class="section-title">Section 7 — Next Steps & Open Items</h2>
+
+  <ul class="action-items">
+    <li>
+      <div class="action-number">1</div>
+      <div>Send post-meeting survey to Sari Khatib and Jermaine Harris within 24 hours of the call, as committed during the meeting. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">2</div>
+      <div>Send follow-up email to both advisors including a recording of the call, a summary of key discussion points, and the oursociety.org URL so they can explore the platform independently. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">3</div>
+      <div>Jermaine committed to sharing the Society recording and demo summary with the career education team at UAlbany. Alexis should follow up with Jermaine to confirm this happened and offer to support a separate introduction meeting for that team. <span class="owner-tag">Alexis Scott</span></div>
+    </li>
+    <li>
+      <div class="action-number">4</div>
+      <div>Coordinate a follow-up meeting with Sari and Jermaine (and potentially the career education team) once Society is live for NSLS members at Albany, to revisit the pilot partner conversation. Jermaine indicated he would need Sari as a co-partner given their shared technology committee work. <span class="owner-tag">Alexis Scott</span></div>
+    </li>
+    <li>
+      <div class="action-number">5</div>
+      <div>Flag Gallup StrengthsFinder integration request to the Society product team. This is at least the second school to raise it; Jermaine confirmed Albany's career education team is heavily reliant on this tool. <span class="owner-tag">Chris Higbee</span></div>
+    </li>
+    <li>
+      <div class="action-number">6</div>
+      <div>Address back-end data hygiene on UAlbany's existing NSLS account. Jermaine flagged implausible user numbers (72,000) and a lack of maintenance over multiple years. This should be resolved before any advisor dashboard or pilot rollout is introduced. <span class="owner-tag">Alexis Scott</span></div>
+    </li>
+    <li>
+      <div class="action-number">7</div>
+      <div>Invite Sari and Jermaine to the Society pilot partner / Product Council program once the platform has been live with Albany's NSLS membership for an initial period. Revisit this conversation when the advisor dashboard is further developed. <span class="owner-tag">Alexis Scott / Chris Higbee</span></div>
+    </li>
+  </ul>
+
+  <h3>Open Questions</h3>
+  <ul class="open-questions">
+    <li>How will Society position and communicate the distinction between interest-based career suggestions and capability-based job readiness? Jermaine flagged this as a recurring student confusion point that must be addressed in onboarding and student-facing copy.</li>
+    <li>What does the back-end administrator experience look like for advisors at a school like Albany? Sari's 7/10 score hinged almost entirely on this question remaining unanswered. When will the advisor dashboard be available for a follow-up demo?</li>
+    <li>Will Gallup StrengthsFinder be integrated into Society, and on what timeline? This is a confirmed need at Albany's career education office and has been raised by multiple schools.</li>
+    <li>What is the rollout plan for the school-aware AI agent (course catalog, faculty, departmental routing)? Both advisors' most compelling use cases — cross-departmental referrals, scheduling handoffs to career advisors — depend on this feature.</li>
+    <li>When and how will campus-wide events (beyond NSLS events) be integrated into the Society events module? Jermaine asked this directly; the answer remains "future state."</li>
+    <li>What is the pricing model for Society if it expands beyond NSLS membership to all UAlbany students? Jermaine proactively flagged state school budget constraints and the difficulty of getting expensive platforms through purchasing. This will be a critical question before any institutional-level conversation.</li>
+    <li>How should the financial literacy framing within Career Clarity be positioned relative to UAlbany's Thrive pillar on financial literacy? This connection was made briefly but not validated by either advisor and warrants a more deliberate follow-up with Sari.</li>
+    <li>What does the human-coach complementarity model look like in practice? Sari's question about real-life coaches seeing AI coach outputs and reinforcing them was answered at a concept level but not demonstrated. This should be addressed more concretely in future demos, especially for student affairs audiences.</li>
+  </ul>
+</section>
+
+<section class="section" id="s8">
+  <h2 class="section-title">Section 8 — Roadshow Metadata</h2>
+
+  <table class="metadata-table">
+    <tbody>
+      <tr>
+        <td><strong>School</strong></td>
+        <td>University at Albany (UAlbany)</td>
+      </tr>
+      <tr>
+        <td><strong>Location</strong></td>
+        <td>Albany, NY</td>
+      </tr>
+      <tr>
+        <td><strong>School Type</strong></td>
+        <td>Public 4-Year Research University (R1)</td>
+      </tr>
+      <tr>
+        <td><strong>Chapter Status</strong></td>
+        <td>Established (5+ years); back-end data unmaintained</td>
+      </tr>
+      <tr>
+        <td><strong>Chapter Type</strong></td>
+        <td>Standard (student-run SNTs)</td>
+      </tr>
+      <tr>
+        <td><strong>Segment</strong></td>
+        <td>Tier 3</td>
+      </tr>
+      <tr>
+        <td><strong>Enthusiasm Score</strong></td>
+        <td>7/10 (both Sari Khatib and Jermaine Harris, independently)</td>
+      </tr>
+      <tr>
+        <td><strong>Pilot Partner Interest</strong></td>
+        <td>Yes — conditional on back-end usability improvements, career education team review, and platform stability. Jermaine indicated Sari is the right co-lead for any formal commitment.</td>
+      </tr>
+      <tr>
+        <td><strong>Product Council Interest</strong></td>
+        <td>Yes — both advisors expressed willingness to provide feedback and shape the platform. Jermaine volunteered to share the recording with the career education team. Formal invitation should follow initial NSLS member rollout.</td>
+      </tr>
+      <tr>
+        <td><strong>Top Pain Points</strong></td>
+        <td>Student platform overload / no consolidated resource hub; back-end data neglect and administrator burden;
+  </div>
+</main>
+
+<footer>
+  NSLS Society Roadshow &nbsp;&middot;&nbsp; University at Albany &nbsp;&middot;&nbsp; Discovery &amp; Demo Meeting &nbsp;&middot;&nbsp; August 7, 2026
+</footer>
+
+<script src="/auth-chip.js"></script>
+</body>
+</html>
