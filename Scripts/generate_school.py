@@ -999,7 +999,7 @@ def school_card_html(s: dict, hub: dict = None) -> str:
         if what_matters:
             signal_parts.append(f'<div><strong>Top priority:</strong> {what_matters}</div>')
         if ks_body:
-            short = ks_body[:160].rstrip()
+            short = _truncate_words(ks_body, 240)
             signal_parts.append(
                 f'<div style="margin-top:5px;"><strong>Key signal:</strong> {short}</div>'
             )
@@ -1050,6 +1050,70 @@ def school_card_html(s: dict, hub: dict = None) -> str:
 """
 
 
+def _truncate_words(text: str, limit: int) -> str:
+    """Truncate to `limit` chars on a word boundary, never mid-word."""
+    text = (text or "").strip()
+    if len(text) <= limit:
+        return text
+    cut = text[:limit].rsplit(" ", 1)[0].rstrip(" ,;:—-")
+    return cut + "…"
+
+
+def update_map_data(s: dict, hub: dict, html: str) -> str:
+    """Add the school to the roadshow map's JS data array.
+
+    The map renders from a hand-maintained array that is separate from the
+    school cards, so a generated school is silently absent from the map
+    unless it is added here.
+    """
+    slug = s["slug"]
+    if f'slug: "{slug}"' in html:
+        print(f"  [SKIP] {s['name']} already in map array")
+        return html
+
+    lat, lng = s.get("lat"), s.get("lng")
+    rating = (hub or {}).get("excitement_score", "?/10")
+    signal = _truncate_words((hub or {}).get("key_signal_body", ""), 120)
+    pilot  = str((hub or {}).get("pilot_interest_value", "")).lower()
+    status = "pilot" if ("✅" in pilot or "yes" in pilot) else "interested"
+
+    def _entry(la, ln):
+        return (f'      {{ name: "{s["name"]}", slug: "{slug}", city: "{s["location"]}", '
+                f'lat: {la}, lng: {ln}, status: "{status}", rating: "{rating}", '
+                f'signal: "{signal}" }},\n')
+
+    if lat is None or lng is None:
+        print("  [WARN] No --lat/--lng given; school will NOT appear on the map.")
+        print("         Re-run with --lat/--lng, or paste this into the map array:")
+        print("  " + _entry("<LAT>", "<LNG>").strip())
+        return html
+
+    entry = _entry(lat, lng)
+
+    # Insert after the last existing entry in the array
+    last = html.rfind('{ name: "')
+    if last == -1:
+        print("  [WARN] Could not locate map data array — add this line manually:")
+        print("  " + entry.strip())
+        return html
+    eol = html.find("\n", last) + 1
+    print(f"  [OK]  Added {s['name']} to map array ({lat}, {lng})")
+    return html[:eol] + entry + html[eol:]
+
+
+def update_map_title(html: str) -> str:
+    """Sync the hardcoded 'N Schools, Coast to Coast' heading to the card count."""
+    n = len(re.findall(r'<a class="school-card"', html))
+    new, count = re.subn(
+        r'(class="roadshow-map-title"[^>]*>)\s*\d+(\s+Schools, Coast to Coast)',
+        lambda m: f"{m.group(1)}{n}{m.group(2)}", html, count=1)
+    if count:
+        print(f"  [OK]  Map title set to {n} schools")
+    else:
+        print("  [WARN] Could not find map title — check the count manually")
+    return new
+
+
 def _sort_school_cards(html: str) -> str:
     """Re-order school cards inside .school-grid by meeting date, newest first."""
     grid_start = html.find('<div class="school-grid">')
@@ -1071,7 +1135,10 @@ def _sort_school_cards(html: str) -> str:
         m = re.search(r'class="meeting-date">([^<]+)<', block)
         if m:
             try:
-                return datetime.strptime(m.group(1).strip(), "%B %-d, %Y")
+                # %d (not %-d) — "%-d" is an invalid strptime directive and raises
+                # ValueError for every card, silently turning this sort into a no-op.
+                # %d already accepts both "7" and "07".
+                return datetime.strptime(m.group(1).strip(), "%B %d, %Y")
             except ValueError:
                 pass
         return datetime.min
@@ -1119,7 +1186,14 @@ def update_index(s: dict, hub: dict = None) -> None:
         print(f"  [OK]  Added {s['name']} card to {INDEX_FILE.name}")
 
     html = _sort_school_cards(html)
+    html = update_map_data(s, hub, html)
+    html = update_map_title(html)
     INDEX_FILE.write_text(html, encoding="utf-8")
+
+    depth = sum(l.count("<div") - l.count("</div>") for l in html.split("\n"))
+    if depth != 0:
+        print(f"  [ERROR] Unbalanced <div> in index.html (depth={depth}). "
+              f"The site will render blank — fix before deploying.")
 
 
 def update_index_editorial(s: dict, hub: dict) -> None:
@@ -1330,6 +1404,10 @@ def main():
     parser.add_argument("--advisor-names",   default="", help="Comma-separated advisor names (for group calls)")
     parser.add_argument("--chapter-status",  default="TBD", help="Chapter status (Established/New/TBD)")
     parser.add_argument("--chapter-type",    default="TBD", help="Chapter type (Hybrid/Online/In-Person/TBD)")
+    parser.add_argument("--lat", type=float, default=None,
+                        help="Latitude for the roadshow map pin (omit and the school is left off the map)")
+    parser.add_argument("--lng", type=float, default=None,
+                        help="Longitude for the roadshow map pin")
     parser.add_argument("--update-index",    action="store_true")
     parser.add_argument("--dry-run",         action="store_true", help="Print prompts; skip API calls")
     parser.add_argument("--transcript-file", default=None, help="Path to plain-text transcript; bypasses Fathom API (use when key is expired)")
@@ -1378,6 +1456,8 @@ def main():
         "advisors":       args.advisors,
         "chapter_status": args.chapter_status,
         "chapter_type":   args.chapter_type,
+        "lat":            args.lat,
+        "lng":            args.lng,
     }
 
     if not args.transcript_file:
