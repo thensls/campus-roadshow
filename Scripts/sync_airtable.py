@@ -11,8 +11,10 @@ idempotent — it upserts, so it is safe to re-run after every school addition.
 Supersedes the one-shot backfill_*.py scripts, which create unconditionally and
 would duplicate Quotes and Executive Findings on a second run.
 
-Tables synced: Target Schools, Meetings, Quotes, Executive Findings.
-Not synced: Contacts, Product Insights, Concerns & Objections (see MAINTENANCE.md).
+Tables synced: Target Schools, Meetings, Quotes, Executive Findings, Contacts
+(including Primary Contact links, which is what makes the Champion Potential
+lookup populate on Target Schools).
+Not synced: Product Insights, Concerns & Objections (see MAINTENANCE.md).
 """
 import os, re, sys, json, time, html as htmllib, unicodedata
 from pathlib import Path
@@ -22,7 +24,8 @@ import requests
 
 BASE = "app5rj9bOGQNFoIoD"
 TBL = {"schools": "tbleaeYm3UEINl1oU", "meetings": "tblLMsmz7pQOpeQr8",
-       "quotes": "tblBwzqpUmDZeDjyc", "findings": "tblkIEzMirsfzvHQn"}
+       "quotes": "tblBwzqpUmDZeDjyc", "findings": "tblkIEzMirsfzvHQn",
+       "contacts": "tbljDWMCZLjSgrkKw"}
 SITE = "https://roadshow.nsls.org"
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -159,6 +162,15 @@ ICON = {"✅": "Yes", "🤔": "Maybe", "❌": "No", "❓": None}
 # the WHOLE record with INVALID_MULTIPLE_CHOICE_OPTIONS, losing every other field
 # on it — so sanitise before sending rather than letting one bad value fail 13
 # good ones. The site says Chapter Type "Online"; Airtable calls that "Virtual".
+def norm_person(n):
+    """Normalise a person's name for matching. Deliberately conservative —
+    people dedupe far worse than institutions and there is already one
+    duplicate pair in Contacts."""
+    n = unicodedata.normalize("NFKD", (n or "").lower())
+    n = re.sub(r"\b(dr|prof|mr|mrs|ms|phd|edd)\b", " ", n)
+    return re.sub(r"[^a-z]", "", n)
+
+
 ALLOWED = {
     "Chapter Type": {"In-Person", "Virtual", "Hybrid", "TBD"},
     "Chapter Status": {"Established", "New", "Inactive", "TBD"},
@@ -170,6 +182,7 @@ ALLOWED = {
                          "Online University", "Technical College"},
     "Meeting Type": {"Discovery", "Follow-up", "Product Demo", "Check-in",
                      "Society Connect", "Other"},
+    "Champion Potential": {"Strong", "Moderate", "Low"},
 }
 SELECT_FIXUPS = {"Chapter Type": {"Online": "Virtual", "Virtual": "Virtual"}}
 
@@ -261,6 +274,38 @@ def parse_findings():
                     "icon": text(icon.group(1)) if icon else "",
                     "chips": ", ".join(text(c) for c in chips), "sort": i})
     return out
+
+
+def parse_advisors(school):
+    """Advisors from a school's hub page, plus the school-level champion
+    potential and the survey respondent (who becomes Primary Contact)."""
+    hub = ROOT / "report" / "schools" / school["slug"] / "index.html"
+    if not hub.exists():
+        return [], None, None
+    h = hub.read_text()
+
+    advisors = []
+    for m in re.finditer(
+            r'<div class="attendee"[^>]*>.*?<div class="name">(.*?)</div>\s*'
+            r'<div class="role">(.*?)</div>', h, re.S):
+        nm, role = text(m.group(1)), text(m.group(2))
+        if nm and nm not in [a["name"] for a in advisors]:
+            advisors.append({"name": nm, "role": role})
+
+    champ = None
+    cm = re.search(r'Champion Potential.*?>(Strong|Moderate|Low)<', h, re.S)
+    if cm:
+        champ = cm.group(1)
+
+    # Survey respondent -> Primary Contact ("derived from survey respondent
+    # data", per the Airtable field description).
+    respondent = None
+    sv = ROOT / "report" / "schools" / school["slug"] / "survey.html"
+    if sv.exists():
+        rm = re.search(r'<h2[^>]*>([^<]+?)\s*&mdash;', sv.read_text())
+        if rm:
+            respondent = text(rm.group(1))
+    return advisors, champ, respondent
 
 
 def parse_meetings(school):
@@ -457,6 +502,58 @@ def main():
         print(f"    [ORPHAN] #{o['fields'].get('Sort Order')} "
               f"{str(o['fields'].get('Headline',''))[:60]} — no longer on the site, "
               f"left in place for review")
+
+    # ---- Contacts + Primary Contact + Champion Potential ----
+    print(f"\n─── Contacts ───")
+    ex_c = fetch_all(TBL["contacts"])
+    by_person = {}
+    for r in ex_c:
+        by_person.setdefault(norm_person(r["fields"].get("Full Name", "")), []).append(r)
+
+    for s in schools:
+        advisors, champ, respondent = parse_advisors(s)
+        if not advisors:
+            continue
+        sid = school_rec.get(s["slug"])
+        primary = None
+        for a in advisors:
+            key = norm_person(a["name"])
+            cands = by_person.get(key, [])
+            if len(cands) > 1:
+                print(f"    [AMBIG ] {a['name']} ({s['name']}): {len(cands)} contacts "
+                      f"share this name — skipped, resolve by hand")
+                continue
+            is_primary = (respondent and norm_person(respondent) == key) or \
+                         (not respondent and a is advisors[0])
+            f = {"Full Name": a["name"], "Job Title": a["role"][:200]}
+            if sid:
+                f["School Affiliation"] = [sid]
+            # School-level judgement, so attach it to the primary contact only —
+            # do not duplicate it onto an advisor it wasn't made about.
+            if champ and is_primary:
+                f["Champion Potential"] = champ
+            label = f"{a['name'][:26]:28s} {s['name'][:26]}"
+            if cands:
+                rec = cands[0]
+                f.pop("Full Name")           # never rename an existing person
+                if changed(rec, f):
+                    write(TBL["contacts"], f, rec["id"], label)
+                else:
+                    stats["skip"] += 1
+                if is_primary:
+                    primary = rec["id"]
+            else:
+                r = write(TBL["contacts"], f, None, label + "  (new)")
+                if r:
+                    by_person.setdefault(key, []).append(r)
+                    if is_primary:
+                        primary = r["id"]
+
+        if primary and sid:
+            cur = next((r for r in existing if r["id"] == sid), None)
+            if not cur or (cur["fields"].get("Primary Contact") or [None])[0] != primary:
+                write(TBL["schools"], {"Primary Contact": [primary]}, sid,
+                      f"{s['name']} → Primary Contact")
 
     print(f"\n{'='*74}")
     print(f"  create {stats['create']}   update {stats['update']}   "

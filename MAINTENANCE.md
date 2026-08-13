@@ -66,7 +66,7 @@ starts maintaining this, since the merge-does-not-deploy trap is easy to fall in
 | Issue | Status |
 |---|---|
 | Airtable CRM had drifted badly out of sync | **Tooling fixed** 2026-08-12 (`sync_airtable.py`) — see §5 |
-| Contacts not synced, so `Champion Potential` can't populate | **Open, phase 2** — see §5 |
+| Contacts + Champion Potential | Synced 2026-08-12 (35/39) — see §5 |
 | Platform consolidation has no key finding despite being a 5-school pattern | **Open** — see §4 |
 | AI Coach heatmap row undercounts | **Open, accepted** — see §4 |
 | Two heatmap rows had 11 dots vs 39 columns | Fixed 2026-08-12 (PR #10) |
@@ -168,19 +168,20 @@ On first use it caught four things that would have damaged the CRM:
 backfills. **`backfill_intel.py` creates Quotes and Findings unconditionally**, so running it now
 duplicates every quote and finding. `sync_airtable.py` replaces all three.
 
-### Phase 2 — Contacts (open)
-`Champion Potential` on Target Schools is a **lookup** through `Primary Contact` → Contacts, so it
-cannot be written directly. It stays empty until advisor contacts are linked. The value itself is
-available and structured — every hub page has a Champion Potential tile reading Strong/Moderate —
-and `generate_school.py` already has `--airtable-contact-ids` built for this.
+### Contacts and Champion Potential
+Synced as of 2026-08-12. `Champion Potential` on Target Schools is a **lookup** through
+`Primary Contact` → Contacts, so it cannot be written directly — it populates once the contact
+link exists. Coverage is now 35/39; the rest are schools whose hub page carries no champion tile.
 
-Deliberately deferred: person-name matching is riskier than school matching (no slug to anchor on,
-names dedupe poorly), and it shouldn't be bolted onto an already-verified bulk write. Note the tile
-is a **school-level** judgment while the field lives on a **person** — for two-advisor schools,
-assign it to the Primary Contact rather than duplicating the judgment onto someone it wasn't made
-about.
+Two rules the sync applies here, both deliberate:
+- **The champion tile is a school-level judgement but the field lives on a person.** It is written
+  to the Primary Contact only, never duplicated onto a second advisor it was not made about.
+- **Primary Contact is the survey respondent** where one exists (matching the Airtable field
+  description), otherwise the first advisor listed on the hub page.
+- **Ambiguous names are skipped, not guessed.** Contacts already contains a duplicate pair
+  ("Lauren Breckenridge"); when a name matches more than one contact the sync warns and moves on.
 
-Also still manual: **Product Insights**, **Concerns & Objections**.
+Still manual: **Product Insights**, **Concerns & Objections**.
 
 ## 6. Gotchas that cost real time
 
