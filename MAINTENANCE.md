@@ -69,8 +69,9 @@ starts maintaining this, since the merge-does-not-deploy trap is easy to fall in
 | Contacts + Champion Potential | Synced 2026-08-12 (35/39) — see §5 |
 | Platform consolidation had no key finding | Added 2026-08-12 (PR #18) — see §4 |
 | AI Coach heatmap row undercounts | **Open, accepted** — see §4 |
-| Five legacy Product Insights records, no attribution | **Open** — retire or move to a view; see §5 |
+| Five legacy Product Insights records, no attribution | Retired 2026-08-12 — values recorded in §5 |
 | Implementation Complexity blank on 4 cards, so Priority Score reads NaN | **Open** — no site source; see §5 |
+| Generator maintained counts it should not own | Fixed 2026-08-12 (PRs #9, #7, #23) — see §4 |
 | Two heatmap rows had 11 dots vs 39 columns | Fixed 2026-08-12 (PR #10) |
 | Map title hardcoded, went stale every addition | Fixed 2026-08-12 (PR #7, automated in PR #9) |
 | Card sorting silently never worked | Fixed 2026-08-12 (PR #9) |
@@ -126,6 +127,25 @@ The finding grades its evidence rather than flattening it: **Texas A&M Corpus Ch
 **UAlbany** are the strong cases and both named the need *unprompted before the feature was
 shown*; **Madison Area Tech** and **Muskingum** are narrower, about consolidation inside the SNT
 workflow rather than campus-wide platform overload.
+
+### Watch for the generator maintaining numbers it should not own
+Three separate bugs this session were the same shape: `generate_school.py` quietly maintaining a
+count that is not derivable from the thing it was adding.
+
+| Number | What went wrong | Fix |
+|---|---|---|
+| Map array entry | Never written at all — school silently absent from the map | Generator now writes it, given `--lat`/`--lng` (PR #9) |
+| `"N Schools, Coast to Coast"` | Hardcoded literal, stale on every addition | Derived from the school-card count (PR #7 / #9) |
+| `data-total-invited` | **Incremented on every school added** | Auto-bump removed; hand-maintained (PR #23) |
+
+The third is the instructive one. `data-total-invited` is the **planned** school count — the
+denominator of "39 of 40 schools met" — not a tally of schools written up. A school being added
+was almost always already on the invite list, so bumping double-counted it and the ratio drifted
+upward forever: 39/41, 40/42, 41/43, permanently understating progress against plan.
+
+**Rule of thumb:** if a number describes the *plan* or the *whole collection*, the generator
+should either derive it from the collection or not touch it. It should only own numbers that
+follow directly from the single school being added.
 
 ### Ideas grid ordering
 Ranked by school count descending, ties broken by signal strength (unprompted > prompted, specific
@@ -226,12 +246,23 @@ Dashboard" — confirmed the same concept because both carry First Discussed = *
 Drew University* and the identical downstream chain. `Feature Name` is never rewritten, so the
 longer Airtable form is preserved deliberately.
 
-**Five legacy records remain from the older coarse taxonomy** — AI Career Clarity (Clarity Track),
-LMS / Platform Integration, Automated SNT Management, Cross-Institutional Peer Matching, Alumni
-Mentor Matching. They carry a category and excitement level but **no attribution and no school
-counts**, and they roughly duplicate the heatmap row names. The sync reports them on every run and
-never modifies them. **Open: retire them or move them to a separate view** — until then the table
-mixes two granularities.
+**Retired 2026-08-12.** Five legacy records from the older coarse taxonomy were deleted once the
+mirror decision made them redundant. Their values are recorded here so the judgements are not
+lost — they were the only place some Implementation Complexity and Feature Category ratings
+existed, and they may be useful when filling those fields on the current cards:
+
+| Retired record | Category | Complexity | Excitement | Schools |
+|---|---|---|---|---|
+| AI Career Clarity (Clarity Track) | Career Clarity | Medium | High | Mott, UTRGV |
+| LMS / Platform Integration | Accountability | High | High | Mott, UTRGV |
+| Automated SNT Management | Accountability | Low | High | Mott |
+| Cross-Institutional Peer Matching | Connections | Medium | Medium | Mott, St. John's |
+| Alumni Mentor Matching | Connections | Medium | Medium | St. John's |
+
+Product Insights is now 24 records, all carrying attribution — a clean mirror of the ideas grid.
+
+*Historical note — what these were:* they carried a category and excitement level but no attribution, and
+roughly duplicated the heatmap row names, which is what made the table mix two granularities.
 
 ### Concerns & Objections — deliberately NOT synced
 The site can supply a concern's description, school and date — roughly **163 bullets** across the
