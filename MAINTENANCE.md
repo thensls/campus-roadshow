@@ -186,9 +186,28 @@ Two rules the sync applies here, both deliberate:
 rollup. The sync creates unmatched cards, so all 24 ideas-grid cards now have a record and stay
 current automatically.
 
-Only **Feature Name, First Discussed and Also Discussed** are written. Excitement Level, Feature
-Category and Implementation Complexity are human judgements with no source on the site — new
-records are created with those blank for triage, and existing values are never overwritten.
+**Feature Name, First Discussed, Also Discussed and Excitement Level** are written.
+Feature Category and Implementation Complexity have no source on the site and stay manual.
+
+**Excitement Level is derived**, not hand-set. Every meeting report has a Section 6
+"Feature-Level Feedback" table — 439 rows across 44 reports, with a four-value vocabulary
+(Strong / Positive / Open Question / Needs Care). Report labels are free text (381 distinct, only
+3 exactly matching a card name), so `FEATURE_PATTERNS` maps them to cards by keyword family, one
+pattern per card. A label may match several cards — "Career Readiness Score (Advisor Dashboard)"
+genuinely speaks to both — and that is intended.
+
+`grade_excitement()` is **breadth-aware on purpose**: a lone Strong mention grades Low, not High.
+An earlier intensity-only rule disagreed with the hand-set values on 16 of 21 cards, all of them
+thin-sample; adding breadth cut that to 13 and brought every low-n card into agreement. The
+remaining differences are concentrated where evidence is *thickest* — Administrator Dashboard was
+rated Medium while 37 schools discussed it and 22 called it Strong — because the hand-set values
+date from when the base held ~19 schools. **Decision 2026-08-12: the derived value wins**, since
+it reflects all 44 reports and re-derives on every run.
+
+`Excitement Score (Numeric)` is an Airtable formula off Excitement Level — do not write it.
+`Priority Score (Auto)` reads NaN/Infinity for four cards because **Implementation Complexity is
+blank** on them: Entry-Level Pathways, Shareable Progress Summary, Student-Initiated Group
+Formation, Skill-Level Outcome Data & NACE. Set Complexity by hand to make Priority compute.
 
 `INSIGHT_ALIASES` maps an ideas-grid card onto an Airtable record named differently. Currently one
 entry: the site's "Career Readiness Score" is Airtable's "Career Readiness Score & Outcomes
