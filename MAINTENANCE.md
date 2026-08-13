@@ -67,8 +67,10 @@ starts maintaining this, since the merge-does-not-deploy trap is easy to fall in
 |---|---|
 | Airtable CRM had drifted badly out of sync | **Tooling fixed** 2026-08-12 (`sync_airtable.py`) — see §5 |
 | Contacts + Champion Potential | Synced 2026-08-12 (35/39) — see §5 |
-| Platform consolidation has no key finding despite being a 5-school pattern | **Open** — see §4 |
+| Platform consolidation had no key finding | Added 2026-08-12 (PR #18) — see §4 |
 | AI Coach heatmap row undercounts | **Open, accepted** — see §4 |
+| Five legacy Product Insights records, no attribution | **Open** — retire or move to a view; see §5 |
+| Implementation Complexity blank on 4 cards, so Priority Score reads NaN | **Open** — no site source; see §5 |
 | Two heatmap rows had 11 dots vs 39 columns | Fixed 2026-08-12 (PR #10) |
 | Map title hardcoded, went stale every addition | Fixed 2026-08-12 (PR #7, automated in PR #9) |
 | Card sorting silently never worked | Fixed 2026-08-12 (PR #9) |
@@ -113,11 +115,17 @@ others on that card:
 Sharing one card for now. Split it if a second school raises integration. It also connects to the
 platform-consolidation theme below.
 
-### Platform consolidation has no key finding
-It's a **5-school pattern** — Madison Area Tech, Mott CC, Muskingum, Texas A&M Corpus Christi,
-UAlbany — which is more schools than "SNT friction" (5 chips) or "non-completion" (3 chips), both
-of which *do* have findings. Looks like a genuine hole in the report's narrative. Not written
-because a new key finding is a cross-report editorial call, not a mechanical fix.
+### Platform consolidation — added as a key finding (PR #18)
+Added 2026-08-12 at position 5. **Four schools, not the five an earlier keyword grep suggested** —
+Mott was a false positive whose only hit was "consolidate into the full meeting *record*", about
+meeting notes rather than platforms. Each school was verified against its transcript before
+inclusion. This is the same "mentioned ≠ meant" trap documented for the AI Coach row below; a
+grep found it, reading it did not.
+
+The finding grades its evidence rather than flattening it: **Texas A&M Corpus Christi** and
+**UAlbany** are the strong cases and both named the need *unprompted before the feature was
+shown*; **Madison Area Tech** and **Muskingum** are narrower, about consolidation inside the SNT
+workflow rather than campus-wide platform overload.
 
 ### Ideas grid ordering
 Ranked by school count descending, ties broken by signal strength (unprompted > prompted, specific
@@ -178,8 +186,11 @@ Two rules the sync applies here, both deliberate:
   to the Primary Contact only, never duplicated onto a second advisor it was not made about.
 - **Primary Contact is the survey respondent** where one exists (matching the Airtable field
   description), otherwise the first advisor listed on the hub page.
-- **Ambiguous names are skipped, not guessed.** Contacts already contains a duplicate pair
-  ("Lauren Breckenridge"); when a name matches more than one contact the sync warns and moves on.
+- **Ambiguous names are skipped, not guessed.** When a name matches more than one contact the
+  sync warns and moves on rather than picking. This fired on a genuine "Lauren Breckenridge"
+  duplicate, which was resolved by hand on 2026-08-12 (the bare record was deleted, the one
+  carrying Champion Potential, email, title and the Texas A&M Corpus Christi Primary Contact link
+  was kept). The guard stays — people dedupe far worse than institutions.
 
 ### Product Insights — mirrors the ideas grid
 **Decision 2026-08-12: Product Insights is a mirror of the ideas grid**, not a feature-area
