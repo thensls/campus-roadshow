@@ -95,6 +95,7 @@ def fetch_all(tid):
 
 def write(tid, fields, rec_id=None, label=""):
     """PATCH when rec_id given, else POST. Honours --execute."""
+    fields = sanitize(fields, label)
     verb = "update" if rec_id else "create"
     if not EXECUTE:
         stats[verb] += 1
@@ -114,7 +115,14 @@ def write(tid, fields, rec_id=None, label=""):
 
 
 def changed(rec, fields):
-    """True if any field differs from what Airtable already holds."""
+    """True if any field differs from what Airtable already holds.
+    Compares post-sanitise, or a mapped value (Online -> Virtual) would look
+    different forever and every run would re-write every record."""
+    fields = {k: v for k, v in fields.items()
+              if not (k in ALLOWED and v and
+                      SELECT_FIXUPS.get(k, {}).get(v, v) not in ALLOWED[k])}
+    fields = {k: (SELECT_FIXUPS.get(k, {}).get(v, v) if k in ALLOWED else v)
+              for k, v in fields.items()}
     cur = rec.get("fields", {})
     for k, v in fields.items():
         if isinstance(v, list):
@@ -147,6 +155,37 @@ def inst_type(raw):
 
 ICON = {"✅": "Yes", "🤔": "Maybe", "❌": "No", "❓": None}
 
+# Airtable singleSelect options. A value outside these sets makes Airtable reject
+# the WHOLE record with INVALID_MULTIPLE_CHOICE_OPTIONS, losing every other field
+# on it — so sanitise before sending rather than letting one bad value fail 13
+# good ones. The site says Chapter Type "Online"; Airtable calls that "Virtual".
+ALLOWED = {
+    "Chapter Type": {"In-Person", "Virtual", "Hybrid", "TBD"},
+    "Chapter Status": {"Established", "New", "Inactive", "TBD"},
+    "Pilot Partner": {"Yes", "Maybe", "No"},
+    "Product Council Interest": {"Yes", "No", "Maybe"},
+    "Outreach Status": {"Not Contacted", "Reached Out", "Scheduled", "Completed", "Declined"},
+    "Institution Type": {"R1", "Four-Year Public", "Two-Year", "Online", "Other",
+                         "Private 4-Year", "Community College", "Public 4-Year",
+                         "Online University", "Technical College"},
+    "Meeting Type": {"Discovery", "Follow-up", "Product Demo", "Check-in",
+                     "Society Connect", "Other"},
+}
+SELECT_FIXUPS = {"Chapter Type": {"Online": "Virtual", "Virtual": "Virtual"}}
+
+
+def sanitize(fields, label=""):
+    """Map known aliases onto valid options; drop anything still invalid."""
+    out = {}
+    for k, v in fields.items():
+        if k in ALLOWED and v:
+            v = SELECT_FIXUPS.get(k, {}).get(v, v)
+            if v not in ALLOWED[k]:
+                print(f"    [WARN  ] {label}: dropping {k}={v!r} (not a valid option)")
+                continue
+        out[k] = v
+    return out
+
 
 def parse_schools():
     out = []
@@ -166,8 +205,10 @@ def parse_schools():
 
         stats_ = dict()
         for s in re.finditer(r'<div class="school-stat">(.*?)</div>\s*</div>', body, re.S):
-            v = re.search(r'stat-val">(.*?)<', s.group(1), re.S)
-            l = re.search(r'stat-lbl">(.*?)<', s.group(1), re.S)
+            # [^<]* not (.*?)< — the captured block ends at the label text with no
+            # trailing "<", so requiring one makes every stat silently drop.
+            v = re.search(r'stat-val">([^<]*)', s.group(1), re.S)
+            l = re.search(r'stat-lbl">([^<]*)', s.group(1), re.S)
             if v and l:
                 stats_[text(l.group(1))] = text(v.group(1))
 
@@ -317,33 +358,61 @@ def main():
     # ---- Meetings ----
     print(f"\n─── Meetings ───")
     ex_m = fetch_all(TBL["meetings"])
-    m_key = {}
+    # Keyed by Roadshow Report URL first — it is unique per meeting FILE.
+    # (school, date) is NOT unique: four schools have meeting-1 and meeting-2 on
+    # the same day, and keying on the pair makes both files claim one record and
+    # overwrite each other on every run.
+    by_url, by_sd = {}, {}
     for r in ex_m:
         fl = r["fields"]
-        m_key[(norm(str(fl.get("Meeting Name", "")).split("—")[-1]), str(fl.get("Meeting Date", ""))[:10])] = r
+        if fl.get("Roadshow Report URL"):
+            by_url[fl["Roadshow Report URL"].rstrip("/")] = r
+        by_sd.setdefault(
+            (norm(str(fl.get("School", "")) or str(fl.get("Meeting Name", "")).split("—")[-1]),
+             str(fl.get("Meeting Date", ""))[:10]), []).append(r)
+    # Two passes: reserve every exact URL match across the whole run BEFORE any
+    # (school, date) fallback, or meeting-1's fallback can steal the record that
+    # holds meeting-2's URL.
+    claimed_m = set()
+    for s in schools:
+        for mt in parse_meetings(s):
+            r = by_url.get(mt["url"].rstrip("/"))
+            if r:
+                claimed_m.add(r["id"])
 
     for s in schools:
         for mt in parse_meetings(s):
-            k = (norm(s["name"]), mt["date"] or "")
-            rec = m_key.get(k) or next(
-                (v for (kn, kd), v in m_key.items() if kd == mt["date"] and kn and norm(s["name"])
-                 and (kn in norm(s["name"]) or norm(s["name"]) in kn)), None)
-            f = {"Meeting Name": mt["name"], "Roadshow Report URL": mt["url"],
+            rec = by_url.get(mt["url"].rstrip("/"))
+            if not rec:
+                # fall back to (school, date), skipping records already claimed
+                # by an earlier file so meeting-2 cannot steal meeting-1's record
+                for cand in by_sd.get((norm(s["name"]), mt["date"] or ""), []):
+                    if cand["id"] not in claimed_m:
+                        rec = cand
+                        break
+            if rec:
+                claimed_m.add(rec["id"])
+            # "School" is singleLineText, NOT a record link — sending a record
+            # id array fails with INVALID_VALUE_FOR_COLUMN.
+            f = {"School": s["name"], "Roadshow Report URL": mt["url"],
                  "Report Content": mt["content"][:95000]}
             if mt["date"]:
                 f["Meeting Date"] = mt["date"]
             if mt["fathom"]:
                 f["Fathom Recording"] = mt["fathom"]
-            if school_rec.get(s["slug"]):
-                f["School"] = [school_rec[s["slug"]]]
             label = f"{s['name']} · {mt['date']}"
             if rec:
+                # Meeting Name and Type are NOT overwritten on update — existing
+                # records carry human-set values ("Society Presentation — UTK",
+                # type "Society Connect") that this script cannot infer.
                 if changed(rec, f):
                     write(TBL["meetings"], f, rec["id"], label)
                 else:
                     stats["skip"] += 1
             else:
-                write(TBL["meetings"], f, None, f"{label}  (new)")
+                write(TBL["meetings"],
+                      {**f, "Meeting Name": mt["name"], "Meeting Type": "Discovery"},
+                      None, f"{label}  (new)")
 
     # ---- Quotes ----
     print(f"\n─── Quotes ───")
