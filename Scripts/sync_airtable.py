@@ -13,8 +13,12 @@ would duplicate Quotes and Executive Findings on a second run.
 
 Tables synced: Target Schools, Meetings, Quotes, Executive Findings, Contacts
 (including Primary Contact links, which is what makes the Champion Potential
-lookup populate on Target Schools).
-Not synced: Product Insights, Concerns & Objections (see MAINTENANCE.md).
+lookup populate on Target Schools), and Product Insights attribution.
+
+Product Insights is UPDATE-ONLY — it uses a different taxonomy from the ideas
+grid and unmatched cards are reported, not created. Concerns & Objections is
+deliberately not synced: its useful fields are human triage decisions the
+reports do not contain. See MAINTENANCE.md.
 """
 import os, re, sys, json, time, html as htmllib, unicodedata
 from pathlib import Path
@@ -25,7 +29,7 @@ import requests
 BASE = "app5rj9bOGQNFoIoD"
 TBL = {"schools": "tbleaeYm3UEINl1oU", "meetings": "tblLMsmz7pQOpeQr8",
        "quotes": "tblBwzqpUmDZeDjyc", "findings": "tblkIEzMirsfzvHQn",
-       "contacts": "tbljDWMCZLjSgrkKw"}
+       "contacts": "tbljDWMCZLjSgrkKw", "insights": "tblW3dZOVKNjN1692"}
 SITE = "https://roadshow.nsls.org"
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -256,6 +260,47 @@ def parse_quotes():
         parts = [p.strip() for p in re.split(r"·|&middot;", attr) if p.strip()]
         out.append({"text": q, "advisor": parts[0] if parts else attr,
                     "school": parts[-1] if len(parts) > 1 else "", "sort": i})
+    return out
+
+
+def parse_ideas():
+    """Ideas grid -> Product Insights. Only the factual fields: name and
+    attribution. Excitement Level, Feature Category and Implementation
+    Complexity are human judgements with no source on the site — writing them
+    would be fabrication, so they are left alone."""
+    out = []
+    for c in re.split(r'<div class="idea-card"', RAW)[1:]:
+        nm = re.search(r'idea-name">([^<]*)', c)
+        if not nm:
+            continue
+        people = [text(p) for p in re.findall(r'idea-attr-person">([^<]*)', c)]
+        people = [re.sub(r"\s*·\s*", " · ", p) for p in people]
+        out.append({"name": text(nm.group(1)),
+                    "first": people[0] if people else "",
+                    "also": "; ".join(people[1:])})
+    return out
+
+
+def parse_concerns(school):
+    """'What Raised Questions or Friction' bullets from a school's meeting
+    reports. Yields the factual fields only — Severity Level, Concern Category,
+    Resolution Status and Follow-Up Actions are human triage decisions that the
+    report does not contain."""
+    out = []
+    d = ROOT / "report" / "schools" / school["slug"] / "meetings"
+    if not d.is_dir():
+        return out
+    for f in sorted(d.glob("meeting-*.html")):
+        h = f.read_text()
+        m = re.search(r"What Raised Questions or Friction(.*?)(?:<h[23]|Surprises)", h, re.S)
+        if not m:
+            continue
+        dm = re.search(r"(\d{4}-\d{2}-\d{2})", f.name)
+        for li in re.findall(r"<li[^>]*>(.*?)</li>", m.group(1), re.S):
+            t = text(li)
+            if len(t) > 40:
+                out.append({"desc": t, "school": school["name"],
+                            "date": dm.group(1) if dm else None})
     return out
 
 
@@ -502,6 +547,33 @@ def main():
         print(f"    [ORPHAN] #{o['fields'].get('Sort Order')} "
               f"{str(o['fields'].get('Headline',''))[:60]} — no longer on the site, "
               f"left in place for review")
+
+    # ---- Product Insights (attribution only) ----
+    # Deliberately UPDATE-ONLY. Product Insights is not a mirror of the ideas
+    # grid — it carries heatmap-level features too ("Automated SNT Management")
+    # and names some concepts differently ("Career Readiness Score & Outcomes
+    # Dashboard" vs the site's "Career Readiness Score"). Creating unmatched
+    # cards would produce near-duplicates under two names, so unmatched items
+    # are reported for a human naming decision instead.
+    print(f"\n─── Product Insights (attribution only) ───")
+    ex_p = fetch_all(TBL["insights"])
+    by_feat = {norm(r["fields"].get("Feature Name", "")): r for r in ex_p}
+    unmatched = []
+    for idea in parse_ideas():
+        rec = by_feat.get(norm(idea["name"]))
+        if not rec:
+            unmatched.append(idea["name"])
+            continue
+        f = {"First Discussed": idea["first"], "Also Discussed": idea["also"]}
+        if changed(rec, f):
+            write(TBL["insights"], f, rec["id"], idea["name"][:52])
+        else:
+            stats["skip"] += 1
+    if unmatched:
+        print("    Not synced — no Airtable record under this name. Reconcile by "
+              "hand against the existing taxonomy rather than creating duplicates:")
+        for u in unmatched:
+            print(f"      · {u}")
 
     # ---- Contacts + Primary Contact + Champion Potential ----
     print(f"\n─── Contacts ───")

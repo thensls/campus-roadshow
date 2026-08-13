@@ -181,7 +181,31 @@ Two rules the sync applies here, both deliberate:
 - **Ambiguous names are skipped, not guessed.** Contacts already contains a duplicate pair
   ("Lauren Breckenridge"); when a name matches more than one contact the sync warns and moves on.
 
-Still manual: **Product Insights**, **Concerns & Objections**.
+### Product Insights — attribution only, update-never-create
+Synced 2026-08-12, but **update-only by design**. Product Insights is *not* a mirror of the
+ideas grid: it also carries heatmap-level features ("Automated SNT Management", "LMS / Platform
+Integration") and names some concepts differently — the site's "Career Readiness Score" is
+Airtable's "Career Readiness Score & Outcomes Dashboard". Creating unmatched cards would produce
+near-duplicates under two names, so the sync reports them for a human naming decision instead.
+
+Only **First Discussed** and **Also Discussed** are written. Excitement Level, Feature Category
+and Implementation Complexity are human judgements with no source on the site — writing them
+would be fabrication.
+
+Four site cards currently have no Airtable counterpart and need reconciling by hand against the
+existing taxonomy: Career Readiness Score, Entry-Level Pathways & Reverse-Engineered Career Steps,
+Shareable Progress Summary for Career Services Handoff, Student-Initiated & On-Demand Group
+Formation.
+
+### Concerns & Objections — deliberately NOT synced
+The site can supply a concern's description, school and date — roughly **163 bullets** across the
+39 schools' "What Raised Questions or Friction" sections. It cannot supply **Severity Level,
+Concern Category, Resolution Status or Follow-Up Actions**, which are the fields that make the
+table useful, and which are human triage decisions taken after the call.
+
+Bulk-creating 163 records with those four blank would bury the existing curated entries in
+untriaged noise and make the table worse, not better. **Decision (2026-08-12): leave manual.**
+Revisit only as a deliberate triage exercise, not as a sync.
 
 ## 6. Gotchas that cost real time
 
