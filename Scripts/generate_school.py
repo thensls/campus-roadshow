@@ -1179,10 +1179,12 @@ def update_index(s: dict, hub: dict = None) -> None:
             print(new_card)
             return
         html = html.replace(marker, new_card + "\n    " + marker, 1)
-        # Bump data-total-invited
-        m = re.search(r'(data-total-invited=")(\d+)(")', html)
-        if m:
-            html = html[:m.start()] + f'{m.group(1)}{int(m.group(2))+1}{m.group(3)}' + html[m.end():]
+        # data-total-invited is deliberately NOT bumped. It is the PLANNED
+        # number of schools (the denominator of "39 / 40 schools met"), not a
+        # running count of schools added. A school being written up was almost
+        # always already on the invite list, so incrementing double-counts it
+        # and the denominator drifts up forever. Maintain it by hand when the
+        # invite list itself actually grows.
         print(f"  [OK]  Added {s['name']} card to {INDEX_FILE.name}")
 
     html = _sort_school_cards(html)
