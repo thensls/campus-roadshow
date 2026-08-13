@@ -181,21 +181,27 @@ Two rules the sync applies here, both deliberate:
 - **Ambiguous names are skipped, not guessed.** Contacts already contains a duplicate pair
   ("Lauren Breckenridge"); when a name matches more than one contact the sync warns and moves on.
 
-### Product Insights — attribution only, update-never-create
-Synced 2026-08-12, but **update-only by design**. Product Insights is *not* a mirror of the
-ideas grid: it also carries heatmap-level features ("Automated SNT Management", "LMS / Platform
-Integration") and names some concepts differently — the site's "Career Readiness Score" is
-Airtable's "Career Readiness Score & Outcomes Dashboard". Creating unmatched cards would produce
-near-duplicates under two names, so the sync reports them for a human naming decision instead.
+### Product Insights — mirrors the ideas grid
+**Decision 2026-08-12: Product Insights is a mirror of the ideas grid**, not a feature-area
+rollup. The sync creates unmatched cards, so all 24 ideas-grid cards now have a record and stay
+current automatically.
 
-Only **First Discussed** and **Also Discussed** are written. Excitement Level, Feature Category
-and Implementation Complexity are human judgements with no source on the site — writing them
-would be fabrication.
+Only **Feature Name, First Discussed and Also Discussed** are written. Excitement Level, Feature
+Category and Implementation Complexity are human judgements with no source on the site — new
+records are created with those blank for triage, and existing values are never overwritten.
 
-Four site cards currently have no Airtable counterpart and need reconciling by hand against the
-existing taxonomy: Career Readiness Score, Entry-Level Pathways & Reverse-Engineered Career Steps,
-Shareable Progress Summary for Career Services Handoff, Student-Initiated & On-Demand Group
-Formation.
+`INSIGHT_ALIASES` maps an ideas-grid card onto an Airtable record named differently. Currently one
+entry: the site's "Career Readiness Score" is Airtable's "Career Readiness Score & Outcomes
+Dashboard" — confirmed the same concept because both carry First Discussed = *Cassandra Gonzalez ·
+Drew University* and the identical downstream chain. `Feature Name` is never rewritten, so the
+longer Airtable form is preserved deliberately.
+
+**Five legacy records remain from the older coarse taxonomy** — AI Career Clarity (Clarity Track),
+LMS / Platform Integration, Automated SNT Management, Cross-Institutional Peer Matching, Alumni
+Mentor Matching. They carry a category and excitement level but **no attribution and no school
+counts**, and they roughly duplicate the heatmap row names. The sync reports them on every run and
+never modifies them. **Open: retire them or move them to a separate view** — until then the table
+mixes two granularities.
 
 ### Concerns & Objections — deliberately NOT synced
 The site can supply a concern's description, school and date — roughly **163 bullets** across the
