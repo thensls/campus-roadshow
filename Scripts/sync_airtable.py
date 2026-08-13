@@ -195,6 +195,7 @@ ALLOWED = {
     "Meeting Type": {"Discovery", "Follow-up", "Product Demo", "Check-in",
                      "Society Connect", "Other"},
     "Champion Potential": {"Strong", "Moderate", "Low"},
+    "Excitement Level": {"High", "Medium", "Low"},
 }
 SELECT_FIXUPS = {"Chapter Type": {"Online": "Virtual", "Virtual": "Virtual"}}
 
@@ -287,6 +288,76 @@ def parse_ideas():
                     "first": people[0] if people else "",
                     "also": "; ".join(people[1:])})
     return out
+
+
+# Section 6 "Feature-Level Feedback" tables name features in free text — 381
+# distinct labels across 44 reports, only 3 of which exactly match an ideas-grid
+# card. Matching is therefore by keyword family, one pattern per card. A label
+# may match more than one card ("Career Readiness Score (Advisor Dashboard)"
+# genuinely speaks to both) and that is intended.
+FEATURE_PATTERNS = {
+    "Career Readiness Score": r"readiness score",
+    "Administrator Dashboard": r"(advisor|admin|administrator|institutional|staff)[^|]{0,26}dashboard",
+    "School Agent": r"(school|campus)[- ]?\w*\s*(ai )?(agent|intelligence)|school-trained ai|campus agent",
+    "Multi-Semester Analytics": r"multi-?semester|multi-?year|cross-?year|cross-?semester|longitudinal|multi-?cohort|year-over-year|academic year",
+    "FOL Micro-Learning & Modular Content": r"(fol|foundations of leadership)|modular.{0,24}(video|content)|micro-?learning|short-?form|video content",
+    "Handshake Integration": r"handshake",
+    "Personality Assessment Enrichment": r"personality|strengthsfinder|cliftonstrengths|personal insights",
+    "Platform-Driven Engagement Nudges": r"nudge|reminder|notification|accountability engine|task reminder",
+    "Student Email Preferences": r"email[^|]{0,26}(field|preference|primary|login|authentication|formatting)|multi-?email|magic link",
+    "Gamification & Friendly Engagement Nudges": r"gamification|streak|confetti|badge",
+    "Alumni & Lifelong Membership Product": r"(alumni|lifelong)[^|]{0,30}(membership|product|subscription|access)|post-?graduation access",
+    "Non-Member On-Ramp": r"non-?member|non-nsls|campus-?wide (access|deployment)|membership funnel",
+    "Member Drop-off Analytics": r"drop-?off",
+    "School-Specific Onboarding Questions": r"onboarding question",
+    "Peer Chapter Benchmarking": r"benchmark",
+    "Quick-Pulse Student Feedback": r"quick-?pulse|pulse.{0,10}survey|mobile survey",
+    "Student ID Field in the Platform": r"student id",
+    "Affinity-Based SNT Groupings": r"affinity",
+    "In-Platform Messaging & Event Communication Hub": r"(in-?app|in-?platform|bulk|centralized|segmented)[^|]{0,22}(messag|chat|communication|email)|event (management|calendar)|in-app event",
+    "AI Study & Career Prep Toolkit": r"resume|interview prep|study",
+    "Skill-Level Outcome Data & NACE Competency Reporting": r"nace|competenc|skill-?level outcome|outcomes report",
+    "Entry-Level Pathways & Reverse-Engineered Career Steps": r"entry-?level|reverse-?engineer",
+    "Shareable Progress Summary for Career Services Handoff": r"career services[^|]{0,30}(integration|shared|dashboard|involvement|team)|progress summary|cross-depart",
+    "Student-Initiated & On-Demand Group Formation": r"on-?demand[^|]{0,20}group|student-?initiated|cross-(institutional|campus|school|chapter)",
+}
+SIGNALS = {"Strong", "Positive", "Open Question", "Needs Care"}
+
+
+def feature_signals():
+    """(card -> [(school, signal)]) from every report's Section 6 table."""
+    hits = {}
+    for f in sorted((ROOT / "report" / "schools").glob("*/meetings/*.html")):
+        h = f.read_text()
+        i = h.find('id="s6"')
+        if i < 0:
+            continue
+        school = f.parts[-3]
+        for row in re.findall(r"<tr>(.*?)</tr>", h[i:i + 6000], re.S):
+            cells = [text(c) for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", row, re.S)]
+            if len(cells) < 2 or cells[1] not in SIGNALS:
+                continue
+            for card, pat in FEATURE_PATTERNS.items():
+                if re.search(pat, cells[0], re.I):
+                    hits.setdefault(card, []).append((school, cells[1]))
+    return hits
+
+
+def grade_excitement(pairs):
+    """Breadth-aware: how much a feature matters across the roadshow, not how
+    warmly one school reacted. A lone Strong mention is Low, not High."""
+    if not pairs:
+        return None
+    sigs = [s for _, s in pairs]
+    schools = len({s for s, _ in pairs})
+    n = len(sigs)
+    strong = sum(1 for s in sigs if s == "Strong")
+    warm = strong + sum(1 for s in sigs if s == "Positive")
+    if schools >= 5 and strong / n >= 0.45:
+        return "High"
+    if schools >= 2 and warm / n >= 0.5:
+        return "Medium"
+    return "Low"
 
 
 def parse_concerns(school):
@@ -563,11 +634,17 @@ def main():
     print(f"\n─── Product Insights ───")
     ex_p = fetch_all(TBL["insights"])
     by_feat = {norm(r["fields"].get("Feature Name", "")): r for r in ex_p}
+    sig = feature_signals()
     site_keys = set()
     for idea in parse_ideas():
         alias = INSIGHT_ALIASES.get(idea["name"])
         rec = by_feat.get(norm(idea["name"])) or (by_feat.get(norm(alias)) if alias else None)
         f = {"First Discussed": idea["first"], "Also Discussed": idea["also"]}
+        # Derived from 439 Section 6 signals across 44 reports. Existing values
+        # date from when the base held ~19 schools, so the derived value wins.
+        grade = grade_excitement(sig.get(idea["name"], []))
+        if grade:
+            f["Excitement Level"] = grade
         if rec:
             site_keys.add(norm(rec["fields"].get("Feature Name", "")))
             # Feature Name is not rewritten — Airtable's longer form is kept
@@ -577,8 +654,8 @@ def main():
             else:
                 stats["skip"] += 1
         else:
-            # Excitement Level / Feature Category / Implementation Complexity are
-            # human judgements with no site source — left blank for triage.
+            # Feature Category / Implementation Complexity have no site source —
+            # left blank for triage. Excitement Level is derived (see above).
             site_keys.add(norm(idea["name"]))
             write(TBL["insights"], {**f, "Feature Name": idea["name"]}, None,
                   idea["name"][:52] + "  (new)")
