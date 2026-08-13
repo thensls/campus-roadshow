@@ -15,8 +15,9 @@ Tables synced: Target Schools, Meetings, Quotes, Executive Findings, Contacts
 (including Primary Contact links, which is what makes the Champion Potential
 lookup populate on Target Schools), and Product Insights attribution.
 
-Product Insights is UPDATE-ONLY — it uses a different taxonomy from the ideas
-grid and unmatched cards are reported, not created. Concerns & Objections is
+Product Insights mirrors the ideas grid (decision 2026-08-12) — unmatched cards
+are created. Five legacy records from an older coarse taxonomy carry no
+attribution and are reported, never modified. Concerns & Objections is
 deliberately not synced: its useful fields are human triage decisions the
 reports do not contain. See MAINTENANCE.md.
 """
@@ -62,6 +63,13 @@ def norm(s):
 NAME_ALIASES = {
     "University of Texas, Rio Grande Valley": "University of Texas, Rio Grand Valley",
     "University at Albany": "UAlbany",
+}
+
+# Ideas-grid card -> existing Product Insights record under a different name.
+# Confirmed same concept: both carry First Discussed = Cassandra Gonzalez ·
+# Drew University and the identical downstream chain.
+INSIGHT_ALIASES = {
+    "Career Readiness Score": "Career Readiness Score & Outcomes Dashboard",
 }
 
 # Substring matching is deliberately NOT used. It produced two data-corrupting
@@ -548,32 +556,40 @@ def main():
               f"{str(o['fields'].get('Headline',''))[:60]} — no longer on the site, "
               f"left in place for review")
 
-    # ---- Product Insights (attribution only) ----
-    # Deliberately UPDATE-ONLY. Product Insights is not a mirror of the ideas
-    # grid — it carries heatmap-level features too ("Automated SNT Management")
-    # and names some concepts differently ("Career Readiness Score & Outcomes
-    # Dashboard" vs the site's "Career Readiness Score"). Creating unmatched
-    # cards would produce near-duplicates under two names, so unmatched items
-    # are reported for a human naming decision instead.
-    print(f"\n─── Product Insights (attribution only) ───")
+    # ---- Product Insights (mirror of the ideas grid) ----
+    # Decision 2026-08-12: Product Insights mirrors the ideas grid, so unmatched
+    # cards are created rather than reported. Aliases cover concepts Airtable
+    # named differently before that decision.
+    print(f"\n─── Product Insights ───")
     ex_p = fetch_all(TBL["insights"])
     by_feat = {norm(r["fields"].get("Feature Name", "")): r for r in ex_p}
-    unmatched = []
+    site_keys = set()
     for idea in parse_ideas():
-        rec = by_feat.get(norm(idea["name"]))
-        if not rec:
-            unmatched.append(idea["name"])
-            continue
+        alias = INSIGHT_ALIASES.get(idea["name"])
+        rec = by_feat.get(norm(idea["name"])) or (by_feat.get(norm(alias)) if alias else None)
         f = {"First Discussed": idea["first"], "Also Discussed": idea["also"]}
-        if changed(rec, f):
-            write(TBL["insights"], f, rec["id"], idea["name"][:52])
+        if rec:
+            site_keys.add(norm(rec["fields"].get("Feature Name", "")))
+            # Feature Name is not rewritten — Airtable's longer form is kept
+            # deliberately (see INSIGHT_ALIASES).
+            if changed(rec, f):
+                write(TBL["insights"], f, rec["id"], idea["name"][:52])
+            else:
+                stats["skip"] += 1
         else:
-            stats["skip"] += 1
-    if unmatched:
-        print("    Not synced — no Airtable record under this name. Reconcile by "
-              "hand against the existing taxonomy rather than creating duplicates:")
-        for u in unmatched:
-            print(f"      · {u}")
+            # Excitement Level / Feature Category / Implementation Complexity are
+            # human judgements with no site source — left blank for triage.
+            site_keys.add(norm(idea["name"]))
+            write(TBL["insights"], {**f, "Feature Name": idea["name"]}, None,
+                  idea["name"][:52] + "  (new)")
+
+    legacy = [r["fields"].get("Feature Name") for r in ex_p
+              if norm(r["fields"].get("Feature Name", "")) not in site_keys]
+    if legacy:
+        print("    Airtable records with no ideas-grid card — legacy coarse taxonomy, "
+              "no attribution. Retire or move to a separate view; not touched here:")
+        for l in legacy:
+            print(f"      · {l}")
 
     # ---- Contacts + Primary Contact + Champion Potential ----
     print(f"\n─── Contacts ───")
