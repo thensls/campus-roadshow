@@ -65,7 +65,8 @@ starts maintaining this, since the merge-does-not-deploy trap is easy to fall in
 
 | Issue | Status |
 |---|---|
-| Airtable CRM has drifted badly out of sync | **Open** — see §5 |
+| Airtable CRM had drifted badly out of sync | **Tooling fixed** 2026-08-12 (`sync_airtable.py`) — see §5 |
+| Contacts not synced, so `Champion Potential` can't populate | **Open, phase 2** — see §5 |
 | Platform consolidation has no key finding despite being a 5-school pattern | **Open** — see §4 |
 | AI Coach heatmap row undercounts | **Open, accepted** — see §4 |
 | Two heatmap rows had 11 dots vs 39 columns | Fixed 2026-08-12 (PR #10) |
@@ -125,32 +126,61 @@ strictly sorted** — that tail is intentional drift, don't "fix" it by re-sorti
 
 ---
 
-## 5. Airtable CRM drift (open)
+## 5. Airtable CRM — the query layer
 
-Base `app5rj9bOGQNFoIoD` was meant to hold this data in queryable form. **It has fallen out of sync.**
+Base `app5rj9bOGQNFoIoD` ("Campus Discovery CRM") is where this data gets analysed. **The site is
+the source of truth; Airtable mirrors it.**
 
-As of 2026-08-12:
-- **`Meetings` stops at 2026-05-04 (Dartmouth).** Every school added since — roughly a dozen,
-  including Columbia Southern, Coastal Carolina Graduate, Southern Miss, SUU, Youngstown, Alvin,
-  La Roche, Johnston, Northeast Lakeview, Texas A&M, Lehigh, UAlbany — has **no Meetings record**.
-- **7 `Target Schools` records are stubs** carrying only School Name + CS Rep: UAlbany, Southern
-  Mississippi, Lehigh, Columbia Southern, Youngstown State, Bryan College, Southern Utah.
-  Fully-populated records have ~14 fields (Enthusiasm, Location, Key Signal, Pilot Partner,
-  Chapter Status/Type, Champion Potential, Interview Date, Roadshow URL).
-- **`Roadshow Report URL` values still point at `v0-deploy-campus-roadshow.vercel.app`**, not
-  `roadshow.nsls.org`.
-- **UAlbany's `CS Rep` points at Sari Khatib**, who is the school's advisor, not the CS rep
-  (Alexis Scott). `Primary Contact` is empty. Worth auditing whether other records share this.
+### Keeping it in sync
+```bash
+python3 Scripts/sync_airtable.py             # dry run (default)
+python3 Scripts/sync_airtable.py --execute   # apply
+```
 
-Nothing in the pipeline writes to Airtable — `generate_school.py` has `--airtable-school-id` and
-`--airtable-contact-ids` flags that push a couple of fields, but the survey token is scoped
-`data.records:read` and the CRM is otherwise maintained by hand. **That's the root cause: there is
-no automated sync, so it drifts whenever someone adds a school without also updating Airtable.**
+Idempotent upsert across Target Schools, Meetings, Quotes and Executive Findings.
+**Run it after every school addition** — it is Stage 6 of the pipeline, not a periodic chore.
+Skipping it is exactly how the CRM ended up four months stale: as of 2026-08-12 the `Meetings`
+table stopped at 2026-05-04, 19 schools had no meeting record, 12 had no school record at all,
+6 more were empty stubs, and one Executive Finding still read *"across 19 schools"*.
 
-Backfilling is a real task, not a cleanup. Decide whether the CRM is genuinely the query layer
-(then it needs a sync script) or has been superseded by the site itself (then stop maintaining it).
+### Read the dry run — it is not a formality
+On first use it caught four things that would have damaged the CRM:
+- **Two data-corrupting matches.** Substring matching mapped "Texas A&M University" onto the
+  *Corpus Christi* record, and "Coastal Carolina University — Graduate" onto the *undergrad*
+  record. Substring matching is now removed entirely.
+- **A duplicate-in-waiting.** Airtable holds the typo "University of Texas, Rio **Grand** Valley",
+  so the matcher missed it and would have created a second UTRGV.
+- **A name regression.** The sync would have overwritten Airtable's correct "Austin Peay **State**
+  University" with the site's typo "Austin Peay University".
+- **A dropped finding.** The WGU finding is `class="exec-finding risk"`; a regex matching only the
+  bare class missed it and reported it as an orphan.
 
----
+### Invariants the script encodes — don't undo them
+- **No substring matching on school names.** Use `NAME_ALIASES` for genuine equivalences.
+- **`School Name` is never written on update**, only on create. The site is not always the better
+  source of a school's own name.
+- **Collision detection aborts the run** if two site schools resolve to one Airtable record,
+  rather than letting one silently overwrite the other.
+- Orphaned Airtable findings are **reported, never deleted** — a human judges them.
+
+### Superseded — do not run
+`backfill_target_schools.py`, `backfill_intel.py`, `backfill_report_content.py` were one-shot
+backfills. **`backfill_intel.py` creates Quotes and Findings unconditionally**, so running it now
+duplicates every quote and finding. `sync_airtable.py` replaces all three.
+
+### Phase 2 — Contacts (open)
+`Champion Potential` on Target Schools is a **lookup** through `Primary Contact` → Contacts, so it
+cannot be written directly. It stays empty until advisor contacts are linked. The value itself is
+available and structured — every hub page has a Champion Potential tile reading Strong/Moderate —
+and `generate_school.py` already has `--airtable-contact-ids` built for this.
+
+Deliberately deferred: person-name matching is riskier than school matching (no slug to anchor on,
+names dedupe poorly), and it shouldn't be bolted onto an already-verified bulk write. Note the tile
+is a **school-level** judgment while the field lives on a **person** — for two-advisor schools,
+assign it to the Primary Contact rather than duplicating the judgment onto someone it wasn't made
+about.
+
+Also still manual: **Product Insights**, **Concerns & Objections**.
 
 ## 6. Gotchas that cost real time
 
