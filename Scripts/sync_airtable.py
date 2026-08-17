@@ -321,6 +321,8 @@ FEATURE_PATTERNS = {
     "Shareable Progress Summary for Career Services Handoff": r"career services[^|]{0,30}(integration|shared|dashboard|involvement|team)|progress summary|cross-depart",
     "Student-Initiated & On-Demand Group Formation": r"on-?demand[^|]{0,20}group|student-?initiated|cross-(institutional|campus|school|chapter)",
     "Campus Engagement Platform Integration": r"alamo experience|engagure|engkura|eagle hub|campus groups|co-?curricular platform|engagement platform",
+    "In-Platform Events & Speaker Broadcasts": r"broadcast|speaker|national event|campus event|in-app event|event (management|calendar)|regional leadership summit",
+    "SIS & Academic-System Integration": r"\bsis\b|banner|hero ico|ready education|hullabaloo|attendance credit|lms",
 }
 SIGNALS = {"Strong", "Positive", "Open Question", "Needs Care"}
 
