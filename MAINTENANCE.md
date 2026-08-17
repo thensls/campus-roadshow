@@ -276,9 +276,53 @@ reads NaN until *three* fields are set — not just Complexity, which is the tra
   integration cards are High; Cross-Institutional Peer Matching was Medium, so Student-Initiated
   Group Formation is Medium; AI Career Clarity was Medium, so Entry-Level Pathways is Medium.
 
-**`Times Mentioned` will go stale.** The sync does not write it, so it is a hand-maintained number
-feeding an automatic score — exactly the pattern §4 warns about. Adding it to `sync_airtable.py`
-would close that; not done yet.
+**`Times Mentioned` is now derived** by the sync (2026-08-12) from Section 6 signal-row counts,
+closing the drift risk. It is only written when signals exist — writing 0 for a card with no
+Section 6 label would zero its Priority Score.
+
+This **rebased the whole Priority column**. The prior hand-set values dated from the ~19-school era
+and ran 1&ndash;4; derived counts run to 38, so scores moved by an order of magnitude (Career
+Readiness Score 18 &rarr; 222). Ranking is what matters and the top is stable — Career Readiness
+Score, Administrator Dashboard — but Personality Assessment Enrichment rose sharply on 35 real
+mentions.
+
+**Caveat:** for cards whose keyword family also catches *core-feature* discussion — Personality
+Assessment Enrichment, School Agent — the count includes demo reception, not only the enhancement
+ask. Same limitation as the AI Coach heatmap row. Treat those two as upper bounds.
+
+<details><summary>Prior hand-set Times Mentioned values, for reference</summary>
+
+| Feature | Was |
+|---|---|
+| AI Study & Career Prep Toolkit | 1 |
+| Administrator Dashboard | 3 |
+| Affinity-Based SNT Groupings | 1 |
+| Alumni & Lifelong Membership Product | 1 |
+| Campus Engagement Platform Integration | 4 |
+| Career Readiness Score & Outcomes Dashboard | 3 |
+| Entry-Level Pathways & Reverse-Engineered Career Steps | 1 |
+| FOL Micro-Learning & Modular Content | 4 |
+| Gamification & Friendly Engagement Nudges | 2 |
+| Handshake Integration | 3 |
+| In-Platform Events & Speaker Broadcasts | 11 |
+| In-Platform Messaging & Event Communication Hub | 1 |
+| Member Drop-off Analytics | 1 |
+| Multi-Semester Analytics | 2 |
+| Non-Member On-Ramp | 1 |
+| Peer Chapter Benchmarking | 1 |
+| Personality Assessment Enrichment | 1 |
+| Platform-Driven Engagement Nudges | 2 |
+| Quick-Pulse Student Feedback | 1 |
+| SIS & Academic-System Integration | 4 |
+| School Agent | 4 |
+| School-Specific Onboarding Questions | 1 |
+| Shareable Progress Summary for Career Services Handoff | 5 |
+| Skill-Level Outcome Data & NACE Competency Reporting | 3 |
+| Student Email Preferences | 2 |
+| Student ID Field in the Platform | 1 |
+| Student-Initiated & On-Demand Group Formation | 4 |
+
+</details>
 
 ### Concerns & Objections — deliberately NOT synced
 The site can supply a concern's description, school and date — roughly **163 bullets** across the
