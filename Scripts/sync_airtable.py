@@ -320,6 +320,7 @@ FEATURE_PATTERNS = {
     "Entry-Level Pathways & Reverse-Engineered Career Steps": r"entry-?level|reverse-?engineer",
     "Shareable Progress Summary for Career Services Handoff": r"career services[^|]{0,30}(integration|shared|dashboard|involvement|team)|progress summary|cross-depart",
     "Student-Initiated & On-Demand Group Formation": r"on-?demand[^|]{0,20}group|student-?initiated|cross-(institutional|campus|school|chapter)",
+    "Campus Engagement Platform Integration": r"alamo experience|engagure|engkura|eagle hub|campus groups|co-?curricular platform|engagement platform",
 }
 SIGNALS = {"Strong", "Positive", "Open Question", "Needs Care"}
 
