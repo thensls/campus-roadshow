@@ -70,7 +70,7 @@ starts maintaining this, since the merge-does-not-deploy trap is easy to fall in
 | Platform consolidation had no key finding | Added 2026-08-12 (PR #18) — see §4 |
 | AI Coach heatmap row undercounts | **Open, accepted** — see §4 |
 | Five legacy Product Insights records, no attribution | Retired 2026-08-12 — values recorded in §5 |
-| Implementation Complexity blank on 4 cards, so Priority Score reads NaN | **Open** — no site source; see §5 |
+| Implementation Complexity / Category / Times Mentioned blank | Filled 2026-08-12 — Priority Score computes across all 27; see §5 |
 | Generator maintained counts it should not own | Fixed 2026-08-12 (PRs #9, #7, #23) — see §4 |
 | Two heatmap rows had 11 dots vs 39 columns | Fixed 2026-08-12 (PR #10) |
 | Map title hardcoded, went stale every addition | Fixed 2026-08-12 (PR #7, automated in PR #9) |
@@ -263,6 +263,22 @@ Product Insights is now 24 records, all carrying attribution — a clean mirror 
 
 *Historical note — what these were:* they carried a category and excitement level but no attribution, and
 roughly duplicated the heatmap row names, which is what made the table mix two granularities.
+
+### Product Insights fields filled by hand 2026-08-12
+`Priority Score (Auto)` is `(Excitement × **Times Mentioned** × Adoption Driver) / Complexity`, so it
+reads NaN until *three* fields are set — not just Complexity, which is the trap.
+
+- **Times Mentioned** was derived from Section 6 signal counts (objective).
+- **Feature Category** was classified against the existing vocabulary. Note it includes an
+  **Integrations** option, which is where both integration cards belong.
+- **Implementation Complexity** is an *estimate*. Where a retired legacy record covered the same
+  class of work its value was reused as precedent: LMS/Platform Integration was High, so both
+  integration cards are High; Cross-Institutional Peer Matching was Medium, so Student-Initiated
+  Group Formation is Medium; AI Career Clarity was Medium, so Entry-Level Pathways is Medium.
+
+**`Times Mentioned` will go stale.** The sync does not write it, so it is a hand-maintained number
+feeding an automatic score — exactly the pattern §4 warns about. Adding it to `sync_airtable.py`
+would close that; not done yet.
 
 ### Concerns & Objections — deliberately NOT synced
 The site can supply a concern's description, school and date — roughly **163 bullets** across the
