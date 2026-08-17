@@ -645,9 +645,17 @@ def main():
         f = {"First Discussed": idea["first"], "Also Discussed": idea["also"]}
         # Derived from 439 Section 6 signals across 44 reports. Existing values
         # date from when the base held ~19 schools, so the derived value wins.
-        grade = grade_excitement(sig.get(idea["name"], []))
+        pairs = sig.get(idea["name"], [])
+        grade = grade_excitement(pairs)
         if grade:
             f["Excitement Level"] = grade
+        # Times Mentioned feeds Priority Score = (Excitement x Times Mentioned x
+        # Adoption Driver) / Complexity. Derive it so it cannot go stale — a
+        # hand-maintained number feeding an automatic score is the drift pattern
+        # MAINTENANCE.md warns about. Only written when signals exist: writing 0
+        # for a card with no Section 6 label would zero its Priority Score.
+        if pairs:
+            f["Times Mentioned"] = len(pairs)
         if rec:
             site_keys.add(norm(rec["fields"].get("Feature Name", "")))
             # Feature Name is not rewritten — Airtable's longer form is kept
