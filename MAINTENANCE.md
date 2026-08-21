@@ -71,6 +71,7 @@ starts maintaining this, since the merge-does-not-deploy trap is easy to fall in
 | AI Coach heatmap row undercounts | **Open, accepted** — see §4 |
 | Five legacy Product Insights records, no attribution | Retired 2026-08-12 — values recorded in §5 |
 | Implementation Complexity / Category / Times Mentioned blank | Filled 2026-08-12 — Priority Score computes across all 27; see §5 |
+| Society Feedback page and Airtable drifted 56 entries apart | Reconciled + automated 2026-08-12 (PR #31) — see §5 |
 | Generator maintained counts it should not own | Fixed 2026-08-12 (PRs #9, #7, #23) — see §4 |
 | Two heatmap rows had 11 dots vs 39 columns | Fixed 2026-08-12 (PR #10) |
 | Map title hardcoded, went stale every addition | Fixed 2026-08-12 (PR #7, automated in PR #9) |
@@ -323,6 +324,24 @@ ask. Same limitation as the AI Coach heatmap row. Treat those two as upper bound
 | Student-Initiated & On-Demand Group Formation | 4 |
 
 </details>
+
+### Society Pilot Feedback — mirrors the feedback page
+`report/society-feedback.html` is the source of truth; the Airtable table mirrors it. Synced as of
+2026-08-12, after the two drifted **56 entries apart** — the page held 179, Airtable 123, and
+Airtable was missing Columbia Southern, USM and UTK entirely. The page was a strict superset, so
+reconciliation was a one-way backfill.
+
+Two parsing notes for anyone touching `parse_feedback()`:
+- The page array is **JavaScript, not JSON** — `link` is sometimes `GM+"threadid"` string
+  concatenation — so it is parsed with a tolerant regex over the uniform object literals rather
+  than `json.loads`.
+- Entries are matched on the first 70 characters of normalised feedback text. There is no id on
+  either side.
+
+**`Source` is a `url` field.** Feedback arriving as a PDF or forwarded email has no thread link, so
+the sync leaves `Source` alone rather than blanking hand-entered provenance such as
+*"Test-Drive Notes for Society (PDF, Kelby Nichols)"*. Those values are not valid URLs; Airtable
+accepts them, but do not rely on the field being a link.
 
 ### Concerns & Objections — deliberately NOT synced
 The site can supply a concern's description, school and date — roughly **163 bullets** across the

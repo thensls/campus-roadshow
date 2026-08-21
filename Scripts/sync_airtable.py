@@ -15,8 +15,8 @@ Tables synced: Target Schools, Meetings, Quotes, Executive Findings, Contacts
 (including Primary Contact links, which is what makes the Champion Potential
 lookup populate on Target Schools), and Product Insights attribution.
 
-Product Insights mirrors the ideas grid (decision 2026-08-12) — unmatched cards
-are created. Five legacy records from an older coarse taxonomy carry no
+Society Pilot Feedback mirrors society-feedback.html. Product Insights mirrors
+the ideas grid (decision 2026-08-12) — unmatched cards are created. Five legacy records from an older coarse taxonomy carry no
 attribution and are reported, never modified. Concerns & Objections is
 deliberately not synced: its useful fields are human triage decisions the
 reports do not contain. See MAINTENANCE.md.
@@ -30,11 +30,13 @@ import requests
 BASE = "app5rj9bOGQNFoIoD"
 TBL = {"schools": "tbleaeYm3UEINl1oU", "meetings": "tblLMsmz7pQOpeQr8",
        "quotes": "tblBwzqpUmDZeDjyc", "findings": "tblkIEzMirsfzvHQn",
-       "contacts": "tbljDWMCZLjSgrkKw", "insights": "tblW3dZOVKNjN1692"}
+       "contacts": "tbljDWMCZLjSgrkKw", "insights": "tblW3dZOVKNjN1692",
+       "feedback": "tbljNa341i5cXLrK9"}
 SITE = "https://roadshow.nsls.org"
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / "report" / "index.html"
+FEEDBACK_PAGE = ROOT / "report" / "society-feedback.html"
 
 EXECUTE = "--execute" in sys.argv
 KEY = os.environ.get("AIRTABLE_API_KEY")
@@ -196,6 +198,11 @@ ALLOWED = {
                      "Society Connect", "Other"},
     "Champion Potential": {"Strong", "Moderate", "Low"},
     "Excitement Level": {"High", "Medium", "Low"},
+    "Audience": {"Student", "Faculty / Staff"},
+    "Product Area": {"Onboarding", "Personal Insights / Assessments", "Coach Chat",
+                     "Career Clarity", "Platform / UX", "Visual / Content",
+                     "Content / Compliance", "Overall"},
+    "Type": {"Praise", "Complaint", "Idea"},
 }
 SELECT_FIXUPS = {"Chapter Type": {"Online": "Virtual", "Virtual": "Virtual"}}
 
@@ -269,6 +276,35 @@ def parse_quotes():
         parts = [p.strip() for p in re.split(r"·|&middot;", attr) if p.strip()]
         out.append({"text": q, "advisor": parts[0] if parts else attr,
                     "school": parts[-1] if len(parts) > 1 else "", "sort": i})
+    return out
+
+
+def parse_feedback():
+    """Entries from society-feedback.html's `const FEEDBACK=[...]` array.
+
+    The array is JS, not JSON — `link` is sometimes `GM+"threadid"` string
+    concatenation — so it is parsed with a tolerant regex over the uniform
+    object literals rather than json.loads.
+    """
+    if not FEEDBACK_PAGE.exists():
+        return []
+    raw = FEEDBACK_PAGE.read_text()
+    i = raw.find("const FEEDBACK=[")
+    if i < 0:
+        return []
+    body = raw[i:raw.find("];", i)]
+    gm = re.search(r'GM\s*=\s*"([^"]*)"', raw)
+    gm = gm.group(1) if gm else ""
+    q = r'((?:[^"\\]|\\.)*)'
+    pat = (r'\{school:"' + q + r'",source:"' + q + r'",role:"' + q + r'",area:"' + q +
+           r'",type:"' + q + r'",text:"' + q + r'",link:(GM\+)?"' + q + r'"\}')
+    out = []
+    for m in re.finditer(pat, body):
+        school, source, role, area, typ, text_, ispfx, link = m.groups()
+        unesc = lambda x: x.replace('\\"', '"').replace("\\\\", "\\")
+        out.append({"school": unesc(school), "source": unesc(source), "role": unesc(role),
+                    "area": unesc(area), "type": unesc(typ), "text": unesc(text_),
+                    "link": (gm + link) if ispfx else link})
     return out
 
 
@@ -730,6 +766,38 @@ def main():
             if not cur or (cur["fields"].get("Primary Contact") or [None])[0] != primary:
                 write(TBL["schools"], {"Primary Contact": [primary]}, sid,
                       f"{s['name']} → Primary Contact")
+
+    # ---- Society Pilot Feedback ----
+    # society-feedback.html is the source of truth; Airtable mirrors it. These
+    # drifted 56 entries apart before this was automated (2026-08-12).
+    print(f"\n─── Society Pilot Feedback ───")
+    ex_fb = fetch_all(TBL["feedback"])
+    def fkey(t):
+        return re.sub(r"[^a-z0-9]", "", (t or "").lower())[:70]
+    by_text = {fkey(r["fields"].get("Feedback", "")): r for r in ex_fb}
+    seen_fb = set()
+    for e in parse_feedback():
+        k = fkey(e["text"])
+        if k in seen_fb:            # same text twice on the page
+            continue
+        seen_fb.add(k)
+        f = {"School": e["school"], "Respondent": e["source"], "Role": e["role"],
+             "Audience": "Student" if e["role"] == "Student" else "Faculty / Staff",
+             "Product Area": e["area"], "Type": e["type"], "Feedback": e["text"]}
+        if e["link"]:
+            f["Source"] = e["link"]
+        rec = by_text.get(k)
+        if rec:
+            # Source is not overwritten when the page has no link — hand-entered
+            # provenance (e.g. "Test-Drive Notes … PDF") would be wiped.
+            if not e["link"]:
+                f.pop("Source", None)
+            if changed(rec, f):
+                write(TBL["feedback"], f, rec["id"], f"{e['school']} · {e['text'][:38]}")
+            else:
+                stats["skip"] += 1
+        else:
+            write(TBL["feedback"], f, None, f"{e['school']} · {e['text'][:38]}  (new)")
 
     print(f"\n{'='*74}")
     print(f"  create {stats['create']}   update {stats['update']}   "
