@@ -72,7 +72,7 @@ starts maintaining this, since the merge-does-not-deploy trap is easy to fall in
 | Five legacy Product Insights records, no attribution | Retired 2026-08-12 — values recorded in §5 |
 | Implementation Complexity / Category / Times Mentioned blank | Filled 2026-08-12 — Priority Score computes across all 27; see §5 |
 | Society Feedback page and Airtable drifted 56 entries apart | Reconciled + automated 2026-08-12 (PR #31) — see §5 |
-| Concerns & Objections effectively abandoned (8 records, 3 schools) | **On trial** — triage-on-add for the next 3 schools; see §5 |
+| Concerns & Objections | **Retired 2026-08-12** — signals migrated to the ideas grid, records preserved in §5 |
 | Feedback page is source of truth for hand-entered data | **Open, deferred** — inversion documented with a trigger; see §5 |
 | Generator maintained counts it should not own | Fixed 2026-08-12 (PRs #9, #7, #23) — see §4 |
 | Two heatmap rows had 11 dots vs 39 columns | Fixed 2026-08-12 (PR #10) |
@@ -349,28 +349,53 @@ text, but do not rely on the field being a link.
 field-type changes (`INVALID_REQUEST_UNKNOWN — Changing a field's type is not currently
 supported`), so it must be done in the UI. The field description has been updated to say so.
 
-### Concerns & Objections — on trial, not backfilled
-**The table is an abandoned stub, not a curated asset.** As of 2026-08-12 it holds **8 records from
-3 schools** (St. John's, UTRGV, Mott — all March meetings), **all still "Unresolved."** Nothing has
-moved to In Progress or Resolved in five months, and 36 schools have never been entered.
+### Concerns & Objections — RETIRED 2026-08-12
+The table held **8 records from 3 schools** (St. John's, UTRGV, Mott — all March meetings), all
+still "Unresolved," untouched since March, with 36 schools never entered. **Decision: retired
+rather than backfilled or restarted.** The ~163 friction bullets across the meeting reports were
+never imported and will not be; every one remains readable in its meeting report on the live site.
 
-An earlier read of this was wrong: the argument against importing was that ~163 untriaged bullets
-would "bury the curated entries in noise." There are 8 entries, and no evidence anyone works the
-queue.
+**Before deleting, the substantive signals were migrated into the ideas grid** — retiring the table
+should not discard product signal that existed nowhere else:
 
-The site *can* supply a concern's description, school and date — roughly 163 bullets across the
-"What Raised Questions or Friction" sections. It cannot supply **Severity Level, Concern Category,
-Resolution Status or Follow-Up Actions**, which are the fields that make the table worth querying
-and are post-call human judgements.
+| Migrated to | From | Why |
+|---|---|---|
+| SIS & Academic-System Integration (3 → 5) | UTRGV (Ashley Guzman), Mott (Dawn Vanniman) | Both rated LMS integration **High** — UTRGV called it "the critical adoption unlock" |
+| Multi-Semester Analytics (9 → 10) | St. John's (Natalie Maio) | Academic-year rather than calendar-year reporting |
 
-**Decision (2026-08-12): do not backfill. Restart small instead.** Triage that school's 3&ndash;5
-friction bullets as part of adding it, while the meeting is fresh. Run it for the next three
-schools. If it gets used, backfill the history then; if it does not, retire the table having spent
-an hour rather than a day. Adding 163 more rows will not create a habit that has not existed since
-March.
+Mott's FOL video-representation concern needed no migration — Mott was already attributed on the
+FOL Micro-Learning card.
 
-Nothing is lost while this is on trial — every friction bullet is already visible in its meeting
-report on the live site. What is missing is queryability, which so far nobody has used.
+**Three signals died with the table** and are recorded here only. Card them if they recur:
+- **St. John's — LiveOnline → SNT Groups handoff** (High). No smooth transition between the two;
+  jarring for students and advisors. No ideas card covers this.
+- **UTRGV — in-person/online modality toggle** (Medium). Chapter runs both; students switch
+  mid-programme and need to move between them.
+- **UTRGV — cross-departmental student identification** (Medium). Pulling NSLS student IDs or
+  emails needs coordination across departments. Adjacent to *Student ID Field in the Platform*, but
+  that card is Coastal Carolina's and about a different need.
+
+One item was deliberately not carded: St. John's asked for retention data and case studies linking
+NSLS membership to student retention. That is a sales-enablement request, not a product feature.
+
+**Three fields on Product Insights still reference this table** — the `Concerns & Objections` link,
+the `# of Related Concerns` count and the `Top Concerns (Summary)` rollup. They now resolve to
+empty rather than breaking. Remove them if the empty columns become confusing.
+
+<details><summary>The 8 retired records, verbatim</summary>
+
+| School | Severity | Category | Description |
+|---|---|---|---|
+| St. John's University | High | Technical | The transition from LiveOnline sessions into SNT Groups feels jarring to students and advisors at St. John's. There is no smooth handoff or contextual |
+| University of Texas, Rio Grand Valley | Medium | Technical | UTRGV chapter operates across both in-person and online modalities and needs the ability to toggle between them. Students switch between modalities du |
+| University of Texas, Rio Grand Valley | Medium | Change Management | Identifying NSLS students at UTRGV requires cross-departmental coordination to pull student identifiers (school ID or email). This creates friction in |
+| St. John's University | Medium | Technical | St. John's advisors need a way to view student activity data organized by academic year rather than calendar year. Current reporting structure does no |
+| University of Texas, Rio Grand Valley | High | Technical | LMS integration is the critical adoption unlock for UTRGV. Students currently must log into a separate platform, which creates participation drop-off. |
+| St. John's University | Medium | Career Outcomes | Natalie requested data or case studies demonstrating a causal or correlational link between NSLS membership and improved student retention rates. With |
+| Mott Community College | High | Technical | LMS integration desired to streamline student access and reporting. A separate login reduces student participation; advisor spends time manually recon |
+| Mott Community College | Medium | Brand | FOL video content needs to be updated with more representative actors across age, race, and gender. Current content feels dated and undermines credibi |
+
+</details>
 
 ### The feedback page is the wrong source of truth (open, deferred)
 Every other dataset here is **generated** — schools, meetings, quotes, findings and insights all
