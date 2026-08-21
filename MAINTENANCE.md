@@ -72,6 +72,8 @@ starts maintaining this, since the merge-does-not-deploy trap is easy to fall in
 | Five legacy Product Insights records, no attribution | Retired 2026-08-12 — values recorded in §5 |
 | Implementation Complexity / Category / Times Mentioned blank | Filled 2026-08-12 — Priority Score computes across all 27; see §5 |
 | Society Feedback page and Airtable drifted 56 entries apart | Reconciled + automated 2026-08-12 (PR #31) — see §5 |
+| Concerns & Objections effectively abandoned (8 records, 3 schools) | **On trial** — triage-on-add for the next 3 schools; see §5 |
+| Feedback page is source of truth for hand-entered data | **Open, deferred** — inversion documented with a trigger; see §5 |
 | Generator maintained counts it should not own | Fixed 2026-08-12 (PRs #9, #7, #23) — see §4 |
 | Two heatmap rows had 11 dots vs 39 columns | Fixed 2026-08-12 (PR #10) |
 | Map title hardcoded, went stale every addition | Fixed 2026-08-12 (PR #7, automated in PR #9) |
@@ -338,20 +340,60 @@ Two parsing notes for anyone touching `parse_feedback()`:
 - Entries are matched on the first 70 characters of normalised feedback text. There is no id on
   either side.
 
-**`Source` is a `url` field.** Feedback arriving as a PDF or forwarded email has no thread link, so
-the sync leaves `Source` alone rather than blanking hand-entered provenance such as
-*"Test-Drive Notes for Society (PDF, Kelby Nichols)"*. Those values are not valid URLs; Airtable
-accepts them, but do not rely on the field being a link.
+**`Source` is typed as `url` but does not hold URLs.** Feedback arriving as a PDF or forwarded
+email has no thread link, so the sync leaves `Source` alone rather than blanking hand-entered
+provenance such as *"Test-Drive Notes for Society (PDF, Kelby Nichols)"*. Airtable accepts the
+text, but do not rely on the field being a link.
 
-### Concerns & Objections — deliberately NOT synced
-The site can supply a concern's description, school and date — roughly **163 bullets** across the
-39 schools' "What Raised Questions or Friction" sections. It cannot supply **Severity Level,
-Concern Category, Resolution Status or Follow-Up Actions**, which are the fields that make the
-table useful, and which are human triage decisions taken after the call.
+**Outstanding one-click fix:** change `Source` to single line text. The Airtable meta API refuses
+field-type changes (`INVALID_REQUEST_UNKNOWN — Changing a field's type is not currently
+supported`), so it must be done in the UI. The field description has been updated to say so.
 
-Bulk-creating 163 records with those four blank would bury the existing curated entries in
-untriaged noise and make the table worse, not better. **Decision (2026-08-12): leave manual.**
-Revisit only as a deliberate triage exercise, not as a sync.
+### Concerns & Objections — on trial, not backfilled
+**The table is an abandoned stub, not a curated asset.** As of 2026-08-12 it holds **8 records from
+3 schools** (St. John's, UTRGV, Mott — all March meetings), **all still "Unresolved."** Nothing has
+moved to In Progress or Resolved in five months, and 36 schools have never been entered.
+
+An earlier read of this was wrong: the argument against importing was that ~163 untriaged bullets
+would "bury the curated entries in noise." There are 8 entries, and no evidence anyone works the
+queue.
+
+The site *can* supply a concern's description, school and date — roughly 163 bullets across the
+"What Raised Questions or Friction" sections. It cannot supply **Severity Level, Concern Category,
+Resolution Status or Follow-Up Actions**, which are the fields that make the table worth querying
+and are post-call human judgements.
+
+**Decision (2026-08-12): do not backfill. Restart small instead.** Triage that school's 3&ndash;5
+friction bullets as part of adding it, while the meeting is fresh. Run it for the next three
+schools. If it gets used, backfill the history then; if it does not, retire the table having spent
+an hour rather than a day. Adding 163 more rows will not create a habit that has not existed since
+March.
+
+Nothing is lost while this is on trial — every friction bullet is already visible in its meeting
+report on the live site. What is missing is queryability, which so far nobody has used.
+
+### The feedback page is the wrong source of truth (open, deferred)
+Every other dataset here is **generated** — schools, meetings, quotes, findings and insights all
+derive from Fathom transcripts and meeting reports, so the site is naturally upstream and Airtable
+naturally mirrors it. **Feedback is not generated.** It is typed in from emails, PDFs and
+conversations.
+
+Making a static page the master for hand-entered data is precisely why the feedback sync needs a
+regex parser for a JavaScript array, matches records on the first 70 characters of text because
+neither side carries an id, and required a 56-entry reconciliation. Those are three symptoms of one
+cause.
+
+**Inverting it would remove all three at once:** Airtable becomes the source (real record ids,
+forms for non-technical contributors, no parser) and `society-feedback.html` renders from it via an
+API route — `report/api/` already exists and the site is already auth-gated.
+
+**Deferred, with a trigger.** Do it when advisors start submitting student feedback regularly
+rather than it arriving ad hoc through Chris. A second reconciliation would also be a signal that
+the current direction is not holding.
+
+**Known fragility until then:** editing the opening sentence of an entry on the page creates a
+duplicate in Airtable instead of updating the existing record, because the match key is the text
+itself.
 
 ## 6. Gotchas that cost real time
 
