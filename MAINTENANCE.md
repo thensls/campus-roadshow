@@ -345,9 +345,7 @@ email has no thread link, so the sync leaves `Source` alone rather than blanking
 provenance such as *"Test-Drive Notes for Society (PDF, Kelby Nichols)"*. Airtable accepts the
 text, but do not rely on the field being a link.
 
-**Outstanding one-click fix:** change `Source` to single line text. The Airtable meta API refuses
-field-type changes (`INVALID_REQUEST_UNKNOWN — Changing a field's type is not currently
-supported`), so it must be done in the UI. The field description has been updated to say so.
+**Outstanding one-click fix:** change `Source` to single line text — see the checklist below.
 
 ### Concerns & Objections — RETIRED 2026-08-12
 The table held **8 records from 3 schools** (St. John's, UTRGV, Mott — all March meetings), all
@@ -379,8 +377,9 @@ One item was deliberately not carded: St. John's asked for retention data and ca
 NSLS membership to student retention. That is a sales-enablement request, not a product feature.
 
 **Three fields on Product Insights still reference this table** — the `Concerns & Objections` link,
-the `# of Related Concerns` count and the `Top Concerns (Summary)` rollup. They now resolve to
-empty rather than breaking. Remove them if the empty columns become confusing.
+the `# of Related Concerns` count and the `Top Concerns (Summary)` rollup. They resolve to empty
+rather than breaking. **Marked for deletion in their field descriptions; must be removed in the
+Airtable UI** — see the checklist below.
 
 <details><summary>The 8 retired records, verbatim</summary>
 
@@ -419,6 +418,28 @@ the current direction is not holding.
 **Known fragility until then:** editing the opening sentence of an entry on the page creates a
 duplicate in Airtable instead of updating the existing record, because the match key is the text
 itself.
+
+## 5a. Outstanding Airtable UI actions
+
+**The Airtable meta API cannot do either of these.** It refuses field-type changes
+(`INVALID_REQUEST_UNKNOWN — Changing a field's type is not currently supported`) and has **no
+field-deletion endpoint at all** (`404 NOT_FOUND`). It can only create fields and edit their name
+and description. Both items below are therefore UI-only; each affected field carries a description
+saying so.
+
+1. **Society Pilot Feedback → `Source`** — change type from **url** to **single line text**. It
+   already holds non-URL provenance (`"Test-Drive Notes for Society (PDF, Kelby Nichols)"`) because
+   feedback arriving as a PDF or forwarded note has no thread link.
+2. **Product Insights → delete three fields** left over from the retired Concerns table. **Order
+   matters** — the first two depend on the third:
+   1. `Top Concerns (Summary)` (rollup)
+   2. `# of Related Concerns` (count)
+   3. `Concerns & Objections` (link)
+
+Neither is urgent: the `Source` field accepts the text it holds, and the three Product Insights
+columns resolve to empty rather than erroring.
+
+---
 
 ## 6. Gotchas that cost real time
 
